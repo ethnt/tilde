@@ -15,6 +15,27 @@
         "type": "github"
       }
     },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1646015191,
+        "narHash": "sha256-+gemBNsqBiSwR5OJA2F/0eZc3xWOsxLDbFNu7/nMcxw=",
+        "owner": "montchr",
+        "repo": "nix-darwin",
+        "rev": "3bb62d40a2ef5c7c1b5634c58c47dd4a239d7618",
+        "type": "github"
+      },
+      "original": {
+        "owner": "montchr",
+        "ref": "add-toplevel-option-lib",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "deploy": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -57,7 +78,7 @@
       "inputs": {
         "blank": "blank",
         "darwin": [
-          "nix-darwin"
+          "darwin"
         ],
         "deploy": "deploy",
         "devshell": "devshell",
@@ -202,27 +223,6 @@
         "type": "github"
       }
     },
-    "nix-darwin": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1646015191,
-        "narHash": "sha256-+gemBNsqBiSwR5OJA2F/0eZc3xWOsxLDbFNu7/nMcxw=",
-        "owner": "montchr",
-        "repo": "nix-darwin",
-        "rev": "3bb62d40a2ef5c7c1b5634c58c47dd4a239d7618",
-        "type": "github"
-      },
-      "original": {
-        "owner": "montchr",
-        "ref": "add-toplevel-option-lib",
-        "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
     "nixlib": {
       "locked": {
         "lastModified": 1641688481,
@@ -341,9 +341,9 @@
     },
     "root": {
       "inputs": {
+        "darwin": "darwin",
         "digga": "digga",
         "home-manager": "home-manager",
-        "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",

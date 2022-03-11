@@ -8,4 +8,4 @@ jobs:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v16
       - run: nix -Lv flake check --show-trace
-      - run: nix -Lv build ".#darwinConfigurations.vm.system" --show-trace
+      - run: nix -Lv build ".#darwinConfigurations.ci.system" --show-trace
