@@ -1,6 +1,12 @@
 {
   description = "tilde";
 
+  # nixConfig.extra-experimental-features = "nix-command flakes";
+  # nixConfig.extra-substituters =
+  #   "https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org";
+  # nixConfig.extra-trusted-public-keys =
+  #   "tilde.cachix.org-1:S40KIZfILOgYgbcGhZ/V6h+PVe8ywbMtRdXy3nmYr4U= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -22,27 +28,15 @@
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
     , digga, home-manager, utils, ... }:
-    let
-      importables = rec {
-        profiles = {
-          system = digga.lib.rakeLeaves ./profiles/system // {
-            users = digga.lib.rakeLeaves ./users;
-          };
-          home = digga.lib.rakeLeaves ./profiles/home;
-        };
-
-        suites = with profiles; rec {
-          base = [ system.darwin.common system.darwin.system-defaults ];
-          terminal = [ home.fish ];
-        };
-      };
-    in digga.lib.mkFlake {
+    digga.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
 
       channels = {
-        nixpkgs = { };
+        nixpkgs = {
+          imports = [ (digga.lib.importOverlays ./overlays) ];
+        };
         nixpkgs-unstable = { };
         nixpkgs-master = { };
       };
@@ -77,12 +71,16 @@
         };
 
         importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles/hosts // {
+          profiles = digga.lib.rakeLeaves ./profiles/system // {
             users = digga.lib.rakeLeaves ./users;
           };
           # FIXME: Using `with profiles` here doesn't work, for some reason
           suites = rec {
-            base = [ profiles.darwin.common profiles.darwin.system-defaults ];
+            base = [
+              profiles.darwin.common
+              profiles.darwin.system-defaults
+              profiles.cachix
+            ];
             ci = [ profiles.users.ci ];
           };
         };
@@ -90,7 +88,7 @@
 
       home = {
         importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles/home;
+          profiles = digga.lib.rakeLeaves ./profiles/user;
           suites = with profiles; rec { terminal = [ fish ]; };
         };
 
@@ -101,7 +99,7 @@
         digga.lib.mkHomeConfigurations self.darwinConfigurations;
 
       devshell.modules = { pkgs, ... }: {
-        packages = with pkgs; [ nixfmt statix ];
+        packages = with pkgs; [ cachix nixfmt statix ];
       };
 
       outputsBuilder = channels: {
