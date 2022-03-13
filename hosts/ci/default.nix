@@ -1,1 +1,1 @@
-{ suites, darwin, ... }: { imports = with suites; (base ++ terminal); }
+{ suites, darwin, ... }: { imports = with suites; (base ++ ci); }

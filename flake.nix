@@ -59,8 +59,6 @@
       ];
 
       darwin = {
-        inherit importables;
-
         hostDefaults = {
           system = "x86_64-darwin";
           channelName = "nixpkgs";
@@ -77,16 +75,53 @@
           ci = { };
           eMac = { };
         };
+
+        importables = rec {
+          profiles = digga.lib.rakeLeaves ./profiles/hosts // {
+            users = digga.lib.rakeLeaves ./users;
+          };
+          # FIXME: Using `with profiles` here doesn't work, for some reason
+          suites = rec {
+            base = [ profiles.darwin.common profiles.darwin.system-defaults ];
+            ci = [ profiles.users.ci ];
+          };
+        };
       };
 
       home = {
-        inherit importables;
-        users = {
-
+        importables = rec {
+          profiles = digga.lib.rakeLeaves ./profiles/home;
+          suites = with profiles; rec { terminal = [ fish ]; };
         };
+
+        users = { ci = { suites, ... }: { imports = suites.terminal; }; };
       };
 
       homeConfigurations =
         digga.lib.mkHomeConfigurations self.darwinConfigurations;
+
+      devshell.modules = { pkgs, ... }: {
+        packages = with pkgs; [ nixfmt statix ];
+      };
+
+      outputsBuilder = channels: {
+        checks = let
+          runCodeAnalysis = name: command:
+            channels.nixpkgs.runCommand "tilde-${name}-check" { } ''
+              cd ${self}
+              ${command}
+              mkdir $out
+            '';
+        in {
+          format = runCodeAnalysis "format" ''
+            ${channels.nixpkgs.nixfmt}/bin/nixfmt --check \
+              $(find . -type f -name '*.nix')
+          '';
+
+          lint = runCodeAnalysis "lint" ''
+            ${channels.nixpkgs.statix}/bin/statix check .
+          '';
+        };
+      };
     };
 }
