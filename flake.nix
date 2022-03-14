@@ -34,9 +34,7 @@
       channelsConfig.allowUnfree = true;
 
       channels = {
-        nixpkgs = {
-          imports = [ (digga.lib.importOverlays ./overlays) ];
-        };
+        nixpkgs = { imports = [ (digga.lib.importOverlays ./overlays) ]; };
         nixpkgs-unstable = { };
         nixpkgs-master = { };
       };
