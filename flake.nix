@@ -1,11 +1,11 @@
 {
   description = "tilde";
 
-  # nixConfig.extra-experimental-features = "nix-command flakes";
-  # nixConfig.extra-substituters =
-  #   "https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org";
-  # nixConfig.extra-trusted-public-keys =
-  #   "tilde.cachix.org-1:S40KIZfILOgYgbcGhZ/V6h+PVe8ywbMtRdXy3nmYr4U= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+  nixConfig.extra-experimental-features = "nix-command flakes";
+  nixConfig.extra-substituters =
+    "https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org";
+  nixConfig.extra-trusted-public-keys =
+    "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
