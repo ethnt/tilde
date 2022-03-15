@@ -1,1 +1,5 @@
-{ suites, darwin, ... }: { imports = with suites; (base ++ ci); }
+{ suites, ... }: {
+  imports = with suites; (base ++ [ profiles.users.ci ]);
+
+  networking.hostName = "ci";
+}

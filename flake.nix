@@ -54,6 +54,7 @@
         hostDefaults = {
           system = "x86_64-darwin";
           channelName = "nixpkgs";
+          imports = [ (digga.lib.importExportableModules ./modules) ];
           modules = [
             { lib.our = self.lib; }
             digga.nixosModules.nixConfig
@@ -63,37 +64,39 @@
 
         imports = [ (digga.lib.importHosts ./hosts) ];
 
-        hosts = {
-          ci = { };
-          eMac = { };
-        };
-
         importables = rec {
           profiles = digga.lib.rakeLeaves ./profiles/system // {
             users = digga.lib.rakeLeaves ./users;
           };
-          # FIXME: Using `with profiles` here doesn't work, for some reason
+
           suites = rec {
             base = [
               profiles.darwin.common
               profiles.darwin.system-defaults
+              profiles.darwin.brew
               profiles.cachix
             ];
-            ci = [ profiles.users.ci ];
           };
         };
       };
 
       home = {
         importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles/user;
+          profiles = digga.lib.rakeLeaves ./profiles/home;
+
           suites = with profiles; rec {
-            development = [ direnv fish fzf starship tmux ];
+            base = [ direnv fish fzf starship tmux ];
+            development = [ git ];
           };
         };
 
         users = {
-          ci = { suites, ... }: { imports = with suites; (development); };
+          ci = { suites, ... }: { imports = with suites; (base); };
+
+          ethan = { suites, ... }: {
+            imports = with suites;
+              (base ++ development ++ [ ./users/ethan/home.nix ]);
+          };
         };
       };
 
