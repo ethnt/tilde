@@ -50,7 +50,15 @@
         })
       ];
 
-      darwin = {
+      darwin = let
+        mkHost = { host, user }: {
+          modules = [
+            ({ profiles, ... }: {
+              imports = [ profiles.hosts.${host} profiles.users.${user} ];
+            })
+          ];
+        };
+      in {
         hostDefaults = {
           system = "x86_64-darwin";
           channelName = "nixpkgs";
@@ -62,10 +70,21 @@
           ];
         };
 
-        imports = [ (digga.lib.importHosts ./hosts) ];
+        hosts = {
+          ci = mkHost {
+            host = "ci";
+            user = "ci";
+          };
+
+          eMac = mkHost {
+            host = "eMac";
+            user = "ethan";
+          };
+        };
 
         importables = rec {
           profiles = digga.lib.rakeLeaves ./profiles/system // {
+            hosts = digga.lib.rakeLeaves ./hosts;
             users = digga.lib.rakeLeaves ./users;
           };
 

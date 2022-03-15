@@ -1,5 +1,5 @@
 { suites, profiles, ... }: {
-  imports = with suites; (base ++ [ profiles.users.ethan ]);
+  imports = with suites; (base);
 
   networking.hostName = "eMac";
 }
