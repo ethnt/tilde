@@ -87,10 +87,14 @@
       home = {
         importables = rec {
           profiles = digga.lib.rakeLeaves ./profiles/user;
-          suites = with profiles; rec { terminal = [ fish ]; };
+          suites = with profiles; rec {
+            development = [ direnv fish fzf starship tmux ];
+          };
         };
 
-        users = { ci = { suites, ... }: { imports = suites.terminal; }; };
+        users = {
+          ci = { suites, ... }: { imports = with suites; (development); };
+        };
       };
 
       homeConfigurations =
