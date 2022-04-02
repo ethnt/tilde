@@ -21,13 +21,10 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    utils.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
-    , digga, home-manager, utils, ... }:
+    , digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -110,12 +107,9 @@
         };
 
         users = {
-          ci = { suites, ... }: { imports = with suites; (base); };
+          ci = { ... }: { imports = [ ./users/ci/home.nix ]; };
 
-          ethan = { suites, ... }: {
-            imports = with suites;
-              (base ++ development ++ [ ./users/ethan/home.nix ]);
-          };
+          ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
         };
       };
 
