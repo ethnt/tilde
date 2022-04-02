@@ -1,5 +1,5 @@
 { suites, profiles, ... }: {
   imports = with suites; (base);
 
-  networking.hostName = "ci";
+  networking.hostName = "eMac";
 }

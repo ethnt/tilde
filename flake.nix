@@ -21,13 +21,10 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    utils.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
-    , digga, home-manager, utils, ... }:
+    , digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -50,10 +47,19 @@
         })
       ];
 
-      darwin = {
+      darwin = let
+        mkHost = { host, user }: {
+          modules = [
+            ({ profiles, ... }: {
+              imports = [ profiles.hosts.${host} profiles.users.${user} ];
+            })
+          ];
+        };
+      in {
         hostDefaults = {
           system = "x86_64-darwin";
           channelName = "nixpkgs";
+          imports = [ (digga.lib.importExportableModules ./modules) ];
           modules = [
             { lib.our = self.lib; }
             digga.nixosModules.nixConfig
@@ -61,36 +67,50 @@
           ];
         };
 
-        imports = [ (digga.lib.importHosts ./hosts) ];
-
         hosts = {
-          ci = { };
-          eMac = { };
+          ci = mkHost {
+            host = "ci";
+            user = "ci";
+          };
+
+          eMac = mkHost {
+            host = "eMac";
+            user = "ethan";
+          };
         };
 
         importables = rec {
           profiles = digga.lib.rakeLeaves ./profiles/system // {
+            hosts = digga.lib.rakeLeaves ./hosts;
             users = digga.lib.rakeLeaves ./users;
           };
-          # FIXME: Using `with profiles` here doesn't work, for some reason
+
           suites = rec {
             base = [
               profiles.darwin.common
               profiles.darwin.system-defaults
+              profiles.darwin.brew
               profiles.cachix
             ];
-            ci = [ profiles.users.ci ];
           };
         };
       };
 
       home = {
         importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles/user;
-          suites = with profiles; rec { terminal = [ fish ]; };
+          profiles = digga.lib.rakeLeaves ./profiles/home;
+
+          suites = with profiles; rec {
+            base = [ direnv fish fzf starship tmux ];
+            development = [ git ];
+          };
         };
 
-        users = { ci = { suites, ... }: { imports = suites.terminal; }; };
+        users = {
+          ci = { ... }: { imports = [ ./users/ci/home.nix ]; };
+
+          ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
+        };
       };
 
       homeConfigurations =
