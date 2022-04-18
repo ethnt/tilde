@@ -101,7 +101,7 @@
           profiles = digga.lib.rakeLeaves ./profiles/home;
 
           suites = with profiles; rec {
-            base = [ direnv fish fzf starship tmux ];
+            base = [ common direnv fish fzf starship tmux ];
             development = [ git ];
           };
         };
@@ -116,9 +116,7 @@
       homeConfigurations =
         digga.lib.mkHomeConfigurations self.darwinConfigurations;
 
-      devshell.modules = { pkgs, ... }: {
-        packages = with pkgs; [ cachix nixfmt statix ];
-      };
+      devshell = ./shell;
 
       outputsBuilder = channels: {
         checks = let

@@ -1,0 +1,11 @@
+[[commands]]
+package = "nixfmt"
+category = "development"
+
+[[commands]]
+package = "cachix"
+category = "development"
+
+[[commands]]
+package = "statix"
+category = "development"
