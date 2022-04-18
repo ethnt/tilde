@@ -101,7 +101,7 @@
           profiles = digga.lib.rakeLeaves ./profiles/home;
 
           suites = with profiles; rec {
-            base = [ common direnv fish fzf starship tmux ];
+            base = [ direnv fish fzf starship tmux ];
             development = [ git ];
           };
         };
