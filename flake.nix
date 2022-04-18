@@ -116,9 +116,7 @@
       homeConfigurations =
         digga.lib.mkHomeConfigurations self.darwinConfigurations;
 
-      devshell.modules = { pkgs, ... }: {
-        packages = with pkgs; [ cachix nixfmt statix ];
-      };
+      devshell = ./shell;
 
       outputsBuilder = channels: {
         checks = let
