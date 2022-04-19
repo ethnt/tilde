@@ -4,6 +4,4 @@
     nix-direnv.enable = true;
     nix-direnv.enableFlakes = true;
   };
-
-  home.enableNixpkgsReleaseCheck = true;
 }
