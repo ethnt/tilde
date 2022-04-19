@@ -7,7 +7,7 @@
       set -U fish_prompt_pwd_dir_length 0
 
       # nix
-      set -g PATH /run/current-system/sw/bin $HOME/.nix-profile/bin $PATH
+      set -g PATH /run/current-system/sw/bin $HOME/.nix-profile/bin /etc/profiles/per-user/ethan/bin $PATH
     '';
 
     interactiveShellInit = ''

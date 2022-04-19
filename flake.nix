@@ -19,7 +19,7 @@
     digga.inputs.darwin.follows = "darwin";
     digga.inputs.home-manager.follows = "home-manager";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -91,6 +91,8 @@
               profiles.darwin.system-defaults
               profiles.darwin.brew
               profiles.cachix
+              profiles.shells
+              profiles.builders
             ];
           };
         };
@@ -102,7 +104,7 @@
 
           suites = with profiles; rec {
             base = [ direnv fish fzf starship tmux ];
-            development = [ git ];
+            development = [ git vscode ];
           };
         };
 
