@@ -104,7 +104,7 @@
 
           suites = with profiles; rec {
             base = [ direnv fish fzf starship tmux ];
-            development = [ git vscode ];
+            development = [ git gnupg vscode ];
           };
         };
 
