@@ -43,7 +43,7 @@
 
   # This has to be set here, even though gpg-agent in nix-darwin should be able to set it
   home.sessionVariables = {
-    SSH_AUTH_SOCK = "\$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)";
+    SSH_AUTH_SOCK = "$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)";
   };
 
   programs.fish = let package = config.programs.gpg.package;

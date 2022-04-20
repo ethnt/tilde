@@ -28,6 +28,8 @@
     digga.lib.mkFlake {
       inherit self inputs;
 
+      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
+
       channelsConfig.allowUnfree = true;
 
       channels = {
@@ -93,8 +95,9 @@
               profiles.cachix
               profiles.shells
               profiles.builders
-              profiles.gpg-agent
             ];
+
+            identity = [ profiles.gpg-agent ];
           };
         };
       };

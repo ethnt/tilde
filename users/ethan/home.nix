@@ -1,8 +1,13 @@
-{ config, lib, pkgs, suites, ... }: {
+{ config, lib, pkgs, suites, ... }:
+
+with lib;
+
+{
   imports = with suites; (base ++ development);
 
+  # For whatever reason, without `mkForce` it returns a "conflicting definition values" error
   home.username = "ethan";
-  home.homeDirectory = "/Users/ethan";
+  home.homeDirectory = mkForce "/Users/ethan";
 
   home.sessionVariables = { KEYID = "0x690FEBBF6380166A"; };
 

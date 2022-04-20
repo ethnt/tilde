@@ -10,9 +10,7 @@
     signing.signByDefault = true;
 
     extraConfig = {
-      http = {
-        sslCAinfo = "/etc/ssl/certs/ca-certificates.crt";
-      };
+      http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
     };
   };
 }
