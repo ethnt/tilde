@@ -4,6 +4,8 @@
   home.username = "ethan";
   home.homeDirectory = "/Users/ethan";
 
+  home.sessionVariables = { KEYID = "0x690FEBBF6380166A"; };
+
   programs.git = {
     userEmail = "ethan.turkeltaub@hey.com";
     userName = "Ethan Turkeltaub";

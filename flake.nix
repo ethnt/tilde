@@ -93,6 +93,7 @@
               profiles.cachix
               profiles.shells
               profiles.builders
+              profiles.gpg-agent
             ];
           };
         };
