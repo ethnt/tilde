@@ -3,10 +3,14 @@
 
   programs.gpg = {
     enable = true;
+
     scdaemonSettings = {
       # https://dave.wittman.xyz/posts/yubikey-not-working-macos-big-sur-gpg-23/
       disable-ccid = true;
     };
+
+    mutableKeys = true;
+    mutableTrust = true;
 
     settings = {
       # https://github.com/drduh/config/blob/master/gpg.conf
@@ -25,9 +29,9 @@
       no-comments = true;
       no-emit-version = true;
       no-greeting = true;
-      keyid-format = "0 xlong";
-      list-options = "show-uid-validity verify-options show-uid-validity";
+      list-options = "show-uid-validity";
       "with-fingerprint" = true;
+      verify-options = "show-uid-validity";
       require-cross-certification = true;
       no-symkey-cache = true;
       use-agent = true;
@@ -36,30 +40,4 @@
   };
 
   home.file.".gnupg/gpg-agent.conf" = { source = ./gpg-agent.conf; };
-
-  programs.fish = let package = config.programs.gpg.package;
-  in {
-    shellInit = let gpgconf = "${package}/bin/gpgconf";
-    in lib.mkAfter ''
-      # GPG
-      export GPG_TTY=(tty)
-      export SSH_AUTH_SOCK=(${gpgconf} --list-dirs agent-ssh-socket)
-      export KEYID=0x690FEBBF6380166A
-      ${gpgconf} --launch gpg-agent
-    '';
-
-    functions = lib.mkAfter {
-      switch_yubikey = let gpg = "${package}/bin/gpg";
-      in ''
-        set keygrips (${gpg} --with-keygrip --list-secret-keys $KEYID | grep Keygrip | awk '{print $3}')
-        for keygrip in $keygrips
-          rm "$HOME/.gnupg/private-keys-v1.d/$keygrip.key" 2> /dev/null
-        end
-
-        ${gpg} --card-status
-      '';
-
-      fix_gpg = "${package}/bin/gpg-connect-agent updatestartuptty /bye";
-    };
-  };
 }

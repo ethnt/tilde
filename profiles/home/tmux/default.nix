@@ -12,24 +12,15 @@
     baseIndex = 1;
     escapeTime = 0;
 
+    plugins = with pkgs; [ tmuxPlugins.nord ];
+
+    # TODO: Evaluate if powerline is too slow
     extraConfig = ''
       # Turn on mouse mode
       set -g mouse on
 
-      # # Status bar theming
-      # set -g status-position bottom
-      # set -g status-justify left
-
-      # set -g status-bg black
-      # set -g status-fg white
-
-      # set -g status-left " #[fg=black,bg=yellow] #S "
-
-      # set -g status-right " #[fg=black,bg=yellow]#(uptime | awk '{print $1}') #[fg=white,bg=red] #h "
-
-      # setw -g window-status-format " #I#[fg=white] #[fg=white]#W#[fg=white]#F "
-      # setw -g window-status-current-style " fg=black bg=cyan bold "
-      # setw -g window-status-current-format " #I#[fg=white] #[fg=white]#W#[fg=white]#F "
+      # Use Powerline
+      # run-shell "${pkgs.powerline}/bin/powerline-config tmux setup"
     '';
   };
 }
