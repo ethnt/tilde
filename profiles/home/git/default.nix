@@ -1,4 +1,6 @@
-{
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ hub ];
+
   programs.git = {
     enable = true;
 
@@ -6,5 +8,11 @@
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
     delta.enable = true;
+
+    signing.signByDefault = true;
+
+    extraConfig = {
+      http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
+    };
   };
 }
