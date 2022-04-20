@@ -22,6 +22,11 @@ jobs:
         with:
           name: tilde
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      # TODO: See if this is correct
+      - run: |
+          echo 'run\tprivate/var/run' | sudo tee -a /etc/synthetic.conf
+          /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -B
+          /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
       - run: nix -Lv build ".#darwinConfigurations.ci.system" --show-trace
       - run: ./result/sw/bin/darwin-rebuild switch --flake .#ci
       - run: |
