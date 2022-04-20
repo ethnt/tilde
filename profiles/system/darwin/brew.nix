@@ -1,1 +1,1 @@
-{ homebrew = { casks = [ "1password" "alacritty" ]; }; }
+{ homebrew = { casks = [ "1password" ]; }; }

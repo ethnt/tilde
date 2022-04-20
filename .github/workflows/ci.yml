@@ -13,7 +13,7 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix -Lv flake check --show-trace
 
-  switch:
+  build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2.4.0
@@ -22,13 +22,4 @@ jobs:
         with:
           name: tilde
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: |
-          echo 'run\tprivate/var/run' | sudo tee -a /etc/synthetic.conf
-          /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -B
-          /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
       - run: nix -Lv build ".#darwinConfigurations.ci.system" --show-trace
-      # - run: ./result/sw/bin/darwin-rebuild switch --flake .#ci
-      # - run: |
-      #     . /etc/static/bashrc
-      #     darwin-rebuild switch --flake .#ci
-

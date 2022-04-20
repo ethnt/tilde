@@ -46,7 +46,7 @@
     SSH_AUTH_SOCK = "$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)";
   };
 
-  programs.fish = let package = config.programs.gpg.package;
+  programs.fish = let inherit (config.programs.gpg) package;
   in {
     functions = lib.mkAfter {
       switch_yubikey = let gpg = "${package}/bin/gpg";
