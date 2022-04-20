@@ -40,4 +40,30 @@
   };
 
   home.file.".gnupg/gpg-agent.conf" = { source = ./gpg-agent.conf; };
+
+  programs.fish = let package = config.programs.gpg.package;
+  in {
+    shellInit = let gpgconf = "${package}/bin/gpgconf";
+    in lib.mkAfter ''
+      # GPG
+      export GPG_TTY=(tty)
+      export SSH_AUTH_SOCK=(${gpgconf} --list-dirs agent-ssh-socket)
+      export KEYID=0x690FEBBF6380166A
+      ${gpgconf} --launch gpg-agent
+    '';
+
+    functions = lib.mkAfter {
+      switch_yubikey = let gpg = "${package}/bin/gpg";
+      in ''
+        set keygrips (${gpg} --with-keygrip --list-secret-keys $KEYID | grep Keygrip | awk '{print $3}')
+        for keygrip in $keygrips
+          rm "$HOME/.gnupg/private-keys-v1.d/$keygrip.key" 2> /dev/null
+        end
+
+        ${gpg} --card-status
+      '';
+
+      fix_gpg = "${package}/bin/gpg-connect-agent updatestartuptty /bye";
+    };
+  };
 }
