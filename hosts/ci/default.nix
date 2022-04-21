@@ -1,5 +1,9 @@
-{ suites, profiles, ... }: {
+{ config, suites, profiles, ... }: {
   imports = with suites; base;
 
-  networking.hostName = "ci";
+  tilde.system = {
+    name = "ci";
+  };
+
+  networking.hostName = config.tilde.system.name;
 }

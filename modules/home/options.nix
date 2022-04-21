@@ -19,5 +19,12 @@ in {
     };
   };
 
-  config = { home = { inherit (cfg) username homeDirectory; }; };
+  # Sometimes a "conflicting definition values" error pops up in an `<unknown-file>` for the `homeDirectory` option,
+  # so we need to add `mkForce`
+  config = {
+    home = {
+      inherit (cfg) username;
+      homeDirectory = mkForce cfg.homeDirectory;
+    };
+  };
 }
