@@ -21,6 +21,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    oh-my-tmux.url = "github:gpakosz/.tmux";
+    oh-my-tmux.flake = false;
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
@@ -47,7 +50,10 @@
       sharedOverlays = [
         (final: prev: {
           __dontExport = true;
-          lib = prev.lib.extend (final: prev: { our = self.lib; });
+          lib = prev.lib.extend (final: prev: {
+            inherit (self) inputs;
+            our = self.lib;
+          });
         })
       ];
 
