@@ -50,11 +50,12 @@
       sharedOverlays = [
         (final: prev: {
           __dontExport = true;
-          lib = prev.lib.extend (final: prev: {
+          lib = prev.lib.extend (lfinal: lprev: {
             inherit (self) inputs;
             our = self.lib;
           });
         })
+        (final: prev: { oh-my-tmux = inputs.oh-my-tmux; })
       ];
 
       darwin = let
