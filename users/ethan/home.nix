@@ -8,9 +8,7 @@ with lib;
   tilde.home = {
     username = "ethan";
     homeDirectory = "/Users/ethan";
-    gpg = {
-      keyId = "0x690FEBBF6380166A";
-    };
+    gpg = { keyId = "0x690FEBBF6380166A"; };
   };
 
   home.sessionVariables = { KEYID = config.tilde.home.gpg.keyId; };
