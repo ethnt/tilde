@@ -1,5 +1,9 @@
-{ suites, profiles, ... }: {
+{ config, suites, profiles, ... }: {
   imports = with suites; base ++ identity;
 
-  networking.hostName = "eMac";
+  tilde.system = {
+    name = "eMac";
+  };
+
+  networking.hostName = config.tilde.system.name;
 }
