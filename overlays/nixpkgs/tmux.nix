@@ -10,6 +10,7 @@ final: prev: {
         --set __ETC_ZPROFILE_SOURCED  "" \
         --set __ETC_ZSHENV_SOURCED "" \
         --set __ETC_ZSHRC_SOURCED "" \
+        --unset __fish_home_manager_config_sourced \
         --set __NIX_DARWIN_SET_ENVIRONMENT_DONE ""
     '';
 }
