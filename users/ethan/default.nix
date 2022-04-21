@@ -1,4 +1,4 @@
-{ hmUsers, ... }: {
+{ config, hmUsers, ... }: {
   home-manager.users = { inherit (hmUsers) ethan; };
 
   nix.trustedUsers = [ "ethan" ];

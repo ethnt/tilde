@@ -33,7 +33,9 @@
       channelsConfig.allowUnfree = true;
 
       channels = {
-        nixpkgs = { imports = [ (digga.lib.importOverlays ./overlays) ]; };
+        nixpkgs = {
+          imports = [ (digga.lib.importOverlays ./overlays/nixpkgs) ];
+        };
         nixpkgs-unstable = { };
         nixpkgs-master = { };
       };
@@ -61,7 +63,7 @@
         hostDefaults = {
           system = "x86_64-darwin";
           channelName = "nixpkgs";
-          imports = [ (digga.lib.importExportableModules ./modules) ];
+          imports = [ (digga.lib.importExportableModules ./modules/system) ];
           modules = [
             { lib.our = self.lib; }
             digga.nixosModules.nixConfig
@@ -103,11 +105,12 @@
       };
 
       home = {
+        imports = [ (digga.lib.importExportableModules ./modules/home) ];
         importables = rec {
           profiles = digga.lib.rakeLeaves ./profiles/home;
 
           suites = with profiles; rec {
-            base = [ direnv fish fzf starship tmux ];
+            base = [ bat direnv fish fzf starship tmux tools ];
             development = [ git gnupg vscode ];
           };
         };
