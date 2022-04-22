@@ -55,7 +55,7 @@
             our = self.lib;
           });
         })
-        (final: prev: { oh-my-tmux = inputs.oh-my-tmux; })
+        (final: prev: { inherit (inputs) oh-my-tmux; })
       ];
 
       darwin = let
@@ -134,24 +134,25 @@
 
       devshell = ./shell;
 
-      outputsBuilder = channels: {
-        checks = let
-          runCodeAnalysis = name: command:
-            channels.nixpkgs.runCommand "tilde-${name}-check" { } ''
-              cd ${self}
-              ${command}
-              mkdir $out
-            '';
+      outputsBuilder = channels:
+        let pkgs = channels.nixpkgs-unstable;
         in {
-          format = runCodeAnalysis "format" ''
-            ${channels.nixpkgs.nixfmt}/bin/nixfmt --check \
-              $(find . -type f -name '*.nix')
-          '';
+          checks = let
+            runCodeAnalysis = name: command:
+              pkgs.runCommand "tilde-${name}-check" { } ''
+                cd ${self}
+                ${command}
+                mkdir $out
+              '';
+          in {
+            format = runCodeAnalysis "format" ''
+              ${pkgs.nixfmt}/bin/nixfmt --check ${./.}/**/*.nix
+            '';
 
-          lint = runCodeAnalysis "lint" ''
-            ${channels.nixpkgs.statix}/bin/statix check .
-          '';
+            lint = runCodeAnalysis "lint" ''
+              ${pkgs.statix}/bin/statix check ${./.}
+            '';
+          };
         };
-      };
     };
 }
