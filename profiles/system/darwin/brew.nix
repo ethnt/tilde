@@ -1,1 +1,6 @@
-{ homebrew = { casks = [ "1password" ]; }; }
+{
+  homebrew = {
+    enable = true;
+    casks = [ "1password" ];
+  };
+}

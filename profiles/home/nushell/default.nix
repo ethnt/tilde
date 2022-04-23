@@ -1,0 +1,1 @@
+{ programs.nushell.enable = true; }

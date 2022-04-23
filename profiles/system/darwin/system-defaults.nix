@@ -19,6 +19,7 @@
       show-recents = false;
       autohide = false;
       orientation = "bottom";
+      wvous-bl-corner = 1;
     };
 
     finder = {
