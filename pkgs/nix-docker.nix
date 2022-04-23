@@ -15,4 +15,11 @@ stdenv.mkDerivation rec {
     cp -a * $out/
     chmod 0400 $out/ssh/insecure_rsa
   '';
+
+  meta = with lib; {
+    homepage = "https://github.com/LnL7/nix-docker";
+    description = "Docker images for the Nix package manager";
+    platforms = platforms.all;
+    licence = licences.mit;
+  };
 }
