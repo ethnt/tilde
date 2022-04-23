@@ -8,8 +8,8 @@ jobs:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v16
       - run: |
-        eval `ssh-agent -s`
-        ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
+          eval `ssh-agent -s`
+          ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
@@ -22,8 +22,8 @@ jobs:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v16
       - run: |
-        eval `ssh-agent -s`
-        ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
+          eval `ssh-agent -s`
+          ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
