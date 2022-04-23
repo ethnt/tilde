@@ -7,25 +7,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v16
-      - run: |
-          eval `ssh-agent -s`
-          ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix -Lv flake check --show-trace
+      - run: |
+          eval `ssh-agent -s`
+          ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
+          nix -Lv flake check --show-trace
 
   build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v16
-      - run: |
-          eval `ssh-agent -s`
-          ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix -Lv build ".#darwinConfigurations.ci.system" --show-trace
+      - run: |
+          eval `ssh-agent -s`
+          ssh-add - <<< '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}'
+          nix -Lv build ".#darwinConfigurations.ci.system" --show-trace
