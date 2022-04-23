@@ -21,9 +21,6 @@
 
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    oh-my-tmux.url = "github:gpakosz/.tmux";
-    oh-my-tmux.flake = false;
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
@@ -50,16 +47,13 @@
       sharedOverlays = [
         (final: prev: {
           __dontExport = true;
-          lib = prev.lib.extend (lfinal: lprev: {
-            inherit (self) inputs;
-            our = self.lib;
-          });
+          lib = prev.lib.extend (lfinal: lprev: { our = self.lib; });
         })
-        (final: prev: { inherit (inputs) oh-my-tmux; })
+        (import ./pkgs)
       ];
 
       darwin = let
-        mkHost = { host, user }: {
+        mkHost = { host, user, }: {
           modules = [
             ({ profiles, ... }: {
               imports = [ profiles.hosts.${host} profiles.users.${user} ];
@@ -103,10 +97,14 @@
               profiles.darwin.brew
               profiles.cachix
               profiles.shells
-              profiles.builders
             ];
 
+            fonts = with profiles.fonts; [ common pragmatapro ];
+
             identity = [ profiles.gpg-agent ];
+
+            remote-builders =
+              [ profiles.builders.common profiles.builders.nix-docker ];
           };
         };
       };
@@ -117,8 +115,19 @@
           profiles = digga.lib.rakeLeaves ./profiles/home;
 
           suites = with profiles; rec {
-            base = [ bat direnv fish fzf starship tmux tools ];
-            development = [ git gnupg vscode ];
+            base = [
+              autojump
+              broot
+              bat
+              direnv
+              fish
+              fzf
+              nushell
+              starship
+              tmux
+              tools
+            ];
+            development = [ asdf git gnupg vscode ];
           };
         };
 

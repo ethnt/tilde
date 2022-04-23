@@ -1,5 +1,5 @@
 { config, suites, profiles, ... }: {
-  imports = with suites; base;
+  imports = with suites; base ++ fonts;
 
   tilde.system = { name = "ci"; };
 
