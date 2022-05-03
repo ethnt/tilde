@@ -11,10 +11,8 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
       - run: |
-          nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-          nix-env -iA nixpkgs.git-crypt
           echo "$GIT_CRYPT_KEY" | base64  -d > ./git-crypt-key
-          git-crypt unlock ./git-crypt-key
+          nix run nixpkgs#git-crypt unlock ./git-crypt-key
           rm ./git-crypt-key
       - uses: cachix/cachix-action@v10
         with:
