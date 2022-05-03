@@ -133,7 +133,8 @@
               tmux
               tools
             ];
-            development = [ asdf git gnupg vscode ];
+            development = [ asdf git vscode ];
+            identity = [ gnupg ];
           };
         };
 

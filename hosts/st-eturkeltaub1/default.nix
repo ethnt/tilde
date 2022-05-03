@@ -1,5 +1,5 @@
 { config, suites, profiles, ... }: {
-  imports = with suites; base ++ identity ++ fonts;
+  imports = with suites; base ++ fonts;
 
   tilde.system = { name = "st-eturkeltaub1"; };
 
