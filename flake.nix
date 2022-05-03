@@ -82,6 +82,11 @@
             host = "eMac";
             user = "ethan";
           };
+
+          st-eturkeltaub1 = mkHost {
+            host = "st-eturkeltaub1";
+            user = "eturkeltaub";
+          };
         };
 
         importables = rec {
@@ -135,6 +140,8 @@
           ci = { ... }: { imports = [ ./users/ci/home.nix ]; };
 
           ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
+
+          eturkeltaub = { ... }: { imports = [ ./users/eturkeltaub/home.nix ]; };
         };
       };
 

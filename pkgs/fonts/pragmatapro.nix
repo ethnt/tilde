@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "0829";
 
   src = builtins.fetchGit {
-    url = "git@github.com:ethnt/pragmatapro.git";
+    url = "https://github.com/ethnt/pragmatapro.git";
     ref = "master";
     rev = "318cc2f113653fc93e907ad3ca1a1ca893604f24";
   };
