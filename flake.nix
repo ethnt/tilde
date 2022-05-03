@@ -102,6 +102,7 @@
               profiles.darwin.brew
               profiles.cachix
               profiles.shells
+              profiles.networking
             ];
 
             fonts = with profiles.fonts; [ common pragmatapro ];
@@ -133,7 +134,8 @@
               tmux
               tools
             ];
-            development = [ asdf git gnupg vscode ];
+            development = [ asdf git vscode ];
+            identity = [ gnupg ];
           };
         };
 

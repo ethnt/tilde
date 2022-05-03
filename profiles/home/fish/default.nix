@@ -21,5 +21,15 @@
       fish_greeting = "";
       find_nix_package = "fd $argv /nix/store -d 1 -t d | head -n 1";
     };
+
+    plugins = [{
+      name = "sponge";
+      src = pkgs.fetchFromGitHub {
+        owner = "andreiborisov";
+        repo = "sponge";
+        rev = "0f3bf8f10b81b25d2b3bbb3d6ec86f77408c0908";
+        sha256 = "EUT9Bf+OD+cCNLfJqVog4kSXSNfuT5Db/+ejwsRBUW8=";
+      };
+    }];
   };
 }
