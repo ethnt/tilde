@@ -127,6 +127,7 @@
               direnv
               fish
               fzf
+              navi
               nushell
               starship
               tmux
