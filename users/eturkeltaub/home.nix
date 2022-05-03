@@ -39,6 +39,7 @@ with lib;
       gcloud = { disabled = true; };
       nodejs = { disabled = true; };
       openstack = { disabled = true; };
+      ruby = { disabled = true; };
     };
   };
 }
