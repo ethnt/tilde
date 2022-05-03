@@ -132,7 +132,7 @@
               tmux
               tools
             ];
-            development = [ asdf git git-crypt gnupg vscode ];
+            development = [ asdf git gnupg vscode ];
           };
         };
 
