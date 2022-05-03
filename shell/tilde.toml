@@ -9,3 +9,7 @@ category = "development"
 [[commands]]
 package = "statix"
 category = "development"
+
+[[commands]]
+package = "git-crypt"
+category = "development"
