@@ -10,18 +10,17 @@ jobs:
       - uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
-      - name: Decrypt files
-        env:
-          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+      - name: Unlock secrets
         run: |
-          echo "$GIT_CRYPT_KEY" | base64 -d > /tmp/git-crypt-key
-          nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
+          brew install git-crypt
+          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
+          git-crypt unlock /tmp/git-crypt-key
           rm /tmp/git-crypt-key
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix develop -c "nix" "-Lv" "flake" "check" "--show-trace"
+      - run: nix flake -Lv check --show-trace
 
   build:
     runs-on: macos-latest
