@@ -15,12 +15,12 @@ jobs:
         with:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - name: Decrypt files
+        with:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
         run: |
           echo "$GIT_CRYPT_KEY" | base64 -d > /tmp/git-crypt-key
           nix run nixpkgs#git-crypt unlock /tmp/git-crypt-key
           rm /tmp/git-crypt-key
-        with:
-          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
