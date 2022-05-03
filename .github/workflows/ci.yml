@@ -14,7 +14,8 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         with:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
-      - run: |
+      - name: Decrypt files
+        run: |
           echo "$GIT_CRYPT_KEY" | base64 -d > /tmp/git-crypt-key
           nix run nixpkgs#git-crypt unlock /tmp/git-crypt-key
           rm /tmp/git-crypt-key
