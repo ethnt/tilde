@@ -21,10 +21,12 @@
 
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    naersk.url = "github:nix-community/naersk";
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
-    , digga, home-manager, ... }:
+    , digga, home-manager, naersk, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -49,7 +51,7 @@
           __dontExport = true;
           lib = prev.lib.extend (lfinal: lprev: { our = self.lib; });
         })
-        (import ./pkgs)
+        (import ./pkgs { inherit naersk; })
       ];
 
       darwin = let
@@ -144,7 +146,9 @@
 
           ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
 
-          eturkeltaub = { ... }: { imports = [ ./users/eturkeltaub/home.nix ]; };
+          eturkeltaub = { ... }: {
+            imports = [ ./users/eturkeltaub/home.nix ];
+          };
         };
       };
 
