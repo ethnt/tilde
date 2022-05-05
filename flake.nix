@@ -144,7 +144,9 @@
 
           ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
 
-          eturkeltaub = { ... }: { imports = [ ./users/eturkeltaub/home.nix ]; };
+          eturkeltaub = { ... }: {
+            imports = [ ./users/eturkeltaub/home.nix ];
+          };
         };
       };
 
