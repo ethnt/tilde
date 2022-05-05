@@ -21,12 +21,10 @@
 
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    naersk.url = "github:nix-community/naersk";
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
-    , digga, home-manager, naersk, ... }:
+    , digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -51,7 +49,7 @@
           __dontExport = true;
           lib = prev.lib.extend (lfinal: lprev: { our = self.lib; });
         })
-        (import ./pkgs { inherit naersk; })
+        (import ./pkgs)
       ];
 
       darwin = let
