@@ -1,4 +1,10 @@
 [[commands]]
+help = "Switch this Mac to the latest configuration"
+name = "tilde"
+command = "darwin-rebuild switch --flake .#"
+category = "runtime"
+
+[[commands]]
 package = "nixfmt"
 category = "development"
 
