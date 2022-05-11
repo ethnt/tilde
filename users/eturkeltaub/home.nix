@@ -51,7 +51,7 @@ with lib;
         layout = "c5e0,212x37,0,0,3";
         options = { };
         panes = [{
-          focus = "true";
+          focus = true;
           shell_command = "direnv reload";
         }];
         start_directory = "/Users/eturkeltaub/personal/tilde";
