@@ -36,6 +36,18 @@
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
+
+      "explorer.fileNesting.enabled" = true;
+
+      "explorer.fileNesting.patterns" = {
+        "*.ts" = "\${capture}.js";
+        "*.js" = "\${capture}.js.map, \${capture}.min.js, \${capture}.d.ts";
+        "*.jsx" = "\${capture}.js";
+        "*.tsx" = "\${capture}.ts";
+        "tsconfig.json" = "tsconfig.*.json";
+        "package.json" = "package-lock.json, yarn.lock";
+        "flake.nix" = "flake.lock";
+      };
     };
 
     extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
