@@ -33,6 +33,12 @@ jobs:
       - uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+      - name: Unlock secrets
+        run: |
+          brew install git-crypt
+          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
+          git-crypt unlock /tmp/git-crypt-key
+          rm /tmp/git-crypt-key
       - uses: cachix/cachix-action@v10
         with:
           name: tilde
