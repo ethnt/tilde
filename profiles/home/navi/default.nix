@@ -4,10 +4,10 @@
     enableFishIntegration = true;
     cheats = {
       main = ''
-        % text
+        % files
 
-        # remove first line
-        tail -n +2
+        # search for string in files
+         grep -rnw '<path>' -e '<string>'
       '';
     };
   };

@@ -4,5 +4,8 @@
 
   users.nix.configureBuildUsers = true;
 
+  environment.darwinConfig = "${config.tilde.system.directory}/lib/compat/darwin";
+
+  system.checks.verifyNixPath = true;
   system.stateVersion = 4;
 }
