@@ -1,4 +1,4 @@
-{ ... }:
+_:
 let
   inherit (default.inputs.nixpkgs) lib;
 
