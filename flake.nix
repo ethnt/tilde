@@ -73,11 +73,6 @@
         };
 
         hosts = {
-          ci = mkHost {
-            host = "ci";
-            user = "ci";
-          };
-
           eMac = mkHost {
             host = "eMac";
             user = "ethan";
@@ -140,8 +135,6 @@
         };
 
         users = {
-          ci = { ... }: { imports = [ ./users/ci/home.nix ]; };
-
           ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
 
           eturkeltaub = { ... }: {

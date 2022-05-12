@@ -23,6 +23,9 @@ jobs:
       - run: nix flake -Lv check --show-trace
 
   build:
+    strategy:
+      matrix:
+        host: [eMac, st-eturkeltaub1]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2.4.0
@@ -34,4 +37,4 @@ jobs:
         with:
           name: tilde
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build ".#darwinConfigurations.ci.system" --show-trace
+      - run: nix -Lv build ".#darwinConfigurations.${{ matrix.host }}.system" --show-trace
