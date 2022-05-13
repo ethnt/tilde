@@ -21,8 +21,8 @@ in {
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    home.file = mapAttrs' (name: attrs:
-      nameValuePair ".tmuxp/${name}.yaml" {
+    xdg.configFile = mapAttrs' (name: attrs:
+      nameValuePair "tmuxp/${name}.yaml" {
         source = yamlFormat.generate "tmuxp-${name}.yaml" attrs;
       }) cfg.workspaces;
   };
