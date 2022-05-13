@@ -129,6 +129,7 @@
               fish
               fzf
               paths
+              micro
               navi
               nushell
               starship
