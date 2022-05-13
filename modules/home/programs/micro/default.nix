@@ -7,11 +7,11 @@ let
   plugins = genAttrs cfg.plugins (name: true);
   settings = cfg.settings // plugins;
   colorschemes = mapAttrs' (name: configuration:
-    nameValuePair ("micro/colorschemes/${name}.micro") ({
+    nameValuePair "micro/colorschemes/${name}.micro" {
       text = concatStringsSep "" (mapAttrsToList (variable: value: ''
         color-link ${variable} "${value}"
       '') configuration);
-    })) cfg.colorschemes;
+    }) cfg.colorschemes;
 in {
   options.programs.micro = {
     enable = mkEnableOption "Enable micro";
@@ -29,7 +29,8 @@ in {
             default = false;
           };
           colorscheme = mkOption {
-            description = "Loads the colorscheme stored in $(configDir)/colorschemes/option.micro, This setting is global only";
+            description =
+              "Loads the colorscheme stored in $(configDir)/colorschemes/option.micro, This setting is global only";
             type = types.str;
             default = "default";
           };

@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   programs.micro = {
     enable = true;
     settings = {
@@ -7,4 +7,6 @@
     };
     extraPlugins = [ "filemanager" ];
   };
+
+  home.sessionVariables.EDITOR = "${config.programs.micro.package}/bin/micro";
 }
