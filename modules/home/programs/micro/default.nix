@@ -20,22 +20,7 @@ in {
       default = pkgs.micro;
     };
     settings = mkOption {
-      type = types.submodule {
-        options = {
-          autosu = mkOption {
-            description =
-              "When a file is saved that the user doesn't have permission to modify, micro will ask if the user would like to use super user privileges to save the file. If this option is enabled, micro will automatically attempt to use super user privileges to save without asking the user";
-            type = types.bool;
-            default = false;
-          };
-          colorscheme = mkOption {
-            description =
-              "Loads the colorscheme stored in $(configDir)/colorschemes/option.micro, This setting is global only";
-            type = types.str;
-            default = "default";
-          };
-        };
-      };
+      type = types.attrs;
       default = { };
     };
     bindings = mkOption {
@@ -77,7 +62,7 @@ in {
     home.activation.installMicroPlugins = ''
       ${concatStringsSep "\n"
       (map (name: "${pkgs.micro}/bin/micro -plugin install ${name}")
-        cfg.plugins)}
+        cfg.extraPlugins)}
     '';
   };
 }
