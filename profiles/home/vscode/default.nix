@@ -13,6 +13,10 @@
       "editor.rulers" = [ 120 ];
       "editor.tabSize" = 2;
 
+      "terminal.integrated.fontSize" = 16;
+      "terminal.integrated.fontWeightBold" = "600";
+      "terminal.integrated.lineHeight" = 1.25;
+
       "explorer.compactFolders" = false;
 
       "files.insertFinalNewline" = true;
