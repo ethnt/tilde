@@ -1,4 +1,4 @@
-{ config, lib, pkgs, suites, ... }:
+{ channels, config, lib, pkgs, suites, ... }:
 
 with lib;
 

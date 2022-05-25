@@ -48,7 +48,7 @@
         nixpkgs-vscode-pin = { };
       };
 
-      nixos.hostDefaults.channelName = "nixpkgs-unstable";
+      nixos.hostDefaults.channelName = "nixpkgs";
 
       lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
 
