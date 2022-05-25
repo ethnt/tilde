@@ -32,6 +32,11 @@ with lib;
     };
   };
 
+  programs.vscode = {
+    package = pkgs.vscode-1_67_0;
+    userSettings = { "update.mode" = "none"; };
+  };
+
   programs.starship = {
     settings = {
       git_status = { disabled = true; };
