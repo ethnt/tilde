@@ -11,6 +11,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-vscode-pin.url =
+      "github:nixos/nixpkgs/af9cad4c9427ef795ba71aa09e05b91b8b817a75";
 
     darwin.url = "github:montchr/nix-darwin/add-toplevel-option-lib";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,8 +30,8 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master, darwin
-    , digga, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -43,9 +45,10 @@
         };
         nixpkgs-unstable = { };
         nixpkgs-master = { };
+        nixpkgs-vscode-pin = { };
       };
 
-      nixos.hostDefaults.channelName = "nixpkgs-unstable";
+      nixos.hostDefaults.channelName = "nixpkgs";
 
       lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
 

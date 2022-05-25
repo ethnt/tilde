@@ -1,4 +1,4 @@
-{ config, lib, pkgs, suites, ... }:
+{ channels, config, lib, pkgs, suites, ... }:
 
 with lib;
 
@@ -30,6 +30,11 @@ with lib;
       help = { "autocorrect" = 1; };
       merge = { renameLimit = 10000; };
     };
+  };
+
+  programs.vscode = {
+    package = pkgs.vscode-1_66_1;
+    userSettings = { "update.mode" = "none"; };
   };
 
   programs.starship = {

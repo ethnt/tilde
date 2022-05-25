@@ -320,6 +320,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-vscode-pin": {
+      "locked": {
+        "lastModified": 1649376803,
+        "narHash": "sha256-e9kr8GfmleUB0XdG1VTaNvjb3b0HkC9CmNFw1h9Zg20=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "af9cad4c9427ef795ba71aa09e05b91b8b817a75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "af9cad4c9427ef795ba71aa09e05b91b8b817a75",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1650194139,
@@ -376,7 +392,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-unstable": "nixpkgs-unstable_2"
+        "nixpkgs-unstable": "nixpkgs-unstable_2",
+        "nixpkgs-vscode-pin": "nixpkgs-vscode-pin"
       }
     },
     "utils": {
