@@ -12,7 +12,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-vscode-pin.url =
-      "github:nixos/nixpkgs/98ebce8e1cbba1af56621fa07f7b69034d9086fb";
+      "github:nixos/nixpkgs/af9cad4c9427ef795ba71aa09e05b91b8b817a75";
 
     darwin.url = "github:montchr/nix-darwin/add-toplevel-option-lib";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
