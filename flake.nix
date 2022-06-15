@@ -137,6 +137,7 @@
               tools
             ];
             development = [ asdf git vscode ];
+            programming = [ elixir ruby ];
             identity = [ gnupg ];
           };
         };

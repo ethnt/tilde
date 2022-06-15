@@ -3,7 +3,7 @@
 with lib;
 
 {
-  imports = with suites; (base ++ development ++ identity);
+  imports = with suites; (base ++ development ++ programming ++ identity);
 
   tilde.home = {
     username = "ethan";
