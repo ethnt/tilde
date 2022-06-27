@@ -8,7 +8,6 @@
     duf
     exa
     fd
-    glances
     htop
     mtr
     mtr

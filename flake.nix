@@ -14,10 +14,10 @@
     nixpkgs-vscode-pin.url =
       "github:nixos/nixpkgs/af9cad4c9427ef795ba71aa09e05b91b8b817a75";
 
-    darwin.url = "github:montchr/nix-darwin/add-toplevel-option-lib";
+    darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    digga.url = "github:divnix/digga/darwin-support";
+    digga.url = "github:divnix/digga";
     digga.inputs.darwin.follows = "darwin";
     digga.inputs.home-manager.follows = "home-manager";
 
@@ -140,7 +140,9 @@
               tools
             ];
             development = [ asdf git vscode ];
+            programming = [ elixir ruby ];
             identity = [ gnupg ];
+            orchard = [ tailscale ];
           };
         };
 

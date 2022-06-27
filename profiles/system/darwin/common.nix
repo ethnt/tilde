@@ -2,6 +2,10 @@
   services.activate-system.enable = true;
   services.nix-daemon.enable = true;
 
+  nix.trustedUsers = [ config.tilde.system.username ];
+
+  users.users.${config.tilde.system.username}.home = config.tilde.system.homeDirectory;
+
   users.nix.configureBuildUsers = true;
 
   environment.darwinConfig =
