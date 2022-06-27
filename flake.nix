@@ -12,10 +12,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
-    darwin.url = "github:montchr/nix-darwin/add-toplevel-option-lib";
+    darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    digga.url = "github:divnix/digga/darwin-support";
+    digga.url = "github:divnix/digga";
     digga.inputs.darwin.follows = "darwin";
     digga.inputs.home-manager.follows = "home-manager";
 
@@ -139,6 +139,7 @@
             development = [ asdf git vscode ];
             programming = [ elixir ruby ];
             identity = [ gnupg ];
+            orchard = [ tailscale ];
           };
         };
 
