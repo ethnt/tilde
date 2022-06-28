@@ -2,8 +2,6 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-    nix-direnv.enableFlakes = true;
-    enableFishIntegration = true;
 
     # Fixes an issue where the `sed` that macOS provides is different than the one expected and throws invalid command
     # code errors upon entering a cached environment -- this makes it so direnv uses the GNU version of sed

@@ -8,7 +8,7 @@
     "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.05-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-vscode-pin.url =
@@ -21,7 +21,7 @@
     digga.inputs.darwin.follows = "darwin";
     digga.inputs.home-manager.follows = "home-manager";
 
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat = {
@@ -35,7 +35,7 @@
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
+      supportedSystems = [ "x86_64-darwin" ];
 
       channelsConfig.allowUnfree = true;
 
