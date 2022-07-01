@@ -21,7 +21,7 @@ with lib;
     aliases = {
       "s" = mkForce "status -uno";
       "co" = ''
-        !co() { git checkout "$(git branch --all | ${pkgs.fzf}/bin/fzf | tr -d '[:space:]')"; }; co'';
+        !co() { git checkout "$(git branch --sort="-committerdate" | ${pkgs.fzf}/bin/fzf | tr -d '[:space:]')"; }; co'';
     };
 
     extraConfig = {
