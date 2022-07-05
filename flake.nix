@@ -18,6 +18,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     digga.url = "github:divnix/digga";
+    digga.inputs.nixpkgs.follows = "nixpkgs";
     digga.inputs.darwin.follows = "darwin";
     digga.inputs.home-manager.follows = "home-manager";
 
@@ -48,7 +49,10 @@
         nixpkgs-vscode-pin = { };
       };
 
-      nixos.hostDefaults.channelName = "nixpkgs";
+      nixos.hostDefaults = {
+        channelName = "nixpkgs";
+        modules = [{ lib.our = self.lib; }];
+      };
 
       lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
 
