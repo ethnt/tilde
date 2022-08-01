@@ -322,17 +322,17 @@
     },
     "nixpkgs-vscode-pin": {
       "locked": {
-        "lastModified": 1649376803,
-        "narHash": "sha256-e9kr8GfmleUB0XdG1VTaNvjb3b0HkC9CmNFw1h9Zg20=",
+        "lastModified": 1658872957,
+        "narHash": "sha256-9i3R42AQ8qp92BAXRJMqdRXQXITS06ZfG0uRVXhrrV8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "af9cad4c9427ef795ba71aa09e05b91b8b817a75",
+        "rev": "bad8f550a7362cb72f4bd4dea09d2386f4ef632b",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "af9cad4c9427ef795ba71aa09e05b91b8b817a75",
+        "rev": "bad8f550a7362cb72f4bd4dea09d2386f4ef632b",
         "type": "github"
       }
     },

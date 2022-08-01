@@ -12,7 +12,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-vscode-pin.url =
-      "github:nixos/nixpkgs/af9cad4c9427ef795ba71aa09e05b91b8b817a75";
+      "github:nixos/nixpkgs/bad8f550a7362cb72f4bd4dea09d2386f4ef632b";
 
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
