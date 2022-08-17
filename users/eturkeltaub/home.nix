@@ -51,6 +51,7 @@ with lib;
   programs.tmuxp.workspaces = {
     tilde = {
       session_name = "tilde";
+      start_directory = "/Users/eturkeltaub/personal/tilde";
       windows = [{
         focus = true;
         layout = "c5e0,212x37,0,0,3";
@@ -59,7 +60,6 @@ with lib;
           focus = true;
           shell_command = "direnv reload";
         }];
-        start_directory = "/Users/eturkeltaub/personal/tilde";
         window_name = "fish";
       }];
     };

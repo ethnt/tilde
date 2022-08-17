@@ -1,7 +1,11 @@
 { pkgs, ... }: {
   programs.fish = {
     enable = true;
-    shellAbbrs = { be = "bundle exec"; };
+    shellAbbrs = {
+      be = "bundle exec";
+      gph = "git push origin HEAD";
+      gphf = "git push origin HEAD -f";
+    };
     shellInit = ''
       # fish
       set -U fish_prompt_pwd_dir_length 0
