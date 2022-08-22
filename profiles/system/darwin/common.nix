@@ -4,7 +4,8 @@
 
   nix.trustedUsers = [ config.tilde.system.username ];
 
-  users.users.${config.tilde.system.username}.home = config.tilde.system.homeDirectory;
+  users.users.${config.tilde.system.username}.home =
+    config.tilde.system.homeDirectory;
 
   users.nix.configureBuildUsers = true;
 
