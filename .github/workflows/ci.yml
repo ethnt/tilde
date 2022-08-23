@@ -19,7 +19,7 @@ jobs:
         with:
           name: tilde
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix flake -Lv check --show-trace
+      - run: nix develop -c "nix" "flake" "-Lv" "check" "--show-trace"
 
   build:
     strategy:
@@ -41,4 +41,4 @@ jobs:
         with:
           name: tilde
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix -Lv build ".#darwinConfigurations.${{ matrix.host }}.system" --show-trace
+      - run: nix develop -c "nix" "-Lv" "build" ".#darwinConfigurations.${{ matrix.host }}.system" "--show-trace"
