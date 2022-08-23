@@ -12,9 +12,8 @@ jobs:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
       - name: Unlock secrets
         run: |
-          brew install git-crypt
-          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
-          git-crypt unlock /tmp/git-crypt-key
+          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+          nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
           rm /tmp/git-crypt-key
       - uses: cachix/cachix-action@v10
         with:
@@ -35,9 +34,8 @@ jobs:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
       - name: Unlock secrets
         run: |
-          brew install git-crypt
-          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
-          git-crypt unlock /tmp/git-crypt-key
+          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+          nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
           rm /tmp/git-crypt-key
       - uses: cachix/cachix-action@v10
         with:
