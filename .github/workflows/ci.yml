@@ -12,6 +12,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
       - name: Unlock secrets
         run: |
+          nix-env -i git-crypt -f '<nixpkgs>'
           echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
           nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
           rm /tmp/git-crypt-key
@@ -34,6 +35,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
       - name: Unlock secrets
         run: |
+          nix-env -i git-crypt -f '<nixpkgs>'
           echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
           nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
           rm /tmp/git-crypt-key
