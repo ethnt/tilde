@@ -1,15 +1,21 @@
 let GithubActions = https://regadas.dev/github-actions-dhall/package.dhall
 
-let checkout = GithubActions.Step::{ uses = Some "actions/checkout@v2.4.0" }
+let checkout =
+      GithubActions.Step::{
+      , name = Some "Checkout code"
+      , uses = Some "actions/checkout@v2.4.0"
+      }
 
 let installNix =
       GithubActions.Step::{
+      , name = Some "Install Nix"
       , uses = Some "cachix/install-nix-action@v16"
       , `with` = Some (toMap { nix_path = "nixpkgs=channel:nixos-unstable" })
       }
 
 let sshKeys =
       GithubActions.Step::{
+      , name = Some "Add SSH key to ssh-agent"
       , uses = Some "webfactory/ssh-agent@v0.5.4"
       , `with` = Some
           (toMap { ssh-private-key = "\${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}" })
@@ -21,7 +27,6 @@ let unlockSecrets =
             ''
               echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
               nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
-              rm /tmp/git-crypt-key
             ''
         }
 
@@ -49,7 +54,9 @@ in  GithubActions.Workflow::{
               # [ GithubActions.steps.run
                     { run =
                         ''
-                        nix-shell -p git-crypt --command "nix flake -Lv check --show-trace"
+                        echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+                        nix-shell -p git-crypt --command "git-crypt unlock /tmp/git-crypt-key"
+                        nix flake -Lv check --show-trace
                         ''
                     }
                 ]
