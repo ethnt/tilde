@@ -10,7 +10,13 @@ let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
       , uses = Some "cachix/install-nix-action@v16"
-      , `with` = Some (toMap { nix_path = "nixpkgs=channel:nixos-unstable" })
+      , `with` = Some
+          ( toMap
+              { nix_path = "nixpkgs=channel:nixos-unstable"
+              , extra_nix_config =
+                  "system-features = nixos-test benchmark big-parallel kvm"
+              }
+          )
       }
 
 let sshKeys =
@@ -26,7 +32,6 @@ let unlockSecrets =
         { run =
             ''
               nix-env -i git-crypt -f '<nixpkgs>'
-              echo $(which git-crypt)
               echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
               git-crypt unlock /tmp/git-crypt-key
               rm /tmp/git-crypt-key
@@ -44,6 +49,22 @@ let cachix =
           )
       }
 
+let check =
+      GithubActions.steps.run
+        { run =
+            ''
+              nix flake -Lv check --show-trace
+            ''
+        }
+
+let build =
+      GithubActions.steps.run
+        { run =
+            ''
+            nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace"
+            ''
+        }
+
 let setup = [ checkout, installNix, sshKeys, unlockSecrets, cachix ]
 
 in  GithubActions.Workflow::{
@@ -52,30 +73,14 @@ in  GithubActions.Workflow::{
     , jobs = toMap
         { check = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps =
-                setup
-              # [ GithubActions.steps.run
-                    { run =
-                        ''
-                        nix flake -Lv check --show-trace
-                        ''
-                    }
-                ]
+          , steps = setup # [ check ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
             , matrix = toMap { host = [ "eMac", "st-eturkeltaub1" ] }
             }
-          , steps =
-                setup
-              # [ GithubActions.steps.run
-                    { run =
-                        ''
-                        nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace"
-                        ''
-                    }
-                ]
+          , steps = setup # [ build ]
           }
         }
     }

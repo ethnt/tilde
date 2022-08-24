@@ -7,6 +7,7 @@ jobs:
       - name: Install Nix
         uses: "cachix/install-nix-action@v16"
         with:
+          extra_nix_config: system-features = nixos-test benchmark big-parallel kvm
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Add SSH key to ssh-agent
         uses: "webfactory/ssh-agent@v0.5.4"
@@ -14,7 +15,6 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
-            echo $(which git-crypt)
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
@@ -37,6 +37,7 @@ jobs:
       - name: Install Nix
         uses: "cachix/install-nix-action@v16"
         with:
+          extra_nix_config: system-features = nixos-test benchmark big-parallel kvm
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Add SSH key to ssh-agent
         uses: "webfactory/ssh-agent@v0.5.4"
@@ -44,7 +45,6 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
-            echo $(which git-crypt)
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
@@ -52,8 +52,8 @@ jobs:
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
-      - run: |
-          nix flake -Lv check --show-trace
+      - run: |2
+            nix flake -Lv check --show-trace
 name: CI
 on:
   push: {}
