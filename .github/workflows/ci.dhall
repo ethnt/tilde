@@ -67,7 +67,7 @@ let build =
           ''
       }
 
-let setup = [ checkout, installNix, sshKeys, unlockSecrets, cachix ]
+let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
