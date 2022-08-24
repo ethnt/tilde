@@ -17,7 +17,8 @@ jobs:
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
-      - run: "nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace"
+      - run: |
+          nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace"
     strategy:
       matrix:
         host:
@@ -42,9 +43,7 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
       - run: |
-          echo $PATH
-          nix-env -i git-crypt -f '<nixpkgs>'
-          nix flake -Lv check --show-trace
+          nix-shell -p git-crypt --command "nix flake -Lv check --show-trace"
 name: CI
 on:
   push: {}

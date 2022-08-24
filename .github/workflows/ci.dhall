@@ -49,9 +49,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.steps.run
                     { run =
                         ''
-                        echo $PATH
-                        nix-env -i git-crypt -f '<nixpkgs>'
-                        nix flake -Lv check --show-trace
+                        nix-shell -p git-crypt --command "nix flake -Lv check --show-trace"
                         ''
                     }
                 ]
@@ -65,7 +63,9 @@ in  GithubActions.Workflow::{
                 setup
               # [ GithubActions.steps.run
                     { run =
-                        "nix -Lv build .#darwinConfigurations.\${{ matrix.host }}.system --show-trace"
+                        ''
+                        nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace"
+                        ''
                     }
                 ]
           }
