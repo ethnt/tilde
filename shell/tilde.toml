@@ -19,3 +19,11 @@ category = "development"
 [[commands]]
 package = "git-crypt"
 category = "development"
+
+[[commands]]
+package = "dhall"
+category = "development"
+
+[[commands]]
+package = "dhall-json"
+category = "development"
