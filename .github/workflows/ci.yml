@@ -7,16 +7,15 @@ jobs:
       - uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - run: "echo ${{ secrets.GIT_CRYPT_KEY }} | base64 -d > /tmp/git-crypt-key"
       - run: |2
-            brew install git-crypt
+            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
             nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
             rm /tmp/git-crypt-key
       - uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
-      - run: "nix -Lv build .#darwinConfigurations.${{ matrix.scala }}.system --show-trace"
+      - run: "nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace"
     strategy:
       matrix:
         host:
@@ -30,9 +29,8 @@ jobs:
       - uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - run: "echo ${{ secrets.GIT_CRYPT_KEY }} | base64 -d > /tmp/git-crypt-key"
       - run: |2
-            brew install git-crypt
+            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
             nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
             rm /tmp/git-crypt-key
       - uses: "cachix/cachix-action@v10"

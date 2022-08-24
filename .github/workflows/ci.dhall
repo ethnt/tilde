@@ -12,17 +12,11 @@ let sshKeys =
           (toMap { ssh-private-key = "\${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}" })
       }
 
-let writeKey =
-      GithubActions.steps.run
-        { run =
-            "echo \${{ secrets.GIT_CRYPT_KEY }} | base64 -d > /tmp/git-crypt-key"
-        }
-
 let unlockSecrets =
       GithubActions.steps.run
         { run =
             ''
-              brew install git-crypt
+              echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
               nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
               rm /tmp/git-crypt-key
             ''
@@ -39,7 +33,7 @@ let cachix =
           )
       }
 
-let setup = [ checkout, installNix, sshKeys, writeKey, unlockSecrets, cachix ]
+let setup = [ checkout, installNix, sshKeys, unlockSecrets, cachix ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
@@ -66,7 +60,7 @@ in  GithubActions.Workflow::{
                 setup
               # [ GithubActions.steps.run
                     { run =
-                        "nix -Lv build .#darwinConfigurations.\${{ matrix.scala }}.system --show-trace"
+                        "nix -Lv build .#darwinConfigurations.\${{ matrix.host }}.system --show-trace"
                     }
                 ]
           }
