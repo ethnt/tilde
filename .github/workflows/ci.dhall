@@ -24,14 +24,8 @@ let sshKeys =
 let unlockSecrets =
       GithubActions.Step::{
       , name = Some "Unlock with git-crypt"
-      , uses = Some "zemuldo/git-crypt-unlock@v2.0"
-      , env = Some
-          ( toMap
-              { GPG_KEY_GRIP = "\${{ secrets.GPG_KEY_GRIP }}"
-              , GPG_PRIVATE_KEY = "\${{ secrets.GPG_PRIVATE_KEY }}"
-              , GPG_KEY_PASS = ""
-              }
-          )
+      , uses = Some "sliteteam/github-action-git-crypt-unlock@1.2.0"
+      , env = Some (toMap { GIT_CRYPT_KEY = "\${{ secrets.GIT_CRYPT_KEY }}" })
       }
 
 let cachix =
@@ -58,8 +52,6 @@ in  GithubActions.Workflow::{
               # [ GithubActions.steps.run
                     { run =
                         ''
-                        echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-                        nix-shell -p git-crypt --command "git-crypt unlock /tmp/git-crypt-key"
                         nix flake -Lv check --show-trace
                         ''
                     }

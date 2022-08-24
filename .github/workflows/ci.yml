@@ -13,11 +13,9 @@ jobs:
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - env:
-          GPG_KEY_GRIP: "${{ secrets.GPG_KEY_GRIP }}"
-          GPG_KEY_PASS: ''
-          GPG_PRIVATE_KEY: "${{ secrets.GPG_PRIVATE_KEY }}"
+          GIT_CRYPT_KEY: "${{ secrets.GIT_CRYPT_KEY }}"
         name: Unlock with git-crypt
-        uses: "zemuldo/git-crypt-unlock@v2.0"
+        uses: "sliteteam/github-action-git-crypt-unlock@1.2.0"
       - uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -43,18 +41,14 @@ jobs:
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - env:
-          GPG_KEY_GRIP: "${{ secrets.GPG_KEY_GRIP }}"
-          GPG_KEY_PASS: ''
-          GPG_PRIVATE_KEY: "${{ secrets.GPG_PRIVATE_KEY }}"
+          GIT_CRYPT_KEY: "${{ secrets.GIT_CRYPT_KEY }}"
         name: Unlock with git-crypt
-        uses: "zemuldo/git-crypt-unlock@v2.0"
+        uses: "sliteteam/github-action-git-crypt-unlock@1.2.0"
       - uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
       - run: |
-          echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-          nix-shell -p git-crypt --command "git-crypt unlock /tmp/git-crypt-key"
           nix flake -Lv check --show-trace
 name: CI
 on:
