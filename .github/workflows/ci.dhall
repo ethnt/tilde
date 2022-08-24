@@ -61,7 +61,7 @@ let build =
       GithubActions.steps.run
         { run =
             ''
-            nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace"
+              nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace"
             ''
         }
 

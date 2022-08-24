@@ -22,8 +22,8 @@ jobs:
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
-      - run: |
-          nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace"
+      - run: |2
+            nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace"
     strategy:
       matrix:
         host:
