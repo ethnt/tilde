@@ -13,17 +13,19 @@ jobs:
         uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - run: |2
+      - name: Unlock encrypted files
+        run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - uses: "cachix/cachix-action@v10"
+      - name: Use Cachix store
+        uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde
       - run: |2
-            nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace"
+            nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace
     strategy:
       matrix:
         host:
@@ -43,12 +45,14 @@ jobs:
         uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - run: |2
+      - name: Unlock encrypted files
+        run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - uses: "cachix/cachix-action@v10"
+      - name: Use Cachix store
+        uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           name: tilde

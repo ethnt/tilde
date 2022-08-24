@@ -28,18 +28,20 @@ let sshKeys =
       }
 
 let unlockSecrets =
-      GithubActions.steps.run
-        { run =
-            ''
-              nix-env -i git-crypt -f '<nixpkgs>'
-              echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
-              git-crypt unlock /tmp/git-crypt-key
-              rm /tmp/git-crypt-key
-            ''
-        }
+      GithubActions.Step::{
+      , name = Some "Unlock encrypted files"
+      , run = Some
+          ''
+            nix-env -i git-crypt -f '<nixpkgs>'
+            echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
+            git-crypt unlock /tmp/git-crypt-key
+            rm /tmp/git-crypt-key
+          ''
+      }
 
 let cachix =
       GithubActions.Step::{
+      , name = Some "Use Cachix store"
       , uses = Some "cachix/cachix-action@v10"
       , `with` = Some
           ( toMap
@@ -50,20 +52,20 @@ let cachix =
       }
 
 let check =
-      GithubActions.steps.run
-        { run =
-            ''
-              nix flake -Lv check --show-trace
-            ''
-        }
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix flake -Lv check --show-trace
+          ''
+      }
 
 let build =
-      GithubActions.steps.run
-        { run =
-            ''
-              nix-shell -p git-crypt --command "nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace"
-            ''
-        }
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace
+          ''
+      }
 
 let setup = [ checkout, installNix, sshKeys, unlockSecrets, cachix ]
 
