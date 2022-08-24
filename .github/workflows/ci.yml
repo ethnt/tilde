@@ -12,7 +12,7 @@ jobs:
         uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - uses: "ethnt/macos-git-crypt-unlock-action@v1"
+      - uses: "ethnt/macos-git-crypt-unlock-action@master"
         with:
           git-crypt-key: "${{ secrets.GIT_CRYPT_KEY }}"
       - uses: "cachix/cachix-action@v10"
@@ -39,7 +39,7 @@ jobs:
         uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - uses: "ethnt/macos-git-crypt-unlock-action@v1"
+      - uses: "ethnt/macos-git-crypt-unlock-action@master"
         with:
           git-crypt-key: "${{ secrets.GIT_CRYPT_KEY }}"
       - uses: "cachix/cachix-action@v10"

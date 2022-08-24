@@ -23,7 +23,7 @@ let sshKeys =
 
 let unlockSecrets =
       GithubActions.Step::{
-      , uses = Some "ethnt/macos-git-crypt-unlock-action@v1"
+      , uses = Some "ethnt/macos-git-crypt-unlock-action@master"
       , `with` = Some
           (toMap { git-crypt-key = "\${{ secrets.GIT_CRYPT_KEY }}" })
       }
