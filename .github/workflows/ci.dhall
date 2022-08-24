@@ -22,11 +22,15 @@ let sshKeys =
       }
 
 let unlockSecrets =
-      GithubActions.Step::{
-      , uses = Some "ethnt/macos-git-crypt-unlock-action@v1"
-      , `with` = Some
-          (toMap { git-crypt-key = "\${{ secrets.GIT_CRYPT_KEY }}" })
-      }
+      GithubActions.steps.run
+        { run =
+            ''
+              brew install git-crypt
+              echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64  -d > /tmp/git-crypt-key
+              git-crypt unlock /tmp/git-crypt-key
+              rm /tmp/git-crypt-key
+            ''
+        }
 
 let cachix =
       GithubActions.Step::{
