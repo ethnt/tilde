@@ -3,7 +3,10 @@ let GithubActions = https://regadas.dev/github-actions-dhall/package.dhall
 let checkout = GithubActions.Step::{ uses = Some "actions/checkout@v2.4.0" }
 
 let installNix =
-      GithubActions.Step::{ uses = Some "cachix/install-nix-action@v16" }
+      GithubActions.Step::{
+      , uses = Some "cachix/install-nix-action@v16"
+      , `with` = Some (toMap { nix_path = "nixpkgs=channel:nixos-unstable" })
+      }
 
 let sshKeys =
       GithubActions.Step::{
@@ -46,6 +49,8 @@ in  GithubActions.Workflow::{
               # [ GithubActions.steps.run
                     { run =
                         ''
+                        echo $PATH
+                        nix-env -i git-crypt -f '<nixpkgs>'
                         nix flake -Lv check --show-trace
                         ''
                     }
