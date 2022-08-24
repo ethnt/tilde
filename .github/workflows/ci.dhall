@@ -22,13 +22,17 @@ let sshKeys =
       }
 
 let unlockSecrets =
-      GithubActions.steps.run
-        { run =
-            ''
-              echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-              nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key"
-            ''
-        }
+      GithubActions.Step::{
+      , name = Some "Unlock with git-crypt"
+      , uses = Some "zemuldo/git-crypt-unlock@v2.0"
+      , env = Some
+          ( toMap
+              { GPG_KEY_GRIP = "\${{ secrets.GPG_KEY_GRIP }}"
+              , GPG_PRIVATE_KEY = "\${{ secrets.GPG_PRIVATE_KEY }}"
+              , GPG_KEY_PASS = ""
+              }
+          )
+      }
 
 let cachix =
       GithubActions.Step::{
