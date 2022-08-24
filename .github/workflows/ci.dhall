@@ -23,9 +23,9 @@ let sshKeys =
 
 let unlockSecrets =
       GithubActions.Step::{
-      , name = Some "Unlock with git-crypt"
-      , uses = Some "sliteteam/github-action-git-crypt-unlock@1.2.0"
-      , env = Some (toMap { GIT_CRYPT_KEY = "\${{ secrets.GIT_CRYPT_KEY }}" })
+      , uses = Some "ethnt/macos-git-crypt-unlock-action"
+      , `with` = Some
+          (toMap { git-crypt-key = "\${{ secrets.GIT_CRYPT_KEY }}" })
       }
 
 let cachix =

@@ -12,10 +12,9 @@ jobs:
         uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - env:
-          GIT_CRYPT_KEY: "${{ secrets.GIT_CRYPT_KEY }}"
-        name: Unlock with git-crypt
-        uses: "sliteteam/github-action-git-crypt-unlock@1.2.0"
+      - uses: ethnt/macos-git-crypt-unlock-action
+        with:
+          git-crypt-key: "${{ secrets.GIT_CRYPT_KEY }}"
       - uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -40,10 +39,9 @@ jobs:
         uses: "webfactory/ssh-agent@v0.5.4"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - env:
-          GIT_CRYPT_KEY: "${{ secrets.GIT_CRYPT_KEY }}"
-        name: Unlock with git-crypt
-        uses: "sliteteam/github-action-git-crypt-unlock@1.2.0"
+      - uses: ethnt/macos-git-crypt-unlock-action
+        with:
+          git-crypt-key: "${{ secrets.GIT_CRYPT_KEY }}"
       - uses: "cachix/cachix-action@v10"
         with:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
