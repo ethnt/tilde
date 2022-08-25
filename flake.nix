@@ -25,6 +25,9 @@
     home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -32,7 +35,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -166,6 +169,9 @@
 
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs-unstable;
-        in { checks = import ./checks { inherit self pkgs; }; };
+        in {
+          checks = import ./checks { inherit self pkgs; };
+          apps = import ./apps { inherit self pkgs; };
+        };
     };
 }

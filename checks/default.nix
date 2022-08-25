@@ -10,8 +10,16 @@ let
       ${command}
     '';
 in hostChecks // {
-  format = runCodeAnalysis "format" ''
-    ${pkgs.nixfmt}/bin/nixfmt --check ${self}/**/*.nix
+  nix-format = runCodeAnalysis "nix-format" ''
+    ${pkgs.nixfmt}/bin/nixfmt --check **/*.nix
+  '';
+
+  dhall-format = runCodeAnalysis "dhall-format" ''
+    ${pkgs.dhall}/bin/dhall format --check **/*.dhall
+  '';
+
+  toml-format = runCodeAnalysis "toml-format" ''
+    ${pkgs.taplo-cli}/bin/taplo fmt --check **/*.toml
   '';
 
   lint = runCodeAnalysis "lint" ''
