@@ -123,26 +123,6 @@
         "type": "github"
       }
     },
-    "devos-ext-lib": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1657693686,
-        "narHash": "sha256-8QSk3Djb81+6dnXCQFap7bNVn3TBIJSeQhjWjMY32ko=",
-        "owner": "divnix",
-        "repo": "devos-ext-lib",
-        "rev": "4f6fe0dfa943e7a6ae2b7941a7cbc4d102e0ddfc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "devos-ext-lib",
-        "type": "github"
-      }
-    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -313,17 +293,14 @@
     },
     "flake-utils_4": {
       "locked": {
-        "lastModified": 1659877975,
+        "lastModified": 0,
         "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
-        "type": "github"
+        "path": "/nix/store/nbkbs33bkw54f60kv5c5y48714l00dpw-source",
+        "type": "path"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
+        "id": "flake-utils",
+        "type": "indirect"
       }
     },
     "home-manager": {
@@ -519,7 +496,6 @@
       "inputs": {
         "bud": "bud",
         "darwin": "darwin_2",
-        "devos-ext-lib": "devos-ext-lib",
         "digga": "digga",
         "flake-compat": "flake-compat_3",
         "flake-utils": "flake-utils_4",

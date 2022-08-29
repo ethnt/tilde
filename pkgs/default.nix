@@ -3,5 +3,4 @@ final: prev: {
   sf-pro = prev.callPackage ./fonts/sf-pro.nix { };
   nix-docker = prev.callPackage ./nix-docker.nix { };
   oh-my-tmux = prev.callPackage ./oh-my-tmux.nix { };
-  # tilde = prev.callPackage ./tilde { };
 }
