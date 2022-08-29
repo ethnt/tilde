@@ -11,7 +11,7 @@ let
     '';
 in hostChecks // {
   nix-format = runCodeAnalysis "nix-format" ''
-    ${pkgs.nixfmt}/bin/nixfmt --check ${self}/**/*.nix
+    ${pkgs.nixfmt}/bin/nixfmt --check **/*.nix
   '';
 
   dhall-format = runCodeAnalysis "dhall-format" ''
@@ -23,6 +23,6 @@ in hostChecks // {
   '';
 
   lint = runCodeAnalysis "lint" ''
-    ${pkgs.statix}/bin/statix check ${self}
+    ${pkgs.statix}/bin/statix check .
   '';
 }
