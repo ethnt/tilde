@@ -30,5 +30,12 @@
       writer = budUtils.writeBashWithPaths (with pkgs; [ dhall-json ]);
       help = "Convert the CI configuration written in Dhall to Yaml";
     };
+
+    fetch-vscode-extensions = {
+      synopsis = "fetch-vscode-extensions";
+      script = ./cmd/fetch-vscode-extensions.bash;
+      writer = budUtils.writeBashWithPaths (with pkgs; [ nixUnstable git coreutils nvfetcher ]);
+      help = "Fetch VSCode extensions";
+    };
   };
 }

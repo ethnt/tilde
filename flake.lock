@@ -123,6 +123,26 @@
         "type": "github"
       }
     },
+    "devos-ext-lib": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1657693686,
+        "narHash": "sha256-8QSk3Djb81+6dnXCQFap7bNVn3TBIJSeQhjWjMY32ko=",
+        "owner": "divnix",
+        "repo": "devos-ext-lib",
+        "rev": "4f6fe0dfa943e7a6ae2b7941a7cbc4d102e0ddfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "devos-ext-lib",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -499,6 +519,7 @@
       "inputs": {
         "bud": "bud",
         "darwin": "darwin_2",
+        "devos-ext-lib": "devos-ext-lib",
         "digga": "digga",
         "flake-compat": "flake-compat_3",
         "flake-utils": "flake-utils_4",

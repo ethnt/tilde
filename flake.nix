@@ -25,6 +25,9 @@
     home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    devos-ext-lib.url = "github:divnix/devos-ext-lib";
+    devos-ext-lib.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-utils.url = "github:numtide/flake-utils";
     flake-utils.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -39,7 +42,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, bud, ... }:
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, devos-ext-lib
+    , flake-utils, bud, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -50,6 +54,7 @@
       channels = {
         nixpkgs = {
           imports = [ (digga.lib.importOverlays ./overlays/nixpkgs) ];
+          overlays = [ devos-ext-lib.overlays.vscode-extensions ];
         };
         nixpkgs-unstable = { };
         nixpkgs-master = { };
