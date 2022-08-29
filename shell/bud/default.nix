@@ -5,7 +5,7 @@
       script = ./cmd/build.bash;
       writer =
         budUtils.writeBashWithPaths (with pkgs; [ coreutils git nixUnstable ]);
-      help = "Switch to the defined Tilde configuration";
+      help = "Build the defined Tilde configuration";
     };
 
     update-input = {
@@ -18,10 +18,17 @@
 
     repl = {
       synopsis = "repl [flake]";
+      script = (import ./cmd/repl pkgs).outPath;
       writer = budUtils.writeBashWithPaths
         (with pkgs; [ nixUnstable gnused git mercurial coreutils ]);
       help = "Enter a REPL with the flake's outputs";
-      script = (import ./cmd/repl pkgs).outPath;
+    };
+
+    generate-ci = {
+      synopsis = "generate-ci";
+      script = ./cmd/generate-ci.bash;
+      writer = budUtils.writeBashWithPaths (with pkgs; [ dhall-json ]);
+      help = "Convert the CI configuration written in Dhall to Yaml";
     };
   };
 }

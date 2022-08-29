@@ -18,6 +18,6 @@
     (addPackage "runtime" pkgs.cachix)
 
     (addPackage "formatting" pkgs.nixfmt)
-    (addPackage "formatting" pkgs.editorconfig-checker)
+    (addPackage "formatting" pkgs.statix)
   ];
 }

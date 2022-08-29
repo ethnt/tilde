@@ -1,4 +1,4 @@
-{ pkgs, config,... }: {
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [
     choose
     comma
