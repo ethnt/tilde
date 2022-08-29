@@ -28,6 +28,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     flake-utils.inputs.nixpkgs.follows = "nixpkgs";
 
+    bud.url = "github:ethnt/bud/fix/darwin-support";
+    bud.inputs.nixpkgs.follows = "nixpkgs";
+    bud.inputs.devshell.follows = "digga/devshell";
+
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -35,7 +39,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, ... }:
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, bud, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -174,5 +178,7 @@
           checks = import ./checks { inherit self pkgs; };
           apps = import ./apps { inherit self pkgs; };
         };
+    } // {
+      budModules = { tilde = import ./shell/bud; };
     };
 }

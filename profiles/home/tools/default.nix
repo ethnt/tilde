@@ -16,8 +16,5 @@
     ripgrep
     sd
     tldr
-    # tilde
-    # (pkgs.writeScriptBin "tilde"
-    #   (builtins.readFile "${config.tilde.directory}/packages/tilde/tilde"))
   ];
 }
