@@ -15,7 +15,12 @@
     drv = pkgs.writeShellScriptBin "format" ''
       ${pkgs.nixfmt}/bin/nixfmt **/*.nix
       ${pkgs.dhall}/bin/dhall format **/*.dhall
-      ${pkgs.taplo-cli}/bin/taplo fmt **/*.toml
+    '';
+  };
+
+  lint = self.inputs.flake-utils.lib.mkApp {
+    drv = pkgs.writeShellScriptBin "lint" ''
+      ${pkgs.statix}/bin/statix check ${self}
     '';
   };
 

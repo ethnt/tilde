@@ -1,1 +1,4 @@
-{ self, pkgs, inputs, ... }: { exportedModules = [ ./tilde.toml ]; }
+{ self, inputs, ... }: {
+  modules = with inputs; [ ];
+  exportedModules = [ ./tilde.nix ];
+}

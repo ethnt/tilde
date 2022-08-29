@@ -18,10 +18,6 @@ in hostChecks // {
     ${pkgs.dhall}/bin/dhall format --check **/*.dhall
   '';
 
-  toml-format = runCodeAnalysis "toml-format" ''
-    ${pkgs.taplo-cli}/bin/taplo fmt --check **/*.toml
-  '';
-
   lint = runCodeAnalysis "lint" ''
     ${pkgs.statix}/bin/statix check ${self}
   '';

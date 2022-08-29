@@ -39,7 +39,7 @@
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-darwin" ];
+      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
 
       channelsConfig.allowUnfree = true;
 
@@ -68,7 +68,9 @@
       ];
 
       darwin = let
-        mkHost = { host, user, }: {
+        mkHost = { host, user, system ? "x86_64-darwin" }: {
+          inherit system;
+
           modules = [
             ({ profiles, ... }: {
               imports = [ profiles.hosts.${host} profiles.users.${user} ];
@@ -77,7 +79,6 @@
         };
       in {
         hostDefaults = {
-          system = "x86_64-darwin";
           channelName = "nixpkgs";
           imports = [ (digga.lib.importExportableModules ./modules/system) ];
           modules = [

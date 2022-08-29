@@ -33,7 +33,7 @@ with lib;
   };
 
   programs.vscode = {
-    package = pkgs.vscode-1_66_1;
+    package = pkgs.vscode-pinned;
     userSettings = { "update.mode" = "none"; };
   };
 
