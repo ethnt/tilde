@@ -1,0 +1,9 @@
+[vscode-extensions-bbenoist-nix]
+src.vsmarketplace = "bbenoist.nix"
+fetch.vsmarketplace = "bbenoist.nix"
+passthru = { license = "mit", homepage = "none", description = "none" }
+
+[vscode-extensions-ms-vscode-atom-keybindings]
+src.vsmarketplace = "ms-vscode.atom-keybindings"
+fetch.vsmarketplace = "ms-vscode.atom-keybindings"
+passthru = { license = "mit", homepage = "none", description = "none" }

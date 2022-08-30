@@ -1,0 +1,38 @@
+{
+    "vscode-extensions-bbenoist-nix": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vscode-extensions-bbenoist-nix",
+        "passthru": {
+            "description": "none",
+            "homepage": "none",
+            "license": "mit"
+        },
+        "pinned": false,
+        "src": {
+            "name": "nix-1.0.1.zip",
+            "sha256": "sha256-qwxqOGublQeVP2qrLF94ndX/Be9oZOn+ZMCFX1yyoH0=",
+            "type": "url",
+            "url": "https://bbenoist.gallery.vsassets.io/_apis/public/gallery/publisher/bbenoist/extension/nix/1.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+        },
+        "version": "1.0.1"
+    },
+    "vscode-extensions-ms-vscode-atom-keybindings": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vscode-extensions-ms-vscode-atom-keybindings",
+        "passthru": {
+            "description": "none",
+            "homepage": "none",
+            "license": "mit"
+        },
+        "pinned": false,
+        "src": {
+            "name": "atom-keybindings-3.0.9.zip",
+            "sha256": "sha256-Qey75Irpb3Y+Unbf+ppTTVoU3XGAVJD8oXN5XKJhWBI=",
+            "type": "url",
+            "url": "https://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/atom-keybindings/3.0.9/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+        },
+        "version": "3.0.9"
+    }
+}

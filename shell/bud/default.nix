@@ -30,5 +30,13 @@
       writer = budUtils.writeBashWithPaths (with pkgs; [ dhall-json ]);
       help = "Convert the CI configuration written in Dhall to Yaml";
     };
+
+    update-sources = {
+      synopsis = "update-sources";
+      script = ./cmd/update-sources.bash;
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git nixUnstable nvfetcher-bin ]);
+      help = "Update other sources";
+    };
   };
 }

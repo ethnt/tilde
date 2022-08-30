@@ -123,6 +123,26 @@
         "type": "github"
       }
     },
+    "devos-ext-lib": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1657693686,
+        "narHash": "sha256-8QSk3Djb81+6dnXCQFap7bNVn3TBIJSeQhjWjMY32ko=",
+        "owner": "divnix",
+        "repo": "devos-ext-lib",
+        "rev": "4f6fe0dfa943e7a6ae2b7941a7cbc4d102e0ddfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "devos-ext-lib",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -227,6 +247,22 @@
         "type": "github"
       }
     },
+    "flake-compat_4": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648199409,
+        "narHash": "sha256-JwPKdC2PoVBkG6E+eWw3j6BMR6sL3COpYWfif7RVb8Y=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "64a525ee38886ab9028e6f61790de0832aa3ef03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1631561581,
@@ -301,6 +337,21 @@
       "original": {
         "id": "flake-utils",
         "type": "indirect"
+      }
+    },
+    "flake-utils_5": {
+      "locked": {
+        "lastModified": 1649676176,
+        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -465,6 +516,28 @@
         "type": "github"
       }
     },
+    "nvfetcher": {
+      "inputs": {
+        "flake-compat": "flake-compat_4",
+        "flake-utils": "flake-utils_5",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1654975372,
+        "narHash": "sha256-wkNZ16akgKViuZzE/IM+bux4uaJ04KIwUeexH8gBjgw=",
+        "owner": "berberman",
+        "repo": "nvfetcher",
+        "rev": "d4b237c10f14f72f8266b0f658faad822e491e55",
+        "type": "github"
+      },
+      "original": {
+        "owner": "berberman",
+        "repo": "nvfetcher",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": [
@@ -496,6 +569,7 @@
       "inputs": {
         "bud": "bud",
         "darwin": "darwin_2",
+        "devos-ext-lib": "devos-ext-lib",
         "digga": "digga",
         "flake-compat": "flake-compat_3",
         "flake-utils": "flake-utils_4",
@@ -503,7 +577,8 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable_2",
-        "nixpkgs-vscode-pin": "nixpkgs-vscode-pin"
+        "nixpkgs-vscode-pin": "nixpkgs-vscode-pin",
+        "nvfetcher": "nvfetcher"
       }
     },
     "utils": {

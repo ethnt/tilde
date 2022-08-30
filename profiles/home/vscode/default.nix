@@ -54,6 +54,8 @@
       };
     };
 
+    # extensions = with pkgs.vscode-extensions; [ bbenoist.nix ];
+
     # extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     #   {
     #     name = "nix";
