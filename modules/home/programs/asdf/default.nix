@@ -27,7 +27,7 @@ in {
     home.packages = [ cfg.package ];
 
     home.sessionVariables = {
-      ASDF_DIR = cfg.package;
+      ASDF_DIR = "${cfg.package}/share/asdf-vm";
       ASDF_DATA_DIR = "${config.xdg.dataHome}/asdf";
       ASDF_CONFIG_FILE = "${config.xdg.configHome}/asdf/.asdfrc";
     };
@@ -39,10 +39,6 @@ in {
     programs.fish = mkIf cfg.enableFishIntegration {
       shellInit = mkAfter ''
         source ${cfg.package}/share/asdf-vm/asdf.fish
-      '';
-
-      interactiveShellInit = mkAfter ''
-        set fish_complete_path $fish_complete_path ${cfg.package}/share/fish/vendor_completions.d
       '';
     };
 

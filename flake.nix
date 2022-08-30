@@ -25,6 +25,10 @@
     home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    bud.url = "github:ethnt/bud/fix/darwin-support";
+    bud.inputs.nixpkgs.follows = "nixpkgs";
+    bud.inputs.devshell.follows = "digga/devshell";
+
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -32,11 +36,11 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, bud, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-darwin" ];
+      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
 
       channelsConfig.allowUnfree = true;
 
@@ -65,7 +69,9 @@
       ];
 
       darwin = let
-        mkHost = { host, user, }: {
+        mkHost = { host, user, system ? "x86_64-darwin", }: {
+          inherit system;
+
           modules = [
             ({ profiles, ... }: {
               imports = [ profiles.hosts.${host} profiles.users.${user} ];
@@ -74,7 +80,6 @@
         };
       in {
         hostDefaults = {
-          system = "x86_64-darwin";
           channelName = "nixpkgs";
           imports = [ (digga.lib.importExportableModules ./modules/system) ];
           modules = [
@@ -166,6 +171,11 @@
 
       outputsBuilder = channels:
         let pkgs = channels.nixpkgs-unstable;
-        in { checks = import ./checks { inherit self pkgs; }; };
+        in {
+          checks = import ./checks { inherit self pkgs; };
+          apps = import ./apps { inherit self pkgs; };
+        };
+    } // {
+      budModules = { tilde = import ./shell/bud; };
     };
 }

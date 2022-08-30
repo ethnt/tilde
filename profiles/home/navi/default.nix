@@ -7,7 +7,7 @@
         % files
 
         # search for string in files
-         grep -rnw '<path>' -e '<string>'
+        grep -rnw '<path>' -e '<string>'
       '';
     };
   };

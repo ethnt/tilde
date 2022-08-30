@@ -1,19 +1,20 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [
-    comma
     choose
+    comma
     difftastic
     dogdns
     du-dust
     duf
     exa
     fd
+    grex
     htop
+    manix
     mtr
-    mtr
+    pv
     ripgrep
     sd
     tldr
-    pv
   ];
 }

@@ -10,11 +10,19 @@ let
       ${command}
     '';
 in hostChecks // {
-  format = runCodeAnalysis "format" ''
-    ${pkgs.nixfmt}/bin/nixfmt --check ${self}/**/*.nix
+  nix-format = runCodeAnalysis "nix-format" ''
+    ${pkgs.nixfmt}/bin/nixfmt --check **/*.nix
+  '';
+
+  dhall-format = runCodeAnalysis "dhall-format" ''
+    ${pkgs.dhall}/bin/dhall format --check **/*.dhall
+  '';
+
+  editorconfig-chcker = runCodeAnalysis "editorconfig-checker" ''
+    ${pkgs.editorconfig-checker}/bin/editorconfig-checker
   '';
 
   lint = runCodeAnalysis "lint" ''
-    ${pkgs.statix}/bin/statix check ${self}
+    ${pkgs.statix}/bin/statix check .
   '';
 }
