@@ -99,6 +99,12 @@
             host = "st-eturkeltaub1";
             user = "eturkeltaub";
           };
+
+          st-eturkeltaub2 = mkHost {
+            host = "st-eturkeltaub2";
+            user = "eturkeltaub";
+            system = "aarch64-darwin";
+          };
         };
 
         importables = rec {
