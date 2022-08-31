@@ -31,6 +31,7 @@ jobs:
         host:
           - eMac
           - st-eturkeltaub1
+          - st-eturkeltaub2
   check:
     runs-on: macos-latest
     steps:

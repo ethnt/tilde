@@ -80,7 +80,8 @@ in  GithubActions.Workflow::{
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
-            , matrix = toMap { host = [ "eMac", "st-eturkeltaub1" ] }
+            , matrix = toMap
+                { host = [ "eMac", "st-eturkeltaub1", "st-eturkeltaub2" ] }
             }
           , steps = setup # [ build ]
           }
