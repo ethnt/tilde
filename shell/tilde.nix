@@ -17,6 +17,8 @@
     (addPackage "runtime" pkgs.nixUnstable)
     (addPackage "runtime" pkgs.cachix)
 
+    (addPackage "development" pkgs.git-crypt)
+
     (addPackage "formatting" pkgs.nixfmt)
     (addPackage "formatting" pkgs.statix)
   ];
