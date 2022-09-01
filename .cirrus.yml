@@ -1,0 +1,9 @@
+macos_instance:
+  image: ghcr.io/cirruslabs/macos-monterey-base:latest
+
+task:
+  name: Install Nix
+  script: sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+
+task:
+  name: nix run nixpkgs#hello
