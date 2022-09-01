@@ -91,13 +91,13 @@ in  GithubActions.Workflow::{
     , jobs = toMap
         { formatting = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ check ]
+          , steps = setup # [ format, lint ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
             , matrix = toMap
-                { host = [ "eMac", "st-eturkeltaub2" ] }
+                { host = [ "eMac" ] }
             }
           , steps = setup # [ build ]
           }
