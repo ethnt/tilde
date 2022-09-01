@@ -32,7 +32,7 @@ jobs:
           - eMac
           - st-eturkeltaub1
           - st-eturkeltaub2
-  check:
+  formatting:
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -58,7 +58,9 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix flake -Lv check --show-trace
+            nix fmt "**/*.nix" -- --check
+      - run: |2
+             nix develop -c "statix" "check" "."
 name: CI
 on:
   push: {}

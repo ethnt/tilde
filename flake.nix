@@ -180,6 +180,7 @@
         in {
           checks = import ./checks { inherit self pkgs; };
           apps = import ./apps { inherit self pkgs; };
+          formatter = pkgs.nixfmt;
         };
     } // {
       budModules = { tilde = import ./shell/bud; };

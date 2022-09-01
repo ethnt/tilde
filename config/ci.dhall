@@ -67,15 +67,31 @@ let build =
           ''
       }
 
+let format =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix fmt "**/*.nix" -- --check
+          ''
+      }
+
+let lint =
+      GithubActions.Step::{
+      , run = Some
+          ''
+             nix develop -c "statix" "check" "."
+          ''
+      }
+
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
-        { check = GithubActions.Job::{
+        { formatting = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ check ]
+          , steps = setup # [ format, lint ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
