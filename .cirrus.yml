@@ -3,4 +3,6 @@ macos_instance:
 
 task:
   name: Install Nix
-  script: sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+  script: |
+    sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+    nix build .#darwinConfigurations.eMac.system --show-trace
