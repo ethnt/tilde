@@ -18,6 +18,7 @@
     (addPackage "runtime" pkgs.cachix)
 
     (addPackage "development" pkgs.git-crypt)
+    (addPackage "development" pkgs.dhall)
 
     (addPackage "formatting" pkgs.nixfmt)
     (addPackage "formatting" pkgs.statix)

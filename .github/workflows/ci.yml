@@ -56,9 +56,13 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix fmt **/*.nix -- --check
+            nix develop -c "bud" "ci.format"
       - run: |2
-             nix develop -c "statix" "check" "."
+             nix develop -c "bud" "ci.lint"
+      - run: |2
+             nix develop -c "bud" "ci.shellcheck"
+      - run: |2
+             nix develop -c "bud" "ci.dhall"
 name: CI
 on:
   push: {}

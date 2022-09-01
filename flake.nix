@@ -44,9 +44,7 @@
 
       channelsConfig = {
         allowUnfree = true;
-        crossSystem = {
-          config = "aarch64-apple-darwin";
-        };
+        crossSystem = { config = "aarch64-apple-darwin"; };
       };
 
       channels = {

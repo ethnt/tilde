@@ -71,7 +71,7 @@ let format =
       GithubActions.Step::{
       , run = Some
           ''
-            nix fmt **/*.nix -- --check
+            nix develop -c "bud" "ci.format"
           ''
       }
 
@@ -79,7 +79,23 @@ let lint =
       GithubActions.Step::{
       , run = Some
           ''
-             nix develop -c "statix" "check" "."
+             nix develop -c "bud" "ci.lint"
+          ''
+      }
+
+let shellcheck =
+      GithubActions.Step::{
+      , run = Some
+          ''
+             nix develop -c "bud" "ci.shellcheck"
+          ''
+      }
+
+let dhall =
+      GithubActions.Step::{
+      , run = Some
+          ''
+             nix develop -c "bud" "ci.dhall"
           ''
       }
 
@@ -91,13 +107,12 @@ in  GithubActions.Workflow::{
     , jobs = toMap
         { formatting = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ format, lint ]
+          , steps = setup # [ format, lint, shellcheck, dhall ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
-            , matrix = toMap
-                { host = [ "eMac" ] }
+            , matrix = toMap { host = [ "eMac" ] }
             }
           , steps = setup # [ build ]
           }

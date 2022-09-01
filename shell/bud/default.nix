@@ -1,5 +1,37 @@
 { pkgs, lib, budUtils, ... }: {
   bud.cmds = {
+    "ci.format" = {
+      synopsis = "ci.format";
+      script = ./cmd/ci-format.bash;
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git nixUnstable nixfmt ]);
+      help = "Check the formatting of the project";
+    };
+
+    "ci.lint" = {
+      synopsis = "ci.lint";
+      script = ./cmd/ci-lint.bash;
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git nixUnstable statix ]);
+      help = "Lint the project with Statix";
+    };
+
+    "ci.shellcheck" = {
+      synopsis = "ci.shellcheck";
+      script = ./cmd/ci-shellcheck.bash;
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git nixUnstable fd shellcheck ]);
+      help = "Check bash files with Shellcheck";
+    };
+
+    "ci.dhall" = {
+      synopsis = "ci.dhall";
+      script = ./cmd/ci-dhall.bash;
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git nixUnstable dhall ]);
+      help = "Check Dhall file formatting";
+    };
+
     build = {
       synopsis = "build [host]";
       script = ./cmd/build.bash;
