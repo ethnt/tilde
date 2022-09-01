@@ -97,7 +97,7 @@ in  GithubActions.Workflow::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
             , matrix = toMap
-                { host = [ "eMac", "st-eturkeltaub1", "st-eturkeltaub2" ] }
+                { host = [ "eMac" ] }
             }
           , steps = setup # [ build ]
           }

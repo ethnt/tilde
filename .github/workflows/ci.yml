@@ -30,8 +30,6 @@ jobs:
       matrix:
         host:
           - eMac
-          - st-eturkeltaub1
-          - st-eturkeltaub2
   formatting:
     runs-on: macos-latest
     steps:
