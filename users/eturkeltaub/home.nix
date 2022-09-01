@@ -8,10 +8,11 @@ with lib;
   tilde.home = {
     username = "eturkeltaub";
     homeDirectory = "/Users/eturkeltaub";
-    gpg = { keyId = "AFEEB13E64ED9E7ACD5D5C0B15FF752777F78A43"; };
+    gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
 
   home.sessionVariables = { KEYID = config.tilde.home.gpg.keyId; };
+  home.sessionPath = mkAfter [ "/opt/homebrew" ];
 
   programs.git = {
     userEmail = "eturkeltaub@stripe.com";
@@ -25,10 +26,15 @@ with lib;
     };
 
     extraConfig = {
-      push = { default = "simple"; };
-      core = { "preloadindex" = true; };
+      core = {
+        preloadindex = true;
+        deltabasecachelimit = "4g";
+      };
       help = { "autocorrect" = 1; };
+      feature = { manyfiles = true; };
+      fetch = { prune = true; };
       merge = { renameLimit = 10000; };
+      push = { default = "simple"; };
     };
   };
 

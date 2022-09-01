@@ -10,6 +10,7 @@
     fd
     grex
     htop
+    mas
     manix
     mtr
     pv
