@@ -30,6 +30,7 @@ jobs:
       matrix:
         host:
           - eMac
+          - st-eturkeltaub2
   formatting:
     runs-on: macos-latest
     steps:
@@ -56,9 +57,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix fmt **/*.nix -- --check
-      - run: |2
-             nix develop -c "statix" "check" "."
+            nix flake -Lv check --show-trace
 name: CI
 on:
   push: {}
