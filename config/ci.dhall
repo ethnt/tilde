@@ -71,7 +71,7 @@ let format =
       GithubActions.Step::{
       , run = Some
           ''
-            nix fmt "**/*.nix" -- --check
+            nix fmt **/*.nix -- --check
           ''
       }
 

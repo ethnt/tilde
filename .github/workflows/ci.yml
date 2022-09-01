@@ -58,7 +58,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix fmt "**/*.nix" -- --check
+            nix fmt **/*.nix -- --check
       - run: |2
              nix develop -c "statix" "check" "."
 name: CI
