@@ -71,7 +71,7 @@ let format =
       GithubActions.Step::{
       , run = Some
           ''
-            nix develop -c "bud" "ci.format"
+            nix develop -c "bud" "format"
           ''
       }
 
@@ -79,23 +79,7 @@ let lint =
       GithubActions.Step::{
       , run = Some
           ''
-             nix develop -c "bud" "ci.lint"
-          ''
-      }
-
-let shellcheck =
-      GithubActions.Step::{
-      , run = Some
-          ''
-             nix develop -c "bud" "ci.shellcheck"
-          ''
-      }
-
-let dhall =
-      GithubActions.Step::{
-      , run = Some
-          ''
-             nix develop -c "bud" "ci.dhall"
+            nix develop -c "bud" "lint"
           ''
       }
 
@@ -105,9 +89,9 @@ in  GithubActions.Workflow::{
     , name = "CI"
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
-        { check = GithubActions.Job::{
+        { quality = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ check ]
+          , steps = setup # [ format, lint ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest

@@ -2,4 +2,5 @@
 
 shopt -s globstar
 
+statix check .
 dhall format --check ./**/*.dhall

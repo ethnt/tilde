@@ -30,7 +30,7 @@ jobs:
       matrix:
         host:
           - eMac
-  check:
+  quality:
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -56,7 +56,9 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix flake -Lv check --no-build --show-trace
+            nix develop -c "bud" "format"
+      - run: |2
+            nix develop -c "bud" "lint"
 name: CI
 on:
   push: {}
