@@ -33,14 +33,9 @@
     '';
   };
 
-  test-nix-format = self.inputs.flake-utils.lib.mkApp {
+  test-format = self.inputs.flake-utils.lib.mkApp {
     drv = pkgs.writeShellScriptBin "test-format" ''
       ${pkgs.nixfmt}/bin/nixfmt --check **/*.nix
-    '';
-  };
-
-  test-dhall-format = self.inputs.flake-utils.lib.mkApp {
-    drv = pkgs.writeShellScriptBin "test-format" ''
       ${pkgs.dhall}/bin/dhall format --check **/*.dhall
     '';
   };

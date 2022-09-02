@@ -60,9 +60,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix run .#test-format-nix
-      - run: |2
-            nix run .#test-format-dhall
+            nix run .#test-format
       - run: |2
             nix run .#test-lint
 name: CI

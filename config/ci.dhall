@@ -70,19 +70,11 @@ let build =
           ''
       }
 
-let format-nix =
+let format =
       GithubActions.Step::{
       , run = Some
           ''
-            nix run .#test-format-nix
-          ''
-      }
-
-let format-dhall =
-      GithubActions.Step::{
-      , run = Some
-          ''
-            nix run .#test-format-dhall
+            nix run .#test-format
           ''
       }
 
@@ -102,7 +94,7 @@ in  GithubActions.Workflow::{
     , jobs = toMap
         { code = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ format-nix, format-dhall, lint ]
+          , steps = setup # [ format, lint ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
