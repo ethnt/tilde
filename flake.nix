@@ -42,9 +42,7 @@
 
       supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
 
-      channelsConfig = {
-        allowUnfree = true;
-      };
+      channelsConfig = { allowUnfree = true; };
 
       channels = {
         nixpkgs = {
