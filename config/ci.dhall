@@ -55,7 +55,7 @@ let check =
       GithubActions.Step::{
       , run = Some
           ''
-            nix flake -Lv check --show-trace
+            nix flake -Lv check --no-build --show-trace
           ''
       }
 
@@ -105,9 +105,9 @@ in  GithubActions.Workflow::{
     , name = "CI"
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
-        { formatting = GithubActions.Job::{
+        { check = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ format, lint, shellcheck, dhall ]
+          , steps = setup # [ check ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
