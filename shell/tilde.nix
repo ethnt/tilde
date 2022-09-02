@@ -17,7 +17,11 @@
     (addPackage "runtime" pkgs.nixUnstable)
     (addPackage "runtime" pkgs.cachix)
 
-    (addPackage "formatting" pkgs.nixfmt)
-    (addPackage "formatting" pkgs.statix)
+    (addPackage "development" pkgs.git-crypt)
+    (addPackage "development" pkgs.dhall)
+
+    (addPackage "quality" pkgs.nixfmt)
+    (addPackage "quality" pkgs.statix)
+    (addPackage "quality" pkgs.shellcheck)
   ];
 }

@@ -9,12 +9,14 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v16"
+      , uses = Some "cachix/install-nix-action@v17"
       , `with` = Some
           ( toMap
               { nix_path = "nixpkgs=channel:nixos-unstable"
               , extra_nix_config =
-                  "system-features = nixos-test benchmark big-parallel kvm"
+                  ''
+                    allow-import-from-derivation = true
+                  ''
               }
           )
       }
@@ -47,6 +49,7 @@ let cachix =
           ( toMap
               { name = "tilde"
               , authToken = "\${{ secrets.CACHIX_AUTH_TOKEN }}"
+              , extraPullNames = "tilde,nix-community,nrdxp"
               }
           )
       }
@@ -67,20 +70,36 @@ let build =
           ''
       }
 
+let format =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix develop -c "bud" "format"
+          ''
+      }
+
+let lint =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix develop -c "bud" "lint"
+          ''
+      }
+
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
-        { check = GithubActions.Job::{
+        { code = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ check ]
+          , steps = setup # [ format, lint ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
-            , matrix = toMap { host = [ "eMac", "st-eturkeltaub1" ] }
+            , matrix = toMap { host = [ "eMac" ] }
             }
           , steps = setup # [ build ]
           }

@@ -10,16 +10,8 @@ let
       ${command}
     '';
 in hostChecks // {
-  nix-format = runCodeAnalysis "nix-format" ''
+  format = runCodeAnalysis "format" ''
     ${pkgs.nixfmt}/bin/nixfmt --check **/*.nix
-  '';
-
-  dhall-format = runCodeAnalysis "dhall-format" ''
-    ${pkgs.dhall}/bin/dhall format --check **/*.dhall
-  '';
-
-  editorconfig-chcker = runCodeAnalysis "editorconfig-checker" ''
-    ${pkgs.editorconfig-checker}/bin/editorconfig-checker
   '';
 
   lint = runCodeAnalysis "lint" ''

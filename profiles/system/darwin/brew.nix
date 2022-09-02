@@ -1,12 +1,14 @@
 {
   homebrew = {
     enable = true;
+
     casks = [
       "1password"
       "bartender"
       "dash"
+      "firefox"
       "hazel"
-      # "istats-menu"
+      "istat-menus"
       "iterm2"
       "raycast"
       "spotify"

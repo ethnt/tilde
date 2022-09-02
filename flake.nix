@@ -12,7 +12,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-vscode-pin.url =
-      "github:nixos/nixpkgs/bad8f550a7362cb72f4bd4dea09d2386f4ef632b";
+      "github:nixos/nixpkgs/5e24229488e7968f05a06a07096dd917138d7f27";
 
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -42,7 +42,7 @@
 
       supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
 
-      channelsConfig.allowUnfree = true;
+      channelsConfig = { allowUnfree = true; };
 
       channels = {
         nixpkgs = {
@@ -69,7 +69,7 @@
       ];
 
       darwin = let
-        mkHost = { host, user, system ? "x86_64-darwin", }: {
+        mkHost = { host, user, system ? "x86_64-darwin" }: {
           inherit system;
 
           modules = [
@@ -95,9 +95,10 @@
             user = "ethan";
           };
 
-          st-eturkeltaub1 = mkHost {
-            host = "st-eturkeltaub1";
+          st-eturkeltaub2 = mkHost {
+            host = "st-eturkeltaub2";
             user = "eturkeltaub";
+            system = "aarch64-darwin";
           };
         };
 
@@ -174,6 +175,7 @@
         in {
           checks = import ./checks { inherit self pkgs; };
           apps = import ./apps { inherit self pkgs; };
+          formatter = pkgs.nixfmt;
         };
     } // {
       budModules = { tilde = import ./shell/bud; };
