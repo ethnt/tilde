@@ -4,7 +4,7 @@
       synopsis = "ci.format";
       script = ./cmd/ci-format.bash;
       writer = budUtils.writeBashWithPaths
-        (with pkgs; [ coreutils git nixUnstable nixfmt ]);
+        (with pkgs; [ coreutils git nixUnstable git-crypt nixfmt ]);
       help = "Check the formatting of the project";
     };
 
@@ -12,7 +12,7 @@
       synopsis = "ci.lint";
       script = ./cmd/ci-lint.bash;
       writer = budUtils.writeBashWithPaths
-        (with pkgs; [ coreutils git nixUnstable statix ]);
+        (with pkgs; [ coreutils git nixUnstable git-crypt statix ]);
       help = "Lint the project with Statix";
     };
 
@@ -20,7 +20,7 @@
       synopsis = "ci.shellcheck";
       script = ./cmd/ci-shellcheck.bash;
       writer = budUtils.writeBashWithPaths
-        (with pkgs; [ coreutils git nixUnstable fd shellcheck ]);
+        (with pkgs; [ coreutils git nixUnstable git-crypt fd shellcheck ]);
       help = "Check bash files with Shellcheck";
     };
 
@@ -28,23 +28,23 @@
       synopsis = "ci.dhall";
       script = ./cmd/ci-dhall.bash;
       writer = budUtils.writeBashWithPaths
-        (with pkgs; [ coreutils git nixUnstable dhall ]);
+        (with pkgs; [ coreutils git nixUnstable git-crypt dhall ]);
       help = "Check Dhall file formatting";
     };
 
     build = {
       synopsis = "build [host]";
       script = ./cmd/build.bash;
-      writer =
-        budUtils.writeBashWithPaths (with pkgs; [ coreutils git nixUnstable ]);
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git git-crypt nixUnstable ]);
       help = "Build the defined Tilde configuration";
     };
 
     update-input = {
       synopsis = "update-input [input]";
       script = ./cmd/update-input.bash;
-      writer =
-        budUtils.writeBashWithPaths (with pkgs; [ coreutils git nixUnstable ]);
+      writer = budUtils.writeBashWithPaths
+        (with pkgs; [ coreutils git git-crypt nixUnstable ]);
       help = "Update a specific flake input";
     };
 
@@ -52,7 +52,7 @@
       synopsis = "repl [flake]";
       script = (import ./cmd/repl pkgs).outPath;
       writer = budUtils.writeBashWithPaths
-        (with pkgs; [ nixUnstable gnused git mercurial coreutils ]);
+        (with pkgs; [ nixUnstable gnused git mercurial coreutils git-crypt ]);
       help = "Enter a REPL with the flake's outputs";
     };
 
