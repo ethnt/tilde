@@ -69,7 +69,7 @@
       ];
 
       darwin = let
-        mkHost = { host, user, system ? "x86_64-darwin", }: {
+        mkHost = { host, user, system ? "x86_64-darwin" }: {
           inherit system;
 
           modules = [
