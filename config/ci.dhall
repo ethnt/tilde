@@ -93,7 +93,7 @@ in  GithubActions.Workflow::{
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
         { code = GithubActions.Job::{
-          , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
+          , runs-on = GithubActions.RunsOn.Type.macos-latest
           , steps = setup # [ format, lint ]
           }
         , build = GithubActions.Job::{
