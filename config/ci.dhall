@@ -74,7 +74,7 @@ let format =
       GithubActions.Step::{
       , run = Some
           ''
-            nix develop -c "bud" "format"
+            nix run .#test-format
           ''
       }
 
@@ -82,7 +82,7 @@ let lint =
       GithubActions.Step::{
       , run = Some
           ''
-            nix develop -c "bud" "lint"
+            nix run .#test-lint
           ''
       }
 
