@@ -95,11 +95,6 @@
             user = "ethan";
           };
 
-          st-eturkeltaub1 = mkHost {
-            host = "st-eturkeltaub1";
-            user = "eturkeltaub";
-          };
-
           st-eturkeltaub2 = mkHost {
             host = "st-eturkeltaub2";
             user = "eturkeltaub";
