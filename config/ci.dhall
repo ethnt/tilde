@@ -96,10 +96,6 @@ in  GithubActions.Workflow::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , steps = setup # [ format, lint ]
           }
-        , check = GithubActions.Job::{
-          , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ check ]
-          }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , strategy = Some GithubActions.Strategy::{
