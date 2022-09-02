@@ -70,11 +70,19 @@ let build =
           ''
       }
 
-let format =
+let format-nix =
       GithubActions.Step::{
       , run = Some
           ''
-            nix develop -c "bud" "format"
+            nix run .#test-format-nix
+          ''
+      }
+
+let format-dhall =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix run .#test-format-dhall
           ''
       }
 
@@ -82,7 +90,7 @@ let lint =
       GithubActions.Step::{
       , run = Some
           ''
-            nix develop -c "bud" "lint"
+            nix run .#test-lint
           ''
       }
 
@@ -94,7 +102,7 @@ in  GithubActions.Workflow::{
     , jobs = toMap
         { code = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
-          , steps = setup # [ format, lint ]
+          , steps = setup # [ format-nix, format-dhall, lint ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest

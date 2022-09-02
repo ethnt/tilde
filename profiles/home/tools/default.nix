@@ -13,6 +13,7 @@
     mas
     manix
     mtr
+    nix-index
     pv
     ripgrep
     sd
