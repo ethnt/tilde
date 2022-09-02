@@ -20,7 +20,8 @@
     (addPackage "development" pkgs.git-crypt)
     (addPackage "development" pkgs.dhall)
 
-    (addPackage "formatting" pkgs.nixfmt)
-    (addPackage "formatting" pkgs.statix)
+    (addPackage "quality" pkgs.nixfmt)
+    (addPackage "quality" pkgs.statix)
+    (addPackage "quality" pkgs.shellcheck)
   ];
 }
