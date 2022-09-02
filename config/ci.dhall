@@ -9,12 +9,14 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v16"
+      , uses = Some "cachix/install-nix-action@v17"
       , `with` = Some
           ( toMap
               { nix_path = "nixpkgs=channel:nixos-unstable"
               , extra_nix_config =
-                  "system-features = nixos-test benchmark big-parallel kvm"
+                  ''
+                    allow-import-from-derivation = true
+                  ''
               }
           )
       }
@@ -47,6 +49,7 @@ let cachix =
           ( toMap
               { name = "tilde"
               , authToken = "\${{ secrets.CACHIX_AUTH_TOKEN }}"
+              , extraPullNames = "tilde,nix-community,nrdxp"
               }
           )
       }
@@ -55,7 +58,7 @@ let check =
       GithubActions.Step::{
       , run = Some
           ''
-            nix flake -Lv check --no-build --show-trace
+            nix flake -Lv check --show-trace
           ''
       }
 
@@ -89,9 +92,13 @@ in  GithubActions.Workflow::{
     , name = "CI"
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
-        { quality = GithubActions.Job::{
+        { code = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , steps = setup # [ format, lint ]
+          }
+        , check = GithubActions.Job::{
+          , runs-on = GithubActions.RunsOn.Type.macos-latest
+          , steps = setup # [ check ]
           }
         , build = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
