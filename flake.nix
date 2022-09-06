@@ -145,7 +145,7 @@
               tmux
               tools
             ];
-            development = [ asdf git vscode ];
+            development = [ asdf git gh vscode ];
             programming = [ elixir ruby ];
             identity = [ gnupg ];
             orchard = [ tailscale ];
