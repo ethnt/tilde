@@ -8,6 +8,7 @@
     duf
     exa
     fd
+    gnused
     grex
     htop
     mas

@@ -11,5 +11,11 @@
   # Don't override the SSH known hosts file, it is managed by Stripe IT
   environment.etc."ssh/ssh_known_hosts".enable = false;
 
-  homebrew.casks = [ "keepingyouawake" ];
+  homebrew = {
+    # FIXME: $PATH doesn't pick up nix's `gnused` before the system one, but it does pick up the Homebrew version
+    # https://github.com/ethnt/tilde/issues/71
+    brews = [ "gnu-sed" ];
+    casks = [ "keepingyouawake" "logseq" "obsidian" ];
+    masApps = { "Omnifocus 3" = 1346203938; };
+  };
 }

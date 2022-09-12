@@ -23,6 +23,7 @@
       superprune = "!sh ${superprune}";
       co = "!sh ${co}";
     };
+
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
     delta.enable = true;
