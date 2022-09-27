@@ -22,5 +22,6 @@
     systems = [ "x86_64-linux" ];
     sshKey = "/etc/${config.environment.etc."nix/docker_rsa".target}";
     maxJobs = 4;
+    supportedFeatures = [ "big-parallel" ];
   }];
 }

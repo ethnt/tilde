@@ -41,7 +41,7 @@
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
 
-      "explorer.fileNesting.enabled" = true;
+      "explorer.fileNesting.enabled" = false;
 
       "explorer.fileNesting.patterns" = {
         "*.ts" = "\${capture}.js";

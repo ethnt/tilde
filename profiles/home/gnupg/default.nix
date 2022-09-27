@@ -152,9 +152,9 @@
       '';
       trust = "ultimate";
     }];
-  };
 
-  home.file.".gnupg/gpg-agent.conf" = { source = ./gpg-agent.conf; };
+    pinentryPath = "/usr/local/bin/pinentry-mac";
+  };
 
   # This has to be set here, even though gpg-agent in nix-darwin should be able to set it
   home.sessionVariables = {

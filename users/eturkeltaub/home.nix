@@ -14,6 +14,8 @@ with lib;
   home.sessionVariables = { KEYID = config.tilde.home.gpg.keyId; };
   home.sessionPath = mkAfter [ "/opt/homebrew" ];
 
+  programs.gpg.pinentryPath = "/opt/local/bin/pinentry-mac";
+
   programs.git = {
     userEmail = "eturkeltaub@stripe.com";
     userName = "Ethan Turkeltaub";
