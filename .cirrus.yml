@@ -9,4 +9,6 @@ task:
     - name: build
       build_script:
         - sh <(curl -L https://nixos.org/nix/install)
+        - echo $PWD
+        - ls
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
