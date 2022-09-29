@@ -10,4 +10,6 @@ task:
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
       build_script:
-        - bash -c "nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace"
+        - git init
+        - git add .
+        - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
