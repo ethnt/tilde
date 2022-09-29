@@ -10,5 +10,5 @@ task:
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
       build_script:
-        - /nix/var/nix/profiles/default/bin/nix flake prefetch --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
-        - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
+        - /nix/var/nix/profiles/default/bin/nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
+        # - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
