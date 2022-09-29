@@ -12,4 +12,5 @@ task:
       build_script:
         - git init
         - git add .
+        - /nix/var/nix/profiles/default/bin/nix flake init --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
