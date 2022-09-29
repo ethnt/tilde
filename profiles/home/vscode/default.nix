@@ -50,7 +50,6 @@
         "*.tsx" = "\${capture}.ts";
         "tsconfig.json" = "tsconfig.*.json";
         "package.json" = "package-lock.json, yarn.lock";
-        "flake.nix" = "flake.lock";
       };
     };
 
