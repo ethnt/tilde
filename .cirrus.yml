@@ -9,5 +9,4 @@ task:
     - name: build
       build_script:
         - sh <(curl -L https://nixos.org/nix/install)
-        - exec $SHELL
-        - nix build .#darwinConfigurations.st-eturkeltaub2.system
+        - /run/current-system/sw/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system
