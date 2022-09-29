@@ -32,7 +32,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, ... }:
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
