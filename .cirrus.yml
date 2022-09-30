@@ -49,13 +49,11 @@ task:
         - chmod 0400 /tmp/pragmatapro-key
         - ssh-add --apple-use-keychain /tmp/pragmatapro-key
 
-      unlock_script:
-        - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
-        - /nix/var/nix/profiles/default/bin/nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
-        - brew install git-crypt
-
       build_script:
+        - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
+        - brew install git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
+        - git add .
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
         # - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
         # - /nix/var/nix/profiles/default/bin/nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
