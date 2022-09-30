@@ -11,6 +11,7 @@ task:
         GIT_CRYPT_TOKEN: ENCRYPTED[415884b4c6e8e899e8808b433a8fc0c153f095c6fef7db2963b7ab0110bd53b9d79e5d37a7543987f34290c7c8c70686]
         PRAGMATAPRO_SSH_KEY: ENCRYPTED[c1d1c03146c8dfdd70f6a982cf45bef1ecc468d7af6525048bdde512516e809b8ee9b520f31dfc73a3d4244cfcfa5355]
         CIRRUS_USER_PERMISSION: admin
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
         - mkdir -p $HOME/.config/nix
@@ -45,8 +46,7 @@ task:
               UseKeychain yes
               IdentityFile /tmp/pragmatapro-key
           " >> $HOME/.ssh/config
-        - echo "$PRAGMATAPRO_SSH_KEY" > /tmp/pragmatapro-key
-        - echo "$PRAGMATAPRO_SSH_KEY" > $HOME/.ssh/id_rsa
+        # - echo "$PRAGMATAPRO_SSH_KEY" > /tmp/pragmatapro-key
         - chmod 0400 /tmp/pragmatapro-key
         - ssh-add --apple-use-keychain /tmp/pragmatapro-key
 
