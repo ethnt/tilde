@@ -15,8 +15,8 @@ task:
         - sh <(curl -L https://nixos.org/nix/install)
         - mkdir -p $HOME/.config/nix
         - echo "extra-experimental-features = nix-command flakes" >> $HOME/.config/nix/nix.conf
-        - echo "$(whoami)"
-        - echo "trusted-users = $(whoami)" >> $HOME/.config/nix/nix.conf
+        - whoami
+        - echo "trusted-users = cirrus" >> $HOME/.config/nix/nix.conf
         # - |
         #   mkdir -p $HOME/.local/share/nix
         #   echo "
@@ -37,6 +37,7 @@ task:
         #     }
         #   " >> $HOME/.local/share/nix/trusted-settings.json
       build_script:
+        - eval "$(ssh-agent -s)"
         - echo "$PRAGMATAPRO_SSH_KEY" > /tmp/pragmatapro-key
         - ssh-add -K /tmp/pragmatapro-key
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
