@@ -12,6 +12,7 @@ task:
         PRAGMATAPRO_SSH_KEY: ENCRYPTED[c1d1c03146c8dfdd70f6a982cf45bef1ecc468d7af6525048bdde512516e809b8ee9b520f31dfc73a3d4244cfcfa5355]
         CIRRUS_USER_PERMISSION: admin
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        CACHIX_AUTH_TOKEN: ENCRYPTED[7e00c3086fa51a56acd871027b2e32003e93224b6bc0b978d39ef1b05bc65a458c71c8a6663b508a19eeba05560b37e3]
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
         - mkdir -p $HOME/.config/nix
@@ -59,6 +60,8 @@ task:
         - git-crypt unlock /tmp/git-crypt-key.asc
         - git add .
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
+
+      cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
         # - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
         # - /nix/var/nix/profiles/default/bin/nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
