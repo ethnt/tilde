@@ -22,12 +22,12 @@ task:
       ssh_agent_script:
         - eval "$(ssh-agent -s)"
         - mkdir $HOME/.ssh
-        - |
-          echo "
-            Host *
-              AddKeysToAgent yes
-              IdentityFile /tmp/pragmatapro-key
-          " >> $HOME/.ssh/config
+        # - |
+        #   echo "
+        #     Host *
+        #       AddKeysToAgent yes
+        #       IdentityFile /tmp/pragmatapro-key
+        #   " >> $HOME/.ssh/config
         - echo "$PRAGMATAPRO_SSH_KEY" > /tmp/pragmatapro-key
         - chmod 0400 /tmp/pragmatapro-key
         - ssh-add --apple-use-keychain /tmp/pragmatapro-key
