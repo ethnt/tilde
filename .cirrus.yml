@@ -11,7 +11,7 @@ task:
         GIT_CRYPT_TOKEN: ENCRYPTED[415884b4c6e8e899e8808b433a8fc0c153f095c6fef7db2963b7ab0110bd53b9d79e5d37a7543987f34290c7c8c70686]
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
-        - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+        - sudo echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
       build_script:
         - echo $GIT_CRYPT_TOKEN > /tmp/token.key
         - /nix/var/nix/profiles/default/bin/nix develop -c "git-crypt" "unlock" "/tmp/token.key"
