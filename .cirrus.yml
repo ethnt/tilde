@@ -15,8 +15,7 @@ task:
         - sh <(curl -L https://nixos.org/nix/install)
         - mkdir -p $HOME/.config/nix
         - echo "extra-experimental-features = nix-command flakes" >> $HOME/.config/nix/nix.conf
-        - whoami
-        - echo "trusted-users = cirrus" >> $HOME/.config/nix/nix.conf
+        - echo "trusted-users = admin" >> $HOME/.config/nix/nix.conf
         # - |
         #   mkdir -p $HOME/.local/share/nix
         #   echo "
@@ -36,10 +35,21 @@ task:
         #       }
         #     }
         #   " >> $HOME/.local/share/nix/trusted-settings.json
-      build_script:
+      ssh_agent_script:
         - eval "$(ssh-agent -s)"
+        - mkdir $HOME/.ssh
+        - |
+          echo "
+            Host *
+              AddKeysToAgent yes
+              UseKeychain yes
+              IdentityFile /tmp/pragmatapro-key
+          " >> $HOME/.ssh/config
         - echo "$PRAGMATAPRO_SSH_KEY" > /tmp/pragmatapro-key
-        - ssh-add -K /tmp/pragmatapro-key
+        - chmod 0400 /tmp/pragmatapro-key
+        - ssh-add --apple-use-keychain /tmp/pragmatapro-key
+
+      unlock_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - /nix/var/nix/profiles/default/bin/nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
         # - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
