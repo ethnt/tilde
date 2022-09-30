@@ -16,25 +16,25 @@ task:
         - mkdir -p $HOME/.config/nix
         - echo "extra-experimental-features = nix-command flakes" >> $HOME/.config/nix/nix.conf
         - echo "trusted-users = admin" >> $HOME/.config/nix/nix.conf
-        # - |
-        #   mkdir -p $HOME/.local/share/nix
-        #   echo "
-        #     {
-        #       \"extra-experimental-features\": {
-        #         \"nix-command flakes\": true,
-        #         \"nix-command flakes ca-references\": true
-        #       },
-        #       \"extra-substituters\": {
-        #         \"https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org\": true
-        #       },
-        #       \"extra-trusted-public-keys\": {
-        #         \"tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=\": true
-        #       },
-        #       \"trusted-substituters\": {
-        #         \"https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org\": true
-        #       }
-        #     }
-        #   " >> $HOME/.local/share/nix/trusted-settings.json
+        - |
+          mkdir -p $HOME/.local/share/nix
+          echo "
+            {
+              \"extra-experimental-features\": {
+                \"nix-command flakes\": true,
+                \"nix-command flakes ca-references\": true
+              },
+              \"extra-substituters\": {
+                \"https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org\": true
+              },
+              \"extra-trusted-public-keys\": {
+                \"tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=\": true
+              },
+              \"trusted-substituters\": {
+                \"https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org\": true
+              }
+            }
+          " >> $HOME/.local/share/nix/trusted-settings.json
       ssh_agent_script:
         - eval "$(ssh-agent -s)"
         - mkdir $HOME/.ssh
@@ -52,6 +52,7 @@ task:
       unlock_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - /nix/var/nix/profiles/default/bin/nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
+        - brew install git-crypt
 
       build_script:
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
