@@ -46,7 +46,6 @@ task:
               IdentityFile /tmp/pragmatapro-key
           " >> $HOME/.ssh/config
         - echo "$PRAGMATAPRO_SSH_KEY" > /tmp/pragmatapro-key
-        - mkdir $HOME/.ssh
         - echo "$PRAGMATAPRO_SSH_KEY" > $HOME/.ssh/id_rsa
         - chmod 0400 /tmp/pragmatapro-key
         - ssh-add --apple-use-keychain /tmp/pragmatapro-key
