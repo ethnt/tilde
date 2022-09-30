@@ -12,8 +12,8 @@ task:
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
       build_script:
-        - echo $GIT_CRYPT_TOKEN > /tmp/token.key
-        - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/token.key"
+        - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
+        - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
         - cat users/eturkeltaub/secrets.nix
         # - /nix/var/nix/profiles/default/bin/nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
         # - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
