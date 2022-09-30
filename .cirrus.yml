@@ -12,9 +12,10 @@ task:
         CIRRUS_USER_PERMISSION: admin
       install_script:
         - sh <(curl -L https://nixos.org/nix/install)
-        - echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+        - echo "extra-experimental-features = nix-command flakes" >> $HOME/.config/nix/nix.conf
       build_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
-        - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
+        - /nix/var/nix/profiles/default/bin/nix develop -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
+        # - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
         # - /nix/var/nix/profiles/default/bin/nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
         # - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
