@@ -1,4 +1,5 @@
 /.direnv/
 /result
+/tmp/
 
 .DS_Store
