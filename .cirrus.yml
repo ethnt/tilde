@@ -49,7 +49,6 @@ task:
         - echo "$PRAGMATAPRO_SSH_KEY" > $HOME/.ssh/id_rsa
         - chmod 0400 /tmp/pragmatapro-key
         - ssh-add --apple-use-keychain /tmp/pragmatapro-key
-        - git config --global --add url.
 
       build_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
