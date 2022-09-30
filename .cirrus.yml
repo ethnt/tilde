@@ -55,6 +55,7 @@ task:
         - brew install git-crypt
 
       build_script:
+        - git-crypt unlock /tmp/git-crypt-key.asc
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
         # - /nix/var/nix/profiles/default/bin/nix develop --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace -c "git-crypt" "unlock" "/tmp/git-crypt-key.asc"
         # - /nix/var/nix/profiles/default/bin/nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
