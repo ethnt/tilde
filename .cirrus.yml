@@ -20,7 +20,7 @@ task:
         - echo "trusted-users = admin" >> $HOME/.config/nix/nix.conf
 
       ssh_agent_script:
-        - eval "$(ssh-agent -s)"
+        - eval "$(ssh-agent)"
         - mkdir $HOME/.ssh
         - |
           echo "
@@ -33,8 +33,6 @@ task:
         - chmod 0400 /tmp/pragmatapro-key
         - ssh-add --apple-use-keychain /tmp/pragmatapro-key
         - git clone https://github.com/ethnt/pragmatapro.git
-
-      build_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - brew install git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
