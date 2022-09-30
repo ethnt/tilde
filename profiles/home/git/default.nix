@@ -4,7 +4,11 @@
   programs.git = {
     enable = true;
 
-    aliases = { "s" = "status"; };
+    aliases = {
+      "s" = "status";
+      fza =
+        "!git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add";
+    };
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
     delta.enable = true;

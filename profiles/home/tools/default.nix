@@ -6,6 +6,7 @@
     dogdns
     du-dust
     duf
+    dug
     exa
     fd
     grex
