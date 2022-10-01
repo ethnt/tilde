@@ -28,10 +28,12 @@ task:
 
       cachix_script: &cachix_script
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
-    - name: Check
+
+    - name: Test
       environment: *environment
       install_script: *install_script
       git_crypt_script: *git_crypt_script
-      check_script:
-        - /nix/var/nix/profiles/default/bin/nix flake check --show-trace
+      test_script:
+        - /nix/var/nix/profiles/default/bin/nix run .#test-format --show-trace
+        - /nix/var/nix/profiles/default/bin/nix run .#test-lint --show-trace
       cachix_script: *cachix_script
