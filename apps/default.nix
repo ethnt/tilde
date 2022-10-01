@@ -30,6 +30,10 @@
       ${pkgs.dhall-json}/bin/dhall-to-yaml \
         --file config/ci.dhall \
         --output .github/workflows/ci.yml
+
+      ${pkgs.dhall-json}/bin/dhall-to-yaml \
+        --file config/cirrus.dhall \
+        --output .cirrus.yml
     '';
   };
 

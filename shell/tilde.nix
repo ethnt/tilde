@@ -22,5 +22,6 @@
 
     (addPackage "code" pkgs.nixfmt)
     (addPackage "code" pkgs.statix)
+    (addPackage "code" pkgs.haskellPackages.dhall-yaml)
   ];
 }
