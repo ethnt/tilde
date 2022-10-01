@@ -24,7 +24,9 @@ task:
         - git add .
 
       build_script:
-        - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
+        matrix:
+          - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
+          - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.eMac.system --show-trace
 
       cachix_script: &cachix_script
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
