@@ -24,5 +24,4 @@ task:
         - git add .
 
       build_script:
-        matrix:
-          - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
+        - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
