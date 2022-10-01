@@ -33,7 +33,7 @@ task:
       environment: *environment
       install_script: *install_script
       git_crypt_script: *git_crypt_script
-      test_script:
+      lint_script:
         - /nix/var/nix/profiles/default/bin/nix run .#test-format --show-trace
+      format_script:
         - /nix/var/nix/profiles/default/bin/nix run .#test-lint --show-trace
-      cachix_script: *cachix_script
