@@ -67,7 +67,7 @@
       ];
 
       darwin = let
-        mkHost = { host, user, system ? "x86_64-darwin", }: {
+        mkHost = { host, user, system }: {
           inherit system;
 
           modules = [
@@ -91,6 +91,7 @@
           eMac = mkHost {
             host = "eMac";
             user = "ethan";
+            system = "x86_64-darwin";
           };
 
           st-eturkeltaub2 = mkHost {

@@ -21,8 +21,12 @@ task:
         - brew install git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
         - git add .
+      conf_script:
+        - cat /etc/nix/nix.conf
       build_script:
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
+      cachix_script:
+        - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
 
     - name: Check
       install_script:
@@ -35,5 +39,5 @@ task:
         - brew install git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
         - git add .
-      build_script:
+      check_script:
         - /nix/var/nix/profiles/default/bin/nix flake check -Lv --show-trace
