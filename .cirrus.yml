@@ -27,8 +27,8 @@ task:
       cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
 
-    - name: Check
-      install_script: *install_script
-      git_crypt_script: *git_crypt_script
-      check_script:
-        - /nix/var/nix/profiles/default/bin/nix flake check -Lv --show-trace
+    # - name: Check
+    #   install_script: *install_script
+    #   git_crypt_script: *git_crypt_script
+    #   check_script:
+    #     - /nix/var/nix/profiles/default/bin/nix flake check -Lv --show-trace
