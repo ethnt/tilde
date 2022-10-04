@@ -25,6 +25,8 @@ task:
       build_script:
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
       activate_script:
+        - printf 'run\tprivate/var/run\n' | sudo tee -a /etc/synthetic.conf
+        - /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
         - sudo ./result/sw/bin/darwin-rebuild activate
       cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
