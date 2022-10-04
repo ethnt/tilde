@@ -24,6 +24,8 @@ task:
         - git add .
       build_script:
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
+      activate_script:
+        - sudo ./result/sw/bin/darwin-rebuild activate
       cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
 
