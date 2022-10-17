@@ -25,6 +25,8 @@
     home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -32,7 +34,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, flake-utils, ... }:
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -65,7 +67,7 @@
       ];
 
       darwin = let
-        mkHost = { host, user, system ? "x86_64-darwin", }: {
+        mkHost = { host, user, system }: {
           inherit system;
 
           modules = [
@@ -89,6 +91,7 @@
           eMac = mkHost {
             host = "eMac";
             user = "ethan";
+            system = "x86_64-darwin";
           };
 
           st-eturkeltaub2 = mkHost {

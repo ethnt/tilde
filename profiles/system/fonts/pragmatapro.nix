@@ -1,1 +1,3 @@
-{ config, lib, pkgs, ... }: { fonts.fonts = with pkgs; [ pragmatapro ]; }
+{ config, lib, pkgs, ... }: {
+  # fonts.fonts = with pkgs; [ pragmatapro ];
+}
