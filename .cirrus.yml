@@ -10,7 +10,7 @@ task:
     GIT_CRYPT_TOKEN: ENCRYPTED[415884b4c6e8e899e8808b433a8fc0c153f095c6fef7db2963b7ab0110bd53b9d79e5d37a7543987f34290c7c8c70686]
 
   matrix:
-    - name: Build (st-eturkeltaub2)
+    - name: CI / build (st-eturkeltaub2)
       install_script: &install_script
         - sh <(curl -L https://nixos.org/nix/install)
         - mkdir -p $HOME/.config/nix
@@ -24,10 +24,6 @@ task:
         - git add .
       build_script:
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
-      activate_script:
-        - printf 'run\tprivate/var/run\n' | sudo tee -a /etc/synthetic.conf
-        - /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
-        - sudo ./result/sw/bin/darwin-rebuild activate
       cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
 
@@ -35,4 +31,4 @@ task:
       install_script: *install_script
       git_crypt_script: *git_crypt_script
       check_script:
-        - /nix/var/nix/profiles/default/bin/nix flake check -Lv --show-trace
+        - /nix/var/nix/profiles/default/bin/nix flake check --show-trace
