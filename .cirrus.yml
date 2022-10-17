@@ -10,7 +10,7 @@ task:
     GIT_CRYPT_TOKEN: ENCRYPTED[415884b4c6e8e899e8808b433a8fc0c153f095c6fef7db2963b7ab0110bd53b9d79e5d37a7543987f34290c7c8c70686]
 
   matrix:
-    - name: CI / build (st-eturkeltaub2)
+    - name: build (st-eturkeltaub2)
       install_script: &install_script
         - sh <(curl -L https://nixos.org/nix/install)
         - mkdir -p $HOME/.config/nix
@@ -27,8 +27,8 @@ task:
       cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
 
-    - name: Check
-      install_script: *install_script
-      git_crypt_script: *git_crypt_script
-      check_script:
-        - /nix/var/nix/profiles/default/bin/nix flake check --show-trace
+    # - name: check
+    #   install_script: *install_script
+    #   git_crypt_script: *git_crypt_script
+    #   check_script:
+    #     - /nix/var/nix/profiles/default/bin/nix flake check --show-trace
