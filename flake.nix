@@ -38,7 +38,7 @@
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
+      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" "x86_64-linux" ];
 
       channelsConfig = { allowUnfree = true; };
 
