@@ -34,6 +34,10 @@
       "nixfmt.path" = "${pkgs.nixfmt}/bin/nixfmt";
 
       "workbench.colorTheme" = "Solarized Dark";
+      "workbench.tree.indent" = 20;
+      "workbench.colorCustomizations" = {
+        "tree.indentGuidesStroke" = "#21343C";
+      };
 
       "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
 
