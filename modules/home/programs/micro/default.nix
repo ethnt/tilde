@@ -13,12 +13,15 @@ let
       '') configuration);
     }) cfg.colorschemes;
 in {
-  disabledModules = [ "home-manager/modules/programs/micro.nix" ];
-
   options.programs.micro = {
+    enable = mkEnableOption "Enable micro";
     package = mkOption {
       type = types.package;
       default = pkgs.micro;
+    };
+    settings = mkOption {
+      type = types.attrs;
+      default = { };
     };
     bindings = mkOption {
       description = "Rebind keys and key combinations to certain actions";
@@ -52,6 +55,7 @@ in {
     home.packages = [ cfg.package ];
 
     xdg.configFile = {
+      "micro/settings.json".text = builtins.toJSON settings;
       "micro/bindings.json".text = builtins.toJSON cfg.bindings;
     } // colorschemes;
 

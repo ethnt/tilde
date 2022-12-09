@@ -22,7 +22,7 @@
     digga.inputs.darwin.follows = "darwin";
     digga.inputs.home-manager.follows = "home-manager";
 
-    home-manager.url = "github:nix-community/home-manager/release-22.11";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
@@ -152,6 +152,8 @@
             programming = [ elixir ruby ];
             identity = [ gnupg ];
             orchard = [ tailscale ];
+
+            minimal = [ git gh fish ];
           };
         };
 
@@ -161,6 +163,8 @@
           eturkeltaub = { ... }: {
             imports = [ ./users/eturkeltaub/home.nix ];
           };
+
+          remote = { ... }: { imports = [ ./users/remote/home.nix ]; };
         };
       };
 

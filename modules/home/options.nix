@@ -23,7 +23,7 @@ in {
   # so we need to add `mkForce`
   config = {
     home = {
-      inherit (cfg) username;
+      username = mkForce cfg.username;
       homeDirectory = mkForce cfg.homeDirectory;
     };
   };
