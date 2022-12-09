@@ -15,12 +15,12 @@ with lib;
 
   programs.fish = {
     plugins = [{
-      name = "sushi";
+      name = "simple-ass-prompt";
       src = pkgs.fetchFromGitHub {
-        owner = "umayr";
-        repo = "theme-sushi";
-        rev = "2bd0236872de5c05f9eab7840cc90f836dd0e3c6";
-        sha256 = "kKd2DADh1rerfwA/Da+/43xi8U8JYaWVvyS4vReGcIM=";
+        owner = "lfiolhais";
+        repo = "theme-simple-ass-prompt";
+        rev = "b2d3ed234a0f9528369f5dc6452e2b1c6ca1b23e";
+        sha256 = "lAXUQg/gcgmVMxGO0eFnMsAk6L79YsZwSvyXvoLTCuo=";
       };
     }];
   };
