@@ -41,6 +41,8 @@
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
 
+      "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
+
       "explorer.fileNesting.enabled" = true;
 
       "explorer.fileNesting.patterns" = {
