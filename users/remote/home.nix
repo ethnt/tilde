@@ -12,4 +12,12 @@ with lib;
   };
 
   programs.git = { signing.key = config.tilde.home.gpg.keyId; };
+
+  programs.starship = {
+    settings = {
+      hostname = { style = "bold dimmed"; };
+
+      "custom.remote-name" = { command = "echo $remote_name"; };
+    };
+  };
 }
