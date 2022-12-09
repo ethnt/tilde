@@ -153,7 +153,7 @@
             identity = [ gnupg ];
             orchard = [ tailscale ];
 
-            minimal = [ git gh fish ];
+            minimal = [ git gh fish starship ];
           };
         };
 
