@@ -6,6 +6,4 @@
     homeDirectory = "/home/eturkeltaub";
     user = config.home-manager.users.remote;
   };
-
-  programs.git = { signing.key = config.tilde.home.gpg.keyId; };
 }

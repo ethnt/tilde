@@ -10,4 +10,6 @@ with lib;
     homeDirectory = "/home/eturkeltaub";
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
+
+  programs.git = { signing.key = config.tilde.home.gpg.keyId; };
 }
