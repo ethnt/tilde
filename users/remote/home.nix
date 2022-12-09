@@ -18,7 +18,7 @@ with lib;
 
     env_var.remote_name = {
       format = "[$env_value]($style) in ";
-      style = "bold fg:#859900";
+      style = "bold dimmed";
     };
 
     username.format = "[$user]($style) on ";
