@@ -146,14 +146,16 @@
               nushell
               starship
               tmux
-              tools
+              tools.common
+              tools.darwin
+              tools.extra
             ];
             development = [ asdf git gh vscode ];
             programming = [ elixir ruby ];
             identity = [ gnupg ];
             orchard = [ tailscale ];
 
-            minimal = [ git gh fish starship ];
+            minimal = [ git gh fish starship tools.common ];
           };
         };
 
