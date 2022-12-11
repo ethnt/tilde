@@ -29,6 +29,7 @@ with lib;
     nodejs.disabled = true;
     openstack.disabled = true;
     ruby.disabled = true;
+    git_status.disabled = true;
   };
 
   home.stateVersion = "22.05";

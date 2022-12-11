@@ -22,6 +22,7 @@
       s = "status";
       superprune = "!sh ${superprune}";
       co = "!sh ${co}";
+      sync = "!${pkgs.gh}/bin/gh repo sync";
     };
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
