@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ modulesPath, config, lib, pkgs, ... }:
 
 with lib;
 
@@ -14,15 +14,15 @@ let
     }) cfg.colorschemes;
 in {
   options.programs.micro = {
-    enable = mkEnableOption "Enable micro";
+    # enable = mkEnableOption "Enable micro";
     package = mkOption {
       type = types.package;
       default = pkgs.micro;
     };
-    settings = mkOption {
-      type = types.attrs;
-      default = { };
-    };
+    # settings = mkOption {
+    #   type = types.attrs;
+    #   default = { };
+    # };
     bindings = mkOption {
       description = "Rebind keys and key combinations to certain actions";
       type = types.attrsOf types.str;

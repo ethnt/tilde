@@ -30,4 +30,6 @@ with lib;
     openstack.disabled = true;
     ruby.disabled = true;
   };
+
+  home.stateVersion = "22.05";
 }
