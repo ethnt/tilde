@@ -12,7 +12,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-vscode-pin.url =
-      "github:nixos/nixpkgs/5e24229488e7968f05a06a07096dd917138d7f27";
+      "github:nixos/nixpkgs/b29b81e458554168c45ad02a399b4d6f53a79f24";
 
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +38,7 @@
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
+      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" "x86_64-linux" ];
 
       channelsConfig = { allowUnfree = true; };
 
@@ -146,12 +146,16 @@
               nushell
               starship
               tmux
-              tools
+              tools.common
+              tools.darwin
+              tools.extra
             ];
             development = [ asdf git gh vscode ];
             programming = [ elixir ruby ];
             identity = [ gnupg ];
             orchard = [ tailscale ];
+
+            minimal = [ git gh fish starship tools.common ];
           };
         };
 
@@ -161,6 +165,8 @@
           eturkeltaub = { ... }: {
             imports = [ ./users/eturkeltaub/home.nix ];
           };
+
+          remote = { ... }: { imports = [ ./users/remote/home.nix ]; };
         };
       };
 
