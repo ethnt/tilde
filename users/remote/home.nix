@@ -33,5 +33,6 @@ with lib;
     openstack.disabled = true;
     ruby.disabled = true;
     git_status.disabled = true;
+    package.disabled = true;
   };
 }
