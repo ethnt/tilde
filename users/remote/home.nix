@@ -11,7 +11,10 @@ with lib;
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
 
-  programs.git.signing.key = config.tilde.home.gpg.keyId;
+  programs.git.signing = {
+    signByDefault = mkOverride 10 false;
+    key = config.tilde.home.gpg.keyId;
+  };
 
   programs.starship.settings = {
     format = "$username$env_var$all";
