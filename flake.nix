@@ -150,12 +150,11 @@
               tools.darwin
               tools.extra
             ];
-            development = [ asdf git gh vscode ];
+            development = [ asdf git gh vscode neovim ];
             programming = [ elixir ruby ];
             identity = [ gnupg ];
-            orchard = [ tailscale ];
 
-            minimal = [ git gh fish starship tools.common ];
+            minimal = [ git gh fish neovim starship tools.common ];
           };
         };
 
