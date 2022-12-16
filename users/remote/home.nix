@@ -11,7 +11,20 @@ with lib;
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
 
-  programs.git.signing.key = config.tilde.home.gpg.keyId;
+  programs.git = {
+    signing = {
+      signByDefault = mkOverride 10 false;
+      key = config.tilde.home.gpg.keyId;
+    };
+    extraConfig = {
+      core = {
+        preloadindex = true;
+        deltabasecachelimit = "4g";
+      };
+      feature = { manyfiles = true; };
+      fetch = { prune = true; };
+    };
+  };
 
   programs.starship.settings = {
     format = "$username$env_var$all";
@@ -29,5 +42,7 @@ with lib;
     nodejs.disabled = true;
     openstack.disabled = true;
     ruby.disabled = true;
+    git_status.disabled = true;
+    package.disabled = true;
   };
 }

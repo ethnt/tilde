@@ -55,6 +55,8 @@
         "tsconfig.json" = "tsconfig.*.json";
         "package.json" = "package-lock.json, yarn.lock";
       };
+
+      "terminal.integrated.shell.linux" = "fish";
     };
 
     # FIXME: https://github.com/ethnt/tilde/issues/62
