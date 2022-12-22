@@ -5,7 +5,7 @@ with lib;
 let
   cfg = config.programs.micro;
   plugins = genAttrs cfg.plugins (name: true);
-  settings = cfg.settings // plugins;
+  # settings = cfg.settings // plugins;
   colorschemes = mapAttrs' (name: configuration:
     nameValuePair "micro/colorschemes/${name}.micro" {
       text = concatStringsSep "" (mapAttrsToList (variable: value: ''
@@ -14,14 +14,9 @@ let
     }) cfg.colorschemes;
 in {
   options.programs.micro = {
-    enable = mkEnableOption "Enable micro";
     package = mkOption {
       type = types.package;
       default = pkgs.micro;
-    };
-    settings = mkOption {
-      type = types.attrs;
-      default = { };
     };
     bindings = mkOption {
       description = "Rebind keys and key combinations to certain actions";
@@ -55,7 +50,6 @@ in {
     home.packages = [ cfg.package ];
 
     xdg.configFile = {
-      "micro/settings.json".text = builtins.toJSON settings;
       "micro/bindings.json".text = builtins.toJSON cfg.bindings;
     } // colorschemes;
 

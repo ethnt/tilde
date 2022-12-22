@@ -3,8 +3,7 @@
 with lib;
 
 {
-  imports = with suites;
-    (base ++ development ++ programming ++ identity);
+  imports = with suites; (base ++ development ++ programming ++ identity);
 
   tilde.home = {
     username = "ethan";
@@ -52,5 +51,9 @@ with lib;
     };
   };
 
-  # home.stateVersion = "22.05";
+  programs.vscode.userSettings = {
+    "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
+  };
+
+  home.stateVersion = "22.05";
 }

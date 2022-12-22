@@ -2,6 +2,12 @@
   programs.vscode = {
     enable = true;
 
+    # TODO: Something in `pkgs.vscode` is broken, even though it's the same package
+    package = pkgs.vscode-pinned;
+
+    mutableExtensionsDir = true;
+    enableUpdateCheck = false;
+
     userSettings = {
       "editor.fontFamily" = "PragmataPro Mono Liga, Operator Mono Lig, mono";
       "editor.fontLigatures" = true;
