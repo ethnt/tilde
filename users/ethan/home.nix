@@ -55,5 +55,5 @@ with lib;
     "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
   };
 
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
 }
