@@ -34,10 +34,7 @@ with lib;
     };
   };
 
-  programs.vscode = {
-    package = pkgs.vscode-pinned;
-    userSettings = { "update.mode" = "none"; };
-  };
+  programs.vscode = { userSettings = { "update.mode" = "none"; }; };
 
   programs.starship = {
     settings = {
@@ -67,5 +64,5 @@ with lib;
     };
   };
 
-  # home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
 }

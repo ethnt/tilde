@@ -32,8 +32,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile."gh/hosts.yml".source =
-      yamlFormat.generate "gh-hosts.yml" cfg.hosts;
+    # xdg.configFile."gh/hosts.yml".source =
+    #   yamlFormat.generate "gh-hosts.yml" cfg.hosts;
 
     home.sessionVariables.GH_HOST = cfg.defaultHost;
   };
