@@ -26,9 +26,3 @@ task:
         - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --show-trace
       cachix_script:
         - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
-
-    # - name: check
-    #   install_script: *install_script
-    #   git_crypt_script: *git_crypt_script
-    #   check_script:
-    #     - /nix/var/nix/profiles/default/bin/nix flake check --show-trace
