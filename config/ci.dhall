@@ -62,11 +62,19 @@ let check =
           ''
       }
 
-let build =
+let buildHost =
       GithubActions.Step::{
       , run = Some
           ''
             nix -Lv build .#darwinConfigurations.''${{ matrix.host }}.system --show-trace
+          ''
+      }
+
+let buildRemoteProfile =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix -Lv build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --show-trace
           ''
       }
 
@@ -96,12 +104,16 @@ in  GithubActions.Workflow::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , steps = setup # [ format, lint ]
           }
-        , build = GithubActions.Job::{
-          , runs-on = GithubActions.RunsOn.Type.macos-latest
+        , hosts = GithubActions.Job::{
+          , runs-on = GithubActions.RunsOn.Type.`${{ matrix.os }}`
           , strategy = Some GithubActions.Strategy::{
-            , matrix = toMap { host = [ "eMac" ] }
+            , matrix = toMap { host = [ "eMac" ], os = [ "macos-latest" ] }
             }
-          , steps = setup # [ build ]
+          , steps = setup # [ buildHost ]
+          }
+        , remote-profile = GithubActions.Job::{
+          , runs-on = GithubActions.RunsOn.Type.`ubuntu-20.04`
+          , steps = setup # [ buildRemoteProfile ]
           }
         }
     }
