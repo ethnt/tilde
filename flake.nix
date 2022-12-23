@@ -9,8 +9,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
+    nixpkgs-22_05.url = "github:nixos/nixpkgs/nixpkgs-22.05-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-vscode-pin.url =
       "github:nixos/nixpkgs/574aa59d1bcdf7ac79a19a87f23326861a66cd8d";
 
@@ -33,7 +33,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-master
+  outputs = inputs@{ self, nixpkgs, nixpkgs-22_05, nixpkgs-unstable, nixpkgs-master
     , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
@@ -46,6 +46,7 @@
         nixpkgs = {
           imports = [ (digga.lib.importOverlays ./overlays/nixpkgs) ];
         };
+        nixpkgs-22_05 = { };
         nixpkgs-unstable = { };
         nixpkgs-master = { };
         nixpkgs-vscode-pin = { };
