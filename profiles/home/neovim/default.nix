@@ -8,12 +8,14 @@
       ${builtins.readFile ./base.vim}
     '';
 
+    extraPackages = with pkgs; [ ranger ];
+
     plugins = with pkgs.vimPlugins; [
       ale
       deoplete-nvim
       fzf-vim
       lightline-vim
-      nerdtree
+      ranger-vim
       solarized
       tabular
       vim-autoformat

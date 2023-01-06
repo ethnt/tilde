@@ -141,6 +141,7 @@
               direnv
               fish
               fzf
+              helix
               paths
               micro
               navi
@@ -155,7 +156,7 @@
             programming = [ elixir ruby ];
             identity = [ gnupg ];
 
-            minimal = [ git gh fish neovim starship tools.common ];
+            minimal = [ fish git gh helix starship tools.common ];
           };
         };
 
