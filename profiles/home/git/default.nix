@@ -18,10 +18,14 @@
       co = pkgs.writeShellScript "git-alias-co" ''
         git checkout "$(git branch --sort="-committerdate" | ${pkgs.fzf}/bin/fzf | tr -d '[:space:]')";
       '';
+      restore-file = pkgs.writeShellScript "git-alias-restore" ''
+        git checkout "$(git rev-list -n 1 HEAD -- $1)^" -- $1
+      '';
     in {
       s = "status";
       superprune = "!sh ${superprune}";
       co = "!sh ${co}";
+      restore-file = "!sh ${restore-file}";
     };
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
