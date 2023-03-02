@@ -45,4 +45,6 @@ with lib;
     git_status.disabled = true;
     package.disabled = true;
   };
+
+  home.stateVersion = "22.11";
 }
