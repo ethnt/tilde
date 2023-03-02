@@ -279,18 +279,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-Zs82ZZA1jbPmaFZPHeLkWC1CawAe6cDTHycitprpw8Y=",
-        "path": "/nix/store/cxfjs5lijlz6jzl4q7s7kbab4j1qzkky-source",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs-master",
-        "type": "indirect"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1667629849,
@@ -348,7 +336,6 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-22_05": "nixpkgs-22_05",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable_2",
         "nixpkgs-vscode-pin": "nixpkgs-vscode-pin"
       }
