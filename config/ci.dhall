@@ -9,7 +9,7 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v17"
+      , uses = Some "cachix/install-nix-action@v20"
       , `with` = Some
           ( toMap
               { nix_path = "nixpkgs=channel:nixos-unstable"
@@ -44,7 +44,7 @@ let unlockSecrets =
 let cachix =
       GithubActions.Step::{
       , name = Some "Use Cachix store"
-      , uses = Some "cachix/cachix-action@v10"
+      , uses = Some "cachix/cachix-action@v12"
       , `with` = Some
           ( toMap
               { name = "tilde"
