@@ -21,13 +21,14 @@ task:
         - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix > nix-installer.sh
         - chmod +x nix-installer.sh
         - ./nix-installer.sh install --no-confirm
+        - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       git_crypt_script: &git_crypt_script
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - brew install git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
         - git add .
       build_script:
-        - sudo /nix/var/nix/profiles/default/bin/nix-store --repair --verify --check-contents
-        - /nix/var/nix/profiles/default/bin/nix build .#darwinConfigurations.st-eturkeltaub2.system --accept-flake-config --show-trace
+        - sudo nix-store --repair --verify --check-contents
+        - nix build .#darwinConfigurations.st-eturkeltaub2.system --accept-flake-config --show-trace
       cachix_script:
-        - /nix/var/nix/profiles/default/bin/nix develop -c "cachix" "push" "tilde" "result/"
+        - nix develop -c "cachix" "push" "tilde" "result/"
