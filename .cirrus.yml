@@ -20,12 +20,15 @@ task:
 
   matrix:
     - name: build (st-eturkeltaub2)
-      install_script: &install_script
+      install_script:
         - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix > nix-installer.sh
         - chmod +x nix-installer.sh
         - ./nix-installer.sh install --no-confirm
-        - nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-      git_crypt_script: &git_crypt_script
+      prepare_nix_env_script:
+        - nix-env -iA cachix -f https://cachix.org/api/v1/install
+        - nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+        - nix-channel --update
+      git_crypt_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - nix-env -iA nixpkgs.git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
