@@ -25,7 +25,6 @@ task:
         - chmod +x nix-installer.sh
         - ./nix-installer.sh install --no-confirm
       prepare_nix_env_script:
-        - nix-env -iA cachix -f https://cachix.org/api/v1/install
         - sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable
         - sudo nix-channel --update
       git_crypt_script:
@@ -36,8 +35,9 @@ task:
       cachix_script:
         - nix-env -iA nixpkgs.cachix
         - cachix use tilde
-      build_script:
+      nix_store_script:
         - sudo nix-store --repair --verify --check-contents
+      build_script:
         - nix build .#darwinConfigurations.st-eturkeltaub2.system --accept-flake-config --show-trace
       cachix_upload_script:
         - cachix push tilde result/
