@@ -32,4 +32,5 @@ task:
         - sudo nix-store --repair --verify --check-contents
         - nix build .#darwinConfigurations.st-eturkeltaub2.system --accept-flake-config --show-trace
       cachix_script:
+        - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         - nix develop -c "cachix" "push" "tilde" "result/"
