@@ -24,6 +24,7 @@ task:
         - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix > nix-installer.sh
         - chmod +x nix-installer.sh
         - ./nix-installer.sh install --no-confirm
+        - nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
       git_crypt_script: &git_crypt_script
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - nix-env -iA nixpkgs.git-crypt
