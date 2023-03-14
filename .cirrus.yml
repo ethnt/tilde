@@ -16,6 +16,7 @@ task:
       extra-platforms = x86_64-darwin
 
     PATH: "$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/profile/bin:$PATH"
+    NIX_PATH: /nix/var/nix/profiles/per-user/root/channels
 
   matrix:
     - name: build (st-eturkeltaub2)
