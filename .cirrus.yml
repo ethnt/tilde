@@ -26,8 +26,8 @@ task:
         - ./nix-installer.sh install --no-confirm
       prepare_nix_env_script:
         - nix-env -iA cachix -f https://cachix.org/api/v1/install
-        - nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-        - nix-channel --update
+        - sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+        - sudo nix-channel --update
       git_crypt_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - nix-env -iA nixpkgs.git-crypt
