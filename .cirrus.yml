@@ -15,22 +15,24 @@ task:
       trusted-users = admin
       extra-platforms = x86_64-darwin
 
+    PATH: "$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/profile/bin:$PATH"
+
   matrix:
     - name: build (st-eturkeltaub2)
       install_script: &install_script
         - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix > nix-installer.sh
         - chmod +x nix-installer.sh
         - ./nix-installer.sh install --no-confirm
-        - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        # - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       git_crypt_script: &git_crypt_script
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - brew install git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
         - git add .
       build_script:
-        - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        # - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         - sudo nix-store --repair --verify --check-contents
         - nix build .#darwinConfigurations.st-eturkeltaub2.system --accept-flake-config --show-trace
       cachix_script:
-        - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        # - . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         - nix develop -c "cachix" "push" "tilde" "result/"
