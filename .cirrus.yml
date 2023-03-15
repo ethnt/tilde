@@ -27,14 +27,14 @@ task:
       prepare_nix_env_script:
         - sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable
         - sudo nix-channel --update
+      cachix_script:
+        - nix-env -iA nixpkgs.cachix
+        - cachix use tilde
       git_crypt_script:
         - echo "$GIT_CRYPT_TOKEN" | base64 -d > /tmp/git-crypt-key.asc
         - nix-env -iA nixpkgs.git-crypt
         - git-crypt unlock /tmp/git-crypt-key.asc
         - git add .
-      cachix_script:
-        - nix-env -iA nixpkgs.cachix
-        - cachix use tilde
       nix_store_script:
         - sudo nix-store --repair --verify --check-contents
       build_script:
