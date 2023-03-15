@@ -139,7 +139,6 @@
               paths
               micro
               navi
-              nushell
               starship
               tmux
               tools.common
