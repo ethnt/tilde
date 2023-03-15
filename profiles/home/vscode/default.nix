@@ -2,8 +2,7 @@
   programs.vscode = {
     enable = true;
 
-    # TODO: Something in `pkgs.vscode` is broken, even though it's the same package
-    package = pkgs.vscode-pinned;
+    package = pkgs.vscode;
 
     mutableExtensionsDir = true;
     enableUpdateCheck = false;

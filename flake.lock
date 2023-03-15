@@ -312,18 +312,14 @@
     },
     "nixpkgs-vscode-pin": {
       "locked": {
-        "lastModified": 1671169699,
+        "lastModified": 0,
         "narHash": "sha256-/6dEWNsSmHmQJSMubxBEhSgMrF0I9NyHvIMFY6wvIbo=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "574aa59d1bcdf7ac79a19a87f23326861a66cd8d",
-        "type": "github"
+        "path": "/nix/store/9kxr2cmvxawfs7xbvh179xwpj09b0p18-source",
+        "type": "path"
       },
       "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "574aa59d1bcdf7ac79a19a87f23326861a66cd8d",
-        "type": "github"
+        "id": "nixpkgs-vscode-pin",
+        "type": "indirect"
       }
     },
     "root": {

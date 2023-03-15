@@ -10,8 +10,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-vscode-pin.url =
-      "github:nixos/nixpkgs/574aa59d1bcdf7ac79a19a87f23326861a66cd8d";
 
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
