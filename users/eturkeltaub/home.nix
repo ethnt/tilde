@@ -34,7 +34,12 @@ with lib;
     };
   };
 
-  programs.vscode = { userSettings = { "update.mode" = "none"; }; };
+  programs.vscode = {
+    userSettings = {
+      "remote.SSH.configFile" = "~/.ssh/devboxes";
+      "update.mode" = "none";
+    };
+  };
 
   programs.starship = {
     settings = {
