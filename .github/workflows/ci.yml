@@ -65,6 +65,7 @@ jobs:
           - eMac
         os:
           - macos-latest
+          - macos-m1
   remote-profile:
     runs-on: ubuntu-20.04
     steps:
