@@ -107,7 +107,7 @@ in  GithubActions.Workflow::{
         , hosts = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.`${{ matrix.os }}`
           , strategy = Some GithubActions.Strategy::{
-            , matrix = toMap { host = [ "eMac" ], os = [ "macos-latest" ] }
+            , matrix = toMap { host = [ "eMac" ], os = [ "macos-latest" "macos-m1" ] }
             }
           , steps = setup # [ buildHost ]
           }

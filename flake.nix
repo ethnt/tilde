@@ -33,8 +33,8 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-22_05, nixpkgs-unstable, nixpkgs-master
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-22_05, nixpkgs-unstable
+    , nixpkgs-master, nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -122,8 +122,11 @@
 
             identity = [ profiles.gpg-agent ];
 
-            remote-builders =
-              [ profiles.builders.common profiles.builders.nix-docker ];
+            remote-builders = [
+              profiles.builders.common
+              profiles.builders.nix-docker
+              profiles.builders.matrix
+            ];
           };
         };
       };
