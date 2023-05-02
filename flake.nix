@@ -149,7 +149,7 @@
             programming = [ elixir ruby ];
             identity = [ gnupg ];
 
-            minimal = [ git gh fish neovim starship tools.common ];
+            minimal = [ fish fzf git gh neovim starship tools.common ];
           };
         };
 

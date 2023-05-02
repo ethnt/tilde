@@ -34,7 +34,12 @@ with lib;
     };
   };
 
-  programs.vscode = { userSettings = { "update.mode" = "none"; }; };
+  programs.vscode = {
+    userSettings = {
+      "editor.inlineSuggest.enabled" = true;
+      "update.mode" = "none";
+    };
+  };
 
   programs.starship = {
     settings = {

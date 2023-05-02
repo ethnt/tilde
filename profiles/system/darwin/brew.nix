@@ -21,7 +21,6 @@
       "Balance Lock" = 1019371109;
       Fantastical = 975937182;
       "Things 3" = 904280696;
-      "Tweetbot 3 for Twitter" = 1384080005;
     };
   };
 }
