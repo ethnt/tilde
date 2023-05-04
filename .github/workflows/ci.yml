@@ -22,7 +22,8 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix run .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
+            nix run --accept-flake-config .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
+            git add .
       - run: |2
             nix run .#test-format
       - run: |2
@@ -50,7 +51,8 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix run .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
+            nix run --accept-flake-config .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
+            git add .
       - run: |2
             nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace
     strategy:
@@ -82,7 +84,8 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix run .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
+            nix run --accept-flake-config .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
+            git add .
       - run: |2
             nix -Lv build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --show-trace
 name: CI
