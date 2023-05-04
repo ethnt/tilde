@@ -11,6 +11,14 @@
     '';
   };
 
+  unlock = self.inputs.flake-utils.lib.mkApp {
+    drv = pkgs.writeShellScriptBin "unlock" ''
+      cat $1 | base64 -d > /tmp/git-crypt-key
+      ${pkgs.git-crypt}/bin/git-crypt unlock /tmp/git-crypt-key
+      rm /tmp/git-crypt-key
+    '';
+  };
+
   repl = self.inputs.flake-utils.lib.mkApp {
     drv = pkgs.writeShellScriptBin "repl" ''
       if [ -z "$1" ]; then
