@@ -26,7 +26,7 @@
         echo "''${1}" | base64 -d > $GIT_CRYPT_KEY
       fi
 
-      # ${pkgs.git-crypt}/bin/git-crypt unlock $GIT_CRYPT_KEY
+      ${pkgs.git-crypt}/bin/git-crypt unlock $GIT_CRYPT_KEY
 
       rm $GIT_CRYPT_KEY
     '';
