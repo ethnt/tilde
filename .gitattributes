@@ -1,1 +1,2 @@
 users/eturkeltaub/secrets.nix filter=git-crypt diff=git-crypt
+users/remote/secrets.nix filter=git-crypt diff=git-crypt

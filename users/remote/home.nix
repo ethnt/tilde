@@ -3,7 +3,7 @@
 with lib;
 
 {
-  imports = with suites; minimal;
+  imports = with suites; minimal ++ [ ./secrets.nix ];
 
   tilde.home = {
     username = "eturkeltaub";
