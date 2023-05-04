@@ -34,6 +34,7 @@ let unlockSecrets =
       , name = Some "Unlock encrypted files"
       , run = Some
           ''
+            nix-env -i git-crypt -f '<nixpkgs>'
             nix run --accept-flake-config .#unlock -- "''${{ secrets.GIT_CRYPT_KEY }}"
             git add .
           ''
