@@ -23,8 +23,9 @@ jobs:
       - name: Unlock encrypted files
         run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
-            nix run --accept-flake-config .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
-            git add .
+            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+            git-crypt unlock /tmp/git-crypt-key
+            rm /tmp/git-crypt-key
       - run: |2
             nix run .#test-format
       - run: |2
@@ -53,8 +54,9 @@ jobs:
       - name: Unlock encrypted files
         run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
-            nix run --accept-flake-config .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
-            git add .
+            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+            git-crypt unlock /tmp/git-crypt-key
+            rm /tmp/git-crypt-key
       - run: |2
             nix -Lv build .#darwinConfigurations.${{ matrix.host }}.system --show-trace
     strategy:
@@ -87,8 +89,9 @@ jobs:
       - name: Unlock encrypted files
         run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
-            nix run --accept-flake-config .#unlock -- "${{ secrets.GIT_CRYPT_KEY }}"
-            git add .
+            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+            git-crypt unlock /tmp/git-crypt-key
+            rm /tmp/git-crypt-key
       - run: |2
             nix -Lv build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --show-trace
 name: CI
