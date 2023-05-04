@@ -13,8 +13,12 @@
 
   unlock = self.inputs.flake-utils.lib.mkApp {
     drv = pkgs.writeShellScriptBin "unlock" ''
-      cat $1 | base64 -d > /tmp/git-crypt-key
-      ${pkgs.git-crypt}/bin/git-crypt unlock /tmp/git-crypt-key
+      if [ -f $1 ]
+      then cat $1 | base64 -d > /tmp/git-crypt-key
+      else echo $1 | base64 -d > /tmp/git-crypt-key
+      fi
+
+      ${pkgs.git-crypt}/bin/git-crypt unlock $(cat $1 | base64 -d)
       rm /tmp/git-crypt-key
     '';
   };
