@@ -31,6 +31,7 @@ task:
         - nix-env -iA nixpkgs.cachix
         - cachix use tilde
       git_crypt_script:
+        - nix-env -iA nixpkgs.git-crypt
         - nix run .#unlock --accept-flake-config -- "$GIT_CRYPT_TOKEN"
       nix_store_script:
         - sudo nix-store --repair --verify --check-contents
