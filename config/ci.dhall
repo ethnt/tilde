@@ -34,7 +34,7 @@ let unlockSecrets =
       , name = Some "Unlock encrypted files"
       , run = Some
           ''
-            nix run .#unlock -- "''${{ secrets.GIT_CRYPT_KEY }}"
+            nix run .#unlock --accept-flake-config -- "''${{ secrets.GIT_CRYPT_KEY }}"
           ''
       }
 
