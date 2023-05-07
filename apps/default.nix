@@ -29,6 +29,8 @@
       ${pkgs.git-crypt}/bin/git-crypt unlock $GIT_CRYPT_KEY
 
       rm $GIT_CRYPT_KEY
+
+      echo "Successfully unlocked secrets"
     '';
   };
 
