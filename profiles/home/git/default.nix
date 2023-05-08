@@ -31,6 +31,12 @@
     signing.signByDefault = true;
 
     extraConfig = {
+      core = {
+        preloadindex = true;
+        deltabasecachelimit = "4g";
+      };
+      feature = { manyfiles = true; };
+      fetch = { prune = true; };
       http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
     };
   };
