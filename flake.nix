@@ -30,7 +30,8 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-22_05, nixpkgs-unstable, nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-22_05, nixpkgs-unstable
+    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -145,11 +146,22 @@
               tools.darwin
               tools.extra
             ];
-            development = [ asdf git gh vscode neovim ];
+            development = [ asdf git.common gh vscode neovim ];
             programming = [ elixir ruby ];
             identity = [ gnupg ];
+            work = [ git.large-repos ];
 
-            minimal = [ autojump bat fish fzf git gh neovim starship tools.common ];
+            minimal = [
+              autojump
+              bat
+              fish
+              fzf
+              git.common
+              gh
+              neovim
+              starship
+              tools.common
+            ];
           };
         };
 

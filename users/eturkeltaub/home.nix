@@ -3,7 +3,7 @@
 with lib;
 
 {
-  imports = with suites; (base ++ development) ++ [ ./secrets.nix ];
+  imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
     username = "eturkeltaub";
@@ -18,20 +18,6 @@ with lib;
     userEmail = "eturkeltaub@stripe.com";
     userName = "Ethan Turkeltaub";
     signing.key = config.tilde.home.gpg.keyId;
-
-    aliases = { s = mkForce "status -uno"; };
-
-    extraConfig = {
-      core = {
-        preloadindex = true;
-        deltabasecachelimit = "4g";
-      };
-      help = { "autocorrect" = 1; };
-      feature = { manyfiles = true; };
-      fetch = { prune = true; };
-      merge = { renameLimit = 10000; };
-      push = { default = "simple"; };
-    };
   };
 
   programs.vscode = {
