@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ hub ];
+  home.packages = with pkgs; [ delta hub ];
 
   programs.git = {
     enable = true;
@@ -26,15 +26,17 @@
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
-    delta.enable = true;
-
     signing.signByDefault = true;
 
-    extraConfig = {
+    extraConfig = let deltaCommand = "${pkgs.delta}/bin/delta";
+    in {
       core = {
+        pager = deltaCommand;
         preloadindex = true;
         deltabasecachelimit = "4g";
       };
+      interactive.diffFilter =
+        "${deltaCommand} --diff-so-fancy --keep-plus-minus-markers --line-numbers";
       feature = { manyfiles = true; };
       fetch = { prune = true; };
       http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
