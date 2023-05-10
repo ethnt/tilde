@@ -7,8 +7,10 @@ with lib;
     aliases = { s = mkOverride 10 "status -uno"; };
     extraConfig = {
       core = {
+        compression = 9;
+        packedgitwindowsize = "32g";
         preloadindex = true;
-        deltabasecachelimit = "4g";
+        deltabasecachelimit = "2g";
       };
       feature.manyfiles = true;
       fetch.prune = true;
