@@ -11,8 +11,7 @@ with lib;
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
 
-  home.sessionVariables = { KEYID = config.tilde.home.gpg.keyId; };
-  home.sessionPath = mkAfter [ "/opt/homebrew" ];
+  home.sessionVariables.KEYID = config.tilde.home.gpg.keyId;
 
   programs.git = {
     userEmail = "eturkeltaub@stripe.com";
@@ -20,12 +19,7 @@ with lib;
     signing.key = config.tilde.home.gpg.keyId;
   };
 
-  programs.vscode = {
-    userSettings = {
-      "editor.inlineSuggest.enabled" = true;
-      "update.mode" = "none";
-    };
-  };
+  programs.vscode.userSettings = { "update.mode" = "none"; };
 
   programs.starship = {
     settings = {
