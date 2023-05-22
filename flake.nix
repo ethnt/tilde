@@ -30,8 +30,8 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-22_05, nixpkgs-unstable
-    , nixpkgs-vscode-pin, darwin, digga, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, darwin, digga
+    , home-manager, ... }:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -43,9 +43,7 @@
         nixpkgs = {
           imports = [ (digga.lib.importOverlays ./overlays/nixpkgs) ];
         };
-        nixpkgs-22_05 = { };
         nixpkgs-unstable = { };
-        nixpkgs-vscode-pin = { };
       };
 
       nixos.hostDefaults = {
