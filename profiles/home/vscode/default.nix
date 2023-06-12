@@ -62,6 +62,16 @@
       };
 
       "terminal.integrated.shell.linux" = "fish";
+
+      "telemetry.enableCrashReporter" = false;
+      "telemetry.enableTelemetry" = false;
+      "telemetry.telemetryLevel" = "off";
+
+      "update.showReleaseNotes" = false;
+
+      "workbench.welcomePage.walkthroughs.openOnInstall" = false;
+
+      "editor.inlineSuggest.enabled" = false;
     };
 
     # FIXME: https://github.com/ethnt/tilde/issues/62

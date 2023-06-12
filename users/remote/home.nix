@@ -3,7 +3,7 @@
 with lib;
 
 {
-  imports = with suites; minimal;
+  imports = with suites; (minimal ++ work);
 
   tilde.home = {
     username = "eturkeltaub";
@@ -15,14 +15,6 @@ with lib;
     signing = {
       signByDefault = mkOverride 10 false;
       key = config.tilde.home.gpg.keyId;
-    };
-    extraConfig = {
-      core = {
-        preloadindex = true;
-        deltabasecachelimit = "4g";
-      };
-      feature = { manyfiles = true; };
-      fetch = { prune = true; };
     };
   };
 

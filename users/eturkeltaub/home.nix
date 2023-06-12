@@ -3,7 +3,7 @@
 with lib;
 
 {
-  imports = with suites; (base ++ development) ++ [ ./secrets.nix ];
+  imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
     username = "eturkeltaub";
@@ -11,35 +11,15 @@ with lib;
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
 
-  home.sessionVariables = { KEYID = config.tilde.home.gpg.keyId; };
-  home.sessionPath = mkAfter [ "/opt/homebrew" ];
+  home.sessionVariables.KEYID = config.tilde.home.gpg.keyId;
 
   programs.git = {
     userEmail = "eturkeltaub@stripe.com";
     userName = "Ethan Turkeltaub";
     signing.key = config.tilde.home.gpg.keyId;
-
-    aliases = { s = mkForce "status -uno"; };
-
-    extraConfig = {
-      core = {
-        preloadindex = true;
-        deltabasecachelimit = "4g";
-      };
-      help = { "autocorrect" = 1; };
-      feature = { manyfiles = true; };
-      fetch = { prune = true; };
-      merge = { renameLimit = 10000; };
-      push = { default = "simple"; };
-    };
   };
 
-  programs.vscode = {
-    userSettings = {
-      "editor.inlineSuggest.enabled" = true;
-      "update.mode" = "none";
-    };
-  };
+  programs.vscode.userSettings = { "update.mode" = "none"; };
 
   programs.starship = {
     settings = {
