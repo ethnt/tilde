@@ -72,6 +72,16 @@
       "workbench.welcomePage.walkthroughs.openOnInstall" = false;
 
       "editor.inlineSuggest.enabled" = false;
+
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "/etc/profiles/per-user/ethan/bin/nixd";
+      "nix.serverSettings" = {
+        "nixd" = {
+
+        };
+      };
+
+      "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
     };
 
     # FIXME: https://github.com/ethnt/tilde/issues/62

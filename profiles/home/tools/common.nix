@@ -8,6 +8,7 @@
     htop
     nix-index
     ripgrep
+    nixd
   ];
 
   home.shellAliases = {
