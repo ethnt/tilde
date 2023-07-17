@@ -74,12 +74,9 @@
       "editor.inlineSuggest.enabled" = false;
 
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "/etc/profiles/per-user/ethan/bin/nixd";
-      "nix.serverSettings" = {
-        "nixd" = {
-
-        };
-      };
+      # "nix.serverPath" = "/etc/profiles/per-user/$USER/bin/nixd";
+      "nix.serverPath" = "nixd";
+      "nix.serverSettings" = { "nixd" = { }; };
 
       "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
     };
@@ -133,6 +130,12 @@
         publisher = "wingrunr21";
         version = "0.28.0";
         sha256 = "H3f1+c31x+lgCzhgTb0uLg9Bdn3pZyJGPPwfpCYrS70=";
+      }
+      {
+        name = "nix-ide";
+        publisher = "jnoortheen";
+        version = "0.2.1";
+        sha256 = "yC4ybThMFA2ncGhp8BYD7IrwYiDU3226hewsRvJYKy4=";
       }
     ];
   };

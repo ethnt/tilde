@@ -1,0 +1,16 @@
+{
+  "eval": {
+    "target": {
+      "args": ["-f", "lib/compat/default.nix"],
+      "installable": "darwinConfigurations.st-eturkeltaub2.system.build.toplevel"
+    }
+  },
+  "formatting": { "command": "nixfmt" },
+  "options": {
+    "enable": true,
+    "target": {
+      "args": [],
+      "installable": ".#darwinConfigurations.st-eturkeltaub2.options"
+    }
+  }
+}
