@@ -9,7 +9,7 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v20"
+      , uses = Some "cachix/install-nix-action@v22"
       , `with` = Some
           ( toMap
               { nix_path = "nixpkgs=channel:nixos-unstable"
