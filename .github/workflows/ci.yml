@@ -10,6 +10,8 @@ jobs:
           extra_nix_config: |2
               allow-import-from-derivation = true
           nix_path: nixpkgs=channel:nixos-unstable
+      - name: Use Magic Nix Cache
+        uses: "DeterminateSystems/magic-nix-cache-action@v2"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:
@@ -41,6 +43,8 @@ jobs:
           extra_nix_config: |2
               allow-import-from-derivation = true
           nix_path: nixpkgs=channel:nixos-unstable
+      - name: Use Magic Nix Cache
+        uses: "DeterminateSystems/magic-nix-cache-action@v2"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:
@@ -76,6 +80,8 @@ jobs:
           extra_nix_config: |2
               allow-import-from-derivation = true
           nix_path: nixpkgs=channel:nixos-unstable
+      - name: Use Magic Nix Cache
+        uses: "DeterminateSystems/magic-nix-cache-action@v2"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:

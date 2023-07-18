@@ -21,6 +21,12 @@ let installNix =
           )
       }
 
+let magicCache =
+      GithubActions.Step::{
+      , name = Some "Use Magic Nix Cache"
+      , uses = Some "DeterminateSystems/magic-nix-cache-action@v2"
+      }
+
 let sshKeys =
       GithubActions.Step::{
       , name = Some "Add SSH key to ssh-agent"
@@ -94,7 +100,7 @@ let lint =
           ''
       }
 
-let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
+let setup = [ checkout, installNix, magicCache, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
