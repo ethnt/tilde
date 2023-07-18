@@ -9,7 +9,7 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v20"
+      , uses = Some "cachix/install-nix-action@v22"
       , `with` = Some
           ( toMap
               { nix_path = "nixpkgs=channel:nixos-unstable"
@@ -19,6 +19,12 @@ let installNix =
                   ''
               }
           )
+      }
+
+let magicCache =
+      GithubActions.Step::{
+      , name = Some "Use Magic Nix Cache"
+      , uses = Some "DeterminateSystems/magic-nix-cache-action@v2"
       }
 
 let sshKeys =
@@ -94,7 +100,7 @@ let lint =
           ''
       }
 
-let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
+let setup = [ checkout, installNix, magicCache, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
