@@ -20,10 +20,15 @@
       co = pkgs.writeShellScript "git-alias-co" ''
         ${gitCommand} checkout "$(${gitCommand} branch --sort="-committerdate" | ${fzfCommand} | tr -d '[:space:]')";
       '';
+      wipe = pkgs.writeShellScript "git-alias-wipe" ''
+        ${gitCommand} add .
+        ${gitCommand} stash
+      '';
     in {
       s = "status";
       superprune = "!sh ${superprune}";
       co = "!sh ${co}";
+      wipe = "!sh ${wipe}";
     };
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
