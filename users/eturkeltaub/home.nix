@@ -13,6 +13,16 @@ with lib;
 
   home.sessionVariables.KEYID = config.tilde.home.gpg.keyId;
 
+  home.packages = [
+    (pkgs.writeShellScriptBin "work" ''
+      NAME=$(pay remote list --raw | ${pkgs.lib.getExe pkgs.jq} -r '.[] | .name' | ${pkgs.lib.getExe pkgs.fzf})
+
+      ${pkgs.lib.getExe pkgs.tmux} rename-window $NAME
+      pay remote code $NAME
+      pay remote ssh $NAME
+    '')
+  ];
+
   programs.git = {
     userEmail = "eturkeltaub@stripe.com";
     userName = "Ethan Turkeltaub";

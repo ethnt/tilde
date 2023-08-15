@@ -158,6 +158,7 @@
               gh
               neovim
               starship
+              tmux
               tools.common
             ];
           };
@@ -180,7 +181,7 @@
       devshell = ./shell;
 
       outputsBuilder = channels:
-        let pkgs = channels.nixpkgs-unstable;
+        let pkgs = channels.nixpkgs;
         in {
           checks = import ./checks { inherit self pkgs; };
           apps = import ./apps { inherit self pkgs; };

@@ -1,5 +1,9 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [ delta hub ];
+  home.packages = with pkgs;
+    [
+      delta
+      # hub
+    ];
 
   programs.git = {
     enable = true;
