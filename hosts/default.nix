@@ -1,6 +1,6 @@
 { self, withSystem, ... }:
 let
-  inherit (self) inputs darwinModules;
+  inherit (self) inputs darwinModules homeConfigurations;
   inherit (inputs) haumea nix-darwin home-manager;
   inherit (self.lib.utils) flattenTree;
   l = inputs.nixpkgs.lib // builtins;
@@ -20,7 +20,7 @@ let
       let
         nixpkgsConfiguration = _: { nixpkgs = { inherit pkgs; }; };
         modules = commonModules ++ [ nixpkgsConfiguration configuration ];
-        specialArgs = { inherit inputs profiles suites; };
+        specialArgs = { inherit inputs profiles suites homeConfigurations; };
       in nix-darwin.lib.darwinSystem { inherit system modules specialArgs; });
 in {
   flake.darwinConfigurations = {

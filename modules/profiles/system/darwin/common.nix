@@ -7,16 +7,16 @@
     nixPath = options.nix.nixPath.default ++ [
       "home-manager=https://github.com/rycee/home-manager/archive/master.tar.gz"
     ];
-    settings.trusted-users = [ config.tilde.system.username ];
+    settings.trusted-users = [ config.tilde.host.primaryUser.username ];
   };
 
-  users.users.${config.tilde.system.username}.home =
-    config.tilde.system.homeDirectory;
+  users.users.${config.tilde.host.primaryUser.username}.home =
+    config.tilde.host.homeDirectory;
 
   environment.darwinConfig =
-    "${config.tilde.system.directory}/lib/compat/darwin";
+    "${config.tilde.host.directory}/lib/compat/darwin";
 
-  environment.variables.TILDE_DIR = config.tilde.system.directory;
+  environment.variables.TILDE_DIR = config.tilde.host.directory;
 
   system.checks.verifyNixPath = true;
   system.stateVersion = 4;

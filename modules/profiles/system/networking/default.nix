@@ -1,1 +1,1 @@
-{ config, ... }: { networking.hostName = config.tilde.system.name; }
+{ config, ... }: { networking.hostName = config.tilde.host.name; }

@@ -20,11 +20,11 @@ with profiles;
     tools.extra
   ];
 
-  development = [ asdf git.common gh vscode neovim ];
+  development = [ asdf.default git.common gh.default vscode.default neovim.default ];
 
-  programming = [ elixir ruby ];
+  programming = [ elixir.default ruby.default ];
 
-  identity = [ gnupg ];
+  identity = [ gnupg.default ];
 
   work = [ git.large-repos ];
 

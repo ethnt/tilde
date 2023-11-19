@@ -33,7 +33,10 @@
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
-    signing.signByDefault = true;
+    signing = {
+      signByDefault = true;
+      key = config.tilde.home.gpg.keyId;
+    };
 
     extraConfig = let deltaCommand = "${pkgs.delta}/bin/delta";
     in {

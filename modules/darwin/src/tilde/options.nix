@@ -31,7 +31,7 @@ with lib;
           homeDirectory = mkOption {
             type = types.str;
             description = "Home directory of the primary user";
-            default = "/Users/${config.tilde.system.primaryUser.username}";
+            default = "/Users/${config.tilde.host.primaryUser.username}";
           };
         };
       };

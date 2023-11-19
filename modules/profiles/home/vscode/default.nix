@@ -50,6 +50,8 @@
         "editor.defaultFormatter" = "vscode.typescript-language-features";
       };
 
+      "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
+
       "explorer.fileNesting.enabled" = true;
 
       "explorer.fileNesting.patterns" = {
