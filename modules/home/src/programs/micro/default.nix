@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.programs.micro;
-  plugins = genAttrs cfg.plugins (name: true);
+  plugins = genAttrs cfg.plugins (_name: true);
   # settings = cfg.settings // plugins;
   colorschemes = mapAttrs' (name: configuration:
     nameValuePair "micro/colorschemes/${name}.micro" {

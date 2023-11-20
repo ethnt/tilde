@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   pragmatapro = prev.callPackage ./fonts/pragmatapro.nix { };
   sf-pro = prev.callPackage ./fonts/sf-pro.nix { };
   nix-docker = prev.callPackage ./nix-docker.nix { };

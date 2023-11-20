@@ -14,7 +14,7 @@ with profiles;
 
   fonts = with fonts; [ common pragmatapro ];
 
-  identity = [ gpg-agent ];
+  identity = [ gpg-agent.default ];
 
   remote-builders = [ builders.common builders.nix-docker ];
 }

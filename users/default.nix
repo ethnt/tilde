@@ -1,12 +1,9 @@
 { config, self, withSystem, ... }:
 let
   inherit (self) inputs homeModules;
-  inherit (inputs) haumea nix-darwin home-manager;
+  inherit (inputs) haumea home-manager;
   # inherit (self.lib.home-manager) mkHomeConfiguration;
-  inherit (self.lib.utils) flattenTree;
   l = inputs.nixpkgs.lib // builtins;
-
-  commonModules = [ ] ++ homeModules;
 
   profiles = haumea.lib.load {
     src = ../modules/profiles/home;
@@ -26,7 +23,7 @@ let
 
 in {
   flake.homeConfigurations = l.genAttrs config.systems (sys:
-    withSystem sys ({ pkgs, system, ... }: {
+    withSystem sys ({ pkgs, ... }: {
       # ethan = home-manager.lib.homeManagerConfiguration {
       #   inherit pkgs;
       #   modules = homeModules ++ [ ./ethan/home.nix ];

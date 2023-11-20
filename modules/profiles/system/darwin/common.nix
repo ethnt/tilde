@@ -1,20 +1,20 @@
-{ config, options, lib, pkgs, ... }: {
+{ config, options, ... }: {
   services.activate-system.enable = true;
   services.nix-daemon.enable = true;
 
   nix = {
     configureBuildUsers = true;
-    nixPath = options.nix.nixPath.default ++ [
-      "home-manager=https://github.com/rycee/home-manager/archive/master.tar.gz"
-    ];
-    settings.trusted-users = [ config.tilde.host.primaryUser.username ];
+
+    settings = {
+      trusted-users = [ config.tilde.host.primaryUser.username ];
+      extra-experimental-features = [ "nix-command" "flakes" ];
+    };
   };
 
   users.users.${config.tilde.host.primaryUser.username}.home =
     config.tilde.host.homeDirectory;
 
-  environment.darwinConfig =
-    "${config.tilde.host.directory}/lib/compat/darwin";
+  environment.darwinConfig = "${config.tilde.host.directory}/lib/compat/darwin";
 
   environment.variables.TILDE_DIR = config.tilde.host.directory;
 

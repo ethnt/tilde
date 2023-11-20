@@ -20,7 +20,8 @@ with profiles;
     tools.extra
   ];
 
-  development = [ asdf.default git.common gh.default vscode.default neovim.default ];
+  development =
+    [ asdf.default git.common gh.default vscode.default neovim.default ];
 
   programming = [ elixir.default ruby.default ];
 

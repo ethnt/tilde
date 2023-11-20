@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
   home-manager.sharedModules = [{
     home.sessionVariables = {
       # environment.sessionVariables is not currently available in nix-darwin

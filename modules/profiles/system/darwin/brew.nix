@@ -2,7 +2,7 @@
   homebrew = {
     enable = true;
 
-    taps = [ "homebrew/cask-drivers" ];
+    # taps = [ "homebrew/cask-drivers" ];
 
     casks = [
       "1password"

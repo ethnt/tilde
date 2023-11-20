@@ -2,8 +2,6 @@
 let
   inherit (self) inputs darwinModules homeConfigurations;
   inherit (inputs) haumea nix-darwin home-manager;
-  inherit (self.lib.utils) flattenTree;
-  l = inputs.nixpkgs.lib // builtins;
 
   commonModules = [ home-manager.darwinModules.home-manager ] ++ darwinModules;
 
@@ -25,7 +23,7 @@ let
 in {
   flake.darwinConfigurations = {
     eMac = mkHost "eMac" {
-      system = "x86_64-darwin";
+      system = "aarch64-darwin";
       user = "ethan";
     };
   };
