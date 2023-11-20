@@ -12,7 +12,7 @@
   };
 
   users.users.${config.tilde.host.primaryUser.username}.home =
-    config.tilde.host.homeDirectory;
+    config.tilde.host.primaryUser.homeDirectory;
 
   environment.darwinConfig = "${config.tilde.host.directory}/lib/compat/darwin";
 

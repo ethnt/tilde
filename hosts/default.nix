@@ -1,9 +1,18 @@
 { self, withSystem, ... }:
 let
-  inherit (self) inputs darwinModules homeConfigurations;
+  inherit (self) inputs darwinModules_ homeConfigurations;
   inherit (inputs) haumea nix-darwin home-manager;
+  l = inputs.nixpkgs.lib // builtins;
 
-  commonModules = [ home-manager.darwinModules.home-manager ] ++ darwinModules;
+  homeProfiles = haumea.lib.load {
+    src = ../modules/profiles/home;
+    loader = haumea.lib.loaders.path;
+  };
+
+  homeSuites = import ../modules/suites/home.nix { profiles = homeProfiles; };
+
+  commonModules = [ home-manager.darwinModules.home-manager ]
+    ++ (l.attrValues darwinModules_);
 
   profiles = haumea.lib.load {
     src = ../modules/profiles/system;

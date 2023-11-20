@@ -22,7 +22,13 @@ let
     };
 
 in {
-  flake.homeConfigurations = l.genAttrs config.systems (sys:
+  flake.homeConfigurations = {
+    ethan = { pkgs, ... }: {
+      imports = homeModules ++ [ ./ethan/home.nix ];
+    };
+  };
+
+  flake.homeConfigurationsPortable = l.genAttrs config.systems (sys:
     withSystem sys ({ pkgs, ... }: {
       # ethan = home-manager.lib.homeManagerConfiguration {
       #   inherit pkgs;

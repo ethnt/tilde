@@ -9,6 +9,8 @@
         config.environment.sessionVariables.TILDE_DIR or config.environment.variables.TILDE_DIR;
     };
 
+    home.sessionPath = [ "/opt/homebrew/bin" ];
+
     xdg.configFile."nix/registry.json".text =
       config.environment.etc."nix/registry.json".text;
   }];

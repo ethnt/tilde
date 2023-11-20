@@ -9,6 +9,9 @@
     shellInit = ''
       # fish
       set -U fish_prompt_pwd_dir_length 0
+
+      # THIS IS TEMPORARY
+      fish_add_path /opt/homebrew/bin
     '';
 
     interactiveShellInit = ''

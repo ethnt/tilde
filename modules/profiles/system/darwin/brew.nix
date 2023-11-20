@@ -1,11 +1,16 @@
 {
+  environment.systemPath = [ "/opt/homebrew/bin" ];
+
   homebrew = {
     enable = true;
 
-    # taps = [ "homebrew/cask-drivers" ];
+    onActivation.cleanup = "zap";
+
+    brews = [ "pinentry-mac" ];
 
     casks = [
       "1password"
+      "arc"
       "bartender"
       "dash"
       "firefox"
@@ -14,7 +19,9 @@
       "iterm2"
       "logitech-options"
       "raycast"
+      "rectangle"
       "spotify"
+      "tailscale"
     ];
 
     masApps = {

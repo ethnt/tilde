@@ -49,7 +49,7 @@
     "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
   };
 
-  # home.username = "ethan";
-  # home.homeDirectory = "/Users/ethan";
+  home.username = "ethan";
+  home.homeDirectory = "/Users/ethan";
   home.stateVersion = "23.05";
 }
