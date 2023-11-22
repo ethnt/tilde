@@ -8,6 +8,7 @@
         programs = {
           deadnix.enable = true;
           nixfmt.enable = true;
+          dhall.enable = true;
         };
       };
     in {

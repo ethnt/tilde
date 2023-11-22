@@ -1,11 +1,12 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    # exa
     comma
     difftastic
-    # exa
     fd
     gnused
     htop
+    just
     nix-index
     ripgrep
   ];

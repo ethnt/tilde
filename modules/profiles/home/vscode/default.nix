@@ -126,6 +126,12 @@
         version = "0.28.0";
         sha256 = "H3f1+c31x+lgCzhgTb0uLg9Bdn3pZyJGPPwfpCYrS70=";
       }
+      {
+        name = "dhall-lang";
+        publisher = "dhall";
+        version = "0.0.4";
+        sha256 = "7vYQ3To2hIismo9IQWRWwKsu4lXZUh0Or89WDLMmQGk=";
+      }
     ];
   };
 }
