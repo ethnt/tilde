@@ -19,8 +19,7 @@ in rec {
 
     homeConfigurationsPortable = l.genAttrs config.systems (sys:
       withSystem sys ({ pkgs, ... }:
-
-        l.mapAttrs (name: cfg:
+        l.mapAttrs (_name: cfg:
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ cfg ];

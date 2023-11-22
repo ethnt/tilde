@@ -14,4 +14,7 @@ let
         builtins.foldl' (sum: key: op sum (path ++ [ key ]) val.${key}) sum
         (builtins.attrNames val);
     in recurse { } [ ] tree;
-in { inherit flattenTree; }
+
+  importModules = attrset:
+    builtins.mapAttrs (_: value: (import value)) (flattenTree attrset);
+in { inherit flattenTree importModules; }
