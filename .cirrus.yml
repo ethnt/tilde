@@ -19,7 +19,7 @@ task:
     NIX_PATH: /nix/var/nix/profiles/per-user/root/channels
 
   matrix:
-    - name: build (st-eturkeltaub2)
+    - name: build (eMac)
       install_script:
         - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix > nix-installer.sh
         - chmod +x nix-installer.sh
@@ -38,6 +38,6 @@ task:
       nix_store_script:
         - sudo nix-store --repair --verify --check-contents
       build_script:
-        - nix build .#darwinConfigurations.st-eturkeltaub2.system --accept-flake-config --show-trace
+        - nix build .#darwinConfigurations.eMac.system --accept-flake-config --show-trace
       cachix_upload_script:
         - cachix push tilde result/
