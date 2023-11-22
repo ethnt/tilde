@@ -33,8 +33,8 @@
         ./modules/development/treefmt.nix
         ./modules/development/dhall.nix
 
-        # ./modules/darwin/default.nix
-        # ./modules/home/default.nix
+        ./modules/darwin/default.nix
+        ./modules/home/default.nix
 
         ./hosts
         ./users
@@ -63,12 +63,6 @@
             loader = haumea.lib.loaders.path;
           };
         };
-
-        homeModules = builtins.mapAttrs (_: value: (import value))
-          (self.lib.utils.flattenTree self.modules.home);
-
-        darwinModules = builtins.mapAttrs (_: value: (import value))
-          (self.lib.utils.flattenTree self.modules.darwin);
 
         profiles = {
           darwin = haumea.lib.load {

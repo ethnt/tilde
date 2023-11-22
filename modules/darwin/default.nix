@@ -3,9 +3,6 @@ let
   inherit (inputs) haumea;
   inherit (self.lib) utils;
 in {
-  flake.darwinModules_ = utils.flattenTree (haumea.lib.load {
-    src = ./src;
-    loader = haumea.lib.loaders.path;
-    inputs = { inherit haumea; };
-  });
+  flake.darwinModules = builtins.mapAttrs (_: value: (import value))
+    (utils.flattenTree self.modules.darwin);
 }

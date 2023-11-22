@@ -1,4 +1,7 @@
-{ ... }: {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+{ flake, ... }: {
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { suites = flake.suites.home; };
+  };
 }

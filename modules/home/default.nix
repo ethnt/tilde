@@ -1,11 +1,11 @@
-{ self, inputs, ... }:
+{ self, inputs, config, withSystem, ... }:
 let
-  inherit (inputs) haumea;
+  inherit (inputs) haumea home-manager;
   inherit (self.lib.utils) flattenTree;
   l = inputs.nixpkgs.lib // builtins;
-in {
-  flake.homeModules = l.attrValues (flattenTree (haumea.lib.load {
-    src = ./src;
-    loader = haumea.lib.loaders.path;
-  }));
+in rec {
+  flake = {
+    homeModules = builtins.mapAttrs (_: value: (import value))
+      (self.lib.utils.flattenTree self.modules.home);
+  };
 }
