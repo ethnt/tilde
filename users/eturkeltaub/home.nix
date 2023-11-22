@@ -1,5 +1,5 @@
 { config, suites, ... }: {
-  imports = with suites; base ++ development ++ work;
+  imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
     username = "ethan";
