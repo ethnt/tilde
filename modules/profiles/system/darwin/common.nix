@@ -1,4 +1,4 @@
-{ config, options, ... }: {
+{ config, ... }: {
   services.activate-system.enable = true;
   services.nix-daemon.enable = true;
 

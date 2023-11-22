@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 let
-  inherit (inputs) haumea home-manager;
+  inherit (inputs) haumea;
   inherit (self.lib) utils;
 in {
   flake.darwinModules_ = utils.flattenTree (haumea.lib.load {

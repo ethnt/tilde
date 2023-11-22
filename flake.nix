@@ -22,7 +22,7 @@
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs = inputs@{ self, flake-parts, haumea, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
@@ -33,12 +33,8 @@
         ./modules/development/treefmt.nix
         ./modules/development/dhall.nix
 
-        ./modules/commands/build.nix
-        ./modules/commands/switch.nix
-        ./modules/commands/unlock.nix
-
-        ./modules/darwin/default.nix
-        ./modules/home/default.nix
+        # ./modules/darwin/default.nix
+        # ./modules/home/default.nix
 
         ./hosts
         ./users
@@ -56,7 +52,44 @@
       };
 
       flake = {
+        modules = {
+          darwin = haumea.lib.load {
+            src = ./modules/darwin/src;
+            loader = haumea.lib.loaders.path;
+          };
 
+          home = haumea.lib.load {
+            src = ./modules/home/src;
+            loader = haumea.lib.loaders.path;
+          };
+        };
+
+        homeModules = builtins.mapAttrs (_: value: (import value))
+          (self.lib.utils.flattenTree self.modules.home);
+
+        darwinModules = builtins.mapAttrs (_: value: (import value))
+          (self.lib.utils.flattenTree self.modules.darwin);
+
+        profiles = {
+          darwin = haumea.lib.load {
+            src = ./modules/profiles/system;
+            loader = haumea.lib.loaders.path;
+          };
+
+          home = haumea.lib.load {
+            src = ./modules/profiles/home;
+            loader = haumea.lib.loaders.path;
+          };
+        };
+
+        suites = {
+          darwin = import ./modules/suites/system.nix {
+            profiles = self.profiles.darwin;
+          };
+
+          home =
+            import ./modules/suites/home.nix { profiles = self.profiles.home; };
+        };
       };
     };
 }

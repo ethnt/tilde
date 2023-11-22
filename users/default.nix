@@ -1,40 +1,33 @@
 { config, self, withSystem, ... }:
 let
   inherit (self) inputs homeModules;
-  inherit (inputs) haumea home-manager;
-  # inherit (self.lib.home-manager) mkHomeConfiguration;
+  inherit (inputs) home-manager;
+
   l = inputs.nixpkgs.lib // builtins;
 
-  profiles = haumea.lib.load {
-    src = ../modules/profiles/home;
-    loader = haumea.lib.loaders.path;
-  };
+  commonModules = (l.attrValues homeModules);
 
-  suites = import ../modules/suites/home.nix { inherit profiles; };
-
-  mkHomeConfiguration = username:
-    { pkgs, configuration ? ./${username}/home.nix }:
-    let
-      modules = homeModules ++ [ configuration ];
-      extraSpecialArgs = { inherit inputs profiles suites; };
-    in home-manager.lib.homeManagerConfiguration {
-      inherit pkgs modules extraSpecialArgs;
+  mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }:
+    { ... }: {
+      imports = commonModules ++ [ configuration ];
+    };
+in rec {
+  flake = {
+    homeConfigurations = {
+      ethan = mkHomeConfiguration { username = "ethan"; };
     };
 
-in {
-  flake.homeConfigurations = {
-    ethan = { pkgs, ... }: {
-      imports = homeModules ++ [ ./ethan/home.nix ];
-    };
+    homeConfigurationsPortable = l.genAttrs config.systems (sys:
+      withSystem sys ({ pkgs, ... }: {
+        ethan = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ flake.homeConfigurations.ethan ];
+          extraSpecialArgs = {
+            inherit inputs;
+            profiles = self.profiles.home;
+            suites = self.suites.home;
+          };
+        };
+      }));
   };
-
-  flake.homeConfigurationsPortable = l.genAttrs config.systems (sys:
-    withSystem sys ({ pkgs, ... }: {
-      # ethan = home-manager.lib.homeManagerConfiguration {
-      #   inherit pkgs;
-      #   modules = homeModules ++ [ ./ethan/home.nix ];
-      # };
-
-      ethan = mkHomeConfiguration "ethan" { inherit pkgs; };
-    }));
 }
