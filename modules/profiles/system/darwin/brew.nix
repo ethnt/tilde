@@ -23,6 +23,7 @@
       "rectangle"
       "spotify"
       "tailscale"
+      "utm"
     ];
 
     masApps = {

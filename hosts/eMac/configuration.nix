@@ -1,5 +1,10 @@
 { suites, profiles, ... }: {
-  imports = with suites; base ++ fonts ++ identity ++ [ profiles.users.ethan ];
+  imports = with suites;
+    base ++ fonts ++ identity ++ [
+      profiles.users.ethan
+      profiles.builders.common
+      profiles.builders.darwin-linux
+    ];
 
   tilde.host = {
     name = "eMac";
