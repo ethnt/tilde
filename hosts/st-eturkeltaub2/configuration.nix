@@ -1,4 +1,4 @@
-{ config, suites, profiles, ... }: {
+{ suites, profiles, ... }: {
   imports = with suites; base ++ fonts ++ [ profiles.users.eturkeltaub ];
 
   tilde.host = {

@@ -6,13 +6,9 @@
 
     onActivation.cleanup = "zap";
 
-    brews = [ "pinentry-mac" ];
-
     casks = [
       "1password"
-      "arc"
       "bartender"
-      "dash"
       "firefox"
       "hazel"
       "hey"
@@ -22,8 +18,6 @@
       "raycast"
       "rectangle"
       "spotify"
-      "tailscale"
-      "utm"
     ];
 
     masApps = {
