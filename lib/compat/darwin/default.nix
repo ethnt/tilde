@@ -1,6 +1,5 @@
 _:
 let
-  inherit (default.inputs.nixpkgs) lib;
 
   default = (import ../.).defaultNix;
   configs = default.darwinConfigurations;

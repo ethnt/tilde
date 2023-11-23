@@ -1,12 +1,8 @@
-{ channels, config, lib, pkgs, suites, ... }:
-
-with lib;
-
-{
+{ config, suites, ... }: {
   imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
-    username = "eturkeltaub";
+    username = "ethan";
     homeDirectory = "/Users/eturkeltaub";
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
@@ -49,5 +45,7 @@ with lib;
     };
   };
 
-  home.stateVersion = "22.11";
+  home.username = "eturkeltaub";
+  home.homeDirectory = "/Users/eturkeltaub";
+  home.stateVersion = "23.05";
 }

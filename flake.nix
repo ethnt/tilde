@@ -1,190 +1,89 @@
 {
   description = "tilde";
 
-  nixConfig.extra-experimental-features = "nix-command flakes";
-  nixConfig.extra-substituters =
-    "https://cachix.org/api/v1/cache/tilde https://nrdxp.cachix.org https://nix-community.cachix.org";
-  nixConfig.extra-trusted-public-keys =
-    "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg= nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    darwin.url = "github:LnL7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
-    digga.url = "github:divnix/digga";
-    digga.inputs.nixpkgs.follows = "nixpkgs";
-    digga.inputs.darwin.follows = "darwin";
-    digga.inputs.home-manager.follows = "home-manager";
+    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-utils.url = "github:numtide/flake-utils";
+    haumea.url = "github:nix-community/haumea/v0.2.2";
+    haumea.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
+    devenv.url = "github:cachix/devenv";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
+
+    treefmt.url = "github:numtide/treefmt-nix";
+    treefmt.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, darwin, digga
-    , home-manager, ... }:
-    digga.lib.mkFlake {
-      inherit self inputs;
+  outputs = inputs@{ self, flake-parts, haumea, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
 
-      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" "x86_64-linux" ];
+      imports = [
+        ./lib
 
-      channelsConfig = { allowUnfree = true; };
+        ./modules/development/shell.nix
+        ./modules/development/treefmt.nix
+        ./modules/development/dhall.nix
 
-      channels = {
-        nixpkgs = {
-          imports = [ (digga.lib.importOverlays ./overlays/nixpkgs) ];
-        };
-        nixpkgs-unstable = { };
-      };
+        ./modules/darwin/default.nix
+        ./modules/home/default.nix
 
-      nixos.hostDefaults = {
-        channelName = "nixpkgs";
-        modules = [{ lib.our = self.lib; }];
-      };
-
-      lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
-
-      sharedOverlays = [
-        (final: prev: {
-          __dontExport = true;
-          lib = prev.lib.extend (lfinal: lprev: { our = self.lib; });
-        })
-        (import ./pkgs)
+        ./hosts
+        ./users
       ];
 
-      darwin = let
-        mkHost = { host, user, system }: {
+      perSystem = { pkgs, system, ... }: {
+        _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
 
-          modules = [
-            ({ profiles, ... }: {
-              imports = [ profiles.hosts.${host} profiles.users.${user} ];
-            })
-          ];
-        };
-      in {
-        hostDefaults = {
-          channelName = "nixpkgs";
-          imports = [ (digga.lib.importExportableModules ./modules/system) ];
-          modules = [
-            { lib.our = self.lib; }
-            digga.nixosModules.nixConfig
-            home-manager.darwinModules.home-manager
-          ];
-        };
+          # TODO: Make this on a per-system basis, and maybe per-package
+          config.allowUnfree = true;
 
-        hosts = {
-          eMac = mkHost {
-            host = "eMac";
-            user = "ethan";
-            system = "x86_64-darwin";
-          };
-
-          st-eturkeltaub2 = mkHost {
-            host = "st-eturkeltaub2";
-            user = "eturkeltaub";
-            system = "aarch64-darwin";
-          };
-        };
-
-        importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles/system // {
-            hosts = digga.lib.rakeLeaves ./hosts;
-            users = digga.lib.rakeLeaves ./users;
-          };
-
-          suites = rec {
-            base = [
-              profiles.darwin.common
-              profiles.darwin.system-defaults
-              profiles.darwin.brew
-              profiles.cachix
-              profiles.shells
-              profiles.networking
-            ];
-
-            fonts = with profiles.fonts; [ common pragmatapro ];
-
-            identity = [ profiles.gpg-agent ];
-
-            remote-builders =
-              [ profiles.builders.common profiles.builders.nix-docker ];
-          };
+          overlays = [ (import ./pkgs) ];
         };
       };
 
-      home = {
-        imports = [ (digga.lib.importExportableModules ./modules/home) ];
-        importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles/home;
+      flake = {
+        modules = {
+          darwin = haumea.lib.load {
+            src = ./modules/darwin/src;
+            loader = haumea.lib.loaders.path;
+          };
 
-          suites = with profiles; rec {
-            base = [
-              autojump
-              broot
-              bat
-              direnv
-              fish
-              fzf
-              paths
-              micro
-              navi
-              starship
-              tmux
-              tools.common
-              tools.darwin
-              tools.extra
-            ];
-            development = [ asdf git.common gh vscode neovim ];
-            programming = [ elixir ruby ];
-            identity = [ gnupg ];
-            work = [ git.large-repos ];
-
-            minimal = [
-              autojump
-              bat
-              fish
-              fzf
-              git.common
-              gh
-              neovim
-              starship
-              tools.common
-            ];
+          home = haumea.lib.load {
+            src = ./modules/home/src;
+            loader = haumea.lib.loaders.path;
           };
         };
 
-        users = {
-          ethan = { ... }: { imports = [ ./users/ethan/home.nix ]; };
-
-          eturkeltaub = { ... }: {
-            imports = [ ./users/eturkeltaub/home.nix ];
+        profiles = {
+          darwin = haumea.lib.load {
+            src = ./modules/profiles/system;
+            loader = haumea.lib.loaders.path;
           };
 
-          remote = { ... }: { imports = [ ./users/remote/home.nix ]; };
+          home = haumea.lib.load {
+            src = ./modules/profiles/home;
+            loader = haumea.lib.loaders.path;
+          };
+        };
+
+        suites = {
+          darwin = import ./modules/suites/system.nix {
+            profiles = self.profiles.darwin;
+          };
+
+          home =
+            import ./modules/suites/home.nix { profiles = self.profiles.home; };
         };
       };
-
-      homeConfigurations =
-        digga.lib.mkHomeConfigurations self.darwinConfigurations;
-
-      devshell = ./shell;
-
-      outputsBuilder = channels:
-        let pkgs = channels.nixpkgs-unstable;
-        in {
-          checks = import ./checks { inherit self pkgs; };
-          apps = import ./apps { inherit self pkgs; };
-          formatter = pkgs.nixfmt;
-        };
     };
 }

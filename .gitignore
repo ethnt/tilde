@@ -1,5 +1,6 @@
+/.devenv/
 /.direnv/
-/result
+/result*
 /tmp/
 
 .DS_Store

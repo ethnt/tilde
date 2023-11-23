@@ -1,17 +1,11 @@
-{ config, lib, pkgs, suites, ... }:
-
-with lib;
-
-{
-  imports = with suites; (base ++ development ++ programming ++ identity);
+{ config, suites, ... }: {
+  imports = with suites; base ++ development ++ programming ++ identity;
 
   tilde.home = {
     username = "ethan";
     homeDirectory = "/Users/ethan";
     gpg = { keyId = "0x690FEBBF6380166A"; };
   };
-
-  home.sessionVariables = { KEYID = config.tilde.home.gpg.keyId; };
 
   programs.git = {
     userEmail = "ethan.turkeltaub@hey.com";
@@ -55,5 +49,7 @@ with lib;
     "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
   };
 
-  home.stateVersion = "22.11";
+  home.username = "ethan";
+  home.homeDirectory = "/Users/ethan";
+  home.stateVersion = "23.05";
 }
