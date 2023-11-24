@@ -185,16 +185,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1700710264,
-        "narHash": "sha256-7JSlj4iWgt3bsqmkPenIy1z+9f9oGuKEk9Lt6ebFyNg=",
-        "owner": "LnL7",
+        "lastModified": 1700703809,
+        "narHash": "sha256-2W+lvKNNoNSHyyz2QbVcpI4YO5EPMUNz8T137LOve9Q=",
+        "owner": "ethnt",
         "repo": "nix-darwin",
-        "rev": "6e0f4e58a622dd3a34b09f56fdcab9eddc641a67",
+        "rev": "72dd60bfc98c128149d84213b17d1b8a68863055",
         "type": "github"
       },
       "original": {
-        "owner": "LnL7",
-        "ref": "master",
+        "owner": "ethnt",
+        "ref": "linux-builder-systems-config",
         "repo": "nix-darwin",
         "type": "github"
       }

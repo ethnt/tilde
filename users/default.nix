@@ -5,10 +5,10 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  commonModules = (l.attrValues homeModules);
+  commonModules = l.attrValues homeModules;
 
   mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }:
-    { ... }: {
+    { _ }: {
       imports = commonModules ++ [ configuration ];
     };
 in rec {

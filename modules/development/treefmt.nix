@@ -9,10 +9,11 @@
           deadnix.enable = true;
           nixfmt.enable = true;
           dhall.enable = true;
+          statix.enable = true;
         };
       };
     in {
-      treefmt = { config = settings; };
+      treefmt.config = settings;
 
       formatter = inputs.treefmt.lib.mkWrapper pkgs settings;
 

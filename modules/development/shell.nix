@@ -4,7 +4,14 @@
   perSystem = { pkgs, ... }: {
     devenv.shells.default = _:
       {
-        packages = with pkgs; [ cachix git-crypt dhall just statix ];
+        packages = with pkgs; [
+          cachix
+          git-crypt
+          dhall
+          editorconfig-checker
+          just
+          statix
+        ];
       } // {
         containers = pkgs.lib.mkForce { };
       };
