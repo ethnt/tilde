@@ -9,7 +9,7 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v22"
+      , uses = Some "cachix/install-nix-action@v23"
       , `with` = Some
           ( toMap
               { nix_path = "nixpkgs=channel:nixos-unstable"
@@ -24,13 +24,13 @@ let installNix =
 let magicCache =
       GithubActions.Step::{
       , name = Some "Use Magic Nix Cache"
-      , uses = Some "DeterminateSystems/magic-nix-cache-action@v2"
+      , uses = Some "DeterminateSystems/magic-nix-cache-action@main"
       }
 
 let sshKeys =
       GithubActions.Step::{
       , name = Some "Add SSH key to ssh-agent"
-      , uses = Some "webfactory/ssh-agent@v0.5.4"
+      , uses = Some "webfactory/ssh-agent@v0.8.0"
       , `with` = Some
           (toMap { ssh-private-key = "\${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}" })
       }
