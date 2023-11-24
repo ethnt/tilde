@@ -4,7 +4,7 @@
   perSystem = { config, pkgs, ... }:
     let
       settings = {
-        projectRootFile = "flake.nix";
+        inherit (config.flake-root) projectRootFile;
         programs = {
           deadnix.enable = true;
           nixfmt.enable = true;

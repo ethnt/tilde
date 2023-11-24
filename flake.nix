@@ -12,6 +12,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    flake-root.url = "github:srid/flake-root";
+
     haumea.url = "github:nix-community/haumea/v0.2.2";
     haumea.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -29,6 +31,7 @@
       imports = [
         ./lib
 
+        ./modules/development/flake-root.nix
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
         ./modules/development/dhall.nix

@@ -1,17 +1,12 @@
 { inputs, ... }: {
   imports = [ inputs.devenv.flakeModule ];
 
-  perSystem = { pkgs, ... }: {
+  perSystem = { config, pkgs, ... }: {
     devenv.shells.default = _:
       {
-        packages = with pkgs; [
-          cachix
-          git-crypt
-          dhall
-          editorconfig-checker
-          just
-          statix
-        ];
+        env.FLAKE_ROOT = pkgs.lib.getExe config.flake-root.package;
+
+        packages = with pkgs; [ cachix git-crypt dhall just statix ];
       } // {
         containers = pkgs.lib.mkForce { };
       };
