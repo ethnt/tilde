@@ -1,20 +1,15 @@
+os_command := "darwin-rebuild"
+
 nix_flags := "--print-build-logs --show-trace --verbose"
-nix_build_flags := "--keep-going"
 darwin_flags := "--flake .#"
-nixos_flags := "--flake . --use-remote-sudo"
+build_flags := "--keep-going"
 
-os_command := if os() == "macos" {
-  "nix run nix-darwin --"
-} else if os() == "linux" {
-  "nixos-rebuild"
-} else {
-  "unknown"
-}
 
-default: build
+default:
+  @just --list
 
 build:
-  {{ os_command }} build {{ darwin_flags }} {{ nix_flags }} {{ nix_build_flags }}
+  {{ os_command }} build {{ darwin_flags }} {{ nix_flags }} {{ build_flags }}
 
 switch:
   {{ os_command }} switch {{ darwin_flags }}

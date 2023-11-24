@@ -7,10 +7,9 @@ let
 
   commonModules = l.attrValues homeModules;
 
-  mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }:
-    { _ }: {
-      imports = commonModules ++ [ configuration ];
-    };
+  mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }: {
+    imports = commonModules ++ [ configuration ];
+  };
 in rec {
   flake = {
     homeConfigurations = {
