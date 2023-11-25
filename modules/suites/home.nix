@@ -29,6 +29,15 @@ with profiles;
 
   work = [ git.large-repos ];
 
-  minimal =
-    [ autojump bat fish fzf git.common gh neovim starship tools.common ];
+  minimal = [
+    autojump.default
+    bat.default
+    fish.default
+    fzf.default
+    git.common
+    gh.default
+    neovim.default
+    starship.default
+    tools.common
+  ];
 }
