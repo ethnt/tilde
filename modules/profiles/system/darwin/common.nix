@@ -7,7 +7,7 @@
 
     settings = {
       trusted-users = [ config.tilde.host.primaryUser.username ];
-      extra-experimental-features = [ "nix-command" "flakes" ];
+      extra-experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
     };
   };
 
