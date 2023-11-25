@@ -4,15 +4,16 @@
   perSystem = { config, pkgs, ... }:
     let
       settings = {
-        projectRootFile = "flake.nix";
+        inherit (config.flake-root) projectRootFile;
         programs = {
           deadnix.enable = true;
           nixfmt.enable = true;
           dhall.enable = true;
+          statix.enable = true;
         };
       };
     in {
-      treefmt = { config = settings; };
+      treefmt.config = settings;
 
       formatter = inputs.treefmt.lib.mkWrapper pkgs settings;
 

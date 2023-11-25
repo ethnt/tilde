@@ -6,11 +6,13 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nix-darwin.url = "github:ethnt/nix-darwin/linux-builder-systems-config";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-root.url = "github:srid/flake-root";
 
     haumea.url = "github:nix-community/haumea/v0.2.2";
     haumea.inputs.nixpkgs.follows = "nixpkgs";
@@ -22,13 +24,14 @@
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, flake-parts, haumea, ... }:
+  outputs = inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-darwin" ];
 
       imports = [
         ./lib
 
+        ./modules/development/flake-root.nix
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
         ./modules/development/dhall.nix
@@ -36,11 +39,14 @@
         ./modules/darwin/default.nix
         ./modules/home/default.nix
 
+        ./modules/profiles/default.nix
+        ./modules/suites/default.nix
+
         ./hosts
         ./users
       ];
 
-      perSystem = { pkgs, system, ... }: {
+      perSystem = { system, ... }: {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
 
@@ -48,41 +54,6 @@
           config.allowUnfree = true;
 
           overlays = [ (import ./pkgs) ];
-        };
-      };
-
-      flake = {
-        modules = {
-          darwin = haumea.lib.load {
-            src = ./modules/darwin/src;
-            loader = haumea.lib.loaders.path;
-          };
-
-          home = haumea.lib.load {
-            src = ./modules/home/src;
-            loader = haumea.lib.loaders.path;
-          };
-        };
-
-        profiles = {
-          darwin = haumea.lib.load {
-            src = ./modules/profiles/system;
-            loader = haumea.lib.loaders.path;
-          };
-
-          home = haumea.lib.load {
-            src = ./modules/profiles/home;
-            loader = haumea.lib.loaders.path;
-          };
-        };
-
-        suites = {
-          darwin = import ./modules/suites/system.nix {
-            profiles = self.profiles.darwin;
-          };
-
-          home =
-            import ./modules/suites/home.nix { profiles = self.profiles.home; };
         };
       };
     };

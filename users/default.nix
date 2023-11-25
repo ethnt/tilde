@@ -5,12 +5,11 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  commonModules = (l.attrValues homeModules);
+  commonModules = l.attrValues homeModules;
 
-  mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }:
-    { ... }: {
-      imports = commonModules ++ [ configuration ];
-    };
+  mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }: {
+    imports = commonModules ++ [ configuration ];
+  };
 in rec {
   flake = {
     homeConfigurations = {

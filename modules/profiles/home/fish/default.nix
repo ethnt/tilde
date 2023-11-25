@@ -11,9 +11,6 @@
     shellInit = ''
       # fish
       set -U fish_prompt_pwd_dir_length 0
-
-      # THIS IS TEMPORARY
-      fish_add_path /opt/homebrew/bin
     '';
 
     interactiveShellInit = ''
@@ -28,25 +25,14 @@
       find_nix_package = "fd $argv /nix/store -d 1 -t d | head -n 1";
     };
 
-    plugins = [
-      {
-        name = "sponge";
-        src = pkgs.fetchFromGitHub {
-          owner = "andreiborisov";
-          repo = "sponge";
-          rev = "0f3bf8f10b81b25d2b3bbb3d6ec86f77408c0908";
-          sha256 = "EUT9Bf+OD+cCNLfJqVog4kSXSNfuT5Db/+ejwsRBUW8=";
-        };
-      }
-      {
-        name = "foreign-env";
-        src = pkgs.fetchFromGitHub {
-          owner = "oh-my-fish";
-          repo = "plugin-foreign-env";
-          rev = "b3dd471bcc885b597c3922e4de836e06415e52dd";
-          sha256 = "3h03WQrBZmTXZLkQh1oVyhv6zlyYsSDS7HTHr+7WjY8=";
-        };
-      }
-    ];
+    plugins = [{
+      name = "foreign-env";
+      src = pkgs.fetchFromGitHub {
+        owner = "oh-my-fish";
+        repo = "plugin-foreign-env";
+        rev = "7f0cf099ae1e1e4ab38f46350ed6757d54471de7";
+        sha256 = "4+k5rSoxkTtYFh/lEjhRkVYa2S4KEzJ/IJbyJl+rJjQ=";
+      };
+    }];
   };
 }
