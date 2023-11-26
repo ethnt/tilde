@@ -14,3 +14,7 @@ indent_style = table
 [*.gpg]
 insert_final_newline = false
 end_of_line = crlf
+
+[Justfile]
+indent_style = space
+indent_size = 4

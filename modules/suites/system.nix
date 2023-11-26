@@ -4,15 +4,16 @@ with profiles;
 
 {
   base = [
+    cachix.default
+    darwin.brew
     darwin.common
     darwin.system-defaults
-    darwin.brew
-    cachix.default
-    shells.default
+    home-manager.common
     networking.default
+    shells.default
   ];
 
-  fonts = with fonts; [ common pragmatapro ];
+  fonts = with fonts; [ common ];
 
   identity = [ gpg-agent.default ];
 
