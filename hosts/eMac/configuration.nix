@@ -16,6 +16,6 @@
   homebrew = {
     brews = [ "pinentry-mac" ];
 
-    casks = [ "arc" "dash" "docker" "tailscale" "utm" ];
+    casks = [ "arc" "dash" "docker" "hey" "tailscale" "utm" ];
   };
 }

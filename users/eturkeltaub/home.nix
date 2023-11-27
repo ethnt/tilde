@@ -2,7 +2,7 @@
   imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
-    username = "ethan";
+    username = "eturkeltaub";
     homeDirectory = "/Users/eturkeltaub";
     gpg = { keyId = "4FF658525A04B618E0376A8854CFB5EB45626324"; };
   };
