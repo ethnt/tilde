@@ -1,17 +1,16 @@
-{
+{ lib, ... }: {
   environment.systemPath = [ "/opt/homebrew/bin" ];
 
   homebrew = {
     enable = true;
 
-    onActivation.cleanup = "zap";
+    onActivation.cleanup = lib.mkDefault "zap";
 
     casks = [
       "1password"
       "bartender"
       "firefox"
       "hazel"
-      "hey"
       "istat-menus"
       "iterm2"
       "logitech-options"

@@ -1,6 +1,6 @@
 { homeConfigurations, ... }: {
   tilde.host.primaryUser = {
-    username = "ethan";
+    username = "eturkeltaub";
     homeDirectory = "/Users/eturkeltaub";
   };
 

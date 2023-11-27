@@ -1,4 +1,4 @@
-{ suites, profiles, ... }: {
+{ suites, profiles, lib, ... }: {
   imports = with suites; base ++ fonts ++ [ profiles.users.eturkeltaub ];
 
   tilde.host = {
@@ -11,10 +11,21 @@
   environment.etc."ssh/ssh_known_hosts".enable = false;
 
   homebrew = {
+    onActivation.cleanup = lib.mkOverride 10 "none";
+
     # FIXME: $PATH doesn't pick up nix's `gnused` before the system one, but it does pick up the Homebrew version
     # https://github.com/ethnt/tilde/issues/71
     brews = [ "gnu-sed" ];
-    casks = [ "keepingyouawake" "logseq" "obsidian" ];
+    casks = [
+      "asana"
+      "figma"
+      "graphiql"
+      "insomnia"
+      "obsidian"
+      "keepingyouawake"
+      "logseq"
+      "obsidian"
+    ];
     masApps = { "Omnifocus 3" = 1346203938; };
   };
 }
