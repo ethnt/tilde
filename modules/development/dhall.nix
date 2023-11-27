@@ -1,5 +1,5 @@
 {
-  perSystem = { config, pkgs, lib, ... }: {
+  perSystem = { pkgs, ... }: {
     apps = {
       generate-ci.program = pkgs.writeShellScriptBin "generate-ci" ''
         set -euo pipefail
