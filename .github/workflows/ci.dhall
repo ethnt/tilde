@@ -16,7 +16,6 @@ let installNix =
               , extra_nix_config =
                   ''
                     allow-import-from-derivation = true
-                    access-tokens = github.com=''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
                   ''
               }
           )
