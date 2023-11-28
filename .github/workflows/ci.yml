@@ -10,8 +10,6 @@ jobs:
           extra_nix_config: |2
               allow-import-from-derivation = true
           nix_path: nixpkgs=channel:nixos-unstable
-      - name: Use Magic Nix Cache
-        uses: "DeterminateSystems/magic-nix-cache-action@main"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:
@@ -24,10 +22,7 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
+            nix develop -c "just" "unlock" "${{ secrets.GIT_CRYPT_KEY }}"
       - run: |2
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
   check:
@@ -41,8 +36,6 @@ jobs:
           extra_nix_config: |2
               allow-import-from-derivation = true
           nix_path: nixpkgs=channel:nixos-unstable
-      - name: Use Magic Nix Cache
-        uses: "DeterminateSystems/magic-nix-cache-action@main"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:
@@ -55,10 +48,7 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
+            nix develop -c "just" "unlock" "${{ secrets.GIT_CRYPT_KEY }}"
       - run: |2
             nix flake -Lv check --impure --all-systems --show-trace
 name: CI

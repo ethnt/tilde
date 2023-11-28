@@ -21,12 +21,6 @@ let installNix =
           )
       }
 
-let magicCache =
-      GithubActions.Step::{
-      , name = Some "Use Magic Nix Cache"
-      , uses = Some "DeterminateSystems/magic-nix-cache-action@main"
-      }
-
 let sshKeys =
       GithubActions.Step::{
       , name = Some "Add SSH key to ssh-agent"
@@ -40,10 +34,7 @@ let unlockSecrets =
       , name = Some "Unlock encrypted files"
       , run = Some
           ''
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
+            nix develop -c "just" "unlock" "''${{ secrets.GIT_CRYPT_KEY }}"
           ''
       }
 
@@ -76,7 +67,7 @@ let buildRemoteHomeConfiguration =
           ''
       }
 
-let setup = [ checkout, installNix, magicCache, cachix, sshKeys, unlockSecrets ]
+let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
