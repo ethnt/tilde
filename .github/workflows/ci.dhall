@@ -9,16 +9,7 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v23"
-      , `with` = Some
-          ( toMap
-              { nix_path = "nixpkgs=channel:nixos-unstable"
-              , extra_nix_config =
-                  ''
-                    allow-import-from-derivation = true
-                  ''
-              }
-          )
+      , uses = Some "DeterminateSystems/nix-installer-action@main"
       }
 
 let sshKeys =
@@ -56,7 +47,6 @@ let cachix =
 
 let check =
       GithubActions.Step::{
-      , name = Some "Check flake"
       , run = Some
           ''
             nix flake -Lv check --impure --all-systems --show-trace
@@ -65,7 +55,6 @@ let check =
 
 let buildRemoteHomeConfiguration =
       GithubActions.Step::{
-      , name = Some "Build `remote` home configuration"
       , run = Some
           ''
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
@@ -79,10 +68,12 @@ in  GithubActions.Workflow::{
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
         { check = GithubActions.Job::{
+          , name = Some "Check flake"
           , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
           , steps = setup # [ check ]
           }
         , buildRemote = GithubActions.Job::{
+          , name = Some "Build remote home configuration"
           , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
           , steps = setup # [ buildRemoteHomeConfiguration ]
           }

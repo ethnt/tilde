@@ -1,15 +1,12 @@
 jobs:
   buildRemote:
+    name: Build remote home configuration
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: "actions/checkout@v2.4.0"
       - name: Install Nix
-        uses: "cachix/install-nix-action@v23"
-        with:
-          extra_nix_config: |2
-              allow-import-from-derivation = true
-          nix_path: nixpkgs=channel:nixos-unstable
+        uses: "DeterminateSystems/nix-installer-action@main"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:
@@ -26,20 +23,16 @@ jobs:
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - name: "Build `remote` home configuration"
-        run: |2
+      - run: |2
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
   check:
+    name: Check flake
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: "actions/checkout@v2.4.0"
       - name: Install Nix
-        uses: "cachix/install-nix-action@v23"
-        with:
-          extra_nix_config: |2
-              allow-import-from-derivation = true
-          nix_path: nixpkgs=channel:nixos-unstable
+        uses: "DeterminateSystems/nix-installer-action@main"
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
         with:
@@ -56,8 +49,7 @@ jobs:
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - name: Check flake
-        run: |2
+      - run: |2
             nix flake -Lv check --impure --all-systems --show-trace
 name: CI
 on:
