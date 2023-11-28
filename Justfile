@@ -32,8 +32,3 @@ repl:
 
 format:
     treefmt
-
-unlock key:
-    echo "{{ key }}" | base64 -d > /tmp/git-crypt-key
-    git-crypt unlock /tmp/git-crypt-key
-    rm /tmp/git-crypt-key
