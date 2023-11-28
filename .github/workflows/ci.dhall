@@ -16,6 +16,7 @@ let installNix =
               , extra_nix_config =
                   ''
                     allow-import-from-derivation = true
+                    access-tokens = github.com=''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
                   ''
               }
           )
@@ -34,7 +35,7 @@ let unlockSecrets =
       , name = Some "Unlock encrypted files"
       , run = Some
           ''
-            nix develop -c "just" "unlock" "''${{ secrets.GIT_CRYPT_KEY }}"
+            nix develop --impure -c "just" "unlock" "''${{ secrets.GIT_CRYPT_KEY }}"
           ''
       }
 

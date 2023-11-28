@@ -9,6 +9,7 @@ jobs:
         with:
           extra_nix_config: |2
               allow-import-from-derivation = true
+              access-tokens = github.com=${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
@@ -22,7 +23,7 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix develop -c "just" "unlock" "${{ secrets.GIT_CRYPT_KEY }}"
+            nix develop --impure -c "just" "unlock" "${{ secrets.GIT_CRYPT_KEY }}"
       - run: |2
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
   check:
@@ -35,6 +36,7 @@ jobs:
         with:
           extra_nix_config: |2
               allow-import-from-derivation = true
+              access-tokens = github.com=${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Use Cachix store
         uses: "cachix/cachix-action@v12"
@@ -48,7 +50,7 @@ jobs:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
       - name: Unlock encrypted files
         run: |2
-            nix develop -c "just" "unlock" "${{ secrets.GIT_CRYPT_KEY }}"
+            nix develop --impure -c "just" "unlock" "${{ secrets.GIT_CRYPT_KEY }}"
       - run: |2
             nix flake -Lv check --impure --all-systems --show-trace
 name: CI
