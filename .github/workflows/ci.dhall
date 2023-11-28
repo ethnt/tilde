@@ -82,8 +82,8 @@ let activateHomeConfiguration =
           ''
             export USER=eturkeltaub
 
-            mkdir /home/eturkeltaub
-            export HOME=/home/eturkeltaub
+            mkdir /tmp/eturkeltaub
+            export HOME=/tmp/eturkeltaub
 
             ./result/activate
           ''
