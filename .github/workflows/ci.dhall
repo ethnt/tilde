@@ -9,22 +9,7 @@ let checkout =
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
-      , uses = Some "cachix/install-nix-action@v23"
-      , `with` = Some
-          ( toMap
-              { nix_path = "nixpkgs=channel:nixos-unstable"
-              , extra_nix_config =
-                  ''
-                    allow-import-from-derivation = true
-                  ''
-              }
-          )
-      }
-
-let magicCache =
-      GithubActions.Step::{
-      , name = Some "Use Magic Nix Cache"
-      , uses = Some "DeterminateSystems/magic-nix-cache-action@main"
+      , uses = Some "DeterminateSystems/nix-installer-action@main"
       }
 
 let sshKeys =
@@ -64,19 +49,33 @@ let check =
       GithubActions.Step::{
       , run = Some
           ''
-            nix flake -Lv check --impure --show-trace
+            nix flake -Lv check --impure --all-systems --show-trace
           ''
       }
 
-let setup = [ checkout, installNix, magicCache, cachix, sshKeys, unlockSecrets ]
+let buildRemoteHomeConfiguration =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
+          ''
+      }
+
+let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
         { check = GithubActions.Job::{
-          , runs-on = GithubActions.RunsOn.Type.macos-latest
+          , name = Some "Check flake"
+          , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
           , steps = setup # [ check ]
+          }
+        , buildRemote = GithubActions.Job::{
+          , name = Some "Build remote home configuration"
+          , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
+          , steps = setup # [ buildRemoteHomeConfiguration ]
           }
         }
     }
