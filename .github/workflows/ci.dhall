@@ -68,6 +68,22 @@ let check =
           ''
       }
 
+let buildRemoteHomeConfiguration =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
+          ''
+      }
+
+let activateHomeConfiguration =
+      GithubActions.Step::{
+      , run = Some
+          ''
+            ./result/activate
+          ''
+      }
+
 let setup = [ checkout, installNix, magicCache, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
