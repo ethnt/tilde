@@ -34,7 +34,8 @@ let unlockSecrets =
       , name = Some "Unlock encrypted files"
       , run = Some
           ''
-            nix develop --impure -c "just" "unlock" "''${{ secrets.GIT_CRYPT_KEY }}"
+            nix profile install git-crypt
+            just unlock ''${{ secrets.GIT_CRYPT_KEY }}
           ''
       }
 

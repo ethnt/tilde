@@ -12,6 +12,9 @@ build: (build-system hostname)
 build-system name:
     nix build .#darwinConfigurations.{{ name }}.system {{ nix_flags }} {{ build_flags }}
 
+build-home system name:
+    nix build .#homeConfigurationsPortable.{{ system }}.{{ name }}.activation-script {{ nix_flags }} {{ build_flags }}
+
 switch:
     {{ os_command }} switch {{ darwin_flags }}
 
