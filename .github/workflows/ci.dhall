@@ -81,6 +81,10 @@ let activateHomeConfiguration =
       , run = Some
           ''
             export USER=eturkeltaub
+
+            mkdir /home/eturkeltaub
+            export HOME=/home/eturkeltaub
+
             ./result/activate
           ''
       }

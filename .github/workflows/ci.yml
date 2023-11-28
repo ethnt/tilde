@@ -32,6 +32,10 @@ jobs:
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
       - run: |2
             export USER=eturkeltaub
+          
+            mkdir /home/eturkeltaub
+            export HOME=/home/eturkeltaub
+          
             ./result/activate
   check:
     runs-on: macos-latest
