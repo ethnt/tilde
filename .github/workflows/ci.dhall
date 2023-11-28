@@ -80,6 +80,7 @@ let activateHomeConfiguration =
       GithubActions.Step::{
       , run = Some
           ''
+            export USER=eturkeltaub
             ./result/activate
           ''
       }
