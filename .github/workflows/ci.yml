@@ -26,7 +26,8 @@ jobs:
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - run: |2
+      - name: "Build `remote` home configuration"
+        run: |2
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
   check:
     runs-on: ubuntu-latest
@@ -55,7 +56,8 @@ jobs:
             echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - run: |2
+      - name: Check flake
+        run: |2
             nix flake -Lv check --impure --all-systems --show-trace
 name: CI
 on:

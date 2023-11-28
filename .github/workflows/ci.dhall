@@ -56,6 +56,7 @@ let cachix =
 
 let check =
       GithubActions.Step::{
+      , name = Some "Check flake"
       , run = Some
           ''
             nix flake -Lv check --impure --all-systems --show-trace
@@ -64,6 +65,7 @@ let check =
 
 let buildRemoteHomeConfiguration =
       GithubActions.Step::{
+      , name = Some "Build `remote` home configuration"
       , run = Some
           ''
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
@@ -82,9 +84,7 @@ in  GithubActions.Workflow::{
           }
         , buildRemote = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
-          , steps =
-                setup
-              # [ buildRemoteHomeConfiguration ]
+          , steps = setup # [ buildRemoteHomeConfiguration ]
           }
         }
     }
