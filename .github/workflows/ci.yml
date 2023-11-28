@@ -1,4 +1,37 @@
 jobs:
+  buildRemote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: "actions/checkout@v2.4.0"
+      - name: Install Nix
+        uses: "cachix/install-nix-action@v23"
+        with:
+          extra_nix_config: |2
+              allow-import-from-derivation = true
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Use Magic Nix Cache
+        uses: "DeterminateSystems/magic-nix-cache-action@main"
+      - name: Use Cachix store
+        uses: "cachix/cachix-action@v12"
+        with:
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          extraPullNames: "tilde,nix-community,nrdxp"
+          name: tilde
+      - name: Add SSH key to ssh-agent
+        uses: "webfactory/ssh-agent@v0.8.0"
+        with:
+          ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
+      - name: Unlock encrypted files
+        run: |2
+            nix-env -i git-crypt -f '<nixpkgs>'
+            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
+            git-crypt unlock /tmp/git-crypt-key
+            rm /tmp/git-crypt-key
+      - run: |2
+            nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
+      - run: |2
+            ./result/activate
   check:
     runs-on: macos-latest
     steps:

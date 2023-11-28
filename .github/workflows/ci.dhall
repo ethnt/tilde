@@ -94,5 +94,11 @@ in  GithubActions.Workflow::{
           , runs-on = GithubActions.RunsOn.Type.macos-latest
           , steps = setup # [ check ]
           }
+        , buildRemote = GithubActions.Job::{
+          , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
+          , steps =
+                setup
+              # [ buildRemoteHomeConfiguration, activateHomeConfiguration ]
+          }
         }
     }
