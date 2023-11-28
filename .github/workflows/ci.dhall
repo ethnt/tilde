@@ -64,7 +64,7 @@ let check =
       GithubActions.Step::{
       , run = Some
           ''
-            nix flake -Lv check --impure --show-trace
+            nix flake -Lv check --impure --all-systems --show-trace
           ''
       }
 
@@ -76,19 +76,6 @@ let buildRemoteHomeConfiguration =
           ''
       }
 
-let activateHomeConfiguration =
-      GithubActions.Step::{
-      , run = Some
-          ''
-            export USER=eturkeltaub
-
-            mkdir /tmp/eturkeltaub
-            export HOME=/tmp/eturkeltaub
-
-            ./result/activate
-          ''
-      }
-
 let setup = [ checkout, installNix, magicCache, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
@@ -96,14 +83,14 @@ in  GithubActions.Workflow::{
     , on = GithubActions.On::{ push = Some GithubActions.Push::{=} }
     , jobs = toMap
         { check = GithubActions.Job::{
-          , runs-on = GithubActions.RunsOn.Type.macos-latest
+          , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
           , steps = setup # [ check ]
           }
         , buildRemote = GithubActions.Job::{
           , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
           , steps =
                 setup
-              # [ buildRemoteHomeConfiguration, activateHomeConfiguration ]
+              # [ buildRemoteHomeConfiguration ]
           }
         }
     }

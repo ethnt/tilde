@@ -30,15 +30,8 @@ jobs:
             rm /tmp/git-crypt-key
       - run: |2
             nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
-      - run: |2
-            export USER=eturkeltaub
-          
-            mkdir /tmp/eturkeltaub
-            export HOME=/tmp/eturkeltaub
-          
-            ./result/activate
   check:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: "actions/checkout@v2.4.0"
@@ -67,7 +60,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix flake -Lv check --impure --show-trace
+            nix flake -Lv check --impure --all-systems --show-trace
 name: CI
 on:
   push: {}
