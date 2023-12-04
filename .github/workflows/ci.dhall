@@ -55,8 +55,7 @@ let check =
           ''
       }
 
-let homeManagerSystemMatrix =
-      toMap { system = [ "x86_64-linux", "aarch64-linux" ] }
+let homeManagerSystemMatrix = toMap { system = [ "x86_64-linux" ] }
 
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 

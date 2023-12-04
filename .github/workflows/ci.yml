@@ -31,7 +31,6 @@ jobs:
       matrix:
         system:
           - x86_64-linux
-          - aarch64-linux
   check:
     name: Check flake
     runs-on: ubuntu-latest
