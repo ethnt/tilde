@@ -10,6 +10,8 @@ let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
       , uses = Some "DeterminateSystems/nix-installer-action@main"
+      , `with` = Some
+          (toMap { extra-conf = "system-features = aarch64-linux arm-linux" })
       }
 
 let sshKeys =
@@ -53,13 +55,7 @@ let check =
           ''
       }
 
-let buildRemoteHomeConfiguration =
-      GithubActions.Step::{
-      , run = Some
-          ''
-            nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
-          ''
-      }
+let homeManagerSystemMatrix = toMap { system = [ "x86_64-linux" ] }
 
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
@@ -74,8 +70,19 @@ in  GithubActions.Workflow::{
           }
         , buildRemote = GithubActions.Job::{
           , name = Some "Build remote home configuration"
+          , strategy = Some GithubActions.Strategy::{
+            , matrix = homeManagerSystemMatrix
+            }
           , runs-on = GithubActions.RunsOn.Type.ubuntu-latest
-          , steps = setup # [ buildRemoteHomeConfiguration ]
+          , steps =
+                setup
+              # [ GithubActions.Step::{
+                  , run = Some
+                      ''
+                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+                      ''
+                  }
+                ]
           }
         }
     }
