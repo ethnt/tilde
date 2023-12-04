@@ -1,6 +1,14 @@
 {
   description = "tilde";
 
+  nixConfig = {
+    extra-experimental-features = "nix-command flakes";
+    extra-substituters =
+      "https://cachix.org/api/v1/cache/tilde https://nix-community.cachix.org";
+    extra-trusted-public-keys =
+      "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg=  nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
