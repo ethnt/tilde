@@ -21,9 +21,9 @@
       "figma"
       "graphiql"
       "insomnia"
-      "obsidian"
       "keepingyouawake"
       "logseq"
+      "monitorcontrol"
       "obsidian"
     ];
     masApps = { "Omnifocus 3" = 1346203938; };
