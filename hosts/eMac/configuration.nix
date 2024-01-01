@@ -1,9 +1,7 @@
 { suites, profiles, ... }: {
   imports = with suites;
-    base ++ fonts ++ identity ++ [
-      profiles.users.ethan
-      profiles.builders.builder
-    ];
+    base ++ fonts ++ identity
+    ++ [ profiles.users.ethan profiles.builders.builder ];
 
   tilde.host = {
     name = "eMac";
