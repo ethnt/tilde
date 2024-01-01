@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ dogdns choose grex manix mtr pv sd tldr ];
+  home.packages = with pkgs; [ choose dogdns grex manix mtr pv sd tldr ];
 }

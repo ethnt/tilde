@@ -1,5 +1,7 @@
-{ config, suites, ... }: {
-  imports = with suites; base ++ development ++ programming ++ identity;
+{ config, suites, profiles, ... }: {
+  imports = with suites;
+    base ++ development ++ programming ++ identity
+    ++ [ profiles.tools.media-management ];
 
   tilde.home = {
     username = "ethan";

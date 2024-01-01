@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
 
@@ -24,4 +24,6 @@
       vim-nix
     ];
   };
+
+  home.sessionVariables.EDITOR = pkgs.lib.getExe config.programs.neovim.package;
 }

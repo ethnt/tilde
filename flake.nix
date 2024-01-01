@@ -3,10 +3,18 @@
 
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
-    extra-substituters =
-      "https://cachix.org/api/v1/cache/tilde https://nix-community.cachix.org";
-    extra-trusted-public-keys =
-      "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg=  nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://tilde.cachix.org"
+      "https://numtide.cachix.org"
+    ];
+
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg="
+      "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+    ];
   };
 
   inputs = {

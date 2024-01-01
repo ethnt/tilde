@@ -2,5 +2,6 @@
 /.direnv/
 /result*
 /tmp/
+/keys/
 
 .DS_Store
