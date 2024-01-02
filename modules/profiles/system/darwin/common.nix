@@ -1,9 +1,11 @@
-{ config, ... }: {
+{ flake, config, ... }: {
   services.activate-system.enable = true;
   services.nix-daemon.enable = true;
 
   nix = {
     configureBuildUsers = true;
+
+    nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
 
     settings = {
       trusted-users = [ config.tilde.host.primaryUser.username ];

@@ -2,7 +2,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { suites = flake.suites.home; };
+    extraSpecialArgs = {
+      suites = flake.suites.home;
+      profiles = flake.profiles.home;
+    };
   };
 
   # These are shared modules because they require configuration from the system, not the home configuration

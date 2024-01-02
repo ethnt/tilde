@@ -1,11 +1,7 @@
 { suites, profiles, ... }: {
   imports = with suites;
-    base ++ fonts ++ identity ++ [
-      profiles.users.ethan
-      profiles.builders.common
-      profiles.builders.darwin-linux
-      profiles.builders.nix-docker
-    ];
+    base ++ fonts ++ identity
+    ++ [ profiles.users.ethan profiles.builders.builder ];
 
   tilde.host = {
     name = "eMac";
@@ -16,6 +12,8 @@
   homebrew = {
     brews = [ "pinentry-mac" ];
 
-    casks = [ "arc" "docker" "hey" "notion" "tailscale" "utm" ];
+    casks = [ "arc" "docker" "hey" "notion" "tailscale" "utm" "vlc" ];
+
+    masApps = { "Amphetamine" = 937984704; };
   };
 }

@@ -1,4 +1,4 @@
-{ config, ... }: {
+_: {
   programs.micro = {
     enable = true;
     settings = {
@@ -7,6 +7,4 @@
     };
     plugins = [ "autoclose" "comment" "ftoptions" "diff" ];
   };
-
-  home.sessionVariables.EDITOR = "${config.programs.micro.package}/bin/micro";
 }

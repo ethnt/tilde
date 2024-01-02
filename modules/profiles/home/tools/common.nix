@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    # exa
     comma
     difftastic
+    eza
     fd
     gnused
     htop
