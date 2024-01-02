@@ -58,7 +58,7 @@ let check =
 let homeManagerSystemMatrix = toMap { system = [ "x86_64-linux" ] }
 
 let darwinHostMatrix =
-      toMap { os = [ "macos-14-large" ], host = [ "eMac", "st-eturkeltaub2" ] }
+      toMap { os = [ "macos-13-large" ], host = [ "eMac", "st-eturkeltaub2" ] }
 
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 

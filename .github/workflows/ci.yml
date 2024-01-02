@@ -65,7 +65,7 @@ jobs:
           - eMac
           - st-eturkeltaub2
         os:
-          - macos-14-large
+          - macos-13-large
   check:
     name: Check flake
     runs-on: ubuntu-latest
