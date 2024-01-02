@@ -26,7 +26,7 @@ with lib;
       style = "bold dimmed";
     };
 
-    username.format = "[$user]($style) on ";
+    # username.format = "[$user]($style) on ";
 
     aws.disabled = true;
     hostname.disabled = true;
