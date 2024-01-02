@@ -4,7 +4,7 @@ let GithubActions =
 let checkout =
       GithubActions.Step::{
       , name = Some "Checkout code"
-      , uses = Some "actions/checkout@v2.4.0"
+      , uses = Some "actions/checkout@v3"
       }
 
 let installNix =
