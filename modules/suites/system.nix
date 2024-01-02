@@ -4,7 +4,7 @@ with profiles;
 
 {
   base = [
-    cachix.default
+    core.nix-config
     darwin.brew
     darwin.common
     darwin.system-defaults

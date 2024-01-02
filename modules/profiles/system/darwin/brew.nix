@@ -17,7 +17,6 @@
       "raycast"
       "rectangle"
       "spotify"
-      "zoom"
     ];
 
     masApps = {

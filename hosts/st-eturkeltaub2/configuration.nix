@@ -16,6 +16,7 @@
     # FIXME: $PATH doesn't pick up nix's `gnused` before the system one, but it does pick up the Homebrew version
     # https://github.com/ethnt/tilde/issues/71
     brews = [ "gnu-sed" ];
+
     casks = [
       "asana"
       "figma"
@@ -25,7 +26,9 @@
       "logseq"
       "monitorcontrol"
       "obsidian"
+      "zoom"
     ];
+
     masApps = { "Omnifocus 3" = 1346203938; };
   };
 }
