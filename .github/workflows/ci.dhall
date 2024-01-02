@@ -1,4 +1,5 @@
-let GithubActions = https://regadas.dev/github-actions-dhall/package.dhall
+let GithubActions =
+      https://raw.githubusercontent.com/regadas/github-actions-dhall/master/package.dhall
 
 let checkout =
       GithubActions.Step::{
@@ -10,8 +11,7 @@ let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
       , uses = Some "DeterminateSystems/nix-installer-action@main"
-      , `with` = Some
-          (toMap { extra-conf = "system-features = aarch64-linux arm-linux" })
+      , `with` = Some (toMap { extra-conf = "system-features = aarch64-linux" })
       }
 
 let sshKeys =
@@ -57,6 +57,9 @@ let check =
 
 let homeManagerSystemMatrix = toMap { system = [ "x86_64-linux" ] }
 
+let darwinHostMatrix =
+      toMap { os = [ "macos-14-large" ], host = [ "eMac", "st-eturkeltaub2" ] }
+
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
@@ -80,6 +83,22 @@ in  GithubActions.Workflow::{
                   , run = Some
                       ''
                         nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+                      ''
+                  }
+                ]
+          }
+        , buildSystem = GithubActions.Job::{
+          , name = Some "Build system"
+          , strategy = Some GithubActions.Strategy::{
+            , matrix = darwinHostMatrix
+            }
+          , runs-on = GithubActions.RunsOn.Type.`${{ matrix.os }}`
+          , steps =
+                setup
+              # [ GithubActions.Step::{
+                  , run = Some
+                      ''
+                        nix develop --impure -c "just" "build-system" "''${{ matrix.host }}"
                       ''
                   }
                 ]
