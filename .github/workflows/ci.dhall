@@ -98,7 +98,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.Step::{
                   , run = Some
                       ''
-                        nix develop --impure -c "just" "build-system" "''${{ matrix.host }}"
+                        nix develop --impure --accept-flake-config -c "just" "build-system" "''${{ matrix.host }}"
                       ''
                   }
                 ]

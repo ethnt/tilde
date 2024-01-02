@@ -58,7 +58,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - run: |2
-            nix develop --impure -c "just" "build-system" "${{ matrix.host }}"
+            nix develop --impure --accept-flake-config -c "just" "build-system" "${{ matrix.host }}"
     strategy:
       matrix:
         host:
