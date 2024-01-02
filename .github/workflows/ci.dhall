@@ -34,16 +34,6 @@ let unlockSecrets =
           ''
       }
 
-let restartSsh =
-      GithubActions.Step::{
-      , name = Some "Restart ssh-agent"
-      , run = Some
-          ''
-            killall ssh-agent
-            eval "$(ssh-agent)"
-          ''
-      }
-
 let cachix =
       GithubActions.Step::{
       , name = Some "Use Cachix store"
@@ -73,7 +63,7 @@ let darwinHostMatrix =
         , host = [ "eMac", "st-eturkeltaub2" ]
         }
 
-let setup = [ checkout, installNix, cachix, sshKeys, restartSsh, unlockSecrets ]
+let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
