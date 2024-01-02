@@ -19,6 +19,10 @@ jobs:
         uses: "webfactory/ssh-agent@v0.8.0"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
+      - name: Restart ssh-agent
+        run: |2
+            killall ssh-agent
+            eval "$(ssh-agent)"
       - name: Unlock encrypted files
         run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
@@ -51,6 +55,10 @@ jobs:
         uses: "webfactory/ssh-agent@v0.8.0"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
+      - name: Restart ssh-agent
+        run: |2
+            killall ssh-agent
+            eval "$(ssh-agent)"
       - name: Unlock encrypted files
         run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
@@ -86,6 +94,10 @@ jobs:
         uses: "webfactory/ssh-agent@v0.8.0"
         with:
           ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
+      - name: Restart ssh-agent
+        run: |2
+            killall ssh-agent
+            eval "$(ssh-agent)"
       - name: Unlock encrypted files
         run: |2
             nix-env -i git-crypt -f '<nixpkgs>'
