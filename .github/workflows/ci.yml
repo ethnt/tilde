@@ -65,7 +65,7 @@ jobs:
           - eMac
           - st-eturkeltaub2
         os:
-          - macos-13-large
+          - flyci-macos-large-latest-m1
   check:
     name: Check flake
     runs-on: ubuntu-latest
