@@ -1,17 +1,17 @@
-let GithubActions = https://regadas.dev/github-actions-dhall/package.dhall
+let GithubActions =
+      https://raw.githubusercontent.com/regadas/github-actions-dhall/master/package.dhall
 
 let checkout =
       GithubActions.Step::{
       , name = Some "Checkout code"
-      , uses = Some "actions/checkout@v2.4.0"
+      , uses = Some "actions/checkout@v3"
       }
 
 let installNix =
       GithubActions.Step::{
       , name = Some "Install Nix"
       , uses = Some "DeterminateSystems/nix-installer-action@main"
-      , `with` = Some
-          (toMap { extra-conf = "system-features = aarch64-linux arm-linux" })
+      , `with` = Some (toMap { extra-conf = "system-features = aarch64-linux" })
       }
 
 let sshKeys =
@@ -57,6 +57,12 @@ let check =
 
 let homeManagerSystemMatrix = toMap { system = [ "x86_64-linux" ] }
 
+let darwinHostMatrix =
+      toMap
+        { os = [ "flyci-macos-large-latest-m1" ]
+        , host = [ "eMac", "st-eturkeltaub2" ]
+        }
+
 let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
 
 in  GithubActions.Workflow::{
@@ -80,6 +86,22 @@ in  GithubActions.Workflow::{
                   , run = Some
                       ''
                         nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+                      ''
+                  }
+                ]
+          }
+        , buildSystem = GithubActions.Job::{
+          , name = Some "Build system"
+          , strategy = Some GithubActions.Strategy::{
+            , matrix = darwinHostMatrix
+            }
+          , runs-on = GithubActions.RunsOn.Type.`${{ matrix.os }}`
+          , steps =
+                setup
+              # [ GithubActions.Step::{
+                  , run = Some
+                      ''
+                        nix develop --impure --accept-flake-config -c "just" "build-system" "''${{ matrix.host }}"
                       ''
                   }
                 ]
