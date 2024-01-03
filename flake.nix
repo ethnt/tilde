@@ -39,8 +39,7 @@
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
-    pragmatapro.url =
-      "git+ssh://git@github.com/ethnt/pragmatapro?ref=feature/flake";
+    pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
   };
 
