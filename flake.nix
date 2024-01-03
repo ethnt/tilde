@@ -43,12 +43,14 @@
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs = inputs@{ self, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
 
       imports = [
         ./lib
+
+        ./pkgs
 
         ./modules/development/flake-root.nix
         ./modules/development/shell.nix
@@ -72,7 +74,7 @@
           # TODO: Make this on a per-system basis, and maybe per-package
           config.allowUnfree = true;
 
-          overlays = [ (import ./pkgs { inherit inputs; }) ];
+          overlays = [ self.overlays.default ];
         };
       };
     };

@@ -26,7 +26,6 @@
       "logseq"
       "monitorcontrol"
       "obsidian"
-      "zoom"
     ];
 
     masApps = { "Omnifocus 3" = 1346203938; };
