@@ -7,15 +7,15 @@ stdenv.mkDerivation {
   # preceding dot, so use fetchTarball instead
   src = builtins.fetchTarball {
     url =
-      "https://github.com/gpakosz/.tmux/archive/562f9c128e627d55b0fa8ca71a205a421702ffe0.tar.gz";
-    sha256 = "1kg7df033xqn7alyg765m8jc7ra1bfl2lc73ml6rwv0pn0qjqfkj";
+      "https://github.com/gpakosz/.tmux/archive/dd9502a09a9d5a4c97c271670e7ca7cb2171ab7f.tar.gz";
+    sha256 = "1802dgqg7fpd60c5awdizbwj5lfpn19qgxiwb089pfpj88q8ixnz";
   };
 
   phases = [ "unpackPhase" "installPhase" ];
 
   installPhase = ''
     mkdir $out
-    cp -r ./ $out
+    cp -r ./.tmux.conf* $out
   '';
 
   meta = with lib; {
