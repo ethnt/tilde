@@ -1,6 +1,7 @@
 { self, withSystem, ... }:
 let
-  inherit (self.inputs) nix-darwin home-manager;
+  inherit (self) inputs;
+  inherit (inputs) nix-darwin home-manager;
   l = self.inputs.nixpkgs.lib // builtins;
 
   darwinModules = (l.attrValues self.darwinModules)
@@ -15,7 +16,7 @@ let
         modules = darwinModules ++ [ configuration ];
 
         specialArgs = {
-          inherit profiles suites;
+          inherit inputs profiles suites;
           inherit (self) homeConfigurations;
           flake = self;
         };

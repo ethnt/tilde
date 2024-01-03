@@ -38,6 +38,9 @@
 
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
+
+    pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
+    pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ flake-parts, ... }:
@@ -69,7 +72,7 @@
           # TODO: Make this on a per-system basis, and maybe per-package
           config.allowUnfree = true;
 
-          overlays = [ (import ./pkgs) ];
+          overlays = [ (import ./pkgs { inherit inputs; }) ];
         };
       };
     };
