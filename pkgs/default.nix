@@ -1,7 +1,7 @@
 { inputs, ... }: {
   imports = [ inputs.flake-parts.flakeModules.easyOverlay ];
 
-  perSystem = { config, pkgs, system, ... }: {
+  perSystem = { config, pkgs, ... }: {
     overlayAttrs = { inherit (config.packages) nix-docker oh-my-tmux sf-pro; };
 
     packages = {
