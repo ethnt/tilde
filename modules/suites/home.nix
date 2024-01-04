@@ -11,7 +11,6 @@ with profiles;
     fish.default
     fzf.default
     paths.default
-    micro.default
     navi.default
     starship.default
     tmux.default
