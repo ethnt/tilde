@@ -1,28 +1,33 @@
 { config, pkgs, ... }: {
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
 
-    vimAlias = true;
+    extraConfigVim = ''
+      set number
+      set sts=2
+      set ts=2
+      set sw=2
+      set expandtab
+      set mouse=nv
 
-    extraConfig = ''
-      ${builtins.readFile ./base.vim}
+      " Ctrl + p to open file picker
+      map <C-p> :GFiles<CR>
+
+      " Yank to system clipboard
+      vnoremap <leader>y "+y
+      set ignorecase
+      set smartcase
+      set incsearch
     '';
 
-    plugins = with pkgs.vimPlugins; [
-      ale
-      deoplete-nvim
-      fzf-vim
-      lightline-vim
-      nerdtree
-      solarized
-      tabular
-      vim-autoformat
-      vim-commentary
-      vim-elixir
-      vim-fugitive
-      vim-markdown
-      vim-nix
-    ];
+    plugins = {
+      commentary.enable = true;
+      fugitive.enable = true;
+      lightline.enable = true;
+      nix.enable = true;
+    };
+
+    extraPlugins = with pkgs.vimPlugins; [ fzf-vim ];
   };
 
   home.sessionVariables.EDITOR = pkgs.lib.getExe config.programs.neovim.package;

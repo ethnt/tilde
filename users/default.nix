@@ -1,11 +1,12 @@
 { config, self, withSystem, ... }:
 let
   inherit (self) inputs homeModules;
-  inherit (inputs) home-manager;
+  inherit (inputs) home-manager nixvim;
 
   l = inputs.nixpkgs.lib // builtins;
 
-  commonModules = l.attrValues homeModules;
+  commonModules = (l.attrValues homeModules)
+    ++ [ nixvim.homeManagerModules.nixvim ];
 
   mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }: {
     imports = commonModules ++ [ configuration ];
