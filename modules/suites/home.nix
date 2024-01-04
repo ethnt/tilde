@@ -19,16 +19,10 @@ with profiles;
     tools.extra
   ];
 
-  development = [
-    asdf.default
-    git.common
-    gh.default
-    vscode.default
-    neovim.default
-    rtx.default
-  ];
+  development =
+    [ asdf.default git.common gh.default vscode.default neovim.default ];
 
-  programming = [ elixir.default ruby.default nodejs.default ];
+  programming = [ elixir.default ruby.default nodejs.default rtx.default ];
 
   identity = [ gnupg.default ];
 
