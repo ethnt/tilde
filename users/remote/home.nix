@@ -38,16 +38,7 @@ with lib;
     package.disabled = true;
   };
 
-  home.packages = [
-    (pkgs.writeShellApplication {
-      name = "update-tilde";
-      runtimeInputs = with pkgs; [ nix ];
-      text = ''
-        nix build github:ethnt/tilde#homeConfigurationsPortable.x86_64-linux.remote.activation-script --accept-flake-config
-        ./result/activate
-      '';
-    })
-  ];
+  home.packages = with pkgs; [ update-tilde ];
 
   home.stateVersion = "22.11";
 }
