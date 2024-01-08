@@ -26,7 +26,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - name: |2
-            Build remote system for ${{ matrix.system }}"
+            Build remote system for ${{ matrix.system }}
         run: |2
             nix build \
               --option system ${{ matrix.system }} \
@@ -65,7 +65,7 @@ jobs:
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
       - name: |2
-            Build system system for ${{ matrix.host }}"
+            Build system system for ${{ matrix.host }}
         run: |2
             nix develop --impure --accept-flake-config -c "just" "build-system" "${{ matrix.host }}"
     strategy:

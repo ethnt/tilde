@@ -85,7 +85,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.Step::{
                   , name = Some
                       ''
-                        Build remote system for ''${{ matrix.system }}"
+                        Build remote system for ''${{ matrix.system }}
                       ''
                   , run = Some
                       ''
@@ -110,7 +110,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.Step::{
                   , name = Some
                       ''
-                        Build system system for ''${{ matrix.host }}"
+                        Build system system for ''${{ matrix.host }}
                       ''
                   , run = Some
                       ''
