@@ -25,7 +25,9 @@ jobs:
             nix profile install nixpkgs#git-crypt
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - run: |2
+      - name: |2
+            Build remote system for ${{ matrix.system }}"
+        run: |2
             nix build \
               --option system ${{ matrix.system }} \
               --extra-platforms ${{ matrix.system }} \
@@ -62,7 +64,9 @@ jobs:
             nix profile install nixpkgs#git-crypt
             git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
-      - run: |2
+      - name: |2
+            Build system system for ${{ matrix.host }}"
+        run: |2
             nix develop --impure --accept-flake-config -c "just" "build-system" "${{ matrix.host }}"
     strategy:
       matrix:

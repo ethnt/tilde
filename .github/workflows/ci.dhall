@@ -83,6 +83,10 @@ in  GithubActions.Workflow::{
           , steps =
                 setup
               # [ GithubActions.Step::{
+                  , name = Some
+                      ''
+                        Build remote system for ''${{ matrix.system }}"
+                      ''
                   , run = Some
                       ''
                         nix build \
@@ -104,6 +108,10 @@ in  GithubActions.Workflow::{
           , steps =
                 setup
               # [ GithubActions.Step::{
+                  , name = Some
+                      ''
+                        Build system system for ''${{ matrix.host }}"
+                      ''
                   , run = Some
                       ''
                         nix develop --impure --accept-flake-config -c "just" "build-system" "''${{ matrix.host }}"
