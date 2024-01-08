@@ -28,7 +28,8 @@ let unlockSecrets =
       , run = Some
           ''
             echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            nix shell nixpkgs#git-crypt --command git-crypt unlock /tmp/git-crypt-key
+            nix profile install nixpkgs#git-crypt
+            git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
           ''
       }
@@ -84,7 +85,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.Step::{
                   , run = Some
                       ''
-                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --show-trace --verbose
                       ''
                   }
                 ]
