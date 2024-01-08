@@ -27,9 +27,8 @@ let unlockSecrets =
       , name = Some "Unlock encrypted files"
       , run = Some
           ''
-            nix-env -i git-crypt -f '<nixpkgs>'
             echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
+            nix shell nixpkgs#git-crypt --command git-crypt unlock /tmp/git-crypt-key
             rm /tmp/git-crypt-key
           ''
       }
