@@ -6,6 +6,7 @@
       inherit (flake) inputs;
       suites = flake.suites.home;
       profiles = flake.profiles.home;
+      inherit (flake) secrets;
     };
   };
 

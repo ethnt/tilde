@@ -19,7 +19,14 @@ let sshKeys =
       , name = Some "Add SSH key to ssh-agent"
       , uses = Some "webfactory/ssh-agent@v0.8.0"
       , `with` = Some
-          (toMap { ssh-private-key = "\${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}" })
+          ( toMap
+              { ssh-private-key =
+                  ''
+                    ''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+                    ''${{ secrets.SECRETS_DEPLOY_KEY}}
+                  ''
+              }
+          )
       }
 
 let unlockSecrets =
@@ -63,7 +70,7 @@ let darwinHostMatrix =
         , host = [ "eMac", "st-eturkeltaub2" ]
         }
 
-let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
+let setup = [ checkout, installNix, cachix, sshKeys ]
 
 in  GithubActions.Workflow::{
     , name = "CI"

@@ -29,6 +29,7 @@ in rec {
               inherit inputs;
               profiles = self.profiles.home;
               suites = self.suites.home;
+              inherit (self) secrets;
             };
           }) flake.homeConfigurations));
   };
