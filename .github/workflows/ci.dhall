@@ -92,7 +92,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.Step::{
                   , run = Some
                       ''
-                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --accept-flake-config --print-build-logs --show-trace --verbose
                       ''
                   }
                 ]

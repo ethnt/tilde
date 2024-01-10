@@ -22,7 +22,7 @@ jobs:
               ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
               ${{ secrets.SECRETS_DEPLOY_KEY}}
       - run: |2
-            nix build -j4 --option system ${{ matrix.system }} --extra-platforms ${{ matrix.system }} .#homeConfigurationsPortable.${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+            nix build -j4 --option system ${{ matrix.system }} --extra-platforms ${{ matrix.system }} .#homeConfigurationsPortable.${{ matrix.system }}.remote.activation-script --accept-flake-config --print-build-logs --show-trace --verbose
     strategy:
       matrix:
         system:
