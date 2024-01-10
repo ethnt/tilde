@@ -44,6 +44,8 @@
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
