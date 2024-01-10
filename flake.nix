@@ -45,8 +45,8 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets?ref=feature/flake-module";
-    # tilde-secrets.url = "path:/Users/ethan/Workspace/tilde-secrets";
+    tilde-secrets.url =
+      "git+ssh://git@github.com/ethnt/tilde-secrets?ref=feature/flake-module";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
