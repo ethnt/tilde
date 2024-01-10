@@ -28,6 +28,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
+
     flake-root.url = "github:srid/flake-root";
 
     haumea.url = "github:nix-community/haumea/v0.2.2";
@@ -44,9 +46,6 @@
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-    tilde-secrets.url =
-      "git+ssh://git@github.com/ethnt/tilde-secrets?ref=feature/flake-module";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
@@ -58,7 +57,9 @@
 
         ./pkgs
 
-        ./modules/development/flake-root.nix
+        ./modules/core/secrets.nix
+        ./modules/core/flake-root.nix
+
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
         ./modules/development/dhall.nix
@@ -71,8 +72,6 @@
 
         ./hosts
         ./users
-
-        inputs.tilde-secrets.flakeModule
       ];
 
       perSystem = { system, ... }: {

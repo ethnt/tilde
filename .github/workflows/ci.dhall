@@ -29,18 +29,6 @@ let sshKeys =
           )
       }
 
-let unlockSecrets =
-      GithubActions.Step::{
-      , name = Some "Unlock encrypted files"
-      , run = Some
-          ''
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
-          ''
-      }
-
 let cachix =
       GithubActions.Step::{
       , name = Some "Use Cachix store"
