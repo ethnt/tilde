@@ -1174,15 +1174,16 @@
         "tilde": "tilde"
       },
       "locked": {
-        "lastModified": 1704864030,
-        "narHash": "sha256-0OlqCN9/yz+OLWWeq270NBxUhfhucT4qKL7E30tBpzY=",
-        "ref": "refs/heads/main",
-        "rev": "bda53464408630cbf7b80ab2c23383d9cdd580c7",
-        "revCount": 4,
+        "lastModified": 1704896439,
+        "narHash": "sha256-b5Op8UcRwFYnrB2E4WfcPSAp+EU9dD6g6N6YTeYVE70=",
+        "ref": "feature/remote-secrets",
+        "rev": "5c9a5b0cb48af984543f49b4315a488285f55cc1",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },
       "original": {
+        "ref": "feature/remote-secrets",
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       }

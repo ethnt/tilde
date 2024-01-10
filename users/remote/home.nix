@@ -3,7 +3,7 @@
 with lib;
 
 {
-  imports = with suites; (minimal ++ work);
+  imports = with suites; (minimal ++ work) ++ [ secrets.home.users.remote ];
 
   tilde.home = {
     username = "eturkeltaub";
