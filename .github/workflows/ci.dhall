@@ -19,19 +19,14 @@ let sshKeys =
       , name = Some "Add SSH key to ssh-agent"
       , uses = Some "webfactory/ssh-agent@v0.8.0"
       , `with` = Some
-          (toMap { ssh-private-key = "\${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}" })
-      }
-
-let unlockSecrets =
-      GithubActions.Step::{
-      , name = Some "Unlock encrypted files"
-      , run = Some
-          ''
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "''${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
-          ''
+          ( toMap
+              { ssh-private-key =
+                  ''
+                    ''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+                    ''${{ secrets.SECRETS_DEPLOY_KEY}}
+                  ''
+              }
+          )
       }
 
 let cachix =
@@ -63,7 +58,7 @@ let darwinHostMatrix =
         , host = [ "eMac", "st-eturkeltaub2" ]
         }
 
-let setup = [ checkout, installNix, cachix, sshKeys, unlockSecrets ]
+let setup = [ checkout, installNix, cachix, sshKeys ]
 
 in  GithubActions.Workflow::{
     , name = "CI"
@@ -85,7 +80,7 @@ in  GithubActions.Workflow::{
               # [ GithubActions.Step::{
                   , run = Some
                       ''
-                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+                        nix build -j4 --option system ''${{ matrix.system }} --extra-platforms ''${{ matrix.system }} .#homeConfigurationsPortable.''${{ matrix.system }}.remote.activation-script --accept-flake-config --print-build-logs --show-trace --verbose
                       ''
                   }
                 ]

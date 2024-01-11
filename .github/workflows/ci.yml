@@ -18,15 +18,11 @@ jobs:
       - name: Add SSH key to ssh-agent
         uses: "webfactory/ssh-agent@v0.8.0"
         with:
-          ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - name: Unlock encrypted files
-        run: |2
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
+          ssh-private-key: |2
+              ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+              ${{ secrets.SECRETS_DEPLOY_KEY}}
       - run: |2
-            nix build -j4 --option system ${{ matrix.system }} --extra-platforms ${{ matrix.system }} .#homeConfigurationsPortable.${{ matrix.system }}.remote.activation-script --print-build-logs --show-trace --verbose
+            nix build -j4 --option system ${{ matrix.system }} --extra-platforms ${{ matrix.system }} .#homeConfigurationsPortable.${{ matrix.system }}.remote.activation-script --accept-flake-config --print-build-logs --show-trace --verbose
     strategy:
       matrix:
         system:
@@ -50,13 +46,9 @@ jobs:
       - name: Add SSH key to ssh-agent
         uses: "webfactory/ssh-agent@v0.8.0"
         with:
-          ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - name: Unlock encrypted files
-        run: |2
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
+          ssh-private-key: |2
+              ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+              ${{ secrets.SECRETS_DEPLOY_KEY}}
       - run: |2
             nix develop --impure --accept-flake-config -c "just" "build-system" "${{ matrix.host }}"
     strategy:
@@ -85,13 +77,9 @@ jobs:
       - name: Add SSH key to ssh-agent
         uses: "webfactory/ssh-agent@v0.8.0"
         with:
-          ssh-private-key: "${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
-      - name: Unlock encrypted files
-        run: |2
-            nix-env -i git-crypt -f '<nixpkgs>'
-            echo "${{ secrets.GIT_CRYPT_KEY }}" | base64 -d > /tmp/git-crypt-key
-            git-crypt unlock /tmp/git-crypt-key
-            rm /tmp/git-crypt-key
+          ssh-private-key: |2
+              ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+              ${{ secrets.SECRETS_DEPLOY_KEY}}
       - run: |2
             nix flake -Lv check --impure --all-systems --show-trace
 name: CI

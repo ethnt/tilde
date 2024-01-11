@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [ delta git-crypt hub ];
+  home.packages = with pkgs; [ delta hub ];
 
   programs.git = {
     enable = true;
