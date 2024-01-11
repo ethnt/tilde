@@ -22,7 +22,7 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nix-darwin.url = "github:ethnt/nix-darwin/linux-builder-systems-config";
+    nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";

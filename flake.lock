@@ -465,11 +465,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1704100519,
-        "narHash": "sha256-SgZC3cxquvwTN07vrYYT9ZkfvuhS5Y1k1F4+AMsuflc=",
+        "lastModified": 1704980804,
+        "narHash": "sha256-lPNNKdPqIYcjhhYIVwlajNt/HqVWbMOoSdNnwCvOP04=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6e91c5df192395753d8e6d55a0352109cb559790",
+        "rev": "93e804e7f8a1eb88bde6117cd5046501e66aa4bd",
         "type": "github"
       },
       "original": {
@@ -563,16 +563,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1700703809,
-        "narHash": "sha256-2W+lvKNNoNSHyyz2QbVcpI4YO5EPMUNz8T137LOve9Q=",
-        "owner": "ethnt",
+        "lastModified": 1704277720,
+        "narHash": "sha256-meAKNgmh3goankLGWqqpw73pm9IvXjEENJloF0coskE=",
+        "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "72dd60bfc98c128149d84213b17d1b8a68863055",
+        "rev": "0dd382b70c351f528561f71a0a7df82c9d2be9a4",
         "type": "github"
       },
       "original": {
-        "owner": "ethnt",
-        "ref": "linux-builder-systems-config",
+        "owner": "LnL7",
         "repo": "nix-darwin",
         "type": "github"
       }
