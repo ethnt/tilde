@@ -46,6 +46,9 @@
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixago.url = "github:nix-community/nixago";
+    nixago.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
@@ -62,7 +65,7 @@
 
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
-        ./modules/development/dhall.nix
+        ./modules/development/ci.nix
 
         ./modules/darwin/default.nix
         ./modules/home/default.nix
