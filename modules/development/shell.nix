@@ -6,7 +6,7 @@
       {
         env.FLAKE_ROOT = lib.getExe config.flake-root.package;
 
-        packages = with pkgs; [ cachix dhall just statix ];
+        packages = with pkgs; [ cachix just statix ];
       } // {
         containers = lib.mkForce { };
       };
