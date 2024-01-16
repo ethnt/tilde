@@ -15,6 +15,7 @@
 
       " Yank to system clipboard
       vnoremap <leader>y "+y
+
       set ignorecase
       set smartcase
       set incsearch
@@ -26,6 +27,7 @@
       lightline.enable = true;
       nix.enable = true;
       which-key.enable = true;
+      surround.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [ fzf-vim ];
