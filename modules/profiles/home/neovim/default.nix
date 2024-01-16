@@ -25,6 +25,7 @@
       fugitive.enable = true;
       lightline.enable = true;
       nix.enable = true;
+      which-key.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [ fzf-vim ];
