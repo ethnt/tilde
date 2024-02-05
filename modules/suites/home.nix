@@ -22,7 +22,7 @@ with profiles;
   development =
     [ asdf.default git.common gh.default vscode.default neovim.default ];
 
-  programming = [ elixir.default ruby.default nodejs.default rtx.default ];
+  programming = [ elixir.default ruby.default nodejs.default mise.default ];
 
   identity = [ gnupg.default ];
 
