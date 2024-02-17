@@ -8,6 +8,7 @@
     htop
     just
     nix-index
+    nvd
     ripgrep
   ];
 
