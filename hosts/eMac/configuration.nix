@@ -1,7 +1,10 @@
 { suites, profiles, ... }: {
   imports = with suites;
-    base ++ fonts ++ identity
-    ++ [ profiles.users.ethan profiles.builders.builder ];
+    base ++ fonts ++ identity ++ [
+      profiles.users.ethan
+      profiles.builders.builder
+      profiles.services.postgresql
+    ];
 
   tilde.host = {
     name = "eMac";

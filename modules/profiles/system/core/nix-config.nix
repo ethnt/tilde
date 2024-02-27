@@ -4,9 +4,6 @@
   nix = {
     gc.automatic = true;
     nixPath.nixpkgs = "flake:nixpkgs";
-    settings = {
-      auto-optimise-store = true;
-      extra-experimental-features = [ "repl-flake" ];
-    };
+    settings.extra-experimental-features = [ "repl-flake" ];
   };
 }
