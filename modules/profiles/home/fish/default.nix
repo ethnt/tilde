@@ -9,8 +9,11 @@
     };
 
     shellInit = ''
-      # fish
+      # fish prompt configuration
       set -U fish_prompt_pwd_dir_length 0
+
+      # fish color configuration
+      set -g fish_color_autosuggestion 555 brblack
     '';
 
     interactiveShellInit = ''
