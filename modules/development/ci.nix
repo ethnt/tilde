@@ -79,7 +79,7 @@
             runs-on = "flyci-macos-large-latest-m1";
             steps = setup ++ [{
               run = ''
-                nix build -j4 .#devShells.aarch64-darwin.default --print-build-logs --show-trace --verbose
+                nix build -j4 .#devShells.aarch64-darwin.default --impure --print-build-logs --show-trace --verbose
               '';
             }];
           };
