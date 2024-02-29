@@ -1,4 +1,36 @@
 jobs:
+  buildDevShell:
+    name: Build devShell
+    runs-on: flyci-macos-large-latest-m1
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+      with:
+        extra-conf: 'system-features = aarch64-linux
+
+          accept-flake-config = true
+
+          '
+    - name: Add SSH keys to ssh-agent
+      uses: webfactory/ssh-agent@v0.8.0
+      with:
+        ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+
+          ${{ secrets.SECRETS_DEPLOY_KEY }}
+
+          '
+    - name: Use Cachix store
+      uses: cachix/cachix-action@v12
+      with:
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        extraPullNames: tilde,nix-community,nrdxp
+        name: tilde
+    - run: 'nix build -j4 .#devShells.aarch64-darwin.default --print-build-logs --show-trace
+        --verbose
+
+        '
   buildRemote:
     name: Build remote home configuration
     runs-on: ubuntu-latest
@@ -8,7 +40,11 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux
+
+          accept-flake-config = true
+
+          '
     - name: Add SSH keys to ssh-agent
       uses: webfactory/ssh-agent@v0.8.0
       with:
@@ -24,8 +60,8 @@ jobs:
         extraPullNames: tilde,nix-community,nrdxp
         name: tilde
     - run: 'nix build -j4 --option system x86_64-linux --extra-platforms x86_64-linux
-        .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --accept-flake-config
-        --print-build-logs --show-trace --verbose
+        .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs
+        --show-trace --verbose
 
         '
   buildSystem:
@@ -37,7 +73,11 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux
+
+          accept-flake-config = true
+
+          '
     - name: Add SSH keys to ssh-agent
       uses: webfactory/ssh-agent@v0.8.0
       with:
@@ -52,8 +92,7 @@ jobs:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
         extraPullNames: tilde,nix-community,nrdxp
         name: tilde
-    - run: 'nix develop --impure --accept-flake-config -c "just" "build-system" "${{
-        matrix.host }}"
+    - run: 'nix develop --impure -c "just" "build-system" "${{ matrix.host }}"
 
         '
     strategy:
@@ -72,7 +111,11 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux
+
+          accept-flake-config = true
+
+          '
     - name: Add SSH keys to ssh-agent
       uses: webfactory/ssh-agent@v0.8.0
       with:

@@ -9,7 +9,12 @@
         {
           name = "Install Nix";
           uses = "DeterminateSystems/nix-installer-action@main";
-          "with" = { extra-conf = "system-features = aarch64-linux"; };
+          "with" = {
+            extra-conf = ''
+              system-features = aarch64-linux
+              accept-flake-config = true
+            '';
+          };
         }
         {
           name = "Add SSH keys to ssh-agent";
@@ -50,7 +55,7 @@
             runs-on = "ubuntu-latest";
             steps = setup ++ [{
               run = ''
-                nix build -j4 --option system x86_64-linux --extra-platforms x86_64-linux .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --accept-flake-config --print-build-logs --show-trace --verbose
+                nix build -j4 --option system x86_64-linux --extra-platforms x86_64-linux .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
               '';
             }];
           };
@@ -65,7 +70,16 @@
             };
             steps = setup ++ [{
               run = ''
-                nix develop --impure --accept-flake-config -c "just" "build-system" "''${{ matrix.host }}"
+                nix develop --impure -c "just" "build-system" "''${{ matrix.host }}"
+              '';
+            }];
+          };
+          buildDevShell = {
+            name = "Build devShell";
+            runs-on = "flyci-macos-large-latest-m1";
+            steps = setup ++ [{
+              run = ''
+                nix build -j4 .#devShells.aarch64-darwin.default --print-build-logs --show-trace --verbose
               '';
             }];
           };
