@@ -40,7 +40,7 @@
       key = config.tilde.home.gpg.keyId;
     };
 
-    extraConfig = let deltaCommand = "${pkgs.delta}/bin/delta";
+    extraConfig = let deltaCommand = lib.getExe pkgs.delta;
     in {
       core.pager = deltaCommand;
       interactive.diffFilter =

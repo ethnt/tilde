@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, lib, ... }: {
   programs.gh = {
     enable = true;
     settings = {
@@ -6,7 +6,7 @@
         co = "pr checkout";
         pv = "pr view";
       };
-      editor = "${config.programs.vscode.package}/bin/code --wait";
+      editor = "${lib.getExe config.programs.vscode.package} --wait";
     };
   };
 }
