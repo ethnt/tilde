@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   home.packages = with pkgs; [
     comma
     difftastic
@@ -13,9 +13,9 @@
 
   home.shellAliases = {
     # Alias `rg` to `rg -p`
-    rg = "${pkgs.ripgrep}/bin/rg -p";
+    rg = "${lib.getExe pkgs.ripgrep} -p";
 
     # Alias `man` to `batman`
-    man = "${pkgs.bat-extras.batman}/bin/batman";
+    man = lib.getExe' pkgs.bat-extras.batman "batman";
   };
 }
