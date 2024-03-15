@@ -47,6 +47,9 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     nixago.url = "github:nix-community/nixago";
     nixago.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -84,7 +87,7 @@
           # TODO: Make this on a per-system basis, and maybe per-package
           config.allowUnfree = true;
 
-          overlays = [ self.overlays.default ];
+          overlays = [ self.overlays.default inputs.emacs-overlay.overlay ];
         };
       };
     };
