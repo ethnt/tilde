@@ -1,5 +1,1 @@
-{
-  imports = [ ./fish-integration.nix ];
-
-  programs.fzf.enable = true;
-}
+{ programs.fzf.enable = true; }
