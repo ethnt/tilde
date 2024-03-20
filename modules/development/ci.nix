@@ -11,7 +11,7 @@
           uses = "DeterminateSystems/nix-installer-action@main";
           "with" = {
             extra-conf = ''
-              system-features = aarch64-linux
+              system-features = aarch64-linux big-parallel
               accept-flake-config = true
             '';
           };

@@ -8,7 +8,7 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux big-parallel
 
           accept-flake-config = true
 
@@ -40,7 +40,7 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux big-parallel
 
           accept-flake-config = true
 
@@ -73,7 +73,7 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux big-parallel
 
           accept-flake-config = true
 
@@ -111,7 +111,7 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux
+        extra-conf: 'system-features = aarch64-linux big-parallel
 
           accept-flake-config = true
 
