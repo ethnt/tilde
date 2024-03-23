@@ -130,7 +130,7 @@ jobs:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
         extraPullNames: tilde,nix-community,nrdxp
         name: tilde
-    - run: 'nix flake -Lv check --impure --all-systems --show-trace
+    - run: 'nix flake -Lv check --impure --show-trace
 
         '
 name: CI

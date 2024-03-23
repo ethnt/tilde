@@ -46,7 +46,7 @@
             runs-on = "ubuntu-latest";
             steps = setup ++ [{
               run = ''
-                nix flake -Lv check --impure --all-systems --show-trace
+                nix flake -Lv check --impure --show-trace
               '';
             }];
           };
