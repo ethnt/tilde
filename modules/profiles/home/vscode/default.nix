@@ -4,7 +4,7 @@
 
     package = pkgs.vscode;
 
-    mutableExtensionsDir = true;
+    mutableExtensionsDir = false;
     enableUpdateCheck = false;
 
     userSettings = {
@@ -63,6 +63,9 @@
         "Gemfile" = "ruby";
         "Steepfile" = "ruby";
       };
+
+      # Extension settings
+      "extensions.ignoreRecommendations" = true;
 
       # Ruby settings
       "ruby.intellisense" = "rubyLocate";
