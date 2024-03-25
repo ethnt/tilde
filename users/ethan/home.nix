@@ -1,4 +1,4 @@
-{ config, suites, profiles, ... }: {
+{ config, pkgs, lib, suites, profiles, ... }: {
   imports = with suites;
     base ++ development ++ programming ++ identity
     ++ [ profiles.tools.media-management ];
@@ -48,8 +48,33 @@
       };
     };
 
-    vscode.userSettings = {
-      "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
+    vscode = {
+      userSettings = {
+        "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
+
+        "[terraform]" = { "editor.defaultFormatter" = "hashicorp.terraform"; };
+      };
+
+      extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "elixir-ls";
+          publisher = "jakebecker";
+          version = "0.20.0";
+          sha256 = "p+YNBRzzA/EezBMxI5Rmdb8SdJgFV7QwuLVi1mcJV+E=";
+        }
+        {
+          name = "terraform";
+          publisher = "HashiCorp";
+          version = "2.30.2024022914";
+          sha256 = "HkLMSpI/xgcHTJyZrOPzuTyFwaDXi7f4xKYnI7f/WGU=";
+        }
+        {
+          name = "astro-vscode";
+          publisher = "astro-build";
+          version = "2.8.4";
+          sha256 = "wR+4erGkbzQ4R9UH3HOxSq0ZELVYp1LaYDWGMdtJ0mE=";
+        }
+      ];
     };
   };
 
