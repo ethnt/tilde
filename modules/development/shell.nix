@@ -10,6 +10,7 @@
           inputs.devenv.packages.${system}.default
           cachix
           just
+          nix-output-monitor
         ];
       } // {
         containers = lib.mkForce { };
