@@ -4,7 +4,7 @@
 
     package = pkgs.vscode;
 
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
     enableUpdateCheck = false;
 
     userSettings = {
