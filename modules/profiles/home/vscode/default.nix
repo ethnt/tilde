@@ -26,6 +26,7 @@
       "editor.multiCursorModifier" = "ctrlCmd";
       "editor.rulers" = [ 120 ];
       "editor.tabSize" = 2;
+      "editor.stickyScroll.enabled" = true;
 
       # Terminal settings
       "terminal.integrated.fontSize" = 16;
