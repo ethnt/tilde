@@ -129,6 +129,12 @@
         version = "0.28.0";
         sha256 = "H3f1+c31x+lgCzhgTb0uLg9Bdn3pZyJGPPwfpCYrS70=";
       }
+      {
+        name = "bookmarks";
+        publisher = "alefragnani";
+        version = "13.4.2";
+        sha256 = "O+1ZgRlkY68e1rz+/lSdMhPNIGEtIAw7BSdI/ZxInZM=";
+      }
     ];
   };
 }

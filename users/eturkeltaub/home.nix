@@ -1,4 +1,4 @@
-{ config, suites, secrets, ... }: {
+{ config, pkgs, suites, secrets, ... }: {
   imports = with suites;
     (base ++ development ++ work) ++ [ secrets.home.users.eturkeltaub ];
 
@@ -17,7 +17,16 @@
       signing.key = config.tilde.home.gpg.keyId;
     };
 
-    vscode.userSettings = { "update.mode" = "none"; };
+    vscode = {
+      userSettings = { "update.mode" = "none"; };
+
+      extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+        name = "vscode-bazel";
+        publisher = "bazelbuild";
+        version = "0.9.0";
+        sha256 = "XrRrspvUbqDNOTN5FZExydOANrxLYatD+9MEQUCllxU=";
+      }];
+    };
 
     starship = {
       settings = {
