@@ -35,7 +35,7 @@
     haumea.url = "github:nix-community/haumea/v0.2.2";
     haumea.inputs.nixpkgs.follows = "nixpkgs";
 
-    devenv.url = "github:cachix/devenv";
+    devenv.url = "github:cachix/devenv/v1.0.2";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
 
     treefmt.url = "github:numtide/treefmt-nix";
