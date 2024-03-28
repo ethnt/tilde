@@ -11,6 +11,7 @@
   environment.etc."ssh/ssh_known_hosts".enable = false;
 
   homebrew = {
+    # Don't clean up undefined brews/casks, some are installed by Stripe IT
     onActivation.cleanup = lib.mkOverride 10 "none";
 
     # FIXME: $PATH doesn't pick up nix's `gnused` before the system one, but it does pick up the Homebrew version

@@ -26,6 +26,7 @@
       "editor.multiCursorModifier" = "ctrlCmd";
       "editor.rulers" = [ 120 ];
       "editor.tabSize" = 2;
+      "editor.stickyScroll.enabled" = true;
 
       # Terminal settings
       "terminal.integrated.fontSize" = 16;
@@ -127,6 +128,12 @@
         publisher = "wingrunr21";
         version = "0.28.0";
         sha256 = "H3f1+c31x+lgCzhgTb0uLg9Bdn3pZyJGPPwfpCYrS70=";
+      }
+      {
+        name = "bookmarks";
+        publisher = "alefragnani";
+        version = "13.4.2";
+        sha256 = "O+1ZgRlkY68e1rz+/lSdMhPNIGEtIAw7BSdI/ZxInZM=";
       }
     ];
   };
