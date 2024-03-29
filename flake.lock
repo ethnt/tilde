@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "avail": {
+      "inputs": {
+        "haumea": "haumea"
+      },
+      "locked": {
+        "lastModified": 1711674189,
+        "narHash": "sha256-8Iauyt3RYRMFnmSGK2jTg+Z84GgoUdcb7mUh55weVi8=",
+        "owner": "ethnt",
+        "repo": "avail",
+        "rev": "46d0a019531f6646a22a247e19470a85714a3c64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethnt",
+        "repo": "avail",
+        "type": "github"
+      }
+    },
     "cachix": {
       "inputs": {
         "devenv": "devenv_2",
@@ -57,7 +75,7 @@
           "flake-compat"
         ],
         "nix": "nix",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks": [
           "devenv",
@@ -674,6 +692,25 @@
     },
     "haumea": {
       "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1685133229,
+        "narHash": "sha256-FePm/Gi9PBSNwiDFq3N+DWdfxFq0UKsVVTJS3cQPn94=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "34dd58385092a23018748b50f9b23de6266dffc2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "v0.2.2",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
+    "haumea_2": {
+      "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -693,7 +730,7 @@
         "type": "github"
       }
     },
-    "haumea_2": {
+    "haumea_3": {
       "inputs": {
         "nixpkgs": [
           "tilde-secrets",
@@ -1081,17 +1118,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1692808169,
-        "narHash": "sha256-x9Opq06rIiwdwGeK2Ykj69dNc2IvUH1fY55Wm7atwrE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9201b5ff357e781bf014d0330d18555695df7ba8",
+        "lastModified": 1681001314,
+        "narHash": "sha256-5sDnCLdrKZqxLPK4KA8+f4A3YKO/u6ElpMILvX0g72c=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "367c0e1086a4eb4502b24d872cea2c7acdd557f4",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
@@ -1245,6 +1281,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1692808169,
+        "narHash": "sha256-x9Opq06rIiwdwGeK2Ykj69dNc2IvUH1fY55Wm7atwrE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9201b5ff357e781bf014d0330d18555695df7ba8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1706683685,
         "narHash": "sha256-FtPPshEpxH/ewBOsdKBNhlsL2MLEFv1hEnQ19f/bFsQ=",
         "owner": "nixos",
@@ -1259,7 +1311,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1704008649,
         "narHash": "sha256-rGPSWjXTXTurQN9beuHdyJhB8O761w1Zc5BqSSmHvoM=",
@@ -1535,14 +1587,15 @@
     },
     "root": {
       "inputs": {
+        "avail": "avail",
         "devenv": "devenv",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",
-        "haumea": "haumea",
+        "haumea": "haumea_2",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixago": "nixago",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "pragmatapro": "pragmatapro",
         "tilde-secrets": "tilde-secrets",
@@ -1689,10 +1742,10 @@
         "devenv": "devenv_3",
         "flake-parts": "flake-parts_3",
         "flake-root": "flake-root_2",
-        "haumea": "haumea_2",
+        "haumea": "haumea_3",
         "home-manager": "home-manager_3",
         "nix-darwin": "nix-darwin_3",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim_2",
         "pragmatapro": "pragmatapro_2",
         "treefmt": "treefmt"

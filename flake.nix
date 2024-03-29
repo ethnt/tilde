@@ -49,6 +49,8 @@
 
     nixago.url = "github:nix-community/nixago";
     nixago.inputs.nixpkgs.follows = "nixpkgs";
+
+    avail.url = "github:ethnt/avail";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:

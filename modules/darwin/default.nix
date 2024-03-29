@@ -1,9 +1,9 @@
 { self, ... }:
 let
-  inherit (self.lib) utils;
+  inherit (self) lib;
   inherit (self.inputs) haumea;
 in {
-  flake.darwinModules = utils.importModules (haumea.lib.load {
+  flake.darwinModules = lib.modules.importModules (haumea.lib.load {
     src = ./src;
     loader = haumea.lib.loaders.path;
   });
