@@ -3,10 +3,9 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit (flake) inputs;
+      inherit (flake) inputs secrets;
       suites = flake.suites.home;
       profiles = flake.profiles.home;
-      inherit (flake) secrets;
     };
   };
 

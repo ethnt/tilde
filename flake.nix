@@ -49,6 +49,9 @@
 
     nixago.url = "github:nix-community/nixago";
     nixago.inputs.nixpkgs.follows = "nixpkgs";
+
+    rippkgs.url = "github:replit/rippkgs";
+    rippkgs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
@@ -81,10 +84,10 @@
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
 
+          overlays = [ self.overlays.default inputs.rippkgs.overlays.default ];
+
           # TODO: Make this on a per-system basis, and maybe per-package
           config.allowUnfree = true;
-
-          overlays = [ self.overlays.default ];
         };
       };
     };
