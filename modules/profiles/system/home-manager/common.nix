@@ -3,10 +3,9 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit (flake) inputs;
+      inherit (flake) inputs secrets;
       suites = flake.suites.home;
       profiles = flake.profiles.home;
-      inherit (flake) secrets;
     };
   };
 
@@ -19,6 +18,10 @@
 
       TILDE_DIR =
         config.environment.sessionVariables.TILDE_DIR or config.environment.variables.TILDE_DIR;
+
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
     };
 
     xdg.configFile."nix/registry.json".text =

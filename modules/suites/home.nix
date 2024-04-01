@@ -12,6 +12,7 @@ with profiles;
     fzf.default
     paths.default
     navi.default
+    rippkgs.default
     starship.default
     tmux.default
     tools.common

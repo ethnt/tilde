@@ -27,6 +27,7 @@ in rec {
             modules = [ cfg ];
             extraSpecialArgs = {
               inherit inputs;
+              currentSystem = sys;
               profiles = self.profiles.home;
               suites = self.suites.home;
               inherit (self) secrets;

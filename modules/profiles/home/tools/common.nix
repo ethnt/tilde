@@ -4,9 +4,11 @@
     difftastic
     eza
     fd
+    fzy
     gnused
     htop
     just
+    jq
     nix-index
     ripgrep
   ];
