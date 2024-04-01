@@ -1,7 +1,7 @@
 { config, suites, profiles, ... }: {
   imports = with suites;
     base ++ development ++ programming ++ identity
-    ++ [ profiles.tools.media-management profiles.rippkgs.default ];
+    ++ [ profiles.tools.media-management ];
 
   tilde.home = {
     username = "ethan";
