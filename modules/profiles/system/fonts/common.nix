@@ -5,8 +5,8 @@
       fira
       ibm-plex
       powerline-fonts
+      pragmatapro
       sf-pro
-      inputs.pragmatapro.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
