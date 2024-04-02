@@ -84,7 +84,11 @@
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
 
-          overlays = [ self.overlays.default inputs.rippkgs.overlays.default ];
+          overlays = with inputs; [
+            self.overlays.default
+            pragmatapro.overlays.default
+            rippkgs.overlays.default
+          ];
 
           # TODO: Make this on a per-system basis, and maybe per-package
           config.allowUnfree = true;
