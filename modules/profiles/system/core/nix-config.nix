@@ -1,12 +1,16 @@
-{
-  nixpkgs.config.allowUnfree = true;
+{ flake, ... }: {
+  nixpkgs = {
+    overlays = with flake; [
+      overlays.default
+      inputs.pragmatapro.overlays.default
+      inputs.rippkgs.overlays.default
+    ];
+    config.allowUnfree = true;
+  };
 
   nix = {
     gc.automatic = true;
     nixPath.nixpkgs = "flake:nixpkgs";
-    settings = {
-      auto-optimise-store = true;
-      extra-experimental-features = [ "repl-flake" ];
-    };
+    settings.extra-experimental-features = [ "repl-flake" ];
   };
 }
