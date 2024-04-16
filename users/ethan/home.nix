@@ -1,7 +1,7 @@
 { config, suites, profiles, ... }: {
   imports = with suites;
     base ++ development ++ programming ++ identity
-    ++ [ profiles.tools.media-management ];
+    ++ [ profiles.tools.media-management profiles.emacs.default ];
 
   tilde.home = {
     username = "ethan";

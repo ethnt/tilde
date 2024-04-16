@@ -11,6 +11,7 @@
     jq
     nix-index
     ripgrep
+    wget
   ];
 
   home.shellAliases = {

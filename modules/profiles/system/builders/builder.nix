@@ -4,7 +4,7 @@
   nix = {
     buildMachines = [{
       hostName = "builder";
-      system = "x86_64-linux";
+      systems = [ "x86_64-linux" "aarch64-linux" ];
       protocol = "ssh-ng";
       maxJobs = 8;
       speedFactor = 1;
