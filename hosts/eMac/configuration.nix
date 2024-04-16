@@ -15,7 +15,18 @@
   homebrew = {
     brews = [ "pinentry-mac" ];
 
-    casks = [ "arc" "docker" "hey" "notion" "tailscale" "utm" "vlc" "zoom" "zed" "balenaetcher" ];
+    casks = [
+      "arc"
+      "docker"
+      "hey"
+      "notion"
+      "tailscale"
+      "utm"
+      "vlc"
+      "zoom"
+      "zed"
+      "balenaetcher"
+    ];
 
     masApps = { "Amphetamine" = 937984704; };
   };
