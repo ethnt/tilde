@@ -11,7 +11,8 @@
           uses = "DeterminateSystems/nix-installer-action@main";
           "with" = {
             extra-conf = ''
-              system-features = aarch64-linux big-parallel
+              system-features = big-parallel
+              extra-platforms = aarch64-linux
               accept-flake-config = true
             '';
           };
@@ -56,6 +57,15 @@
             steps = setup ++ [{
               run = ''
                 nix build -j4 --option system x86_64-linux --extra-platforms x86_64-linux .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
+              '';
+            }];
+          };
+          buildRemoteAarch64 = {
+            name = "Build remote home configuration (aarch64)";
+            runs-on = "ubuntu-latest";
+            steps = setup ++ [{
+              run = ''
+                nix build -j4 --option system aarch64-linux --extra-platforms aarch64-linux .#homeConfigurationsPortable.aarch64-linux.remote.activation-script --print-build-logs --show-trace --verbose
               '';
             }];
           };
