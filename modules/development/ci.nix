@@ -65,7 +65,7 @@
             strategy = {
               matrix = {
                 host = [ "eMac" "st-eturkeltaub2" ];
-                os = [ "flyci-macos-large-latest-m1" ];
+                os = [ "macos-14" ];
               };
             };
             steps = setup ++ [{
@@ -76,7 +76,7 @@
           };
           buildDevShell = {
             name = "Build devShell";
-            runs-on = "flyci-macos-large-latest-m1";
+            runs-on = "macos-14";
             steps = setup ++ [{
               run = ''
                 nix build -j4 .#devShells.aarch64-darwin.default --impure --print-build-logs --show-trace --verbose

@@ -1,7 +1,7 @@
 jobs:
   buildDevShell:
     name: Build devShell
-    runs-on: flyci-macos-large-latest-m1
+    runs-on: macos-14
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -101,7 +101,7 @@ jobs:
         - eMac
         - st-eturkeltaub2
         os:
-        - flyci-macos-large-latest-m1
+        - macos-14
   check:
     name: Check flake
     runs-on: ubuntu-latest
