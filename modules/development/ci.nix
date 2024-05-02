@@ -4,7 +4,7 @@
       setup = [
         {
           name = "Checkout code";
-          uses = "actions/checkout@v3";
+          uses = "actions/checkout@v4";
         }
         {
           name = "Install Nix";
@@ -12,14 +12,13 @@
           "with" = {
             extra-conf = ''
               system-features = big-parallel
-              extra-platforms = aarch64-linux
               accept-flake-config = true
             '';
           };
         }
         {
           name = "Add SSH keys to ssh-agent";
-          uses = "webfactory/ssh-agent@v0.8.0";
+          uses = "webfactory/ssh-agent@v0.9.0";
           "with" = {
             ssh-private-key = ''
               ''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
@@ -29,11 +28,11 @@
         }
         {
           name = "Use Cachix store";
-          uses = "cachix/cachix-action@v12";
+          uses = "cachix/cachix-action@v14";
           "with" = {
             name = "tilde";
             authToken = "\${{ secrets.CACHIX_AUTH_TOKEN }}";
-            extraPullNames = "tilde,nix-community,nrdxp";
+            extraPullNames = "tilde,nix-community";
           };
         }
       ];
@@ -56,7 +55,7 @@
             runs-on = "ubuntu-latest";
             steps = setup ++ [{
               run = ''
-                nix build -j4 --option system x86_64-linux --extra-platforms x86_64-linux .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs --show-trace --verbose
+                nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --keep-going --print-build-logs --show-trace --verbose
               '';
             }];
           };
@@ -71,7 +70,7 @@
             };
             steps = setup ++ [{
               run = ''
-                nix develop --impure -c "just" "build-system" "''${{ matrix.host }}"
+                nix build .#darwinConfigurations.''${{ matrix.host }}.system --keep-going --print-build-logs --show-trace --verbose
               '';
             }];
           };
@@ -80,7 +79,7 @@
             runs-on = "macos-14";
             steps = setup ++ [{
               run = ''
-                nix build -j4 .#devShells.aarch64-darwin.default --impure --print-build-logs --show-trace --verbose
+                nix build .#devShells.aarch64-darwin.default --impure --keep-going --print-build-logs --show-trace --verbose
               '';
             }];
           };
