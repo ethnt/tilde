@@ -1,20 +1,20 @@
 jobs:
   buildDevShell:
     name: Build devShell
-    runs-on: flyci-macos-large-latest-m1
+    runs-on: macos-14
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux big-parallel
+        extra-conf: 'system-features = big-parallel
 
           accept-flake-config = true
 
           '
     - name: Add SSH keys to ssh-agent
-      uses: webfactory/ssh-agent@v0.8.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
 
@@ -22,12 +22,12 @@ jobs:
 
           '
     - name: Use Cachix store
-      uses: cachix/cachix-action@v12
+      uses: cachix/cachix-action@v14
       with:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-        extraPullNames: tilde,nix-community,nrdxp
+        extraPullNames: tilde,nix-community
         name: tilde
-    - run: 'nix build -j4 .#devShells.aarch64-darwin.default --impure --print-build-logs
+    - run: 'nix build .#devShells.aarch64-darwin.default --impure --keep-going --print-build-logs
         --show-trace --verbose
 
         '
@@ -36,17 +36,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux big-parallel
+        extra-conf: 'system-features = big-parallel
 
           accept-flake-config = true
 
           '
     - name: Add SSH keys to ssh-agent
-      uses: webfactory/ssh-agent@v0.8.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
 
@@ -54,14 +54,13 @@ jobs:
 
           '
     - name: Use Cachix store
-      uses: cachix/cachix-action@v12
+      uses: cachix/cachix-action@v14
       with:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-        extraPullNames: tilde,nix-community,nrdxp
+        extraPullNames: tilde,nix-community
         name: tilde
-    - run: 'nix build -j4 --option system x86_64-linux --extra-platforms x86_64-linux
-        .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --print-build-logs
-        --show-trace --verbose
+    - run: 'nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script
+        --keep-going --print-build-logs --show-trace --verbose
 
         '
   buildSystem:
@@ -69,17 +68,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux big-parallel
+        extra-conf: 'system-features = big-parallel
 
           accept-flake-config = true
 
           '
     - name: Add SSH keys to ssh-agent
-      uses: webfactory/ssh-agent@v0.8.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
 
@@ -87,12 +86,13 @@ jobs:
 
           '
     - name: Use Cachix store
-      uses: cachix/cachix-action@v12
+      uses: cachix/cachix-action@v14
       with:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-        extraPullNames: tilde,nix-community,nrdxp
+        extraPullNames: tilde,nix-community
         name: tilde
-    - run: 'nix develop --impure -c "just" "build-system" "${{ matrix.host }}"
+    - run: 'nix build .#darwinConfigurations.${{ matrix.host }}.system --keep-going
+        --print-build-logs --show-trace --verbose
 
         '
     strategy:
@@ -101,23 +101,23 @@ jobs:
         - eMac
         - st-eturkeltaub2
         os:
-        - flyci-macos-large-latest-m1
+        - macos-14
   check:
     name: Check flake
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
-        extra-conf: 'system-features = aarch64-linux big-parallel
+        extra-conf: 'system-features = big-parallel
 
           accept-flake-config = true
 
           '
     - name: Add SSH keys to ssh-agent
-      uses: webfactory/ssh-agent@v0.8.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
 
@@ -125,10 +125,10 @@ jobs:
 
           '
     - name: Use Cachix store
-      uses: cachix/cachix-action@v12
+      uses: cachix/cachix-action@v14
       with:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-        extraPullNames: tilde,nix-community,nrdxp
+        extraPullNames: tilde,nix-community
         name: tilde
     - run: 'nix flake -Lv check --impure --show-trace
 
