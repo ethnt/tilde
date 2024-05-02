@@ -60,15 +60,6 @@
               '';
             }];
           };
-          buildRemoteAarch64 = {
-            name = "Build remote home configuration (aarch64)";
-            runs-on = "ubuntu-latest";
-            steps = setup ++ [{
-              run = ''
-                nix build -j4 --option system aarch64-linux --extra-platforms aarch64-linux .#homeConfigurationsPortable.aarch64-linux.remote.activation-script --print-build-logs --show-trace --verbose
-              '';
-            }];
-          };
           buildSystem = {
             name = "Build system";
             runs-on = "\${{ matrix.os }}";

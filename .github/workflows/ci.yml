@@ -68,41 +68,6 @@ jobs:
         --show-trace --verbose
 
         '
-  buildRemoteAarch64:
-    name: Build remote home configuration (aarch64)
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Install Nix
-      uses: DeterminateSystems/nix-installer-action@main
-      with:
-        extra-conf: 'system-features = big-parallel
-
-          extra-platforms = aarch64-linux
-
-          accept-flake-config = true
-
-          '
-    - name: Add SSH keys to ssh-agent
-      uses: webfactory/ssh-agent@v0.8.0
-      with:
-        ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
-
-          ${{ secrets.SECRETS_DEPLOY_KEY }}
-
-          '
-    - name: Use Cachix store
-      uses: cachix/cachix-action@v12
-      with:
-        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-        extraPullNames: tilde,nix-community,nrdxp
-        name: tilde
-    - run: 'nix build -j4 --option system aarch64-linux --extra-platforms aarch64-linux
-        .#homeConfigurationsPortable.aarch64-linux.remote.activation-script --print-build-logs
-        --show-trace --verbose
-
-        '
   buildSystem:
     name: Build system
     runs-on: ${{ matrix.os }}
