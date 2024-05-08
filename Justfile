@@ -18,9 +18,6 @@ build-home system name:
 switch:
     {{ os_command }} switch {{ darwin_flags }}
 
-generate-ci:
-    nix run .#generate-ci
-
 update-input input:
     nix flake lock --update-input {{ input }}
 

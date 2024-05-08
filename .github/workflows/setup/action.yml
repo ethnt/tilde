@@ -1,0 +1,25 @@
+name: Setup
+description: "Sets up the workflow"
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+      with:
+        extra-conf: |
+          system-features = big-parallel
+          accept-flake-config = true
+    - name: Add SSH keys to ssh-agent
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: |
+          ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+          ${{ secrets.SECRETS_DEPLOY_KEY }}
+    - name: Use Cachix store
+      uses: cachix/cachix-action@v14
+      with:
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        extraPullNames: tilde,nix-community
+        name: tilde

@@ -68,7 +68,6 @@
 
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
-        ./modules/development/ci.nix
 
         ./modules/darwin/default.nix
         ./modules/home/default.nix
