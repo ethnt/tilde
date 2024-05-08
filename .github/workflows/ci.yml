@@ -6,6 +6,8 @@ jobs:
     name: Build devShell
     runs-on: macos-14
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Build devShell
         run: |
@@ -15,6 +17,8 @@ jobs:
     name: Build remote home configuration
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Build remote configuration
         run: |
@@ -31,6 +35,8 @@ jobs:
         os:
           - macos-14
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Build host
         run: |
@@ -40,6 +46,8 @@ jobs:
     name: Check flake
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Run check
         run: |
