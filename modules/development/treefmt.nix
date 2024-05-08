@@ -9,6 +9,7 @@
           deadnix.enable = true;
           nixfmt.enable = true;
           statix.enable = true;
+          prettier.enable = true;
         };
       };
     in {

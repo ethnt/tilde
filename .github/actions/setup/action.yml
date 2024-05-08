@@ -1,0 +1,33 @@
+name: Setup
+description: "Sets up the workflow"
+inputs:
+  cachix_auth_token:
+    description: Auth token for reading and writing to Cachix
+    required: true
+  pragmatapro_deploy_key:
+    description: Deploy key for PragmataPro repository
+    required: true
+  secrets_deploy_key:
+    description: Deploy key for secrets repository
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@main
+      with:
+        extra-conf: |
+          system-features = big-parallel
+          accept-flake-config = true
+    - name: Add SSH keys to ssh-agent
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: |
+          ${{ inputs.pragmatapro_deploy_key }}
+          ${{ inputs.secrets_deploy_key }}
+    - name: Use Cachix store
+      uses: cachix/cachix-action@v14
+      with:
+        authToken: ${{ inputs.cachix_auth_token }}
+        extraPullNames: tilde,nix-community
+        name: tilde
