@@ -1,5 +1,12 @@
 name: Setup
 description: "Sets up the workflow"
+inputs:
+  cachix_auth_token:
+    required: true
+  pragmatapro_deploy_key:
+    required: true
+  secrets_deploy_key:
+    required: true
 runs:
   using: "composite"
   steps:
@@ -13,11 +20,11 @@ runs:
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: |
-          ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
-          ${{ secrets.SECRETS_DEPLOY_KEY }}
+          ${{ inputs.pragmatapro_deploy_key }}
+          ${{ inputs.secrets_deploy_key }}
     - name: Use Cachix store
       uses: cachix/cachix-action@v14
       with:
-        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        authToken: ${{ inputs.cachix_auth_token }}
         extraPullNames: tilde,nix-community
         name: tilde

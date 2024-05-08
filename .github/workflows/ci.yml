@@ -9,6 +9,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+        with:
+          cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+          secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
       - name: Build devShell
         run: |
           nix build .#devShells.aarch64-darwin.default --impure --keep-going --print-build-logs --show-trace --verbose
@@ -20,6 +24,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+        with:
+          cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+          secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
       - name: Build remote configuration
         run: |
           nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --keep-going --print-build-logs --show-trace --verbose
@@ -38,6 +46,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+        with:
+          cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+          secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
       - name: Build host
         run: |
           nix build .#darwinConfigurations.${{ matrix.host }}.system --keep-going --print-build-logs --show-trace --verbose
@@ -49,6 +61,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+        with:
+          cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+          secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
       - name: Run check
         run: |
           nix flake -Lv check --impure --show-trace
