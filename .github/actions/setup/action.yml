@@ -2,10 +2,13 @@ name: Setup
 description: "Sets up the workflow"
 inputs:
   cachix_auth_token:
+    description: Auth token for reading and writing to Cachix
     required: true
   pragmatapro_deploy_key:
+    description: Deploy key for PragmataPro repository
     required: true
   secrets_deploy_key:
+    description: Deploy key for secrets repository
     required: true
 runs:
   using: "composite"
