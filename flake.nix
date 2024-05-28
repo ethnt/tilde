@@ -28,7 +28,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
+    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets?rev=5c9a5b0cb48af984543f49b4315a488285f55cc1";
 
     flake-root.url = "github:srid/flake-root";
 
