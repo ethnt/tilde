@@ -35,6 +35,7 @@ with profiles;
     fzf.default
     git.common
     gh.default
+    navi.default
     neovim.default
     starship.default
     tools.common
