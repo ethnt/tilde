@@ -1,9 +1,9 @@
-{ config, pkgs, lib, suites, ... }:
+{ config, pkgs, lib, suites, secrets, ... }:
 
 with lib;
 
 {
-  imports = with suites; (minimal ++ work);
+  imports = with suites; (minimal ++ work) ++ [ secrets.home.users.remote ];
 
   tilde.home = {
     username = "eturkeltaub";
