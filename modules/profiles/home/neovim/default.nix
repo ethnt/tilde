@@ -23,10 +23,8 @@
 
     plugins = {
       commentary.enable = true;
-      fugitive.enable = true;
       lightline.enable = true;
       nix.enable = true;
-      which-key.enable = true;
       surround.enable = true;
     };
 
