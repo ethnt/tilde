@@ -8,7 +8,7 @@ let
     ++ [ home-manager.darwinModules.home-manager ];
 
   mkDarwinConfiguration =
-    { name, system, configuration ? ./${name}/configuration.nix }:
+    { name, system, configuration ? ./${name}/configuration.nix, }:
     withSystem system ({ pkgs, ... }:
       let
         profiles = self.profiles.darwin;

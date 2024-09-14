@@ -75,7 +75,7 @@
 
       # Nix settings
       "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
-      "nixfmt.path" = lib.getExe pkgs.nixfmt;
+      "nixfmt.path" = lib.getExe pkgs.nixfmt-classic;
 
       # JSON settings
       "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };

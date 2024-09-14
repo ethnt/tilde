@@ -32,11 +32,11 @@
 
     flake-root.url = "github:srid/flake-root";
 
-    haumea.url = "github:nix-community/haumea/v0.2.2";
+    haumea.url = "github:nix-community/haumea";
     haumea.inputs.nixpkgs.follows = "nixpkgs";
 
-    devenv.url = "github:cachix/devenv/v1.0.2";
-    devenv.inputs.nixpkgs.follows = "nixpkgs";
+    devenv.url = "github:cachix/devenv";
+    # devenv.inputs.nixpkgs.follows = "nixpkgs";
 
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
