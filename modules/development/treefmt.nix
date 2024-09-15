@@ -1,21 +1,24 @@
 { inputs, ... }: {
   imports = [ inputs.treefmt.flakeModule ];
 
-  perSystem = { config, pkgs, ... }:
+  perSystem = { config, pkgs, lib, ... }:
     let
-      settings = {
+      treefmtConfig = {
         inherit (config.flake-root) projectRootFile;
         programs = {
           deadnix.enable = true;
-          nixfmt.enable = true;
           statix.enable = true;
+          nixfmt = {
+            enable = true;
+            package = pkgs.nixfmt-classic;
+          };
           prettier.enable = true;
         };
       };
     in {
-      treefmt.config = settings;
+      treefmt.config = treefmtConfig;
 
-      formatter = inputs.treefmt.lib.mkWrapper pkgs settings;
+      formatter = inputs.treefmt.lib.mkWrapper pkgs treefmtConfig;
 
       devenv.shells.default.packages = with pkgs;
         [ config.treefmt.build.wrapper ]
