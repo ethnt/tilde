@@ -52,6 +52,9 @@
 
     rippkgs.url = "github:replit/rippkgs";
     rippkgs.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-compat.url = "github:edolstra/flake-compat";
+    flake-compat.flake = false;
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
