@@ -22,7 +22,7 @@ with profiles;
 
   development = [ git.common gh.default vscode.default neovim.default ];
 
-  programming = [ elixir.default ruby.default nodejs.default mise.default ];
+  programming = [ elixir.default ruby.default nodejs.default mise.default jujutsu.default ];
 
   identity = [ gnupg.default ];
 
