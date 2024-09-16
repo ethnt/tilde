@@ -5,14 +5,16 @@
     extra-experimental-features = "nix-command flakes";
 
     extra-substituters = [
-      "https://nix-community.cachix.org"
+      "https://cache.e10.camp/tilde"
       "https://tilde.cachix.org"
+      "https://nix-community.cachix.org"
       "https://numtide.cachix.org"
     ];
 
     extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "tilde:S3A/pBaZ9qtdelB79faUEpgfuG0vrfqy9S/gcCjRnfo="
       "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
     ];
   };
@@ -52,6 +54,9 @@
 
     rippkgs.url = "github:replit/rippkgs";
     rippkgs.inputs.nixpkgs.follows = "nixpkgs";
+
+    attic.url = "github:zhaofengli/attic";
+    attic.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
