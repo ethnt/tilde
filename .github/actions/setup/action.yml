@@ -1,6 +1,15 @@
 name: Setup
 description: "Sets up the workflow"
 inputs:
+  attic_endpoint:
+    description: Endpoint for Attic cache
+    required: true
+  attic_cache:
+    description: Name of Attic cache
+    required: true
+  attic_token:
+    description: Token for Attic cache
+    required: true
   cachix_auth_token:
     description: Auth token for reading and writing to Cachix
     required: true
@@ -25,6 +34,12 @@ runs:
         ssh-private-key: |
           ${{ inputs.pragmatapro_deploy_key }}
           ${{ inputs.secrets_deploy_key }}
+    - name: Setup Attic cache
+      uses: ryanccn/attic-action@v0
+      with:
+        endpoint: ${{ inputs.attic_endpoint }}
+        cache: ${{ inputs.attic_cache }}
+        token: ${{ inputs.attic_token }}
     - name: Use Cachix store
       uses: cachix/cachix-action@v14
       with:

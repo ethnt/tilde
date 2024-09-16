@@ -10,6 +10,9 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          attic_endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          attic_cache: ${{ secrets.ATTIC_CACHE }}
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
@@ -25,6 +28,9 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          attic_endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          attic_cache: ${{ secrets.ATTIC_CACHE }}
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
@@ -47,6 +53,9 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          attic_endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          attic_cache: ${{ secrets.ATTIC_CACHE }}
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
@@ -62,6 +71,9 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          attic_endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          attic_cache: ${{ secrets.ATTIC_CACHE }}
+          attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
