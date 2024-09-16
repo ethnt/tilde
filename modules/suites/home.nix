@@ -5,6 +5,7 @@ with profiles;
 {
   base = [
     autojump.default
+    attic.default
     broot.default
     bat.default
     direnv.default
