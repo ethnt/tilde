@@ -90,7 +90,7 @@
       {
         name = "nix-ide";
         publisher = "jnoortheen";
-        version = "0.2.2";
+        version = "0.3.5";
         sha256 = "jwOM+6LnHyCkvhOTVSTUZvgx77jAg6hFCCpBqY8AxIg=";
       }
       {
@@ -124,16 +124,16 @@
         sha256 = "FbWBCACmCeS0douIR15WvI3/QVHlI8GTnLNdmTnehW0=";
       }
       {
-        name = "vscode-ruby";
-        publisher = "wingrunr21";
-        version = "0.28.0";
-        sha256 = "H3f1+c31x+lgCzhgTb0uLg9Bdn3pZyJGPPwfpCYrS70=";
+        name = "ruby-lsp";
+        publisher = "shopify";
+        version = "0.7.20";
+        sha256 = "cQPNd5u0QRBBEZpla4CavEKFwfxcS9itIdSoWhyP1Uc=";
       }
       {
         name = "bookmarks";
         publisher = "alefragnani";
-        version = "13.4.2";
-        sha256 = "O+1ZgRlkY68e1rz+/lSdMhPNIGEtIAw7BSdI/ZxInZM=";
+        version = "13.5.0";
+        sha256 = "oKhd5BLa2wuGNrzW9yKsWWzaU5hNolw2pBcqPlql9Ro=";
       }
     ];
   };
