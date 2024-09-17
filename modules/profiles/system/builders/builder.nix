@@ -6,7 +6,7 @@
       hostName = "builder";
       system = "x86_64-linux";
       protocol = "ssh-ng";
-      maxJobs = 8;
+      maxJobs = 16;
       speedFactor = 1;
       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
       mandatoryFeatures = [ ];
