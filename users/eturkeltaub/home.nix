@@ -1,6 +1,6 @@
-{ config, pkgs, suites, secrets, ... }: {
+{ config, inputs, pkgs, suites, secrets, ... }: {
   imports = with suites;
-    (base ++ development ++ work) ++ [ secrets.home.users.eturkeltaub ];
+    (base ++ development ++ work) ++ [ inputs.tilde-secrets.secrets.home.users.eturkeltaub ];
 
   tilde.home = {
     username = "eturkeltaub";
