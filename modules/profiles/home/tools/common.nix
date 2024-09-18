@@ -10,6 +10,7 @@
     just
     jq
     nix-index
+    nix-output-monitor
     ripgrep
   ];
 
