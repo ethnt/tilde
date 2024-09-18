@@ -1,14 +1,5 @@
 { config, pkgs, suites, secrets, ... }: rec {
-  imports = let
-    tilde-secrets = let
-      inherit ((builtins.fromJSON
-        (builtins.readFile ../../flake.lock)).nodes.tilde-secrets.locked) rev;
-    in builtins.getFlake
-    "git+ssh://git@github.com/ethnt/tilde-secrets?rev=${rev}";
-
-  in with suites;
-  (base ++ development ++ work)
-  ++ [ tilde-secrets.secrets.home.users.eturkeltaub ];
+  imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
     username = "eturkeltaub";

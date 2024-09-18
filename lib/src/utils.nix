@@ -52,14 +52,4 @@ let
   #   } -> { string -> path }
   importModules = attrset:
     builtins.mapAttrs (_: value: (import value)) (flattenTree attrset);
-
-  getFlake = name:
-    with (builtins.fromJSON
-      (builtins.readFile ../../flake.lock)).nodes.${name}.locked; {
-        inherit rev;
-        outPath = fetchTarball {
-          url = "https://github.com/ethnt/tilde-secrets/archive/${rev}.tar.gz";
-          sha256 = narHash;
-        };
-      };
-in { inherit importModules getFlake; }
+in { inherit importModules; }
