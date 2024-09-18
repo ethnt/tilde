@@ -7,8 +7,8 @@
     fzy
     gnused
     htop
-    just
     jq
+    just
     nix-index
     nix-output-monitor
     ripgrep
