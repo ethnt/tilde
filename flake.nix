@@ -71,7 +71,6 @@
 
         ./pkgs
 
-        ./modules/core/secrets.nix
         ./modules/core/flake-root.nix
 
         ./modules/development/shell.nix
