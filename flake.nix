@@ -30,8 +30,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
-
     flake-root.url = "github:srid/flake-root";
 
     haumea.url = "github:nix-community/haumea";

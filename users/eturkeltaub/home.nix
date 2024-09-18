@@ -1,10 +1,7 @@
 { config, pkgs, suites, secrets, ... }: rec {
   imports = let
-    tilde-secrets = let
-      inherit ((builtins.fromJSON
-        (builtins.readFile ../../flake.lock)).nodes.tilde-secrets.locked) rev;
-    in builtins.getFlake
-    "git+ssh://git@github.com/ethnt/tilde-secrets?rev=${rev}";
+    tilde-secrets = builtins.getFlake
+      "git+ssh://git@github.com/ethnt/tilde-secrets?rev=04fd160e6d3d229260bacebbf590edc15c2f6dcc";
 
   in with suites;
   (base ++ development ++ work)
