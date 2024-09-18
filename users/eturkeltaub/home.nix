@@ -1,6 +1,10 @@
-{ config, inputs, pkgs, suites, secrets, ... }: {
-  imports = with suites;
-    (base ++ development ++ work) ++ [ inputs.tilde-secrets.secrets.home.users.eturkeltaub ];
+{ config, inputs, pkgs, suites, secrets, lib, ... }: rec {
+  imports = let
+    tilde-secrets =
+      builtins.getFlake "git+ssh://git@github.com/ethnt/tilde-secrets";
+  in with suites;
+  (base ++ development ++ work)
+  ++ [ tilde-secrets.secrets.home.users.eturkeltaub ];
 
   tilde.home = {
     username = "eturkeltaub";
