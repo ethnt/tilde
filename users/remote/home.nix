@@ -38,7 +38,5 @@ with lib;
     package.disabled = true;
   };
 
-  home.packages = with pkgs; [ update-tilde ];
-
-  home.stateVersion = "22.11";
+  home.stateVersion = "24.05";
 }
