@@ -1,6 +1,5 @@
-{ config, pkgs, suites, secrets, ... }: {
-  imports = with suites;
-    (base ++ development ++ work) ++ [ secrets.home.users.eturkeltaub ];
+{ config, pkgs, suites, ... }: {
+  imports = with suites; (base ++ development ++ work) ++ [ ./secrets.nix ];
 
   tilde.home = {
     username = "eturkeltaub";
