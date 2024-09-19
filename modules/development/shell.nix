@@ -9,6 +9,7 @@
         packages = with pkgs; [
           inputs.devenv.packages.${system}.default
           cachix
+          git-crypt
           just
           nix-output-monitor
         ];
