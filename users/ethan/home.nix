@@ -11,7 +11,7 @@
 
   programs = {
     git = {
-      userEmail = "ethan.turkeltaub@hey.com";
+      userEmail = "ethan@turkeltaub.dev";
       userName = "Ethan Turkeltaub";
       signing.key = config.tilde.home.gpg.keyId;
     };
