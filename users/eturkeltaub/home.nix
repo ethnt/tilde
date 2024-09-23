@@ -60,6 +60,6 @@
   home = {
     username = "eturkeltaub";
     homeDirectory = "/Users/eturkeltaub";
-    stateVersion = "23.05";
+    stateVersion = "24.05";
   };
 }
