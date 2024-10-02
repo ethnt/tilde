@@ -10,20 +10,11 @@
       "1password"
       "bartender"
       "firefox"
-      "hazel"
-      "istat-menus"
       "iterm2"
       "logitech-options"
       "raycast"
       "rectangle"
       "spotify"
     ];
-
-    masApps = {
-      "Balance Lock" = 1019371109;
-      "Paprika Recipe Manager 3" = 1303222628;
-      "Reeder 5" = 1529448980;
-      Fantastical = 975937182;
-    };
   };
 }

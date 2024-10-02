@@ -21,10 +21,7 @@
     casks = [
       "asana"
       "figma"
-      "graphiql"
-      "insomnia"
       "keepingyouawake"
-      "logseq"
       "monitorcontrol"
       "obsidian"
     ];
