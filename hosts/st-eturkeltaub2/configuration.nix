@@ -18,16 +18,7 @@
     # https://github.com/ethnt/tilde/issues/71
     brews = [ "gnu-sed" ];
 
-    casks = [
-      "asana"
-      "figma"
-      "graphiql"
-      "insomnia"
-      "keepingyouawake"
-      "logseq"
-      "monitorcontrol"
-      "obsidian"
-    ];
+    casks = [ "asana" "figma" "keepingyouawake" "monitorcontrol" "obsidian" ];
 
     masApps = { "Omnifocus 3" = 1346203938; };
   };
