@@ -1,6 +1,8 @@
 { flake, config, ... }: {
-  services.activate-system.enable = true;
   services.nix-daemon.enable = true;
+
+  # It is unclear to me why this needs to be set in addition to `nix.settings.extra-nix-path`
+  nix.nixPath = [ "darwin-config=${flake}/lib/compat/darwin" ];
 
   nix = {
     configureBuildUsers = true;

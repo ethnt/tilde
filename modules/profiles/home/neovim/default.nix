@@ -25,7 +25,7 @@
       commentary.enable = true;
       lightline.enable = true;
       nix.enable = true;
-      surround.enable = true;
+      vim-surround.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [ fzf-vim ];

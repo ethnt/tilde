@@ -1,7 +1,4 @@
-_:
-let
-  default = (import ../.).defaultNix;
-  configs = default.darwinConfigurations;
-  host = configs.${hostname} or configs.eMac;
-  hostname = builtins.getEnv "HOSTNAME";
-in host
+_: {
+  environment.darwinConfig = "/Users/ethan/Workspace/tilde/lib/compat/darwin";
+  system.stateVersion = 5;
+}

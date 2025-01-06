@@ -35,8 +35,9 @@ runs:
         cache: tilde
         token: ${{ inputs.attic_token }}
     - name: Use Cachix store
-      uses: cachix/cachix-action@v14
+      uses: cachix/cachix-action@master
       with:
         authToken: ${{ inputs.cachix_auth_token }}
+        installCommand: nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#cachix
         extraPullNames: tilde,nix-community
         name: tilde
