@@ -35,7 +35,7 @@ runs:
         cache: tilde
         token: ${{ inputs.attic_token }}
     - name: Use Cachix store
-      uses: cachix/cachix-action@v15
+      uses: cachix/cachix-action@master
       with:
         authToken: ${{ inputs.cachix_auth_token }}
         extraPullNames: tilde,nix-community
