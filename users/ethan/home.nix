@@ -1,7 +1,12 @@
-{ config, suites, profiles, ... }: {
+{ config, suites, profiles, pkgs, ... }: {
   imports = with suites;
-    base ++ development ++ programming ++ identity
-    ++ [ profiles.tools.media-management ];
+    base ++ development ++ programming ++ identity ++ [
+      profiles.tools.media-management
+      profiles.ghostty.default
+      profiles.zed.default
+    ];
+
+  home.packages = with pkgs; [ borgbackup nixd ];
 
   tilde.home = {
     username = "ethan";

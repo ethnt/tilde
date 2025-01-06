@@ -14,6 +14,6 @@
 
   nix = {
     gc.automatic = true;
-    settings.extra-experimental-features = [ "repl-flake" ];
+    # settings.extra-experimental-features = [ "repl-flake" ];
   };
 }

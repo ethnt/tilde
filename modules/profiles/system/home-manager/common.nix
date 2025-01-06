@@ -2,6 +2,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bak";
     extraSpecialArgs = {
       inherit (flake) inputs secrets;
       suites = flake.suites.home;

@@ -13,12 +13,15 @@
   };
 
   homebrew = {
-    brews = [ "pinentry-mac" ];
+    brews = [ "pinentry-mac" "postgresql@14" ];
+
+    taps = [ "homebrew/services" ];
 
     casks = [
       "arc"
       "cleanshot"
       "docker"
+      "ghostty"
       "hazel"
       "istat-menus"
       "istat-menus"
@@ -26,6 +29,7 @@
       "tailscale"
       "utm"
       "vlc"
+      "vorta"
       "zoom"
     ];
 

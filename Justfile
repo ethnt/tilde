@@ -29,3 +29,9 @@ repl:
 
 format:
     treefmt
+
+push-result-to-cache: (push-to-cache "result")
+
+push-to-cache path:
+    cachix push tilde {{ path }}
+    attic push tilde {{ path }}

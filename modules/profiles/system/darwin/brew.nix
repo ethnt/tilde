@@ -14,7 +14,9 @@
       "logitech-options"
       "raycast"
       "rectangle"
+      "slack"
       "spotify"
+      "zed"
     ];
   };
 }

@@ -46,6 +46,10 @@
       interactive.diffFilter =
         "${deltaCommand} --diff-so-fancy --keep-plus-minus-markers --line-numbers";
       http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
+      color = {
+        status = "always";
+        diff = "always";
+      };
     };
   };
 }
