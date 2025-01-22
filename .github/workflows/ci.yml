@@ -18,22 +18,6 @@ jobs:
         run: |
           nix build .#devShells.aarch64-darwin.default --impure --keep-going --print-build-logs --show-trace --verbose
 
-  build-remote:
-    name: Build remote home configuration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-        with:
-          attic_token: ${{ secrets.ATTIC_TOKEN }}
-          cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
-          secrets_deploy_key: ${{ secrets.SECRETS_DEPLOY_KEY }}
-      - name: Build remote configuration
-        run: |
-          nix build .#homeConfigurationsPortable.x86_64-linux.remote.activation-script --keep-going --print-build-logs --show-trace --verbose
-
   build-system:
     name: Build system
     runs-on: ${{ matrix.os }}
@@ -41,7 +25,6 @@ jobs:
       matrix:
         host:
           - eMac
-          - st-eturkeltaub2
         os:
           - macos-14
     steps:
