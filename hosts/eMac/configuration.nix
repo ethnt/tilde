@@ -26,6 +26,7 @@
       "istat-menus"
       "istat-menus"
       "notion"
+      "obsidian"
       "tailscale"
       "utm"
       "vlc"

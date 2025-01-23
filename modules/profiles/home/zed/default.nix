@@ -1,7 +1,7 @@
 { lib, pkgs, ... }: {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "html" "just" "nix" ];
+    extensions = [ "astro" "elixir" "html" "just" "nix" ];
     userSettings = {
       theme = {
         mode = "dark";

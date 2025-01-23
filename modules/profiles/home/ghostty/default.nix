@@ -12,6 +12,7 @@
     settings = {
       font-family = "PragmataPro Mono Liga";
       font-size = 16;
+      cursor-style = "bar";
       window-padding-x = 8;
       adjust-cell-height = 10;
       theme = "nord";
