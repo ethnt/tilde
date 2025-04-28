@@ -13,12 +13,6 @@ in {
       description = "rippkgs package to install";
     };
 
-    indexerPackage = mkOption {
-      type = types.package;
-      default = pkgs.rippkgs-index;
-      description = "rippkgs-index package to install";
-    };
-
     indexLocation = mkOption {
       type = types.str;
       default = "$XDG_DATA_HOME/rippkgs-index.sqlite";
@@ -29,10 +23,8 @@ in {
   config = mkIf cfg.enable {
     home.packages = let
       indexerRunner = pkgs.writeShellScriptBin "rippkgs-index-runner" ''
-        ${
-          lib.getExe' cfg.indexerPackage "rippkgs-index"
-        } $@ -o ${cfg.indexLocation}
+        ${lib.getExe' cfg.package "rippkgs-index"} $@ -o ${cfg.indexLocation}
       '';
-    in with cfg; [ package indexerPackage indexerRunner ];
+    in with cfg; [ package indexerRunner ];
   };
 }

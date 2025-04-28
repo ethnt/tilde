@@ -37,9 +37,6 @@
     haumea.url = "github:nix-community/haumea";
     haumea.inputs.nixpkgs.follows = "nixpkgs";
 
-    devenv.url = "github:cachix/devenv";
-    # devenv.inputs.nixpkgs.follows = "nixpkgs";
-
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -49,11 +46,8 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    rippkgs.url = "github:replit/rippkgs";
-    rippkgs.inputs.nixpkgs.follows = "nixpkgs";
-
-    attic.url = "github:zhaofengli/attic";
-    attic.inputs.nixpkgs.follows = "nixpkgs";
+    mise.url = "github:jdx/mise";
+    mise.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
@@ -91,7 +85,6 @@
           overlays = with inputs; [
             self.overlays.default
             pragmatapro.overlays.default
-            rippkgs.overlays.default
           ];
 
           # TODO: Make this on a per-system basis, and maybe per-package

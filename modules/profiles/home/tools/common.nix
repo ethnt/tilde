@@ -12,6 +12,7 @@
     nix-index
     nix-output-monitor
     ripgrep
+    graphite-cli
   ];
 
   home.shellAliases = {

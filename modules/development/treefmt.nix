@@ -5,6 +5,7 @@
     let
       treefmtConfig = {
         inherit (config.flake-root) projectRootFile;
+
         programs = {
           deadnix.enable = true;
           statix.enable = true;
@@ -20,8 +21,10 @@
 
       formatter = inputs.treefmt.lib.mkWrapper pkgs treefmtConfig;
 
-      devenv.shells.default.packages = with pkgs;
-        [ config.treefmt.build.wrapper ]
-        ++ (builtins.attrValues config.treefmt.build.programs);
+      devShells.treefmt = pkgs.mkShell {
+        nativeBuildInputs = with pkgs;
+          [ config.treefmt.build.wrapper ]
+          ++ (builtins.attrValues config.treefmt.build.programs);
+      };
     };
 }
