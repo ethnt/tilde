@@ -13,11 +13,11 @@ in {
       description = "rippkgs package to install";
     };
 
-    indexerPackage = mkOption {
-      type = types.package;
-      default = pkgs.rippkgs-index;
-      description = "rippkgs-index package to install";
-    };
+    # indexerPackage = mkOption {
+    #   type = types.package;
+    #   default = pkgs.rippkgs-index;
+    #   description = "rippkgs-index package to install";
+    # };
 
     indexLocation = mkOption {
       type = types.str;
@@ -27,12 +27,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = let
-      indexerRunner = pkgs.writeShellScriptBin "rippkgs-index-runner" ''
-        ${
-          lib.getExe' cfg.indexerPackage "rippkgs-index"
-        } $@ -o ${cfg.indexLocation}
-      '';
-    in with cfg; [ package indexerPackage indexerRunner ];
+    home.packages = with cfg;
+      [
+        package
+        # indexerPackage
+        #  indexerRunner
+      ];
   };
 }

@@ -13,7 +13,17 @@
   };
 
   homebrew = {
-    brews = [ "pinentry-mac" "postgresql@14" ];
+    brews = [
+      "pinentry-mac"
+      "postgresql@14"
+      # These are to install Ruby via Mise
+      # LDFLAGS=-L/opt/homebrew/opt/zlib/lib CPPFLAGS=-I/opt/homebrew/opt/zlib/include mise install ruby@latest
+      "autoconf"
+      "automake"
+      "libtool"
+      "zlib"
+      "libyaml"
+    ];
 
     taps = [ "homebrew/services" ];
 
@@ -21,12 +31,13 @@
       "arc"
       "cleanshot"
       "docker"
+      "elgato-stream-deck"
       "ghostty"
       "hazel"
       "istat-menus"
-      "istat-menus"
       "notion"
       "obsidian"
+      "steam"
       "tailscale"
       "utm"
       "vlc"

@@ -5,12 +5,13 @@
     package = pkgs.vscode;
 
     mutableExtensionsDir = true;
-    enableUpdateCheck = false;
+    profiles.default.enableUpdateCheck = false;
 
-    userSettings = {
+    profiles.default.userSettings = {
       # Workbench/frame settings
       "workbench.colorCustomizations"."tree.indentGuidesStroke" = "#21343C";
-      "workbench.colorTheme" = "Solarized Dark";
+      # "workbench.colorTheme" = "Solarized Dark";
+      "workbench.colorTheme" = "Nord";
       "workbench.startupEditor" = "none";
       "workbench.tree.indent" = 20;
       "workbench.welcomePage.walkthroughs.openOnInstall" = false;
@@ -68,10 +69,21 @@
       # Extension settings
       "extensions.ignoreRecommendations" = true;
 
+      # Chat
+      "chat.commandCenter.enabled" = false;
+
+      # Copilot
+      "github.copilot.enable" = {
+        "*" = false;
+        "plaintext" = false;
+        "markdown" = false;
+        "scminput" = false;
+      };
+
       # Ruby settings
       "ruby.intellisense" = "rubyLocate";
       "ruby.useBundler" = true;
-      "ruby.useLanguageServer" = false;
+      "ruby.useLanguageServer" = true;
 
       # Nix settings
       "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
@@ -86,55 +98,62 @@
       };
     };
 
-    extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "nix-ide";
-        publisher = "jnoortheen";
-        version = "0.3.5";
-        sha256 = "jwOM+6LnHyCkvhOTVSTUZvgx77jAg6hFCCpBqY8AxIg=";
-      }
-      {
-        name = "atom-keybindings";
-        publisher = "ms-vscode";
-        version = "3.3.0";
-        sha256 = "vzOb/DUV44JMzcuQJgtDB6fOpTKzq298WSSxVKlYE4o=";
-      }
-      {
-        name = "solarized";
-        publisher = "ryanolsonx";
-        version = "2.5.0";
-        sha256 = "zhxiI7OHf8IzgIEXchA2k2bS30+BNPOUN8JrDFfjqzY=";
-      }
-      {
-        name = "nixfmt-vscode";
-        publisher = "brettm12345";
-        version = "0.0.1";
-        sha256 = "07w35c69vk1l6vipnq3qfack36qcszqxn8j3v332bl0w6m02aa7k";
-      }
-      {
-        name = "alphabetical-sorter";
-        publisher = "ue";
-        version = "2.0.1";
-        sha256 = "1djzba9c2p8h1mx2g104hbcm7fnh296d8j8grm9v3yws0rh2inrg";
-      }
-      {
-        name = "vscode-ruby-syntax";
-        publisher = "SarahRidge";
-        version = "0.0.11";
-        sha256 = "FbWBCACmCeS0douIR15WvI3/QVHlI8GTnLNdmTnehW0=";
-      }
-      {
-        name = "ruby-lsp";
-        publisher = "shopify";
-        version = "0.7.20";
-        sha256 = "cQPNd5u0QRBBEZpla4CavEKFwfxcS9itIdSoWhyP1Uc=";
-      }
-      {
-        name = "bookmarks";
-        publisher = "alefragnani";
-        version = "13.5.0";
-        sha256 = "oKhd5BLa2wuGNrzW9yKsWWzaU5hNolw2pBcqPlql9Ro=";
-      }
-    ];
+    profiles.default.extensions =
+      pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "nix-ide";
+          publisher = "jnoortheen";
+          version = "0.3.5";
+          sha256 = "jwOM+6LnHyCkvhOTVSTUZvgx77jAg6hFCCpBqY8AxIg=";
+        }
+        {
+          name = "atom-keybindings";
+          publisher = "ms-vscode";
+          version = "3.3.0";
+          sha256 = "vzOb/DUV44JMzcuQJgtDB6fOpTKzq298WSSxVKlYE4o=";
+        }
+        {
+          name = "solarized";
+          publisher = "ryanolsonx";
+          version = "2.5.0";
+          sha256 = "zhxiI7OHf8IzgIEXchA2k2bS30+BNPOUN8JrDFfjqzY=";
+        }
+        {
+          name = "nixfmt-vscode";
+          publisher = "brettm12345";
+          version = "0.0.1";
+          sha256 = "07w35c69vk1l6vipnq3qfack36qcszqxn8j3v332bl0w6m02aa7k";
+        }
+        {
+          name = "alphabetical-sorter";
+          publisher = "ue";
+          version = "2.0.1";
+          sha256 = "1djzba9c2p8h1mx2g104hbcm7fnh296d8j8grm9v3yws0rh2inrg";
+        }
+        {
+          name = "vscode-ruby-syntax";
+          publisher = "SarahRidge";
+          version = "0.0.11";
+          sha256 = "FbWBCACmCeS0douIR15WvI3/QVHlI8GTnLNdmTnehW0=";
+        }
+        {
+          name = "ruby-lsp";
+          publisher = "shopify";
+          version = "0.7.20";
+          sha256 = "cQPNd5u0QRBBEZpla4CavEKFwfxcS9itIdSoWhyP1Uc=";
+        }
+        {
+          name = "bookmarks";
+          publisher = "alefragnani";
+          version = "13.5.0";
+          sha256 = "oKhd5BLa2wuGNrzW9yKsWWzaU5hNolw2pBcqPlql9Ro=";
+        }
+        {
+          name = "nord-visual-studio-code";
+          publisher = "arcticicestudio";
+          version = "0.19.0";
+          sha256 = "awbqFv6YuYI0tzM/QbHRTUl4B2vNUdy52F4nPmv+dRU=";
+        }
+      ];
   };
 }

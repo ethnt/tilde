@@ -35,3 +35,7 @@ push-result-to-cache: (push-to-cache "result")
 push-to-cache path:
     cachix push tilde {{ path }}
     attic push tilde {{ path }}
+
+move-rc-files:
+    mv /etc/bashrc /etc/bashrc.before-nix-darwin
+    mv /etc/zshrc /etc/zshrc.before-nix-darwin

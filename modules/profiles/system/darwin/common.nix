@@ -1,12 +1,8 @@
 { flake, config, ... }: {
-  services.nix-daemon.enable = true;
-
   # It is unclear to me why this needs to be set in addition to `nix.settings.extra-nix-path`
   nix.nixPath = [ "darwin-config=${flake}/lib/compat/darwin" ];
 
   nix = {
-    configureBuildUsers = true;
-
     settings = {
       trusted-users = [ config.tilde.host.primaryUser.username ];
       extra-nix-path = [ "darwin-config=${flake}/lib/compat/darwin" ];

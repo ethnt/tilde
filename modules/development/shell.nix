@@ -1,19 +1,13 @@
-{ inputs, ... }: {
-  imports = [ inputs.devenv.flakeModule ];
-
+{ self, ... }: {
   perSystem = { config, pkgs, lib, system, ... }: {
-    devenv.shells.default = _:
-      {
-        env.FLAKE_ROOT = lib.getExe config.flake-root.package;
+    devShells.default = pkgs.mkShell {
+      inputsFrom = [ self.devShells.${system}.treefmt ];
 
-        packages = with pkgs; [
-          inputs.devenv.packages.${system}.default
-          cachix
-          just
-          nix-output-monitor
-        ];
-      } // {
-        containers = lib.mkForce { };
-      };
+      nativeBuildInputs = with pkgs; [ cachix just nix-output-monitor ];
+
+      shellHook = ''
+        export FLAKE_ROOT="${lib.getExe config.flake-root.package}"
+      '';
+    };
   };
 }
