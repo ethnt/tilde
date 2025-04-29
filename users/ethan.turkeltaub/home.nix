@@ -1,7 +1,6 @@
-{ config, pkgs, suites, profiles, secrets, ... }: {
-  imports = with suites;
-    base ++ development ++ identity
-    ++ [ profiles.awscli.default profiles.mise.default ]
+{ config, suites, profiles, secrets, ... }: {
+  imports = (with suites; base ++ development ++ identity)
+    ++ (with profiles; [ awscli.default mise.default ])
     ++ [ secrets.users."ethan.turkeltaub".home ] ++ [ ./profiles/vscode.nix ];
 
   tilde.home = {
