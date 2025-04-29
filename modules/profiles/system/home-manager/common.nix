@@ -25,7 +25,7 @@
       XDG_STATE_HOME = "$HOME/.local/state";
     };
 
-    xdg.configFile."nix/registry.json".text =
-      config.environment.etc."nix/registry.json".text;
+    # xdg.configFile."nix/registry.json".text =
+    #   config.environment.etc."nix/registry.json".text;
   }];
 }

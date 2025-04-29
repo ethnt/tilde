@@ -29,5 +29,10 @@ in {
       name = "eMac";
       system = "aarch64-darwin";
     };
+
+    eturkeltaub-mb = mkDarwinConfiguration {
+      name = "eturkeltaub-mb";
+      system = "aarch64-darwin";
+    };
   };
 }

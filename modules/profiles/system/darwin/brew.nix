@@ -4,7 +4,7 @@
   homebrew = {
     enable = true;
 
-    onActivation.cleanup = lib.mkDefault "zap";
+    onActivation.cleanup = lib.mkDefault "none";
 
     casks = [
       "1password"
