@@ -17,7 +17,7 @@ let
 
         specialArgs = {
           inherit inputs profiles suites;
-          inherit (self) homeConfigurations;
+          inherit (self) homeConfigurations secrets;
           flake = self;
         };
       in nix-darwin.lib.darwinSystem {

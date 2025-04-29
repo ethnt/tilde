@@ -1,10 +1,13 @@
-{ config, suites, profiles, ... }: {
-  imports = with suites; base ++ development ++ [ profiles.ghostty.default ];
+{ config, pkgs, suites, profiles, secrets, ... }: {
+  imports = with suites;
+    base ++ development ++ identity
+    ++ [ profiles.awscli.default profiles.mise.default ]
+    ++ [ secrets.users."ethan.turkeltaub".home ] ++ [ ./profiles/vscode.nix ];
 
   tilde.home = {
     username = "ethan.turkeltaub";
     homeDirectory = "/Users/ethan.turkeltaub";
-    gpg = { keyId = "E975F001FBC704AE"; };
+    gpg.keyId = "E975F001FBC704AE";
   };
 
   programs = {
@@ -16,7 +19,7 @@
   };
 
   home = {
-    username = "ethan";
+    username = "ethan.turkeltaub";
     homeDirectory = "/Users/ethan.turkeltaub";
     stateVersion = "24.05";
   };

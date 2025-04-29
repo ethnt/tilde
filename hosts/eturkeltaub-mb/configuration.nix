@@ -1,5 +1,9 @@
-{ suites, profiles, ... }: {
-  imports = with suites; base ++ fonts ++ [ profiles.users."ethan.turkeltaub" ];
+{ suites, profiles, secrets, ... }: {
+  imports = with suites;
+    base ++ fonts ++ [
+      profiles.users."ethan.turkeltaub"
+      secrets.hosts.eturkeltaub-mb.configuration
+    ];
 
   tilde.host = {
     name = "eturkeltaub-mb";
