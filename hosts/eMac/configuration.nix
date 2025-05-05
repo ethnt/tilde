@@ -13,8 +13,9 @@
   };
 
   homebrew = {
+    onActivation.cleanup = "zap";
+
     brews = [
-      "pinentry-mac"
       "postgresql@14"
       # These are to install Ruby via Mise
       # LDFLAGS=-L/opt/homebrew/opt/zlib/lib CPPFLAGS=-I/opt/homebrew/opt/zlib/include mise install ruby@latest
@@ -28,28 +29,20 @@
     taps = [ "homebrew/services" ];
 
     casks = [
-      "arc"
-      "cleanshot"
-      "docker"
       "elgato-stream-deck"
-      "ghostty"
       "hazel"
-      "istat-menus"
       "notion"
-      "obsidian"
       "steam"
       "tailscale"
       "utm"
       "vlc"
       "vorta"
-      "zoom"
+      "zed"
     ];
 
     masApps = {
-      "Amphetamine" = 937984704;
       "Paprika Recipe Manager 3" = 1303222628;
       "Reeder 5" = 1529448980;
-      Fantastical = 975937182;
     };
   };
 }

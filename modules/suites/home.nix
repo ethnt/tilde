@@ -11,6 +11,7 @@ with profiles;
     direnv.default
     fish.default
     fzf.default
+    ghostty.default
     paths.default
     navi.default
     rippkgs.default
@@ -23,11 +24,15 @@ with profiles;
 
   development = [ git.common gh.default vscode.default neovim.default ];
 
-  programming = [ elixir.default ruby.default nodejs.default mise.default ];
-
   identity = [ gnupg.default ];
 
-  work = [ git.large-repos ];
+  work = [
+    amazon-ecr-credential-helper.default
+    awscli.default
+    git.large-repos
+    mise.default
+    rider.default
+  ];
 
   minimal = [
     autojump.default

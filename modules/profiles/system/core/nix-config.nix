@@ -12,8 +12,5 @@
     };
   };
 
-  nix = {
-    gc.automatic = true;
-    # settings.extra-experimental-features = [ "repl-flake" ];
-  };
+  nix = { gc.automatic = true; };
 }

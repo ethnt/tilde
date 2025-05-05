@@ -17,7 +17,7 @@ let
 
         specialArgs = {
           inherit inputs profiles suites;
-          inherit (self) homeConfigurations;
+          inherit (self) homeConfigurations secrets;
           flake = self;
         };
       in nix-darwin.lib.darwinSystem {
@@ -27,6 +27,11 @@ in {
   flake.darwinConfigurations = {
     eMac = mkDarwinConfiguration {
       name = "eMac";
+      system = "aarch64-darwin";
+    };
+
+    eturkeltaub-mb = mkDarwinConfiguration {
+      name = "eturkeltaub-mb";
       system = "aarch64-darwin";
     };
   };

@@ -1,10 +1,12 @@
 { config, suites, profiles, pkgs, ... }: {
-  imports = with suites;
-    base ++ development ++ programming ++ identity ++ [
-      profiles.tools.media-management
-      profiles.ghostty.default
-      profiles.zed.default
-    ] ++ [ ./profiles/tmuxp.nix ./profiles/vscode.nix ];
+  imports = (with suites; base ++ development ++ identity) ++ (with profiles; [
+    elixir.default
+    mise.default
+    nodejs.default
+    tools.media-management
+    zed.default
+    ruby.default
+  ]) ++ [ ./profiles/tmuxp.nix ./profiles/vscode.nix ];
 
   home.packages = with pkgs; [ borgbackup nixd ];
 

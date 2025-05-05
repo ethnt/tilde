@@ -40,6 +40,12 @@
           version = "0.19.0";
           sha256 = "awbqFv6YuYI0tzM/QbHRTUl4B2vNUdy52F4nPmv+dRU=";
         }
+        {
+          name = "nixfmt-vscode";
+          publisher = "brettm12345";
+          version = "0.0.1";
+          sha256 = "8yglQDUc0CXG2EMi2/HXDJsxmXJ4YHvjNjTMnQwrgx8=";
+        }
       ];
 
       userSettings = {

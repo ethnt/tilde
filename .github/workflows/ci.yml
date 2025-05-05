@@ -25,6 +25,7 @@ jobs:
       matrix:
         host:
           - eMac
+          - eturkeltaub-mb
         os:
           - macos-14
     steps:

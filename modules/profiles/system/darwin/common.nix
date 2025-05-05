@@ -21,4 +21,6 @@
 
   system.checks.verifyNixPath = true;
   system.stateVersion = 4;
+
+  ids.gids.nixbld = 350;
 }

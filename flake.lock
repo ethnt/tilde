@@ -3,9 +3,11 @@
     "attic": {
       "inputs": {
         "crane": "crane",
-        "flake-compat": "flake-compat_2",
-        "flake-parts": "flake-parts_4",
+        "flake-compat": "flake-compat_3",
+        "flake-parts": "flake-parts_7",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixpkgs"
@@ -32,16 +34,22 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "flake-compat"
         ],
         "git-hooks": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "pre-commit-hooks"
         ],
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -68,6 +76,8 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "devenv",
@@ -76,12 +86,16 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "devenv",
           "nixpkgs"
         ],
         "pre-commit-hooks": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -107,8 +121,10 @@
     "cachix_3": {
       "inputs": {
         "devenv": "devenv_5",
-        "flake-compat": "flake-compat_8",
+        "flake-compat": "flake-compat_9",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -137,6 +153,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "attic",
           "nixpkgs"
         ]
@@ -158,6 +176,8 @@
     "crane_2": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "rippkgs",
@@ -185,6 +205,8 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "rippkgs",
           "nixpkgs"
         ]
@@ -206,9 +228,9 @@
     "devenv": {
       "inputs": {
         "cachix": "cachix",
-        "flake-compat": "flake-compat_4",
+        "flake-compat": "flake-compat_5",
         "nix": "nix_3",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
@@ -231,6 +253,8 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "flake-compat"
@@ -239,11 +263,15 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "nixpkgs"
         ],
         "pre-commit-hooks": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -270,6 +298,8 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "devenv",
@@ -277,9 +307,11 @@
           "flake-compat"
         ],
         "nix": "nix",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -307,9 +339,11 @@
     "devenv_4": {
       "inputs": {
         "cachix": "cachix_3",
-        "flake-compat": "flake-compat_10",
+        "flake-compat": "flake-compat_11",
         "nix": "nix_5",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -340,14 +374,18 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "flake-compat"
         ],
         "nix": "nix_4",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "poetry2nix": "poetry2nix_2",
         "pre-commit-hooks": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -374,9 +412,11 @@
     },
     "devenv_6": {
       "inputs": {
-        "flake-compat": "flake-compat_13",
+        "flake-compat": "flake-compat_14",
         "nix": "nix_6",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -406,6 +446,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixvim",
           "nixpkgs"
         ]
@@ -426,8 +468,10 @@
     },
     "devshell_2": {
       "inputs": {
-        "flake-utils": "flake-utils_11",
+        "flake-utils": "flake-utils_13",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "rippkgs",
@@ -450,8 +494,10 @@
     },
     "devshell_3": {
       "inputs": {
-        "flake-utils": "flake-utils_21",
+        "flake-utils": "flake-utils_23",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -479,6 +525,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "rippkgs",
           "nixpkgs"
         ],
@@ -501,6 +549,8 @@
     "fenix_2": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -559,22 +609,6 @@
     "flake-compat_11": {
       "flake": false,
       "locked": {
-        "lastModified": 1673956053,
-        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat_12": {
-      "flake": false,
-      "locked": {
         "lastModified": 1696426674,
         "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
         "owner": "edolstra",
@@ -588,7 +622,7 @@
         "type": "github"
       }
     },
-    "flake-compat_13": {
+    "flake-compat_12": {
       "flake": false,
       "locked": {
         "lastModified": 1673956053,
@@ -596,6 +630,22 @@
         "owner": "edolstra",
         "repo": "flake-compat",
         "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_13": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
         "type": "github"
       },
       "original": {
@@ -620,23 +670,7 @@
         "type": "github"
       }
     },
-    "flake-compat_2": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat_3": {
+    "flake-compat_15": {
       "flake": false,
       "locked": {
         "lastModified": 1673956053,
@@ -652,7 +686,23 @@
         "type": "github"
       }
     },
-    "flake-compat_4": {
+    "flake-compat_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733328505,
+        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_3": {
       "flake": false,
       "locked": {
         "lastModified": 1696426674,
@@ -660,6 +710,22 @@
         "owner": "edolstra",
         "repo": "flake-compat",
         "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_4": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673956053,
+        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
         "type": "github"
       },
       "original": {
@@ -685,6 +751,22 @@
       }
     },
     "flake-compat_6": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_7": {
       "locked": {
         "lastModified": 1696426674,
         "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
@@ -698,7 +780,7 @@
         "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
       }
     },
-    "flake-compat_7": {
+    "flake-compat_8": {
       "flake": false,
       "locked": {
         "lastModified": 1673956053,
@@ -706,22 +788,6 @@
         "owner": "edolstra",
         "repo": "flake-compat",
         "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat_8": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
         "type": "github"
       },
       "original": {
@@ -766,7 +832,68 @@
     },
     "flake-parts_10": {
       "inputs": {
+        "nixpkgs-lib": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "nixvim",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726153070,
+        "narHash": "sha256-HO4zgY0ekfwO5bX0QH/3kJ/h4KvUDFZg8YpkNwIbg1U=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "bcef6817a8b2aa20a5a6dbb19b43e63c5bf8619a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_11": {
+      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_6"
+      },
+      "locked": {
+        "lastModified": 1712014858,
+        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_12": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_7"
+      },
+      "locked": {
+        "lastModified": 1706830856,
+        "narHash": "sha256-a0NYyp+h9hlb7ddVz4LUn1vT/PLwqfrWYcHMvFB1xYg=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "b253292d9c0a5ead9bc98c4e9a26c6312e27d69f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_13": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_8"
       },
       "locked": {
         "lastModified": 1701473968,
@@ -782,9 +909,11 @@
         "type": "github"
       }
     },
-    "flake-parts_11": {
+    "flake-parts_14": {
       "inputs": {
         "nixpkgs-lib": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -807,9 +936,9 @@
         "type": "github"
       }
     },
-    "flake-parts_12": {
+    "flake-parts_15": {
       "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_7"
+        "nixpkgs-lib": "nixpkgs-lib_9"
       },
       "locked": {
         "lastModified": 1712014858,
@@ -825,9 +954,9 @@
         "type": "github"
       }
     },
-    "flake-parts_13": {
+    "flake-parts_16": {
       "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_8"
+        "nixpkgs-lib": "nixpkgs-lib_10"
       },
       "locked": {
         "lastModified": 1706830856,
@@ -843,9 +972,9 @@
         "type": "github"
       }
     },
-    "flake-parts_14": {
+    "flake-parts_17": {
       "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_9"
+        "nixpkgs-lib": "nixpkgs-lib_11"
       },
       "locked": {
         "lastModified": 1701473968,
@@ -902,7 +1031,68 @@
     },
     "flake-parts_4": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_3"
+      },
+      "locked": {
+        "lastModified": 1743550720,
+        "narHash": "sha256-hIshGgKZCgWh6AYJpJmRgFdR3WUbkY04o82X05xqQiY=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "c621e8422220273271f52058f618c94e405bb0f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_5": {
+      "inputs": {
         "nixpkgs-lib": [
+          "tilde-secrets",
+          "tilde",
+          "nixvim",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743550720,
+        "narHash": "sha256-hIshGgKZCgWh6AYJpJmRgFdR3WUbkY04o82X05xqQiY=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "c621e8422220273271f52058f618c94e405bb0f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_6": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_4"
+      },
+      "locked": {
+        "lastModified": 1712014858,
+        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_7": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "attic",
@@ -923,9 +1113,11 @@
         "type": "github"
       }
     },
-    "flake-parts_5": {
+    "flake-parts_8": {
       "inputs": {
         "nixpkgs-lib": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -947,75 +1139,16 @@
         "type": "github"
       }
     },
-    "flake-parts_6": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_3"
-      },
-      "locked": {
-        "lastModified": 1726153070,
-        "narHash": "sha256-HO4zgY0ekfwO5bX0QH/3kJ/h4KvUDFZg8YpkNwIbg1U=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "bcef6817a8b2aa20a5a6dbb19b43e63c5bf8619a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_7": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "tilde-secrets",
-          "tilde",
-          "nixvim",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1726153070,
-        "narHash": "sha256-HO4zgY0ekfwO5bX0QH/3kJ/h4KvUDFZg8YpkNwIbg1U=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "bcef6817a8b2aa20a5a6dbb19b43e63c5bf8619a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_8": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_4"
-      },
-      "locked": {
-        "lastModified": 1712014858,
-        "narHash": "sha256-sB4SWl2lX95bExY2gMFG5HIzvva5AVMJd4Igm+GpZNw=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "9126214d0a59633752a136528f5f3b9aa8565b7d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "flake-parts_9": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_5"
       },
       "locked": {
-        "lastModified": 1706830856,
-        "narHash": "sha256-a0NYyp+h9hlb7ddVz4LUn1vT/PLwqfrWYcHMvFB1xYg=",
+        "lastModified": 1726153070,
+        "narHash": "sha256-HO4zgY0ekfwO5bX0QH/3kJ/h4KvUDFZg8YpkNwIbg1U=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "b253292d9c0a5ead9bc98c4e9a26c6312e27d69f",
+        "rev": "bcef6817a8b2aa20a5a6dbb19b43e63c5bf8619a",
         "type": "github"
       },
       "original": {
@@ -1056,6 +1189,21 @@
     },
     "flake-root_3": {
       "locked": {
+        "lastModified": 1723604017,
+        "narHash": "sha256-rBtQ8gg+Dn4Sx/s+pvjdq3CB2wQNzx9XGFq/JVGCB6k=",
+        "owner": "srid",
+        "repo": "flake-root",
+        "rev": "b759a56851e10cb13f6b8e5698af7b59c44be26e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "flake-root",
+        "type": "github"
+      }
+    },
+    "flake-root_4": {
+      "locked": {
         "lastModified": 1692742795,
         "narHash": "sha256-f+Y0YhVCIJ06LemO+3Xx00lIcqQxSKJHXT/yk1RTKxw=",
         "owner": "srid",
@@ -1069,7 +1217,7 @@
         "type": "github"
       }
     },
-    "flake-root_4": {
+    "flake-root_5": {
       "locked": {
         "lastModified": 1692742795,
         "narHash": "sha256-f+Y0YhVCIJ06LemO+3Xx00lIcqQxSKJHXT/yk1RTKxw=",
@@ -1103,15 +1251,12 @@
       }
     },
     "flake-utils_10": {
-      "inputs": {
-        "systems": "systems_4"
-      },
       "locked": {
-        "lastModified": 1710146030,
-        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -1121,15 +1266,12 @@
       }
     },
     "flake-utils_11": {
-      "inputs": {
-        "systems": "systems_5"
-      },
       "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -1143,11 +1285,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1689068808,
-        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -1179,6 +1321,24 @@
         "systems": "systems_8"
       },
       "locked": {
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_15": {
+      "inputs": {
+        "systems": "systems_9"
+      },
+      "locked": {
         "lastModified": 1701680307,
         "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
         "owner": "numtide",
@@ -1192,28 +1352,16 @@
         "type": "github"
       }
     },
-    "flake-utils_15": {
-      "locked": {
-        "lastModified": 1653893745,
-        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "flake-utils_16": {
+      "inputs": {
+        "systems": "systems_10"
+      },
       "locked": {
-        "lastModified": 1653893745,
-        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
         "type": "github"
       },
       "original": {
@@ -1286,15 +1434,12 @@
       }
     },
     "flake-utils_20": {
-      "inputs": {
-        "systems": "systems_9"
-      },
       "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -1304,15 +1449,12 @@
       }
     },
     "flake-utils_21": {
-      "inputs": {
-        "systems": "systems_10"
-      },
       "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "lastModified": 1653893745,
+        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -1326,11 +1468,11 @@
         "systems": "systems_11"
       },
       "locked": {
-        "lastModified": 1685518550,
-        "narHash": "sha256-o2d0KcvaXzTrPRIo0kOLV0/QXHhDQ5DTi+OxcjO8xqY=",
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "a1720a10a6cfe8234c0e93907ffe81be440f4cef",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
         "type": "github"
       },
       "original": {
@@ -1393,9 +1535,81 @@
         "type": "github"
       }
     },
+    "flake-utils_26": {
+      "inputs": {
+        "systems": "systems_15"
+      },
+      "locked": {
+        "lastModified": 1685518550,
+        "narHash": "sha256-o2d0KcvaXzTrPRIo0kOLV0/QXHhDQ5DTi+OxcjO8xqY=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "a1720a10a6cfe8234c0e93907ffe81be440f4cef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_27": {
+      "inputs": {
+        "systems": "systems_16"
+      },
+      "locked": {
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "flake-utils_3": {
       "inputs": {
         "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_4": {
+      "inputs": {
+        "systems": "systems_4"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_5": {
+      "inputs": {
+        "systems": "systems_5"
       },
       "locked": {
         "lastModified": 1689068808,
@@ -1411,43 +1625,13 @@
         "type": "github"
       }
     },
-    "flake-utils_4": {
+    "flake-utils_6": {
       "locked": {
         "lastModified": 1667395993,
         "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_5": {
-      "locked": {
-        "lastModified": 1653893745,
-        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_6": {
-      "locked": {
-        "lastModified": 1653893745,
-        "narHash": "sha256-0jntwV3Z8//YwuOjzhV2sgJJPt+HY6KhU7VZUL0fKZQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "1ed9fb1935d260de5fe1c2f7ee0ebaae17ed2fa1",
         "type": "github"
       },
       "original": {
@@ -1506,6 +1690,8 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixvim",
           "flake-compat"
         ],
@@ -1513,10 +1699,14 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixvim",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixvim",
@@ -1540,6 +1730,8 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -1566,6 +1758,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixvim",
           "git-hooks",
           "nixpkgs"
@@ -1588,6 +1782,8 @@
     "gitignore_3": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -1619,6 +1815,8 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "pre-commit-hooks",
           "nixpkgs"
@@ -1641,6 +1839,8 @@
     "gitignore_5": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -1673,6 +1873,8 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "pre-commit-hooks",
           "nixpkgs"
@@ -1695,6 +1897,8 @@
     "gitignore_7": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -1773,6 +1977,32 @@
         ]
       },
       "locked": {
+        "lastModified": 1708375098,
+        "narHash": "sha256-DaFJp3wDHgOqx98U0SF57bXaH2Orp106c+jSdPCVu1E=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "ec6350fd9353e7f27ce0e85d31f82e3ed73e4d70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
+    "haumea_4": {
+      "inputs": {
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
         "lastModified": 1685133229,
         "narHash": "sha256-FePm/Gi9PBSNwiDFq3N+DWdfxFq0UKsVVTJS3cQPn94=",
         "owner": "nix-community",
@@ -1787,9 +2017,11 @@
         "type": "github"
       }
     },
-    "haumea_4": {
+    "haumea_5": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -1843,11 +2075,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1726308872,
-        "narHash": "sha256-d4vwO5N4RsLnCY7k5tY9xbdYDWQsY3RDMeUoIa4ms2A=",
+        "lastModified": 1745802917,
+        "narHash": "sha256-hI7BmIwKagCJlQdVgwxs1sLY2d8i97srcqT+OrhBDao=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6c1a461a444e6ccb3f3e42bb627b510c3a722a57",
+        "rev": "9c46dc881c2afcb50ac9ae9f1c36b2a4ebba3c8a",
         "type": "github"
       },
       "original": {
@@ -1861,7 +2093,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
-          "nixvim",
+          "tilde-secrets",
+          "tilde",
           "nixpkgs"
         ]
       },
@@ -1886,6 +2119,33 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "nixvim",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726308872,
+        "narHash": "sha256-d4vwO5N4RsLnCY7k5tY9xbdYDWQsY3RDMeUoIa4ms2A=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "6c1a461a444e6ccb3f3e42bb627b510c3a722a57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_5": {
+      "inputs": {
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixpkgs"
         ]
       },
@@ -1903,9 +2163,11 @@
         "type": "github"
       }
     },
-    "home-manager_5": {
+    "home-manager_6": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -1928,9 +2190,11 @@
         "type": "github"
       }
     },
-    "home-manager_6": {
+    "home-manager_7": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -1962,6 +2226,38 @@
           "flake-utils"
         ],
         "nixpkgs": [
+          "nixvim",
+          "nuschtosSearch",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737371634,
+        "narHash": "sha256-fTVAWzT1UMm1lT+YxHuVPtH+DATrhYfea3B0MxG/cGw=",
+        "owner": "NuschtOS",
+        "repo": "ixx",
+        "rev": "a1176e2a10ce745ff8f63e4af124ece8fe0b1648",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NuschtOS",
+        "ref": "v0.0.7",
+        "repo": "ixx",
+        "type": "github"
+      }
+    },
+    "ixx_2": {
+      "inputs": {
+        "flake-utils": [
+          "tilde-secrets",
+          "tilde",
+          "nixvim",
+          "nuschtosSearch",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "nixvim",
           "nuschtosSearch",
           "nixpkgs"
@@ -2035,10 +2331,35 @@
         "type": "github"
       }
     },
+    "mise_2": {
+      "inputs": {
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745799847,
+        "narHash": "sha256-c+UPularhAJdRFznJa7cpXz6C2xXyQkZGDCT+Iyrfs4=",
+        "owner": "jdx",
+        "repo": "mise",
+        "rev": "564646a2ca6c381b1b265c3d48f234dfc21802ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jdx",
+        "repo": "mise",
+        "type": "github"
+      }
+    },
     "nix": {
       "inputs": {
-        "flake-compat": "flake-compat_3",
+        "flake-compat": "flake-compat_4",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -2094,6 +2415,30 @@
         ]
       },
       "locked": {
+        "lastModified": 1744478979,
+        "narHash": "sha256-dyN+teG9G82G+m+PX/aSAagkC+vUv0SgUw3XkPhQodQ=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "43975d782b418ebf4969e9ccba82466728c2851b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nix-darwin_3": {
+      "inputs": {
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
         "lastModified": 1726188813,
         "narHash": "sha256-Vop/VRi6uCiScg/Ic+YlwsdIrLabWUJc57dNczp0eBc=",
         "owner": "LnL7",
@@ -2107,9 +2452,11 @@
         "type": "github"
       }
     },
-    "nix-darwin_3": {
+    "nix-darwin_4": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixvim",
@@ -2130,9 +2477,11 @@
         "type": "github"
       }
     },
-    "nix-darwin_4": {
+    "nix-darwin_5": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2154,9 +2503,11 @@
         "type": "github"
       }
     },
-    "nix-darwin_5": {
+    "nix-darwin_6": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2179,9 +2530,11 @@
         "type": "github"
       }
     },
-    "nix-darwin_6": {
+    "nix-darwin_7": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2209,6 +2562,8 @@
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -2241,6 +2596,8 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "devenv",
@@ -2267,12 +2624,16 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "cachix",
           "devenv",
           "flake-compat"
         ],
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -2302,12 +2663,14 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "flake-compat"
         ],
-        "flake-parts": "flake-parts_5",
+        "flake-parts": "flake-parts_8",
         "libgit2": "libgit2",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-23-11": "nixpkgs-23-11",
         "nixpkgs-regression": "nixpkgs-regression_3",
         "pre-commit-hooks": "pre-commit-hooks"
@@ -2329,8 +2692,10 @@
     },
     "nix_4": {
       "inputs": {
-        "flake-compat": "flake-compat_7",
+        "flake-compat": "flake-compat_8",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2359,8 +2724,10 @@
     },
     "nix_5": {
       "inputs": {
-        "flake-compat": "flake-compat_11",
+        "flake-compat": "flake-compat_12",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2395,6 +2762,8 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "nixpkgs"
         ],
@@ -2417,9 +2786,11 @@
     },
     "nixago": {
       "inputs": {
-        "flake-utils": "flake-utils_5",
+        "flake-utils": "flake-utils_7",
         "nixago-exts": "nixago-exts",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixpkgs"
@@ -2441,9 +2812,11 @@
     },
     "nixago-exts": {
       "inputs": {
-        "flake-utils": "flake-utils_6",
+        "flake-utils": "flake-utils_8",
         "nixago": "nixago_2",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixago",
@@ -2466,9 +2839,11 @@
     },
     "nixago-exts_2": {
       "inputs": {
-        "flake-utils": "flake-utils_8",
+        "flake-utils": "flake-utils_10",
         "nixago": "nixago_3",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixago",
@@ -2493,9 +2868,11 @@
     },
     "nixago-exts_3": {
       "inputs": {
-        "flake-utils": "flake-utils_16",
+        "flake-utils": "flake-utils_18",
         "nixago": "nixago_5",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2520,9 +2897,11 @@
     },
     "nixago-exts_4": {
       "inputs": {
-        "flake-utils": "flake-utils_18",
+        "flake-utils": "flake-utils_20",
         "nixago": "nixago_6",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2549,9 +2928,11 @@
     },
     "nixago_2": {
       "inputs": {
-        "flake-utils": "flake-utils_7",
+        "flake-utils": "flake-utils_9",
         "nixago-exts": "nixago-exts_2",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixago",
@@ -2576,8 +2957,10 @@
     },
     "nixago_3": {
       "inputs": {
-        "flake-utils": "flake-utils_9",
+        "flake-utils": "flake-utils_11",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixago",
@@ -2603,9 +2986,11 @@
     },
     "nixago_4": {
       "inputs": {
-        "flake-utils": "flake-utils_15",
+        "flake-utils": "flake-utils_17",
         "nixago-exts": "nixago-exts_3",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2629,9 +3014,11 @@
     },
     "nixago_5": {
       "inputs": {
-        "flake-utils": "flake-utils_17",
+        "flake-utils": "flake-utils_19",
         "nixago-exts": "nixago-exts_4",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2658,8 +3045,10 @@
     },
     "nixago_6": {
       "inputs": {
-        "flake-utils": "flake-utils_19",
+        "flake-utils": "flake-utils_21",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -2732,6 +3121,42 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib_10": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1706550542,
+        "narHash": "sha256-UcsnCG6wx++23yeER4Hg18CXWbgNpqNXcHIo5/1Y+hc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "97b17f32362e475016f942bbdfda4a4a72a8a652",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_11": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1701253981,
+        "narHash": "sha256-ztaDIyZ7HrTAfEEUt9AtTDNoCYxUdSd6NrRHaYOIxtk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e92039b55bcd58469325ded85d4f58dd5a4eaf58",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib_2": {
       "locked": {
         "dir": "lib",
@@ -2752,14 +3177,17 @@
     },
     "nixpkgs-lib_3": {
       "locked": {
-        "lastModified": 1725233747,
-        "narHash": "sha256-Ss8QWLXdr2JCBPcYChJhz4xJm+h/xjl4G0c0XlP6a74=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/356624c12086a18f2ea2825fed34523d60ccc4e3.tar.gz"
+        "lastModified": 1743296961,
+        "narHash": "sha256-b1EdN3cULCqtorQ4QeWgLMrd5ZGOjLSLemfa00heasc=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "e4822aea2a6d1cdd36653c134cacfd64c97ff4fa",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/356624c12086a18f2ea2825fed34523d60ccc4e3.tar.gz"
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
       }
     },
     "nixpkgs-lib_4": {
@@ -2782,41 +3210,17 @@
     },
     "nixpkgs-lib_5": {
       "locked": {
-        "dir": "lib",
-        "lastModified": 1706550542,
-        "narHash": "sha256-UcsnCG6wx++23yeER4Hg18CXWbgNpqNXcHIo5/1Y+hc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "97b17f32362e475016f942bbdfda4a4a72a8a652",
-        "type": "github"
+        "lastModified": 1725233747,
+        "narHash": "sha256-Ss8QWLXdr2JCBPcYChJhz4xJm+h/xjl4G0c0XlP6a74=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/356624c12086a18f2ea2825fed34523d60ccc4e3.tar.gz"
       },
       "original": {
-        "dir": "lib",
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/356624c12086a18f2ea2825fed34523d60ccc4e3.tar.gz"
       }
     },
     "nixpkgs-lib_6": {
-      "locked": {
-        "dir": "lib",
-        "lastModified": 1701253981,
-        "narHash": "sha256-ztaDIyZ7HrTAfEEUt9AtTDNoCYxUdSd6NrRHaYOIxtk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "e92039b55bcd58469325ded85d4f58dd5a4eaf58",
-        "type": "github"
-      },
-      "original": {
-        "dir": "lib",
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-lib_7": {
       "locked": {
         "dir": "lib",
         "lastModified": 1711703276,
@@ -2834,7 +3238,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib_8": {
+    "nixpkgs-lib_7": {
       "locked": {
         "dir": "lib",
         "lastModified": 1706550542,
@@ -2852,7 +3256,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib_9": {
+    "nixpkgs-lib_8": {
       "locked": {
         "dir": "lib",
         "lastModified": 1701253981,
@@ -2860,6 +3264,24 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "e92039b55bcd58469325ded85d4f58dd5a4eaf58",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_9": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1711703276,
+        "narHash": "sha256-iMUFArF0WCatKK6RzfUJknjem0H9m4KgorO/p3Dopkk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d8fe5e6c92d0d190646fb9f1056741a229980089",
         "type": "github"
       },
       "original": {
@@ -3064,6 +3486,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1745377448,
+        "narHash": "sha256-jhZDfXVKdD7TSEGgzFJQvEEZ2K65UMiqW5YJ2aIqxMA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "507b63021ada5fee621b6ca371c4fca9ca46f52c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1692808169,
         "narHash": "sha256-x9Opq06rIiwdwGeK2Ykj69dNc2IvUH1fY55Wm7atwrE=",
         "owner": "NixOS",
@@ -3078,7 +3516,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1717432640,
         "narHash": "sha256-+f9c4/ZX5MWDOuB1rKoWj+lBNm0z0rs4CK47HBLxy1o=",
@@ -3094,7 +3532,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1716977621,
         "narHash": "sha256-Q1UQzYcMJH4RscmpTkjlgqQDX5yi1tZL0O345Ri6vXQ=",
@@ -3110,7 +3548,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1726206720,
         "narHash": "sha256-tI7141IHDABMNgz4iXDo8agCp0SeTLbaIZ2DRndwcmk=",
@@ -3126,7 +3564,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1692808169,
         "narHash": "sha256-x9Opq06rIiwdwGeK2Ykj69dNc2IvUH1fY55Wm7atwrE=",
@@ -3142,7 +3580,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_8": {
       "locked": {
         "lastModified": 1706683685,
         "narHash": "sha256-FtPPshEpxH/ewBOsdKBNhlsL2MLEFv1hEnQ19f/bFsQ=",
@@ -3158,7 +3596,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_8": {
+    "nixpkgs_9": {
       "locked": {
         "lastModified": 1704008649,
         "narHash": "sha256-rGPSWjXTXTurQN9beuHdyJhB8O761w1Zc5BqSSmHvoM=",
@@ -3198,18 +3636,44 @@
     },
     "nixvim_2": {
       "inputs": {
-        "devshell": "devshell",
-        "flake-compat": "flake-compat_6",
-        "flake-parts": "flake-parts_7",
-        "git-hooks": "git-hooks",
-        "home-manager": "home-manager_3",
-        "nix-darwin": "nix-darwin_3",
+        "flake-parts": "flake-parts_5",
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
           "nixpkgs"
         ],
-        "nuschtosSearch": "nuschtosSearch_2",
+        "nuschtosSearch": "nuschtosSearch_2"
+      },
+      "locked": {
+        "lastModified": 1745746098,
+        "narHash": "sha256-3f6vvpa2/8XmzTaJjhUYtedlNMHIjwXJ6C2oWXBTubk=",
+        "owner": "nix-community",
+        "repo": "nixvim",
+        "rev": "89c94d9ea72d7080838981295f9b526eb3a960de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixvim",
+        "type": "github"
+      }
+    },
+    "nixvim_3": {
+      "inputs": {
+        "devshell": "devshell",
+        "flake-compat": "flake-compat_7",
+        "flake-parts": "flake-parts_10",
+        "git-hooks": "git-hooks",
+        "home-manager": "home-manager_4",
+        "nix-darwin": "nix-darwin_4",
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ],
+        "nuschtosSearch": "nuschtosSearch_3",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
@@ -3226,12 +3690,14 @@
         "type": "github"
       }
     },
-    "nixvim_3": {
+    "nixvim_4": {
       "inputs": {
-        "flake-parts": "flake-parts_11",
-        "home-manager": "home-manager_5",
-        "nix-darwin": "nix-darwin_5",
+        "flake-parts": "flake-parts_14",
+        "home-manager": "home-manager_6",
+        "nix-darwin": "nix-darwin_6",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3254,10 +3720,12 @@
         "type": "github"
       }
     },
-    "nixvim_4": {
+    "nixvim_5": {
       "inputs": {
-        "flake-utils": "flake-utils_23",
+        "flake-utils": "flake-utils_25",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3307,8 +3775,35 @@
     },
     "nuschtosSearch_2": {
       "inputs": {
-        "flake-utils": "flake-utils_10",
+        "flake-utils": "flake-utils_4",
+        "ixx": "ixx_2",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "nixvim",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745046075,
+        "narHash": "sha256-8v4y6k16Ra/fiecb4DxhsoOGtzLKgKlS+9/XJ9z0T2I=",
+        "owner": "NuschtOS",
+        "repo": "search",
+        "rev": "066afe8643274470f4a294442aadd988356a478f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NuschtOS",
+        "repo": "search",
+        "type": "github"
+      }
+    },
+    "nuschtosSearch_3": {
+      "inputs": {
+        "flake-utils": "flake-utils_12",
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixvim",
@@ -3331,9 +3826,11 @@
     },
     "poetry2nix": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_5",
         "nix-github-actions": "nix-github-actions",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -3360,9 +3857,11 @@
     },
     "poetry2nix_2": {
       "inputs": {
-        "flake-utils": "flake-utils_12",
+        "flake-utils": "flake-utils_14",
         "nix-github-actions": "nix-github-actions_2",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3410,7 +3909,7 @@
     },
     "pragmatapro_2": {
       "inputs": {
-        "flake-parts": "flake-parts_8",
+        "flake-parts": "flake-parts_6",
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
@@ -3433,7 +3932,7 @@
     },
     "pragmatapro_3": {
       "inputs": {
-        "flake-parts": "flake-parts_12",
+        "flake-parts": "flake-parts_11",
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
@@ -3458,8 +3957,37 @@
     },
     "pragmatapro_4": {
       "inputs": {
-        "flake-utils": "flake-utils_25",
+        "flake-parts": "flake-parts_15",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712076059,
+        "narHash": "sha256-+WlE3OfA9X9qlfjfJXO2X/gZorUPdLLia6RBXvLl6KA=",
+        "ref": "refs/heads/master",
+        "rev": "a7badc46e86caf62421c2482f08a5ad3611858eb",
+        "revCount": 4,
+        "type": "git",
+        "url": "ssh://git@github.com/ethnt/pragmatapro"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/ethnt/pragmatapro"
+      }
+    },
+    "pragmatapro_5": {
+      "inputs": {
+        "flake-utils": "flake-utils_27",
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3488,11 +4016,15 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "nix"
         ],
-        "flake-utils": "flake-utils_4",
+        "flake-utils": "flake-utils_6",
         "gitignore": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -3501,11 +4033,15 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "nix",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -3532,11 +4068,15 @@
         "flake-compat": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "flake-compat"
         ],
         "gitignore": "gitignore",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "devenv",
@@ -3560,10 +4100,12 @@
     },
     "pre-commit-hooks_3": {
       "inputs": {
-        "flake-compat": "flake-compat_9",
-        "flake-utils": "flake-utils_13",
+        "flake-compat": "flake-compat_10",
+        "flake-utils": "flake-utils_15",
         "gitignore": "gitignore_3",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3595,12 +4137,16 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "flake-compat"
         ],
-        "flake-utils": "flake-utils_14",
+        "flake-utils": "flake-utils_16",
         "gitignore": "gitignore_4",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3626,10 +4172,12 @@
     },
     "pre-commit-hooks_5": {
       "inputs": {
-        "flake-compat": "flake-compat_12",
-        "flake-utils": "flake-utils_20",
+        "flake-compat": "flake-compat_13",
+        "flake-utils": "flake-utils_22",
         "gitignore": "gitignore_5",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3638,6 +4186,8 @@
           "nixpkgs"
         ],
         "nixpkgs-stable": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3669,12 +4219,16 @@
           "tilde",
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "devenv",
           "flake-compat"
         ],
-        "flake-utils": "flake-utils_22",
+        "flake-utils": "flake-utils_24",
         "gitignore": "gitignore_6",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3702,10 +4256,12 @@
     },
     "pre-commit-hooks_7": {
       "inputs": {
-        "flake-compat": "flake-compat_14",
-        "flake-utils": "flake-utils_24",
+        "flake-compat": "flake-compat_15",
+        "flake-utils": "flake-utils_26",
         "gitignore": "gitignore_7",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3736,8 +4292,10 @@
         "crane": "crane_2",
         "devshell": "devshell_2",
         "fenix": "fenix",
-        "flake-parts": "flake-parts_9",
+        "flake-parts": "flake-parts_12",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "nixpkgs"
@@ -3762,8 +4320,10 @@
         "crane": "crane_3",
         "devshell": "devshell_3",
         "fenix": "fenix_2",
-        "flake-parts": "flake-parts_13",
+        "flake-parts": "flake-parts_16",
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -3798,7 +4358,7 @@
         "nixvim": "nixvim",
         "pragmatapro": "pragmatapro",
         "tilde-secrets": "tilde-secrets",
-        "treefmt": "treefmt_4"
+        "treefmt": "treefmt_5"
       }
     },
     "rust-analyzer-src": {
@@ -3911,6 +4471,36 @@
       }
     },
     "systems_14": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_15": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_16": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -4047,28 +4637,25 @@
     },
     "tilde": {
       "inputs": {
-        "attic": "attic",
-        "devenv": "devenv",
-        "flake-compat": "flake-compat_5",
-        "flake-parts": "flake-parts_6",
+        "flake-compat": "flake-compat_2",
+        "flake-parts": "flake-parts_4",
         "flake-root": "flake-root_2",
         "haumea": "haumea_2",
         "home-manager": "home-manager_2",
+        "mise": "mise_2",
         "nix-darwin": "nix-darwin_2",
-        "nixago": "nixago",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim_2",
         "pragmatapro": "pragmatapro_2",
-        "rippkgs": "rippkgs",
         "tilde-secrets": "tilde-secrets_2",
-        "treefmt": "treefmt_3"
+        "treefmt": "treefmt_4"
       },
       "locked": {
-        "lastModified": 1726670257,
-        "narHash": "sha256-oh4HXebwBtWfaoUL9kYg97uz2UTn8q/gpEk8WtghMHM=",
+        "lastModified": 1745808179,
+        "narHash": "sha256-dN+eKdVJmWsN5E/xtg4RGM/omfa4p/vsSHq2AS5Ep4M=",
         "owner": "ethnt",
         "repo": "tilde",
-        "rev": "d85e77dd18e0240b02804727001f236763cfcd0c",
+        "rev": "fc72856fe0de3203b706e1947f190c314ad0c8b9",
         "type": "github"
       },
       "original": {
@@ -4079,11 +4666,6 @@
     },
     "tilde-secrets": {
       "inputs": {
-        "devenv": [
-          "tilde-secrets",
-          "tilde",
-          "devenv"
-        ],
         "flake-parts": [
           "tilde-secrets",
           "tilde",
@@ -4112,11 +4694,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1726714876,
-        "narHash": "sha256-gMPPHEvCsaUYLBRwrSviZgwUcD6NJ+NaHcWBpII1CME=",
+        "lastModified": 1746452811,
+        "narHash": "sha256-w8z6r6kvUrE3t302K8PCaT7XT5izEdvlmr7LlLrlPrg=",
         "ref": "refs/heads/main",
-        "rev": "7ac9cf6cd3ad3604d6e7a93605e96a0bafada024",
-        "revCount": 9,
+        "rev": "730587c1f3e4aa49887ded8921cec8c52283854a",
+        "revCount": 12,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },
@@ -4172,11 +4754,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716992509,
-        "narHash": "sha256-2mUp8fcV+sa6PvGCz+dZ9VsnIgBWw/CcI3lBKuzthBw=",
+        "lastModified": 1726714876,
+        "narHash": "sha256-gMPPHEvCsaUYLBRwrSviZgwUcD6NJ+NaHcWBpII1CME=",
         "ref": "refs/heads/main",
-        "rev": "ce64e0499d736ff9244f6b59eee7d206a48f6e10",
-        "revCount": 6,
+        "rev": "7ac9cf6cd3ad3604d6e7a93605e96a0bafada024",
+        "revCount": 9,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },
@@ -4187,6 +4769,15 @@
     },
     "tilde-secrets_3": {
       "inputs": {
+        "devenv": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "devenv"
+        ],
         "flake-parts": [
           "tilde-secrets",
           "tilde",
@@ -4195,6 +4786,15 @@
           "tilde-secrets",
           "tilde",
           "flake-parts"
+        ],
+        "flake-root": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "flake-root"
         ],
         "haumea": [
           "tilde-secrets",
@@ -4214,7 +4814,67 @@
           "tilde",
           "nixpkgs"
         ],
-        "tilde": "tilde_3"
+        "tilde": "tilde_3",
+        "treefmt": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "treefmt"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716992509,
+        "narHash": "sha256-2mUp8fcV+sa6PvGCz+dZ9VsnIgBWw/CcI3lBKuzthBw=",
+        "ref": "refs/heads/main",
+        "rev": "ce64e0499d736ff9244f6b59eee7d206a48f6e10",
+        "revCount": 6,
+        "type": "git",
+        "url": "ssh://git@github.com/ethnt/tilde-secrets"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/ethnt/tilde-secrets"
+      }
+    },
+    "tilde-secrets_4": {
+      "inputs": {
+        "flake-parts": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "flake-parts"
+        ],
+        "haumea": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "haumea"
+        ],
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ],
+        "tilde": "tilde_4"
       },
       "locked": {
         "lastModified": 1705512057,
@@ -4232,18 +4892,50 @@
     },
     "tilde_2": {
       "inputs": {
-        "devenv": "devenv_4",
-        "flake-parts": "flake-parts_10",
+        "attic": "attic",
+        "devenv": "devenv",
+        "flake-compat": "flake-compat_6",
+        "flake-parts": "flake-parts_9",
         "flake-root": "flake-root_3",
         "haumea": "haumea_3",
-        "home-manager": "home-manager_4",
-        "nix-darwin": "nix-darwin_4",
-        "nixago": "nixago_4",
-        "nixpkgs": "nixpkgs_7",
+        "home-manager": "home-manager_3",
+        "nix-darwin": "nix-darwin_3",
+        "nixago": "nixago",
+        "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim_3",
         "pragmatapro": "pragmatapro_3",
-        "rippkgs": "rippkgs_2",
+        "rippkgs": "rippkgs",
         "tilde-secrets": "tilde-secrets_3",
+        "treefmt": "treefmt_3"
+      },
+      "locked": {
+        "lastModified": 1726670257,
+        "narHash": "sha256-oh4HXebwBtWfaoUL9kYg97uz2UTn8q/gpEk8WtghMHM=",
+        "owner": "ethnt",
+        "repo": "tilde",
+        "rev": "d85e77dd18e0240b02804727001f236763cfcd0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethnt",
+        "repo": "tilde",
+        "type": "github"
+      }
+    },
+    "tilde_3": {
+      "inputs": {
+        "devenv": "devenv_4",
+        "flake-parts": "flake-parts_13",
+        "flake-root": "flake-root_4",
+        "haumea": "haumea_4",
+        "home-manager": "home-manager_5",
+        "nix-darwin": "nix-darwin_5",
+        "nixago": "nixago_4",
+        "nixpkgs": "nixpkgs_8",
+        "nixvim": "nixvim_4",
+        "pragmatapro": "pragmatapro_4",
+        "rippkgs": "rippkgs_2",
+        "tilde-secrets": "tilde-secrets_4",
         "treefmt": "treefmt_2"
       },
       "locked": {
@@ -4260,17 +4952,17 @@
         "type": "github"
       }
     },
-    "tilde_3": {
+    "tilde_4": {
       "inputs": {
         "devenv": "devenv_6",
-        "flake-parts": "flake-parts_14",
-        "flake-root": "flake-root_4",
-        "haumea": "haumea_4",
-        "home-manager": "home-manager_6",
-        "nix-darwin": "nix-darwin_6",
-        "nixpkgs": "nixpkgs_8",
-        "nixvim": "nixvim_4",
-        "pragmatapro": "pragmatapro_4",
+        "flake-parts": "flake-parts_17",
+        "flake-root": "flake-root_5",
+        "haumea": "haumea_5",
+        "home-manager": "home-manager_7",
+        "nix-darwin": "nix-darwin_7",
+        "nixpkgs": "nixpkgs_9",
+        "nixvim": "nixvim_5",
+        "pragmatapro": "pragmatapro_5",
         "treefmt": "treefmt"
       },
       "locked": {
@@ -4290,6 +4982,8 @@
     "treefmt": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -4318,6 +5012,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixvim",
           "nixpkgs"
         ]
@@ -4339,6 +5035,8 @@
     "treefmt_2": {
       "inputs": {
         "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
           "tilde-secrets",
           "tilde",
           "tilde-secrets",
@@ -4365,6 +5063,8 @@
         "nixpkgs": [
           "tilde-secrets",
           "tilde",
+          "tilde-secrets",
+          "tilde",
           "nixpkgs"
         ]
       },
@@ -4383,6 +5083,28 @@
       }
     },
     "treefmt_4": {
+      "inputs": {
+        "nixpkgs": [
+          "tilde-secrets",
+          "tilde",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745780832,
+        "narHash": "sha256-jGzkZoJWx+nJnPe0Z2xQBUOqMKuR1slVFQrMjFTKgeM=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "b2b6c027d708fbf4b01c9c11f6e80f2800b5a624",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt_5": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
