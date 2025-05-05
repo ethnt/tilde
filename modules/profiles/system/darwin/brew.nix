@@ -10,12 +10,15 @@
 
     casks = [
       "1password"
+      "arc"
       "bartender"
       "cleanshot"
       "dash"
       "docker"
       "ghostty"
+      "fantastical"
       "firefox"
+      "istat-menus"
       "iterm2"
       "jabra-direct"
       "logitune"
@@ -28,9 +31,6 @@
       "zoom"
     ];
 
-    masApps = {
-      "Amphetamine" = 937984704;
-      Fantastical = 975937182;
-    };
+    masApps = { "Amphetamine" = 937984704; };
   };
 }

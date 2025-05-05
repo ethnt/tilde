@@ -1,6 +1,5 @@
-{ config, suites, profiles, secrets, ... }: {
-  imports = (with suites; base ++ development ++ identity)
-    ++ (with profiles; [ awscli.default mise.default ])
+{ config, suites, secrets, ... }: {
+  imports = (with suites; base ++ development ++ identity ++ work)
     ++ [ secrets.users."ethan.turkeltaub".home ] ++ [ ./profiles/vscode.nix ];
 
   tilde.home = {
@@ -20,6 +19,7 @@
   home = {
     username = "ethan.turkeltaub";
     homeDirectory = "/Users/ethan.turkeltaub";
+
     stateVersion = "24.05";
   };
 }

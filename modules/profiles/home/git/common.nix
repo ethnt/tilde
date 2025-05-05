@@ -43,8 +43,7 @@
     extraConfig = let deltaCommand = lib.getExe pkgs.delta;
     in {
       core.pager = deltaCommand;
-      interactive.diffFilter =
-        "${deltaCommand} --diff-so-fancy --keep-plus-minus-markers --line-numbers";
+      interactive.diffFilter = "${deltaCommand} --color-only";
       http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
       color = {
         status = "always";

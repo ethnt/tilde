@@ -10,4 +10,6 @@
     directory = "/Users/ethan/Workspace/tilde";
     system = "aarch64-darwin";
   };
+
+  homebrew.onActivation.cleanup = "uninstall";
 }

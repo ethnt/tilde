@@ -29,10 +29,8 @@
     taps = [ "homebrew/services" ];
 
     casks = [
-      "arc"
       "elgato-stream-deck"
       "hazel"
-      "istat-menus"
       "notion"
       "steam"
       "tailscale"

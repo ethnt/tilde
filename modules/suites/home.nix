@@ -26,7 +26,13 @@ with profiles;
 
   identity = [ gnupg.default ];
 
-  work = [ git.large-repos ];
+  work = [
+    amazon-ecr-credential-helper.default
+    awscli.default
+    git.large-repos
+    mise.default
+    rider.default
+  ];
 
   minimal = [
     autojump.default
