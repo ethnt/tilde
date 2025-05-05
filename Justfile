@@ -39,3 +39,6 @@ push-to-cache path:
 move-rc-files:
     mv /etc/bashrc /etc/bashrc.before-nix-darwin
     mv /etc/zshrc /etc/zshrc.before-nix-darwin
+
+generate-ci:
+    nix run .#generate-ci

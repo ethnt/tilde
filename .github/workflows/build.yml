@@ -1,0 +1,90 @@
+jobs:
+  buildDevShell:
+    name: Build devShell
+    runs-on: macos-14
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@v14
+      with:
+        extra-conf: 'system-features = big-parallel
+
+          accept-flake-config = true
+
+          '
+    - name: Add SSH keys to ssh-agent
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+
+          ${{ secrets.SECRETS_DEPLOY_KEY }}
+
+          '
+    - name: Setup Attic cache
+      uses: ryanccn/attic-action@v0
+      with:
+        cache: tilde
+        endpoint: https://cache.e10.camp
+        token: ${{ secrets.ATTIC_TOKEN }}
+    - name: Use Cachix store
+      uses: cachix/cachix-action@master
+      with:
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        extraPullNames: tilde,nix-community
+        installCommand: nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#cachix
+        name: tilde
+    - run: 'nix build .#devShells.aarch64-darwin.default --impure --keep-going --print-build-logs
+        --show-trace --verbose
+
+        '
+  buildSystem:
+    name: Build system
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Install Nix
+      uses: DeterminateSystems/nix-installer-action@v14
+      with:
+        extra-conf: 'system-features = big-parallel
+
+          accept-flake-config = true
+
+          '
+    - name: Add SSH keys to ssh-agent
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: '${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
+
+          ${{ secrets.SECRETS_DEPLOY_KEY }}
+
+          '
+    - name: Setup Attic cache
+      uses: ryanccn/attic-action@v0
+      with:
+        cache: tilde
+        endpoint: https://cache.e10.camp
+        token: ${{ secrets.ATTIC_TOKEN }}
+    - name: Use Cachix store
+      uses: cachix/cachix-action@master
+      with:
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        extraPullNames: tilde,nix-community
+        installCommand: nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#cachix
+        name: tilde
+    - name: Build ${{ matrix.host }} host
+      run: 'nix build .#darwinConfigurations.${{ matrix.host }}.system --keep-going
+        --print-build-logs --show-trace --verbose
+
+        '
+    strategy:
+      matrix:
+        host:
+        - eMac
+        - eturkeltaub-mb
+        os:
+        - macos-14
+name: Build outputs
+'on':
+  push: {}

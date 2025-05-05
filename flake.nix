@@ -49,6 +49,9 @@
     mise.url = "github:jdx/mise";
     mise.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixago.url = "github:nix-community/nixago";
+    nixago.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
   };
@@ -65,6 +68,7 @@
         ./modules/core/secrets.nix
         ./modules/core/flake-root.nix
 
+        ./modules/development/ci.nix
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
 
