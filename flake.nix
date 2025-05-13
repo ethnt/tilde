@@ -38,7 +38,8 @@
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
-    tilde-secrets.url = "git+file:///Users/ethan.turkeltaub/Workspace/tilde-secrets";
+    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
+    # tilde-secrets.url = "git+file:///Users/ethan.turkeltaub/Workspace/tilde-secrets";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
