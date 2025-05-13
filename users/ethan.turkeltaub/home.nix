@@ -1,4 +1,4 @@
-{ config, suites, secrets, ... }: {
+{ config, pkgs, inputs, suites, secrets, ... }: {
   imports = (with suites; base ++ development ++ identity ++ work)
     ++ [ secrets.users."ethan.turkeltaub".home ] ++ [ ./profiles/vscode.nix ];
 
@@ -7,6 +7,10 @@
     homeDirectory = "/Users/ethan.turkeltaub";
     gpg.keyId = "E975F001FBC704AE";
   };
+
+  home.packages = with pkgs; [
+    # inputs.pants-nix.packages.${pkgs.system}."release_2.24.1"
+  ];
 
   programs = {
     git = {

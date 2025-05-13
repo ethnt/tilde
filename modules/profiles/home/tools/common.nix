@@ -6,13 +6,14 @@
     fd
     fzy
     gnused
+    graphite-cli
     htop
     jq
     just
     nix-index
     nix-output-monitor
     ripgrep
-    graphite-cli
+    tldr
   ];
 
   home.shellAliases = {

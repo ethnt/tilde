@@ -1,4 +1,4 @@
-{ config, suites, profiles, pkgs, ... }: {
+{ inputs, config, suites, profiles, pkgs, ... }: {
   imports = (with suites; base ++ development ++ identity) ++ (with profiles; [
     elixir.default
     mise.default
