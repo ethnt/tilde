@@ -39,6 +39,7 @@
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
+    # tilde-secrets.url = "git+file:///Users/ethan.turkeltaub/Workspace/tilde-secrets";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +49,10 @@
 
     mise.url = "github:jdx/mise";
     mise.inputs.nixpkgs.follows = "nixpkgs";
+
+    pants-nix.url =
+      "github:ethan-turkeltaub-zocdoc/pants-nix/ethan-turkeltaub-zocdoc/v2.24.1";
+    pants-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;

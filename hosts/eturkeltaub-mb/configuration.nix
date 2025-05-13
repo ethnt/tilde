@@ -11,5 +11,15 @@
     system = "aarch64-darwin";
   };
 
+  homebrew = {
+    taps = [ "pantsbuild/tap" ];
+    #   brews = [ "pantsbuild/tap/pants" ];
+    brews = [
+      "awscli" # Pants insists on this being located at `/usr/local/bin`, and Nix can't link there
+    ];
+
+    casks = [ "pantsbuild/tap/pants" ];
+  };
+
   homebrew.onActivation.cleanup = "uninstall";
 }
