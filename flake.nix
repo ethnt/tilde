@@ -50,7 +50,8 @@
     mise.url = "github:jdx/mise";
     mise.inputs.nixpkgs.follows = "nixpkgs";
 
-    pants-nix.url = "github:ethan-turkeltaub-zocdoc/pants-nix/ethan-turkeltaub-zocdoc/v2.24.1";
+    pants-nix.url =
+      "github:ethan-turkeltaub-zocdoc/pants-nix/ethan-turkeltaub-zocdoc/v2.24.1";
     pants-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";

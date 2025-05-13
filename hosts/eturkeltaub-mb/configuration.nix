@@ -1,4 +1,4 @@
-{ suites, profiles, secrets, pkgs, ... }: {
+{ suites, profiles, secrets, ... }: {
   imports = with suites;
     base ++ fonts ++ [
       profiles.users."ethan.turkeltaub"
