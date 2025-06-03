@@ -19,6 +19,8 @@
 
   environment.variables.TILDE_DIR = config.tilde.host.directory;
 
-  system.checks.verifyNixPath = true;
+  # BUG: Disable until this is merged:
+  # https://github.com/nix-darwin/nix-darwin/pull/1500
+  # system.checks.verifyNixPath = true;
   system.stateVersion = 4;
 }

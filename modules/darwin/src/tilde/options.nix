@@ -37,4 +37,8 @@ with lib;
       };
     };
   };
+
+  config = {
+    system.primaryUser = config.tilde.host.primaryUser.username;
+  };
 }

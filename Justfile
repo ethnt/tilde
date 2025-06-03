@@ -37,5 +37,5 @@ push-to-cache path:
     attic push tilde {{ path }}
 
 move-rc-files:
-    mv /etc/bashrc /etc/bashrc.before-nix-darwin
-    mv /etc/zshrc /etc/zshrc.before-nix-darwin
+    sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
+    sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin

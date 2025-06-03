@@ -9,6 +9,7 @@
     casks = [
       "1password"
       "bartender"
+      "cursor"
       "dash"
       "firefox"
       "iterm2"
