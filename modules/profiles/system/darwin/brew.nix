@@ -11,7 +11,6 @@
     casks = [
       "1password"
       "arc"
-      "bartender"
       "cleanshot"
       "dash"
       "docker"
@@ -21,6 +20,7 @@
       "istat-menus"
       "iterm2"
       "jabra-direct"
+      "jordanbaird-ice"
       "logitune"
       "monitorcontrol"
       "obsidian"

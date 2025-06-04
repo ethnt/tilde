@@ -18,7 +18,7 @@
         name = "csdevkit";
         publisher = "ms-dotnettools";
         version = "1.19.45";
-        sha256 = "ErJ8FjStxwaaJ6f2qew/hY4GTrzC6ZG3MtPGEDmQaHU=";
+        sha256 = "rk8lc/+uuWxm++Akg+TXUelNNgvR84+J+OWE1eBrR5E=";
       }
       {
         name = "csharp";

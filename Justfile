@@ -16,7 +16,7 @@ build-home name:
     nom build .#homeConfigurationsPortable.{{ name }}.activation-script {{ nix_flags }} {{ build_flags }}
 
 switch:
-    {{ os_command }} switch {{ darwin_flags }}
+    sudo {{ os_command }} switch {{ darwin_flags }}
 
 update-input input:
     nix flake lock --update-input {{ input }}
@@ -37,5 +37,5 @@ push-to-cache path:
     attic push tilde {{ path }}
 
 move-rc-files:
-    mv /etc/bashrc /etc/bashrc.before-nix-darwin
-    mv /etc/zshrc /etc/zshrc.before-nix-darwin
+    sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
+    sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
