@@ -1,4 +1,4 @@
-{ suites, profiles, ... }: {
+{ lib, suites, profiles, ... }: {
   imports = with suites;
     base ++ fonts ++ identity ++ [
       profiles.users.ethan
@@ -45,4 +45,6 @@
       "Reeder 5" = 1529448980;
     };
   };
+
+  ids.gids.nixbld = lib.mkOverride 10 30000;
 }

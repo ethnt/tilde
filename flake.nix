@@ -20,14 +20,14 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-root.url = "github:srid/flake-root";
@@ -39,7 +39,6 @@
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
-    # tilde-secrets.url = "git+file:///Users/ethan.turkeltaub/Workspace/tilde-secrets";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
@@ -49,10 +48,6 @@
 
     mise.url = "github:jdx/mise";
     mise.inputs.nixpkgs.follows = "nixpkgs";
-
-    pants-nix.url =
-      "github:ethan-turkeltaub-zocdoc/pants-nix/ethan-turkeltaub-zocdoc/v2.24.1";
-    pants-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
