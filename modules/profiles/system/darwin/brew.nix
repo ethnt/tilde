@@ -8,12 +8,12 @@
 
     casks = [
       "1password"
-      "bartender"
       "cursor"
       "dash"
       "firefox"
       "iterm2"
       "jabra-direct"
+      "jordanbaird-ice"
       "logitune"
       "monitorcontrol"
       "raycast"
