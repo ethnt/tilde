@@ -16,7 +16,7 @@ build-home name:
     nom build .#homeConfigurationsPortable.{{ name }}.activation-script {{ nix_flags }} {{ build_flags }}
 
 switch:
-    {{ os_command }} switch {{ darwin_flags }}
+    sudo {{ os_command }} switch {{ darwin_flags }}
 
 update-input input:
     nix flake lock --update-input {{ input }}
