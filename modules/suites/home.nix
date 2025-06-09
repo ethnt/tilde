@@ -9,6 +9,7 @@ with profiles;
     broot.default
     bat.default
     direnv.default
+    emacs.default
     fish.default
     fzf.default
     ghostty.default
