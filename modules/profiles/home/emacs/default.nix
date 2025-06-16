@@ -24,20 +24,6 @@ let
       })
     ];
   });
-  # configuredEmacsWithPackages =
-  #   (pkgs.emacsPackagesFor patchedEmacs).emacsWithPackages (epkgs:
-  #     (with epkgs.elpaPackages; [ use-package ])
-  #     ++ (with epkgs.melpaStablePackages; [
-  #       cape
-  #       consult
-  #       corfu
-  #       dirvish
-  #       marginalia
-  #       nix-mode
-  #       nord-theme
-  #       orderless
-  #       vertico
-  #     ]));
 in {
   programs.emacs = {
     enable = true;
@@ -52,6 +38,4 @@ in {
     shellcheck
     clang
   ];
-
-  # xdg.configFile."../.emacs.d/init.el".source = ./init.el;
 }
