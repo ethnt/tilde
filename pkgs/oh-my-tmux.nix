@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   # preceding dot, so use fetchTarball instead
   src = builtins.fetchTarball {
     url =
-      "https://github.com/gpakosz/.tmux/archive/9cf49731cd785b76cf792046feed0e8275457918.tar.gz";
-    sha256 = "0y1n8cspqz79arzw4mnfxrl0b5ydk98pzq2pwn2xfkbylpg61fzv";
+      "https://github.com/gpakosz/.tmux/archive/1ef77d21420ca3d849714e46b625e2bdb1f53b94.tar.gz";
+    sha256 = "1vdyr305v4y22jdhpxk6lz7206rxlvg2vysqf80pb7jcnbfymjz0";
   };
 
   phases = [ "unpackPhase" "installPhase" ];
