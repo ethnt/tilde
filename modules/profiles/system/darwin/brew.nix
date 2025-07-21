@@ -27,7 +27,6 @@
       "rectangle"
       "slack"
       "spotify"
-      "zoom"
     ];
 
     masApps = { "Amphetamine" = 937984704; };

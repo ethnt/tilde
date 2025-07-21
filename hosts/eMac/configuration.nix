@@ -38,6 +38,7 @@
       "vlc"
       "vorta"
       "zed"
+      "zoom"
     ];
 
     masApps = {
