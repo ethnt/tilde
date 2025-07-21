@@ -16,6 +16,7 @@ with profiles;
     paths.default
     navi.default
     rippkgs.default
+    ssh.default
     starship.default
     tmux.default
     tools.common

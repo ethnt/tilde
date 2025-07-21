@@ -45,8 +45,8 @@
   home.file.".gnupg/gpg-agent.conf".source = ./gpg-agent.conf;
 
   # This has to be set here, even though gpg-agent in nix-darwin should be able to set it
-  home.sessionVariables.SSH_AUTH_SOCK =
-    "$(${lib.getExe' pkgs.gnupg "gpgconf"} --list-dirs agent-ssh-socket)";
+  # home.sessionVariables.SSH_AUTH_SOCK =
+  #   "$(${lib.getExe' pkgs.gnupg "gpgconf"} --list-dirs agent-ssh-socket)";
 
   programs.fish.functions = let
     gpg = lib.getExe' config.programs.gpg.package "gpg";
