@@ -14,8 +14,14 @@ in {
 
     gpg = mkOption {
       type = types.submodule {
-        options = { keyId = mkOption { type = types.str; }; };
+        options = {
+          keyId = mkOption {
+            type = types.nullOr types.str;
+            default = null;
+          };
+        };
       };
+      default = { };
     };
   };
 

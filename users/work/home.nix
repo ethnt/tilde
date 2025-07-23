@@ -1,10 +1,9 @@
-{ config, pkgs, suites, secrets, ... }: {
+{ config, pkgs, suites, secrets, lib, ... }: {
   imports = (with suites; base ++ development);
 
   tilde.home = {
     username = "ethan";
     homeDirectory = "/Users/ethan";
-    gpg.keyId = "E975F001FBC704AE";
   };
 
   home = {
@@ -12,5 +11,12 @@
     homeDirectory = "/Users/ethan";
 
     stateVersion = "24.05";
+  };
+
+  programs = {
+    git = {
+      userEmail = "ethan@turkeltaub.dev";
+      userName = "Ethan Turkeltaub";
+    };
   };
 }

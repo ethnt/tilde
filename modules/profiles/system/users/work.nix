@@ -4,5 +4,5 @@
     homeDirectory = "/Users/ethan";
   };
 
-  home-manager.users = { inherit (homeConfigurations) work; };
+  home-manager.users = { ethan = homeConfigurations.work; };
 }

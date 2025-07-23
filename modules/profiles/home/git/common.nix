@@ -35,7 +35,7 @@
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
-    signing = {
+    signing = lib.mkIf (config.tilde.home.gpg.keyId != null) {
       signByDefault = true;
       key = config.tilde.home.gpg.keyId;
     };
