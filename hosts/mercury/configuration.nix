@@ -1,4 +1,4 @@
-{ suites, profiles, secrets, ... }: {
+{ suites, profiles, ... }: {
   imports = with suites; base ++ fonts ++ [ profiles.users.work ];
 
   tilde.host = {

@@ -1,5 +1,5 @@
-{ config, pkgs, suites, secrets, lib, ... }: {
-  imports = (with suites; base ++ development);
+{ suites, ... }: {
+  imports = with suites; base ++ development;
 
   tilde.home = {
     username = "ethan";
