@@ -19,7 +19,6 @@
       "firefox"
       "istat-menus"
       "iterm2"
-      "jabra-direct"
       "jordanbaird-ice"
       "logitune"
       "monitorcontrol"

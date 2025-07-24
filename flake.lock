@@ -3934,11 +3934,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712076059,
-        "narHash": "sha256-+WlE3OfA9X9qlfjfJXO2X/gZorUPdLLia6RBXvLl6KA=",
+        "lastModified": 1753363199,
+        "narHash": "sha256-Tm8JTmUUUQYtkvOHDZigjVVqkUetaNslXeZarPFyZ/c=",
         "ref": "refs/heads/master",
-        "rev": "a7badc46e86caf62421c2482f08a5ad3611858eb",
-        "revCount": 4,
+        "rev": "85d9f90324199cbd8ef877788040f34c6ac3c5ce",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/pragmatapro"
       },
