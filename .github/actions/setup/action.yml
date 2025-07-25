@@ -17,11 +17,16 @@ runs:
   using: "composite"
   steps:
     - name: Install Nix
-      uses: DeterminateSystems/nix-installer-action@main
+      uses: cachix/install-nix-action@v31
       with:
-        extra-conf: |
+        extra_nix_config: |
           system-features = big-parallel
           accept-flake-config = true
+      # uses: DeterminateSystems/nix-installer-action@main
+      # with:
+      #   extra-conf: |
+      #     system-features = big-parallel
+      #     accept-flake-config = true
     - name: Add SSH keys to ssh-agent
       uses: webfactory/ssh-agent@v0.9.0
       with:

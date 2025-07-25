@@ -3943,7 +3943,6 @@
         "url": "ssh://git@github.com/ethnt/pragmatapro"
       },
       "original": {
-        "rev": "85d9f90324199cbd8ef877788040f34c6ac3c5ce",
         "type": "git",
         "url": "ssh://git@github.com/ethnt/pragmatapro"
       }

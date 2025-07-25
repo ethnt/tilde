@@ -40,7 +40,7 @@
 
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
 
-    pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro?rev=85d9f90324199cbd8ef877788040f34c6ac3c5ce";
+    pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
