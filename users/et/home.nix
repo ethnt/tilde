@@ -1,5 +1,5 @@
 { suites, ... }: {
-  imports = with suites; base ++ development ++ [ ./profiles/git.nix ];
+  imports = with suites; base ++ development;
 
   tilde.home = {
     username = "et";
