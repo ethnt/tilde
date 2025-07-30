@@ -4,6 +4,8 @@
   programs.git = {
     enable = true;
 
+    userName = "Ethan Turkeltaub";
+
     aliases = let
       gitCommand = lib.getExe config.programs.git.package;
       fzfCommand = lib.getExe pkgs.fzf;
