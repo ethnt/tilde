@@ -3,7 +3,7 @@
 
   tilde.host = {
     name = "mercury";
-    directory = "/Users/ethan/Workspace/personal/tilde";
+    directory = "/Users/et/Workspace/tilde";
     system = "aarch64-darwin";
   };
 }

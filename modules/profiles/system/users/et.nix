@@ -1,7 +1,7 @@
 { homeConfigurations, ... }: {
   tilde.host.primaryUser = {
-    username = "ethan";
-    homeDirectory = "/Users/ethan";
+    username = "et";
+    homeDirectory = "/Users/et";
   };
 
   home-manager.users = { inherit (homeConfigurations) et; };

@@ -1,21 +1,21 @@
 { suites, ... }: {
-  imports = with suites; base ++ development;
+  imports = with suites; base ++ development ++ [ ./profiles/git.nix ];
 
   tilde.home = {
-    username = "ethan";
-    homeDirectory = "/Users/ethan";
+    username = "et";
+    homeDirectory = "/Users/et";
   };
 
   home = {
-    username = "ethan";
-    homeDirectory = "/Users/ethan";
+    username = "et";
+    homeDirectory = "/Users/et";
 
     stateVersion = "24.05";
   };
 
   programs = {
     git = {
-      userEmail = "ethan@turkeltaub.dev";
+      userEmail = "et@mercury.com";
       userName = "Ethan Turkeltaub";
     };
   };

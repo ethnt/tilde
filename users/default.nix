@@ -17,7 +17,7 @@ in rec {
       ethan = mkHomeConfiguration { username = "ethan"; };
       "ethan.turkeltaub" =
         mkHomeConfiguration { username = "ethan.turkeltaub"; };
-      et = mkHomeConfiguration { username = "ethan"; };
+      et = mkHomeConfiguration { username = "et"; };
     };
 
     homeConfigurationsPortable = l.genAttrs config.systems (sys:
