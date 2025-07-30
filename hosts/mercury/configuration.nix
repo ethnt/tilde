@@ -1,5 +1,7 @@
-{ suites, profiles, ... }: {
-  imports = with suites; base ++ fonts ++ [ profiles.users.et ];
+{ suites, profiles, secrets, ... }: {
+  imports = with suites;
+    base ++ fonts ++ [ secrets.hosts.mercury.configuration ]
+    ++ [ profiles.users.et ];
 
   tilde.host = {
     name = "mercury";
