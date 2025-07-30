@@ -1,5 +1,5 @@
 { suites, profiles, ... }: {
-  imports = with suites; base ++ fonts ++ [ profiles.users.work ];
+  imports = with suites; base ++ fonts ++ [ profiles.users.et ];
 
   tilde.host = {
     name = "mercury";
