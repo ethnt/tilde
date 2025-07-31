@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   programs.tmuxp.workspaces = {
     tilde = {
       session_name = "tilde";
