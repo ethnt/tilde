@@ -1,7 +1,7 @@
 { suites, secrets, ... }: {
   imports = with suites;
     base ++ development ++ [ secrets.users.et.home ]
-    ++ [ ./profiles/tmuxp.nix ./profiles/git.nix ];
+    ++ [ ./profiles/git.nix ./profiles/tmuxp.nix ./profiles/vscode.nix ];
 
   tilde.home = {
     username = "et";

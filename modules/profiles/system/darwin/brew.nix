@@ -22,6 +22,7 @@
       "jordanbaird-ice"
       "logitune"
       "monitorcontrol"
+      "notion"
       "obsidian"
       "raycast"
       "rectangle"

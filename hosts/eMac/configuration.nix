@@ -31,7 +31,6 @@
     casks = [
       "elgato-stream-deck"
       "hazel"
-      "notion"
       "steam"
       "tailscale"
       "utm"
