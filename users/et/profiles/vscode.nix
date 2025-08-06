@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   programs.vscode.profiles.default = {
     extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
@@ -21,10 +21,6 @@
       }
     ];
 
-    userSettings = {
-      "files.associations" = {
-        "BUCK" = "starlark";
-      };
-    };
+    userSettings = { "files.associations" = { "BUCK" = "starlark"; }; };
   };
 }

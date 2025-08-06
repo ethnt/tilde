@@ -25,7 +25,6 @@ jobs:
       matrix:
         host:
           - eMac
-          - eturkeltaub-mb
           - mercury
         os:
           - macos-14
