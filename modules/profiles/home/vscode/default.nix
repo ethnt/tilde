@@ -46,6 +46,12 @@
           version = "0.0.1";
           sha256 = "8yglQDUc0CXG2EMi2/HXDJsxmXJ4YHvjNjTMnQwrgx8=";
         }
+        {
+          name = "vscode-eslint";
+          publisher = "dbaeumer";
+          version = "3.0.10";
+          sha256 = "EVmexnTIQQDmj25/rql3eCfJd47zRui3TpHol6l0Vgs=";
+        }
       ];
 
       userSettings = {

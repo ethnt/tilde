@@ -31,13 +31,13 @@
     casks = [
       "elgato-stream-deck"
       "hazel"
-      "notion"
       "steam"
       "tailscale"
       "utm"
       "vlc"
       "vorta"
       "zed"
+      "zoom"
     ];
 
     masApps = {

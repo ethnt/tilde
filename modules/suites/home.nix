@@ -13,6 +13,7 @@ with profiles;
     fish.default
     fzf.default
     ghostty.default
+    helix.default
     paths.default
     navi.default
     rippkgs.default

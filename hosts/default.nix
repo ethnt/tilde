@@ -30,8 +30,8 @@ in {
       system = "aarch64-darwin";
     };
 
-    eturkeltaub-mb = mkDarwinConfiguration {
-      name = "eturkeltaub-mb";
+    mercury = mkDarwinConfiguration {
+      name = "mercury";
       system = "aarch64-darwin";
     };
   };

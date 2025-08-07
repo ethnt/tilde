@@ -22,12 +22,12 @@
       "jordanbaird-ice"
       "logitune"
       "monitorcontrol"
+      "notion"
       "obsidian"
       "raycast"
       "rectangle"
       "slack"
       "spotify"
-      "zoom"
     ];
 
     masApps = { "Amphetamine" = 937984704; };

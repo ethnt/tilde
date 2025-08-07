@@ -15,8 +15,7 @@ in rec {
   flake = {
     homeConfigurations = {
       ethan = mkHomeConfiguration { username = "ethan"; };
-      "ethan.turkeltaub" =
-        mkHomeConfiguration { username = "ethan.turkeltaub"; };
+      et = mkHomeConfiguration { username = "et"; };
     };
 
     homeConfigurationsPortable = l.genAttrs config.systems (sys:
