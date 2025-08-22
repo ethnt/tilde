@@ -1,15 +1,14 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
     comma
-    difftastic
-    eza
+    dogdns
     fd
-    fzy
     gnused
     graphite-cli
     htop
     jq
     just
+    mtr
     nix-index
     nix-output-monitor
     ripgrep

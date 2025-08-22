@@ -13,7 +13,7 @@
   };
 
   homebrew = {
-    onActivation.cleanup = "zap";
+    # onActivation.cleanup = "zap";
 
     brews = [
       "postgresql@14"

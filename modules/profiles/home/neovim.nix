@@ -31,5 +31,5 @@
     extraPlugins = with pkgs.vimPlugins; [ fzf-vim ];
   };
 
-  home.sessionVariables.EDITOR = pkgs.lib.getExe config.programs.neovim.package;
+  home.sessionVariables.EDITOR = pkgs.lib.getExe config.programs.helix.package;
 }
