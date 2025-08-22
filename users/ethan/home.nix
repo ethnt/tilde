@@ -1,11 +1,11 @@
 { suites, profiles, pkgs, ... }: {
   imports = (with suites; base ++ development ++ identity) ++ (with profiles; [
-    elixir.default
-    mise.default
-    nodejs.default
+    elixir
+    mise
+    nodejs
     tools.media-management
     zed.default
-    ruby.default
+    ruby
   ]) ++ [ ./profiles/git.nix ./profiles/tmuxp.nix ./profiles/vscode.nix ];
 
   home.packages = with pkgs; [ borgbackup nixd ];

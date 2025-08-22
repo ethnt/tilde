@@ -4,48 +4,41 @@ with profiles;
 
 {
   base = [
-    autojump.default
-    attic.default
-    broot.default
-    bat.default
-    direnv.default
-    emacs.default
-    fish.default
-    fzf.default
-    ghostty.default
-    helix.default
-    paths.default
-    navi.default
-    rippkgs.default
-    starship.default
+    attic
+    autojump
+    bat
+    direnv
+    emacs
+    fish
+    fzf
+    ghostty
+    helix
+    navi
+    paths
+    rippkgs
+    starship
     tmux.default
     tools.common
     tools.darwin
     tools.extra
   ];
 
-  development = [ git.common gh.default vscode.default neovim.default ];
+  development = [ git.common gh vscode neovim ];
 
   identity = [ gnupg.default ];
 
-  work = [
-    amazon-ecr-credential-helper.default
-    awscli.default
-    git.large-repos
-    mise.default
-    rider.default
-  ];
+  work = [ git.large-repos mise ];
 
   minimal = [
-    autojump.default
-    bat.default
-    fish.default
-    fzf.default
+    autojump
+    bat
+    fish
+    fzf
     git.common
-    gh.default
-    navi.default
-    neovim.default
-    starship.default
+    gh
+    navi
+    neovim
+    starship
     tools.common
   ];
 }

@@ -9,13 +9,13 @@ with profiles;
     darwin.common
     darwin.system-defaults
     home-manager.common
-    networking.default
-    shells.default
+    networking
+    shells
   ];
 
   fonts = with fonts; [ common ];
 
-  identity = [ gpg-agent.default ];
+  identity = [ gpg-agent ];
 
   remote-builders = [ builders.common builders.nix-docker ];
 }
