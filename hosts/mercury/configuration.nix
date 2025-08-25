@@ -19,6 +19,6 @@
   homebrew = {
     onActivation.cleanup = "zap";
 
-    casks = [ "figma" "linear-linear" "loom" ];
+    casks = [ "figma" "jabra-direct" "linear-linear" "loom" ];
   };
 }
