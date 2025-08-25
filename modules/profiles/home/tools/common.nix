@@ -9,6 +9,7 @@
     jq
     just
     mtr
+    nh
     nix-index
     nix-output-monitor
     ripgrep

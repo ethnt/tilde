@@ -28,13 +28,7 @@
 
     taps = [ "homebrew/services" ];
 
-    casks = [
-      "elgato-stream-deck"
-      "steam"
-      "utm"
-      "vlc"
-      "zoom"
-    ];
+    casks = [ "elgato-stream-deck" "steam" "utm" "vlc" "zoom" ];
 
     masApps = {
       "Paprika Recipe Manager 3" = 1303222628;
