@@ -10,7 +10,6 @@
       nix-docker = pkgs.callPackage ./nix-docker.nix { };
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux.nix { };
       sf-pro = pkgs.callPackage ./fonts/sf-pro.nix { };
-      update-tilde = pkgs.callPackage ./update-tilde.nix { };
     };
   };
 }

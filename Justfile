@@ -1,7 +1,6 @@
-##: helpers
 hostname := `hostname`
+username := `whoami`
 
-##: binary cache
 cachix-cache-name := "tilde"
 attic-cache-name := "tilde"
 cache-jobs := "5"
@@ -18,7 +17,7 @@ build-system name:
 
 [doc("Build a specific home-manager user")]
 build-home name:
-    nom build .#homeConfigurationsPortable.{{ name }}.activation-script --print-build-logs --show-trace --verbose --keep-going
+    nh home build .#homeConfigurations.{{ name }}.activation-script --out-link result
 
 [doc("Switch to the current host profile")]
 switch: (move-rc-files)
