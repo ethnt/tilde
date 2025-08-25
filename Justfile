@@ -1,41 +1,49 @@
-os_command := "darwin-rebuild"
-nix_flags := "--print-build-logs --show-trace --verbose"
-darwin_flags := "--flake .#"
-build_flags := "--keep-going"
 hostname := `hostname`
+username := `whoami`
+
+cachix-cache-name := "tilde"
+attic-cache-name := "tilde"
+cache-jobs := "5"
 
 default:
     @just --list
 
+[doc("Builds the current host")]
 build: (build-system hostname)
 
+[doc("Build a host by name")]
 build-system name:
-    nom build .#darwinConfigurations.{{ name }}.system {{ nix_flags }} {{ build_flags }}
+    nh darwin build .#darwinConfigurations.{{ name }} --out-link result
 
+[doc("Build a specific home-manager user")]
 build-home name:
-    nom build .#homeConfigurationsPortable.{{ name }}.activation-script {{ nix_flags }} {{ build_flags }}
+    nh home build .#homeConfigurations.{{ name }}.activation-script --out-link result
 
-switch:
-    sudo {{ os_command }} switch {{ darwin_flags }}
+[doc("Switch to the current host profile")]
+switch: (move-rc-files)
+    nh darwin switch .#
 
-update-input input:
-    nix flake lock --update-input {{ input }}
-
+[doc("Check flake")]
 check:
     nix flake check --impure --all-systems
 
+[doc("Open a Nix REPL for this flake")]
 repl:
-    nix repl --extra-experimental-features repl-flake .#
+    nix repl .#
 
+[doc("Format code")]
 format:
     treefmt
 
+[doc("Push the `result` to the binary caches")]
 push-result-to-cache: (push-to-cache "result")
 
+[doc("Push an arbitrary path to the binary caches")]
 push-to-cache path:
-    cachix push tilde {{ path }}
-    attic push tilde {{ path }}
+    cachix push --jobs {{ cache-jobs }} {{ cachix-cache-name }} {{ path }}
+    attic push --jobs {{ cache-jobs }} {{ attic-cache-name }} {{ path }}
 
+[doc("Move `bashrc` and `zshrc` files so they don't get clobbered")]
 move-rc-files:
     sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
     sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin

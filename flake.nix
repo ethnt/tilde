@@ -46,9 +46,6 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
     mise.url = "github:jdx/mise";
     mise.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -88,7 +85,6 @@
           overlays = with inputs; [
             self.overlays.default
             pragmatapro.overlays.default
-            emacs-overlay.overlays.default
           ];
 
           # TODO: Make this on a per-system basis, and maybe per-package

@@ -1,4 +1,4 @@
-{ config, self, withSystem, ... }:
+{ self, withSystem, ... }:
 let
   inherit (self) inputs homeModules;
   inherit (inputs) home-manager nixvim;
@@ -8,29 +8,31 @@ let
   commonModules = (l.attrValues homeModules)
     ++ [ nixvim.homeManagerModules.nixvim ];
 
-  mkHomeConfiguration = { username, configuration ? ./${username}/home.nix }: {
-    imports = commonModules ++ [ configuration ];
-  };
+  mkHomeManagerConfiguration =
+    { username, system, configuration ? ./${username}/home.nix }:
+    withSystem system ({ pkgs, ... }:
+      (home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = commonModules ++ [ configuration ];
+        extraSpecialArgs = {
+          inherit inputs;
+          currentSystem = system;
+          profiles = self.profiles.home;
+          suites = self.suites.home;
+          inherit (self) secrets;
+        };
+      }));
 in rec {
   flake = {
     homeConfigurations = {
-      ethan = mkHomeConfiguration { username = "ethan"; };
-      et = mkHomeConfiguration { username = "et"; };
+      ethan = mkHomeManagerConfiguration {
+        username = "ethan";
+        system = "aarch64-darwin";
+      };
+      et = mkHomeManagerConfiguration {
+        username = "et";
+        system = "aarch64-darwin";
+      };
     };
-
-    homeConfigurationsPortable = l.genAttrs config.systems (sys:
-      withSystem sys ({ pkgs, ... }:
-        l.mapAttrs (_name: cfg:
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ cfg ];
-            extraSpecialArgs = {
-              inherit inputs;
-              currentSystem = sys;
-              profiles = self.profiles.home;
-              suites = self.suites.home;
-              inherit (self) secrets;
-            };
-          }) flake.homeConfigurations));
   };
 }

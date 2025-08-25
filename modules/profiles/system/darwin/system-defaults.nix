@@ -13,20 +13,21 @@
       NSNavPanelExpandedStateForSaveMode2 = true;
     };
 
-    LaunchServices = { LSQuarantine = false; };
+    LaunchServices.LSQuarantine = false;
 
     dock = {
-      show-recents = false;
       autohide = false;
       orientation = "bottom";
+      show-recents = false;
       wvous-bl-corner = 1;
     };
 
     finder = {
-      FXEnableExtensionChangeWarning = false;
       _FXShowPosixPathInTitle = false;
       AppleShowAllExtensions = true;
+      FXEnableExtensionChangeWarning = false;
       QuitMenuItem = true;
+      ShowPathbar = true;
     };
   };
 }

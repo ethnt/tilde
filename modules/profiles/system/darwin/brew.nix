@@ -13,7 +13,7 @@
       "arc"
       "cleanshot"
       "dash"
-      "docker"
+      # "docker"
       "ghostty"
       "fantastical"
       "firefox"

@@ -28,21 +28,12 @@
 
     taps = [ "homebrew/services" ];
 
-    casks = [
-      "elgato-stream-deck"
-      "hazel"
-      "steam"
-      "tailscale"
-      "utm"
-      "vlc"
-      "vorta"
-      "zed"
-      "zoom"
-    ];
+    casks = [ "elgato-stream-deck" "steam" "utm" "vlc" "zoom" ];
 
     masApps = {
       "Paprika Recipe Manager 3" = 1303222628;
       "Reeder 5" = 1529448980;
+      "Tailscale" = 1475387142;
     };
   };
 
