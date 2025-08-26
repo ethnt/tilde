@@ -23,10 +23,7 @@
     #   end
     # '';
 
-    functions = {
-      fish_greeting = "";
-      find_nix_package = "fd $argv /nix/store -d 1 -t d | head -n 1";
-    };
+    functions.fish_greeting = "";
 
     plugins = [{
       name = "foreign-env";

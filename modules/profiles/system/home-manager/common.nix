@@ -1,4 +1,4 @@
-{ config, flake, ... }: {
+{ flake, ... }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -16,9 +16,6 @@
       # environment.sessionVariables is not currently available in nix-darwin
       # NIX_PATH =
       #   config.environment.sessionVariables.NIX_PATH or config.environment.variables.NIX_PATH;
-
-      TILDE_DIR =
-        config.environment.sessionVariables.TILDE_DIR or config.environment.variables.TILDE_DIR;
 
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";

@@ -4,7 +4,7 @@ with lib;
 
 {
   programs.git = {
-    aliases = { s = mkOverride 10 "status -uno"; };
+    aliases.s = mkOverride 10 "status -uno";
     extraConfig = {
       core = {
         compression = 9;
@@ -14,8 +14,8 @@ with lib;
       };
       feature.manyfiles = true;
       fetch.prune = true;
-      merge = { renameLimit = 10000; };
-      push = { default = "simple"; };
+      merge.renameLimit = 10000;
+      push.default = "simple";
     };
   };
 }
