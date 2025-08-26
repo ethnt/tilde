@@ -19,6 +19,7 @@ with profiles;
     tmux.default
     tools.common
     tools.darwin
+    xdg
   ];
 
   development = [ git.common gh vscode neovim ];

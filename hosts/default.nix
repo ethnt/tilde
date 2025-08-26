@@ -1,43 +1,15 @@
-{ self, withSystem, ... }:
-let
-  inherit (self) inputs;
-  inherit (inputs) nix-darwin home-manager nixvim;
-  l = self.inputs.nixpkgs.lib // builtins;
-
-  darwinModules = (l.attrValues self.darwinModules) ++ [
-    home-manager.darwinModules.home-manager
-    {
-      home-manager.sharedModules = (l.attrValues self.homeModules)
-        ++ [ nixvim.homeManagerModules.nixvim ];
-    }
-  ];
-
-  mkDarwinConfiguration =
-    { name, system, configuration ? ./${name}/configuration.nix, }:
-    withSystem system ({ pkgs, ... }:
-      let
-        profiles = self.profiles.darwin;
-        suites = self.suites.darwin;
-        modules = darwinModules ++ [ configuration ];
-
-        specialArgs = {
-          inherit inputs profiles suites;
-          inherit (self) homeConfigurations secrets;
-          flake = self;
-        };
-      in nix-darwin.lib.darwinSystem {
-        inherit pkgs system modules specialArgs;
-      });
+{ self, ... }:
+let inherit (self.lib.darwin) mkDarwinConfiguration;
 in {
   flake.darwinConfigurations = {
     eMac = mkDarwinConfiguration {
-      name = "eMac";
       system = "aarch64-darwin";
+      configuration = ./eMac/configuration.nix;
     };
 
     mercury = mkDarwinConfiguration {
-      name = "mercury";
       system = "aarch64-darwin";
+      configuration = ./mercury/configuration.nix;
     };
   };
 }
