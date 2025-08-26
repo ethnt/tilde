@@ -1,16 +1,11 @@
 { self, withSystem, ... }:
 let
   inherit (self) inputs;
-  inherit (inputs) nix-darwin home-manager nixvim;
+  inherit (inputs) nix-darwin home-manager;
   l = self.inputs.nixpkgs.lib // builtins;
 
-  darwinModules = (l.attrValues self.darwinModules) ++ [
-    home-manager.darwinModules.home-manager
-    {
-      home-manager.sharedModules = (l.attrValues self.homeModules)
-        ++ [ nixvim.homeManagerModules.nixvim ];
-    }
-  ];
+  darwinModules = (l.attrValues self.darwinModules)
+    ++ [ home-manager.darwinModules.home-manager ];
 
   mkDarwinConfiguration =
     { name, system, configuration ? ./${name}/configuration.nix, }:
