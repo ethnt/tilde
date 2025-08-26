@@ -10,7 +10,7 @@
           focus = true;
           shell_command = "direnv reload";
         }];
-        start_directory = "${config.tilde.home.homeDirectory}/Workspace/tilde";
+        start_directory = "${config.home.homeDirectory}/Workspace/tilde";
         window_name = "fish";
       }];
     };
@@ -25,7 +25,7 @@
           focus = true;
           shell_command = "direnv reload";
         }];
-        start_directory = "${config.tilde.home.homeDirectory}/Workspace/e10";
+        start_directory = "${config.home.homeDirectory}/Workspace/e10";
         window_name = "fish";
       }];
     };

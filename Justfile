@@ -5,6 +5,8 @@ cachix-cache-name := "tilde"
 attic-cache-name := "tilde"
 cache-jobs := "5"
 
+nh-build-flags := "--out-link result"
+
 default:
     @just --list
 
@@ -13,14 +15,14 @@ build: (build-system hostname)
 
 [doc("Build a host by name")]
 build-system name:
-    nh darwin build .#darwinConfigurations.{{ name }} --out-link result
+    nh darwin build .#darwinConfigurations.{{ name }} {{ nh-build-flags }}
 
 [doc("Build a specific home-manager user")]
 build-home name:
-    nh home build .#homeConfigurations.{{ name }}.activation-script --out-link result
+    nh home build .#homeConfigurations.{{ name }}.activation-script {{ nh-build-flags }}
 
 [doc("Switch to the current host profile")]
-switch: (move-rc-files)
+switch:
     nh darwin switch .#
 
 [doc("Check flake")]
