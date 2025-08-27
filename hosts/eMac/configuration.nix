@@ -6,15 +6,11 @@
       profiles.builders.darwin-linux
     ];
 
-  tilde.host = {
-    name = "eMac";
-    directory = "/Users/ethan/Workspace/tilde";
-    system = "aarch64-darwin";
-  };
+  tilde.host.directory = "/Users/ethan/Workspace/tilde";
+
+  networking.hostName = "eMac";
 
   homebrew = {
-    onActivation.cleanup = "zap";
-
     brews = [
       "postgresql@14"
       # These are to install Ruby via Mise
@@ -28,7 +24,7 @@
 
     taps = [ "homebrew/services" ];
 
-    casks = [ "elgato-stream-deck" "steam" "utm" "vlc" "zoom" ];
+    casks = [ "steam" "utm" "vlc" "zoom" ];
 
     masApps = {
       "Paprika Recipe Manager 3" = 1303222628;

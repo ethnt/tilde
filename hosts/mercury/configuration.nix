@@ -3,11 +3,9 @@
     base ++ fonts ++ [ secrets.hosts.mercury.configuration ]
     ++ [ profiles.users.et ];
 
-  tilde.host = {
-    name = "mercury";
-    directory = "/Users/et/Workspace/tilde";
-    system = "aarch64-darwin";
-  };
+  tilde.host.directory = "/Users/et/Workspace/tilde";
+
+  networking.hostName = "mercury";
 
   nix.settings = {
     min-free = 21474836480; # 20 GiB
@@ -16,9 +14,5 @@
     warn-dirty = false;
   };
 
-  homebrew = {
-    onActivation.cleanup = "zap";
-
-    casks = [ "figma" "jabra-direct" "linear-linear" "loom" ];
-  };
+  homebrew.casks = [ "figma" "jabra-direct" "linear-linear" "loom" ];
 }
