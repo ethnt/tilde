@@ -52,6 +52,12 @@
           version = "3.0.10";
           sha256 = "EVmexnTIQQDmj25/rql3eCfJd47zRui3TpHol6l0Vgs=";
         }
+        {
+          name = "just";
+          publisher = "skellock";
+          version = "2.0.0";
+          sha256 = "FOp/dcW0+07rADEpUMzx+SGYjhvE4IhcCOqUQ38yCN4=";
+        }
       ];
 
       userSettings = {

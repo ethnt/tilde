@@ -9,7 +9,6 @@ with profiles;
     darwin.common
     darwin.system-defaults
     home-manager.common
-    networking
     shells
   ];
 

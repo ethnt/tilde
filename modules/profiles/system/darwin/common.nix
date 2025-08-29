@@ -4,18 +4,17 @@
 
   nix = {
     settings = {
-      trusted-users = [ config.tilde.host.primaryUser.username ];
+      trusted-users = [ config.system.primaryUser ];
       extra-nix-path = [ "darwin-config=${flake}/lib/compat/darwin" ];
       extra-experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
     };
   };
 
-  users.users.${config.tilde.host.primaryUser.username}.home =
-    config.tilde.host.primaryUser.homeDirectory;
+  users.users.${config.system.primaryUser}.home = config.system.primaryUserHome;
 
   # BUG: This has no effect in most shells
   # https://github.com/LnL7/nix-darwin/issues/428
-  # environment.darwinConfig = "${config.tilde.host.directory}/lib/compat/darwin";
+  environment.darwinConfig = "${config.tilde.host.directory}/lib/compat/darwin";
 
   # BUG: Disable until this is merged into the nix-darwin 25.05 branch:
   # https://github.com/nix-darwin/nix-darwin/pull/1500

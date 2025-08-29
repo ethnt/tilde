@@ -4,7 +4,7 @@
   homebrew = {
     enable = true;
 
-    onActivation.cleanup = lib.mkDefault "none";
+    onActivation.cleanup = lib.mkDefault "zap";
 
     brews = [ "pinentry-mac" ];
 
@@ -13,7 +13,8 @@
       "arc"
       "cleanshot"
       "dash"
-      # "docker"
+      "docker"
+      "elgato-stream-deck"
       "ghostty"
       "fantastical"
       "firefox"

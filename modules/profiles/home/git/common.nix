@@ -37,10 +37,7 @@
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
-    signing = lib.mkIf (config.tilde.home.gpg.keyId != null) {
-      signByDefault = true;
-      key = config.tilde.home.gpg.keyId;
-    };
+    signing.signByDefault = config.programs.git.signing.key != null;
 
     extraConfig = let deltaCommand = lib.getExe pkgs.delta;
     in {

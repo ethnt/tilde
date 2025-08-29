@@ -1,7 +1,7 @@
-{ config, ... }: {
+{
   programs.git = {
     userEmail = "ethan@turkeltaub.dev";
     userName = "Ethan Turkeltaub";
-    signing.key = config.tilde.home.gpg.keyId;
+    signing.key = "0x690FEBBF6380166A";
   };
 }
