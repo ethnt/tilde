@@ -1,4 +1,4 @@
-{ suites, secrets, pkgs, ... }: {
+{ suites, secrets, ... }: {
   imports = with suites;
     base ++ development ++ identity ++ [ secrets.users.et.home ] ++ [
       ./profiles/git.nix

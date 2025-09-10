@@ -1,7 +1,7 @@
 { inputs, ... }: {
   imports = [ inputs.flake-parts.flakeModules.easyOverlay ];
 
-  perSystem = { system, self', ... }: {
+  perSystem = { system, ... }: {
     overlayAttrs = let
       nixpkgs-master = import inputs.nixpkgs-master {
         inherit system;
