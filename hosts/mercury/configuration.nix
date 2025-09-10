@@ -14,5 +14,5 @@
     warn-dirty = false;
   };
 
-  homebrew.casks = [ "cursor" "figma" "jabra-direct" "linear-linear" "loom" ];
+  homebrew.casks = [ "cursor" "figma" "insomnia" "jabra-direct" "linear-linear" "loom" ];
 }

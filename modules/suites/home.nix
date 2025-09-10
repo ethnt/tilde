@@ -22,7 +22,7 @@ with profiles;
     xdg
   ];
 
-  development = [ git.common gh vscode neovim ];
+  development = [ git.common gh gh-dash vscode neovim ];
 
   identity = [ gnupg.default ];
 
