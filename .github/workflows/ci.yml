@@ -10,6 +10,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          nix_system: aarch64-darwin
           attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
@@ -33,6 +34,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          nix_system: aarch64-darwin
           attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
@@ -49,6 +51,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
+          nix_system: x86_64-linux
           attic_token: ${{ secrets.ATTIC_TOKEN }}
           cachix_auth_token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           pragmatapro_deploy_key: ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}

@@ -1,6 +1,9 @@
 name: Setup
 description: "Sets up the workflow"
 inputs:
+  nix_system:
+    description: Nix system to use (e.g., `aarch64-darwin`, `x86_64-linux`)
+    required: true
   attic_token:
     description: Token for Attic cache
     required: true
@@ -19,9 +22,10 @@ runs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
       with:
+        source-url: "https://install.lix.systems/lix/lix-installer-${{ inputs.nix_system }}"
         extra-conf: |
-          system-features = big-parallel
           accept-flake-config = true
+          max-jobs = auto
     - name: Add SSH keys to ssh-agent
       uses: webfactory/ssh-agent@v0.9.0
       with:
