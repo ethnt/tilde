@@ -3294,6 +3294,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1757339658,
+        "narHash": "sha256-Qq7ZS1kd+i230JalWBpT/g2iJ7X0Q8EIxqlIsNIWlj8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5fe2346e04cd5caf125872bcd7d0c34b7689c99e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -4358,6 +4373,7 @@
         "mise": "mise",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "nixvim": "nixvim",
         "pragmatapro": "pragmatapro",
         "tilde-secrets": "tilde-secrets",
@@ -4712,11 +4728,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754419165,
-        "narHash": "sha256-omBSKV4ob/5FJU1zlsY8OqypI+/+egtMT6iq48W4MgE=",
+        "lastModified": 1757692604,
+        "narHash": "sha256-KkfowWYNIoQSowPp20xIcV2N5tR9dOQjycAif5ljIk4=",
         "ref": "refs/heads/main",
-        "rev": "0ab2740bc6d953f237f0e9615609396c37c053be",
-        "revCount": 20,
+        "rev": "23b5affb36206bae4192ef30f78e1bf0b6bf0281",
+        "revCount": 30,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },

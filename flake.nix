@@ -22,6 +22,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
+    nixpkgs-master.url = "github:nixos/nixpkgs";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
@@ -39,6 +41,7 @@
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
+    # tilde-secrets.url = "git+file:///Users/et/Workspace/personal/tilde-secrets";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
@@ -61,6 +64,8 @@
         ./lib
 
         ./pkgs
+
+        ./modules/overlays
 
         ./modules/core/secrets.nix
         ./modules/core/flake-root.nix
