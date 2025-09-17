@@ -13,7 +13,6 @@
       "arc"
       "cleanshot"
       "dash"
-      "docker"
       "elgato-stream-deck"
       "ghostty"
       "fantastical"

@@ -49,3 +49,4 @@ push-to-cache path:
 move-rc-files:
     sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
     sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
+    sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
