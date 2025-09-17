@@ -23,6 +23,7 @@ runs:
       uses: cachix/install-nix-action@v31
       with:
         install_url: "https://install.lix.systems/lix"
+        install_options: "--no-confirm"
         extra_nix_config: |
           accept-flake-config = true
           max-jobs = auto
