@@ -4,6 +4,7 @@ with profiles;
 
 {
   base = [
+    core.lix
     core.nix-config
     darwin.brew
     darwin.common
