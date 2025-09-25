@@ -1,6 +1,7 @@
-{ suites, secrets, ... }: {
+{ suites, secrets, profiles, ... }: {
   imports = with suites;
-    base ++ development ++ identity ++ [ secrets.users.et.home ] ++ [
+    base ++ development ++ identity ++ [ profiles.haskell ]
+    ++ [ secrets.users.et.home ] ++ [
       ./profiles/git.nix
       ./profiles/tmuxp.nix
       ./profiles/tools.nix
