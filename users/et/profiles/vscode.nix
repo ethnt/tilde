@@ -43,8 +43,25 @@
         version = "0.3.1";
         sha256 = "FM8fZmolsX0uP14nIkZOUJDynJ95krtTL6vzkZybiHY=";
       }
+      {
+        name = "claude-code";
+        publisher = "anthropic";
+        version = "2.0.0";
+        sha256 = "vd3ZT8iwmbUCeaHgiDGLzWehOj4j/hMinHiXQytwVz4=";
+      }
     ];
 
-    userSettings = { "files.associations" = { "BUCK" = "starlark"; }; };
+    userSettings = {
+      "files.associations" = { "BUCK" = "starlark"; };
+      "[dockercompose]" = {
+        "editor.insertSpaces" = true;
+        "editor.tabSize" = 2;
+        "editor.autoIndent" = "advanced";
+        "editor.defaultFormatter" = "redhat.vscode-yaml";
+      };
+      "[github-actions-workflow]" = {
+        "editor.defaultFormatter" = "redhat.vscode-yaml";
+      };
+    };
   };
 }
