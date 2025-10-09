@@ -14,6 +14,9 @@
     warn-dirty = false;
   };
 
-  homebrew.casks =
-    [ "bruno" "cursor" "figma" "jabra-direct" "linear-linear" "loom" ];
+  homebrew = {
+    casks = [ "bruno" "cursor" "figma" "jabra-direct" "linear-linear" "loom" ];
+
+    masApps = { "Flow" = 1423210932; };
+  };
 }

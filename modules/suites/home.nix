@@ -20,6 +20,7 @@ with profiles;
     tools.common
     tools.darwin
     xdg
+    zellij
   ];
 
   development = [ git.common gh gh-dash vscode neovim ];
