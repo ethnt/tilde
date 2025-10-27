@@ -40,8 +40,8 @@
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
-    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
-    # tilde-secrets.url = "git+file:///Users/et/Workspace/personal/tilde-secrets";
+    # tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
+    tilde-secrets.url = "git+file:///Users/et/Workspace/personal/tilde-secrets";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +51,9 @@
 
     mise.url = "github:jdx/mise";
     mise.inputs.nixpkgs.follows = "nixpkgs";
+
+    starship-jj.url = "gitlab:lanastara_foss/starship-jj";
+    starship-jj.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;

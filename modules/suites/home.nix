@@ -23,7 +23,7 @@ with profiles;
     zellij
   ];
 
-  development = [ git.common gh gh-dash vscode neovim ];
+  development = [ git.common gh gh-dash jujutsu vscode neovim ];
 
   identity = [ gnupg.default ];
 

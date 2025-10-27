@@ -52,7 +52,10 @@
     ];
 
     userSettings = {
-      "files.associations" = { "BUCK" = "starlark"; };
+      "files.associations" = {
+        "BUCK" = "starlark";
+        "*.ghci" = "haskell";
+      };
       "[dockercompose]" = {
         "editor.insertSpaces" = true;
         "editor.tabSize" = 2;
