@@ -20,10 +20,10 @@ runs:
   using: "composite"
   steps:
     - name: Install Nix
-      uses: cachix/install-nix-action@v31
+      uses: DeterminateSystems/nix-installer-action@v20
       with:
-        install_url: "https://install.lix.systems/lix/lix-installer-${{ inputs.nix_system }}"
-        extra_nix_config: |
+        source-url: "https://install.lix.systems/lix/lix-installer-${{ inputs.nix_system }}"
+        extra-conf: |
           accept-flake-config = true
           max-jobs = auto
     - name: Add SSH keys to ssh-agent
