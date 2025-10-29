@@ -49,9 +49,6 @@
     nixvim.url = "github:nix-community/nixvim";
     # nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    mise.url = "github:jdx/mise";
-    mise.inputs.nixpkgs.follows = "nixpkgs";
-
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
   };
