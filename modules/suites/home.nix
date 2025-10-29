@@ -8,6 +8,7 @@ with profiles;
     autojump
     bat
     direnv
+    emacs
     fish
     fzf
     ghostty
@@ -23,12 +24,11 @@ with profiles;
     zellij
   ];
 
-  development = [ git.common gh gh-dash vscode neovim ];
+  development = [ git.common gh gh-dash vscode ];
 
   identity = [ gnupg.default ];
 
   work = [ git.large-repos mise ];
 
-  minimal =
-    [ autojump bat fish fzf git.common gh navi neovim starship tools.common ];
+  minimal = [ autojump bat fish fzf git.common gh navi starship tools.common ];
 }

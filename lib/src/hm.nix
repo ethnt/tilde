@@ -5,8 +5,7 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  sharedModules = (l.attrValues flake.homeModules)
-    ++ [ inputs.nixvim.homeManagerModules.nixvim ];
+  sharedModules = l.attrValues flake.homeModules;
 
   extraSpecialArgs = {
     inherit flake inputs secrets;
