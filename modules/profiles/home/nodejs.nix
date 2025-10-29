@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ corepack nodejs_24 ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ corepack nodejs_24 ]; }
