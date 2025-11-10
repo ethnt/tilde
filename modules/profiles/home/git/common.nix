@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }: {
-  home.packages = with pkgs; [ delta hub ];
+  home.packages = with pkgs; [ delta ];
 
   programs.git = {
     enable = true;
@@ -9,7 +9,7 @@
     aliases = let
       gitCommand = lib.getExe config.programs.git.package;
       fzfCommand = lib.getExe pkgs.fzf;
-      hubCommand = lib.getExe' pkgs.hub "hub";
+      ghCommand = lib.getExe pkgs.gh;
       superprune = pkgs.writeShellScript "git-alias-superprune" ''
         echo 'Fetching remote then deleting branches that are gone. This may take a moment'
 
@@ -32,7 +32,7 @@
       superprune = "!sh ${superprune}";
       co = "!sh ${co}";
       wipe = "!sh ${wipe}";
-      sync = "!${hubCommand} sync";
+      sync = "!${ghCommand} repo sync";
     };
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
