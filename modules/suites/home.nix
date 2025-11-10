@@ -5,6 +5,7 @@ with profiles;
 {
   base = [
     attic
+    atuin
     autojump
     bat
     direnv
