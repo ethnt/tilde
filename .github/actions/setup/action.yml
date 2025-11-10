@@ -20,7 +20,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Nix
-      uses: DeterminateSystems/nix-installer-action@main
+      uses: DeterminateSystems/nix-installer-action@v20
       with:
         source-url: "https://install.lix.systems/lix/lix-installer-${{ inputs.nix_system }}"
         extra-conf: |

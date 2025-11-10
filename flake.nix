@@ -43,14 +43,11 @@
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
     # tilde-secrets.url = "git+file:///Users/et/Workspace/personal/tilde-secrets";
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-    mise.url = "github:jdx/mise";
-    mise.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
@@ -90,6 +87,7 @@
           overlays = with inputs; [
             self.overlays.default
             pragmatapro.overlays.default
+            emacs-overlay.overlays.default
           ];
 
           config.allowUnfree = true;

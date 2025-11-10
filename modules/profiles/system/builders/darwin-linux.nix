@@ -1,1 +1,6 @@
-{ nix.linux-builder.enable = true; }
+{ pkgs, ... }: {
+  nix.linux-builder = {
+    enable = true;
+    package = pkgs.nixpkgs-master-darwin-linux-builder;
+  };
+}

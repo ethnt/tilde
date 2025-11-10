@@ -1,1 +1,6 @@
-{ programs.helix.enable = true; }
+{
+  programs.helix = {
+    enable = true;
+    settings = { theme = "nord"; };
+  };
+}
