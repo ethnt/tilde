@@ -24,7 +24,7 @@
 
     taps = [ "homebrew/services" ];
 
-    casks = [ "docker" "steam" "utm" "vlc" "zoom" ];
+    casks = [ "steam" "utm" "vlc" "zoom" ];
 
     masApps = {
       "Paprika Recipe Manager 3" = 1303222628;
