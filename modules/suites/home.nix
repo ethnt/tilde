@@ -21,6 +21,7 @@ with profiles;
     tools.common
     tools.darwin
     xdg
+    zed-editor
     zellij
   ];
 

@@ -5,12 +5,6 @@
     end
   '';
 
-  programs.zsh.initContent = ''
-    if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
-      source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
-    fi
-  '';
-
   xdg.configFile."ghostty/config".text = ''
     adjust-cell-height = 10
     cursor-style = bar

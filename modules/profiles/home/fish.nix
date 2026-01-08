@@ -16,13 +16,6 @@
       set -g fish_color_autosuggestion 555 brblack
     '';
 
-    # interactiveShellInit = ''
-    #   function __fish_command_not_found_handler --on-event="fish_command_not_found"
-    #     ${lib.getExe pkgs.bashInteractive} -c \
-    #       "source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh; command_not_found_handle $argv"
-    #   end
-    # '';
-
     functions.fish_greeting = "";
 
     plugins = [{
