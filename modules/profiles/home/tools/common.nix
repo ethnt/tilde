@@ -13,6 +13,7 @@
     just
     mtr
     nh
+    nixd
     nix-index
     nix-output-monitor
     ripgrep
