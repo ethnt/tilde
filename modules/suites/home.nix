@@ -13,6 +13,7 @@ with profiles;
     fzf
     ghostty
     helix
+    jujutsu
     navi
     paths
     rippkgs
