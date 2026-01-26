@@ -19,6 +19,10 @@
         dark = "Nord Dark";
       };
 
+      # Ergonomics
+      tab_size = 2;
+      hard_tabs = false;
+
       # Git
       git.inline_blame.enabled = false;
 

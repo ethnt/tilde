@@ -1,4 +1,4 @@
-{ flake, lib, ... }: {
+{ flake, ... }: {
   home-manager = {
     inherit (flake.lib.hm) sharedModules extraSpecialArgs;
 

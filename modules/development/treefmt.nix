@@ -1,7 +1,7 @@
 { inputs, ... }: {
   imports = [ inputs.treefmt.flakeModule ];
 
-  perSystem = { config, pkgs, lib, ... }:
+  perSystem = { config, pkgs, ... }:
     let
       treefmtConfig = {
         inherit (config.flake-root) projectRootFile;

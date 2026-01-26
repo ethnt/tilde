@@ -8,4 +8,6 @@
     :seti -XTypeApplications
     :seti -XOverloadedStrings
   '';
+
+  home.sessionPath = [ "$HOME/.cabal/bin" ];
 }
