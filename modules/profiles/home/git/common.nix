@@ -7,7 +7,7 @@
     settings = {
       user.name = "Ethan Turkeltaub";
 
-      aliases = let
+      alias = let
         gitCommand = lib.getExe config.programs.git.package;
         fzfCommand = lib.getExe pkgs.fzf;
         ghCommand = lib.getExe pkgs.gh;
