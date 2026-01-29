@@ -9,7 +9,6 @@ with profiles;
     autojump
     bat
     direnv
-    emacs
     fish
     fzf
     ghostty
