@@ -4,50 +4,55 @@
   programs.git = {
     enable = true;
 
-    userName = "Ethan Turkeltaub";
-
-    aliases = let
-      gitCommand = lib.getExe config.programs.git.package;
-      fzfCommand = lib.getExe pkgs.fzf;
-      ghCommand = lib.getExe pkgs.gh;
+    settings = let
+      delta = lib.getExe pkgs.delta;
+      git = lib.getExe config.programs.git.package;
+      fzf = lib.getExe pkgs.fzf;
+      gh = lib.getExe pkgs.gh;
       superprune = pkgs.writeShellScript "git-alias-superprune" ''
         echo 'Fetching remote then deleting branches that are gone. This may take a moment'
 
-        ${gitCommand} fetch -p
+        ${git} fetch -p
 
         gone=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}')
         for branch in $gone; do
-          ${gitCommand} branch -D $branch;
+          ${git} branch -D $branch;
         done;
       '';
       co = pkgs.writeShellScript "git-alias-co" ''
-        ${gitCommand} checkout "$(${gitCommand} branch --sort="-committerdate" | ${fzfCommand} | tr -d '[:space:]')";
+        ${git} checkout "$(${git} branch --sort="-committerdate" | ${fzf} | tr -d '[:space:]')";
       '';
       wipe = pkgs.writeShellScript "git-alias-wipe" ''
-        ${gitCommand} add .
-        ${gitCommand} stash
+        ${git} add .
+        ${git} stash
       '';
     in {
-      s = "status";
-      superprune = "!sh ${superprune}";
-      co = "!sh ${co}";
-      wipe = "!sh ${wipe}";
-      sync = "!${ghCommand} repo sync";
+      user.name = "Ethan Turkeltaub";
+
+      alias = {
+        s = "status";
+        superprune = "!sh ${superprune}";
+        co = "!sh ${co}";
+        wipe = "!sh ${wipe}";
+        sync = "!${gh} repo sync";
+      };
+
+      core.pager = delta;
+
+      interactive.diffFilter = "${delta} --color-only";
+
+      http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
+
+      color = {
+        status = "always";
+        diff = "always";
+      };
+
+      init.defaultBranch = "main";
     };
 
     ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
 
     signing.signByDefault = config.programs.git.signing.key != null;
-
-    extraConfig = let deltaCommand = lib.getExe pkgs.delta;
-    in {
-      core.pager = deltaCommand;
-      interactive.diffFilter = "${deltaCommand} --color-only";
-      http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
-      color = {
-        status = "always";
-        diff = "always";
-      };
-    };
   };
 }

@@ -8,6 +8,8 @@
 
     brews = [ "pinentry-mac" ];
 
+    taps = [ "railwaycat/emacsmacport" ];
+
     casks = [
       "1password"
       "arc"
@@ -15,6 +17,7 @@
       "dash"
       "docker-desktop"
       "elgato-stream-deck"
+      "emacs-mac-spacemacs-icon"
       "ghostty"
       "fantastical"
       "firefox"

@@ -9,7 +9,6 @@
         config.allowUnfree = true;
       };
     in {
-      inherit (nixpkgs-master) claude-code;
       nixpkgs-master-darwin-linux-builder = nixpkgs-master.darwin.linux-builder;
     };
   };

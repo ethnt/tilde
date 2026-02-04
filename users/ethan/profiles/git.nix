@@ -1,7 +1,6 @@
 {
   programs.git = {
-    userEmail = "ethan@turkeltaub.dev";
-    userName = "Ethan Turkeltaub";
+    settings = { user.email = "ethan@turkeltaub.dev"; };
     signing.key = "0x690FEBBF6380166A";
   };
 }
