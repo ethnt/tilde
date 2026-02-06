@@ -47,6 +47,7 @@
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
+    pragmatapro.inputs.flake-parts.follows = "flake-parts";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
