@@ -49,31 +49,5 @@
       show_completions_on_input = false;
       show_edit_predictions = false;
     };
-
-    userTasks = [{
-      label = "file_finder";
-      command = ''
-        ${lib.getExe config.programs.zed-editor.package} "$(${
-          lib.getExe config.programs.television.package
-        } files)"'';
-      hide = "always";
-      allow_concurrent_runs = true;
-      use_new_terminal = true;
-    }];
-
-    userKeymaps = [{
-      context = "Workspace";
-      bindings = {
-        cmd-p = [
-          "task::Spawn"
-          {
-            task_name = "file_finder";
-            reveal_target = "center";
-          }
-        ];
-      };
-    }];
   };
-
-  home.packages = with pkgs; [ television ];
 }
