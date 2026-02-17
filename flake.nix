@@ -60,7 +60,7 @@
       imports = [
         ./lib
 
-        ./pkgs
+        ./modules/packages
 
         ./modules/overlays
 
