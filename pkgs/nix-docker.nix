@@ -1,6 +1,6 @@
 { stdenv, fetchFromGitHub, lib }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "nix-docker";
 
   src = fetchFromGitHub {
