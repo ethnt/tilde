@@ -3,10 +3,9 @@
     comma
     curl
     curlie
-    dogdns
+    doggo
     fd
     gnused
-    graphite-cli
     htop
     httpie
     jq
@@ -16,6 +15,7 @@
     nixd
     nix-index
     nix-output-monitor
+    pgcli
     ripgrep
     tldr
   ];
