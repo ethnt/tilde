@@ -50,7 +50,6 @@
       };
 
       # AI
-      show_completions_on_input = false;
       show_edit_predictions = false;
     };
   };
