@@ -3,10 +3,9 @@
     comma
     curl
     curlie
-    dogdns
+    doggo
     fd
     gnused
-    graphite-cli
     htop
     httpie
     jq
@@ -16,6 +15,7 @@
     nixd
     nix-index
     nix-output-monitor
+    pgcli
     ripgrep
     tldr
   ];
@@ -26,9 +26,5 @@
 
     # Alias `man` to `batman`
     man = lib.getExe' pkgs.bat-extras.batman "batman";
-
-    # Alias `ctop` to use correct `$TERM`
-    ctop =
-      ''TERM="(string-replace tmux screen $TERM)" ${lib.getExe pkgs.ctop}'';
   };
 }

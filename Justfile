@@ -1,10 +1,7 @@
 hostname := `hostname`
-username := `whoami`
-
 cachix-cache-name := "tilde"
 attic-cache-name := "tilde"
 cache-jobs := "5"
-
 nh-build-flags := "--out-link result"
 
 default:

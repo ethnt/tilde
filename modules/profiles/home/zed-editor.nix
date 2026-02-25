@@ -1,7 +1,8 @@
 { pkgs, lib, ... }: {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "nix" "nord" ];
+    extensions =
+      [ "haskell" "html" "just" "log" "nix" "nord" "sql" "starlark" ];
     userSettings = {
       # Keymaps
       base_keymap = "Atom";
@@ -26,6 +27,9 @@
       # Git
       git.inline_blame.enabled = false;
 
+      # File associations
+      file_types = { "Haskell" = [ "ghci" ]; };
+
       # Language-specific
       languages = {
         Nix = {
@@ -46,7 +50,6 @@
       };
 
       # AI
-      show_completions_on_input = false;
       show_edit_predictions = false;
     };
   };
