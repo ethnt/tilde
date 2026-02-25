@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ graphite-cli fnm mkcert ];
+  home.packages = with pkgs; [ fnm mkcert ];
 
   programs.fish.interactiveShellInit = let fnm = pkgs.lib.getExe pkgs.fnm;
   in ''
