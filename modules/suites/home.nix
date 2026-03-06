@@ -14,6 +14,7 @@ with profiles;
     ghostty
     helix
     lazygit
+    jujutsu
     navi
     paths
     rippkgs

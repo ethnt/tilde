@@ -42,6 +42,8 @@
 
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
 
+    jj-starship.url = "github:dmmulroy/jj-starship";
+
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -88,6 +90,7 @@
             self.overlays.default
             pragmatapro.overlays.default
             emacs-overlay.overlays.default
+            jj-starship.overlays.default
           ];
 
           config.allowUnfree = true;
