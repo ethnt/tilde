@@ -18,7 +18,7 @@
       "docker-desktop"
       "elgato-stream-deck"
       "emacs-mac-spacemacs-icon"
-      "ghostty"
+      # "ghostty"
       "fantastical"
       "firefox"
       "istat-menus"

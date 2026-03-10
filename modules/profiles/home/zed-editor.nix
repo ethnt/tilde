@@ -28,7 +28,7 @@
       git.inline_blame.enabled = false;
 
       # File associations
-      file_types = { "Haskell" = [ "ghci" ]; };
+      file_types = { "Haskell" = [ "ghci" "persistentmodels" ]; };
 
       # Language-specific
       languages = {
@@ -50,7 +50,7 @@
       };
 
       # AI
-      show_edit_predictions = false;
+      disable_ai = true;
     };
   };
 }

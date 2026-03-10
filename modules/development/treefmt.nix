@@ -7,6 +7,7 @@
         inherit (config.flake-root) projectRootFile;
 
         programs = {
+          actionlint.enable = true;
           deadnix.enable = true;
           statix.enable = true;
           nixfmt = {
@@ -22,8 +23,7 @@
       formatter = inputs.treefmt.lib.mkWrapper pkgs treefmtConfig;
 
       devShells.treefmt = pkgs.mkShell {
-        nativeBuildInputs = with pkgs;
-          [ config.treefmt.build.wrapper ]
+        nativeBuildInputs = [ config.treefmt.build.wrapper ]
           ++ (builtins.attrValues config.treefmt.build.programs);
       };
     };
