@@ -28,7 +28,7 @@ check:
 
 [doc("Open a Nix REPL for this flake")]
 repl:
-    nix repl .#
+    nix repl --expr "builtins.getFlake \"$PWD\""
 
 [doc("Format code")]
 format:

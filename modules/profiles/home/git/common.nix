@@ -1,22 +1,21 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+let
+  mkGitShellScript = { name, text, extraRuntimeInputs ? [ ] }:
+    lib.getExe (pkgs.writeShellApplication {
+      inherit name text;
+
+      runtimeInputs = [ config.programs.git.package ] ++ extraRuntimeInputs;
+    });
+in {
   home.packages = with pkgs; [ delta ];
 
   programs.git = {
     enable = true;
 
-    settings = let delta = lib.getExe pkgs.delta;
-    in {
+    settings = {
       user.name = "Ethan Turkeltaub";
 
       alias = let
-        gh = lib.getExe pkgs.gh;
-        mkGitShellScript = { name, text, extraRuntimeInputs ? [ ] }:
-          lib.getExe (pkgs.writeShellApplication {
-            inherit name text;
-
-            runtimeInputs = [ config.programs.git.package ]
-              ++ extraRuntimeInputs;
-          });
         superprune = mkGitShellScript {
           name = "git-alias-superprune";
           text = ''
@@ -49,14 +48,10 @@
         superprune = "!sh ${superprune}";
         co = "!sh ${co}";
         wipe = "!sh ${wipe}";
-        sync = "!${gh} repo sync";
+        sync = "!${lib.getExe pkgs.gh} repo sync";
       };
 
-      core.pager = delta;
-
-      interactive.diffFilter = "${delta} --color-only";
-
-      http = { sslCAinfo = "/etc/ssl/certs/ca-certificates.crt"; };
+      http.sslCAinfo = "/etc/ssl/certs/ca-certificates.crt";
 
       color = {
         status = "always";

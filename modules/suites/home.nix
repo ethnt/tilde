@@ -24,14 +24,14 @@ with profiles;
     tools.darwin
     xdg
     zed-editor
-    zellij
   ];
 
-  development = [ git.common gh gh-dash vscode ];
+  development =
+    [ git.common git.difftastic git.mergiraf gh gh-dash mise vscode ];
 
   identity = [ gnupg.default ];
 
-  work = [ git.large-repos mise ];
+  work = [ git.large-repos ];
 
   minimal = [ autojump bat fish fzf git.common gh navi starship tools.common ];
 }

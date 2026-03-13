@@ -1,8 +1,21 @@
 { pkgs, lib, ... }: {
   programs.zed-editor = {
     enable = true;
-    extensions =
-      [ "haskell" "html" "just" "log" "nix" "nord" "sql" "starlark" ];
+    extensions = [
+      "editorconfig"
+      "haskell"
+      "html"
+      "just"
+      "log"
+      "nix"
+      "nord"
+      "ruby"
+      "sql"
+      "starlark"
+      "terraform"
+      "toml"
+      "xml"
+    ];
     userSettings = {
       # Keymaps
       base_keymap = "Atom";
