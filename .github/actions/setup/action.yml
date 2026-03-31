@@ -19,27 +19,26 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Install Nix
-      uses: DeterminateSystems/nix-installer-action@v20
+    - name: Install Lix
+      uses: samueldr/lix-gha-installer-action@7b7f14d320d6aacfb65bd1ef761566b3b69e474c
       with:
-        source-url: "https://install.lix.systems/lix/lix-installer-${{ inputs.nix_system }}"
-        extra-conf: |
+        extra_nix_config: |
           accept-flake-config = true
           max-jobs = auto
     - name: Add SSH keys to ssh-agent
-      uses: webfactory/ssh-agent@v0.9.0
+      uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
       with:
         ssh-private-key: |
           ${{ inputs.pragmatapro_deploy_key }}
           ${{ inputs.secrets_deploy_key }}
     - name: Setup Attic cache
-      uses: ryanccn/attic-action@v0
+      uses: ryanccn/attic-action@1887fd507f03327c96c64cca30118c96eb17fdad
       with:
         endpoint: https://cache.e10.camp
         cache: tilde
         token: ${{ inputs.attic_token }}
     - name: Use Cachix store
-      uses: cachix/cachix-action@master
+      uses: cachix/cachix-action@1eb2ef646ac0255473d23a5907ad7b04ce94065c
       with:
         authToken: ${{ inputs.cachix_auth_token }}
         installCommand: nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#cachix

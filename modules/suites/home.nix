@@ -8,6 +8,7 @@ with profiles;
     atuin
     autojump
     bat
+    certs
     direnv
     fish
     fzf
