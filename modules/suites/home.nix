@@ -27,8 +27,16 @@ with profiles;
     zed-editor
   ];
 
-  development =
-    [ git.common git.difftastic git.mergiraf gh gh-dash mise vscode ];
+  development = [
+    git.common
+    git.difftastic
+    git.mergiraf
+    git.worktrunk
+    gh
+    gh-dash
+    mise
+    vscode
+  ];
 
   identity = [ gnupg.default ];
 
