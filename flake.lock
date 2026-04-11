@@ -4574,16 +4574,17 @@
         ]
       },
       "locked": {
-        "dirtyRev": "451e1d0c6e14cd046338fc4e6cfde5d5fc820f99-dirty",
-        "dirtyShortRev": "451e1d0-dirty",
-        "lastModified": 1769469089,
-        "narHash": "sha256-wbYdSY9Sp+wDUUoRGAcnX0m6WUoqjLPkYNJ5TT/e4cg=",
+        "lastModified": 1775941241,
+        "narHash": "sha256-uj9pd6tBOZU9u4sCLXQ4CBkoh4Qi/hKO474Cc0g9pBM=",
+        "ref": "refs/heads/main",
+        "rev": "4baf7b5a310a8b478288ffbf31f2d9c23d6839f3",
+        "revCount": 36,
         "type": "git",
-        "url": "file:///Users/ethan/Workspace/tilde-secrets"
+        "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },
       "original": {
         "type": "git",
-        "url": "file:///Users/ethan/Workspace/tilde-secrets"
+        "url": "ssh://git@github.com/ethnt/tilde-secrets"
       }
     },
     "tilde-secrets_2": {

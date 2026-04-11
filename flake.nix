@@ -43,8 +43,7 @@
     treefmt.url = "github:numtide/treefmt-nix";
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
-    # tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
-    tilde-secrets.url = "git+file:///Users/ethan/Workspace/tilde-secrets";
+    tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
