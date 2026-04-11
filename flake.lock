@@ -1999,16 +1999,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1775077333,
-        "narHash": "sha256-OXcxobt7lBkh1B8AjwreU+24myhtKpqeLfAeIyNLFY8=",
+        "lastModified": 1775900011,
+        "narHash": "sha256-QUGu6CJYFQ5AWVV0n3/FsJyV+1/gj7HSDx68/SX9pwM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "49ca96b2714c5931e17401eff87f3edd42d2b0f2",
+        "rev": "b0569dc6ec1e6e7fefd8f6897184e4c191cd768e",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -2226,6 +2225,26 @@
       "original": {
         "owner": "kristapsdz",
         "repo": "lowdown",
+        "type": "github"
+      }
+    },
+    "mcp-servers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775901136,
+        "narHash": "sha256-5J+54o9YDgAeY1iYuSN7kVt0cTB90x4zO5whqdPg3Tw=",
+        "owner": "natsukium",
+        "repo": "mcp-servers-nix",
+        "rev": "59335c80be7b719df7b6e6473f14424b1e6647df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "natsukium",
+        "repo": "mcp-servers-nix",
         "type": "github"
       }
     },
@@ -4222,6 +4241,7 @@
         "flake-root": "flake-root",
         "haumea": "haumea",
         "home-manager": "home-manager",
+        "mcp-servers": "mcp-servers",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",

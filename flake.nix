@@ -29,7 +29,7 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-root.url = "github:srid/flake-root";
@@ -47,6 +47,9 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    mcp-servers.url = "github:natsukium/mcp-servers-nix";
+    mcp-servers.inputs.nixpkgs.follows = "nixpkgs";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
