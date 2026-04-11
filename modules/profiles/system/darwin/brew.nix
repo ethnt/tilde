@@ -14,7 +14,6 @@
       "1password"
       "arc"
       "cleanshot"
-      "elgato-stream-deck"
       "emacs-mac-spacemacs-icon"
       "fantastical"
       "firefox"
