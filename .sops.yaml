@@ -1,0 +1,14 @@
+keys:
+  - &user_ethan age10539mc6shf02hpa8huyjktdw3nfyavxdg8pt247wwvq4xrv8h5zs8nc0k0
+  - &user_et age1s2dhv789xf9jjfr9pdjsww7rf4dutl3qmavgpurlwj6l5khdkfasd4v7xn
+  - &host_eMac age1hqq6znfaedyrmqkqqnaafa243cus77nts3e5vunxdl5xkfm6ffgqmf70r8
+  - &host_mercury age1zkx88lththygcwj07xtz54tcvy6ltavnedrpskfpzcdh9tt2ngyq9gvqv5
+
+creation_rules:
+  - path_regex: '^.*secrets\.(json|yml)'
+    key_groups:
+      - age:
+          - *user_ethan
+          - *user_et
+          - *host_eMac
+          - *host_mercury

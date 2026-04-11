@@ -19,6 +19,7 @@ with profiles;
     navi
     paths
     rippkgs
+    sops
     starship
     tmux.default
     tools.common

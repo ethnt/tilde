@@ -7,7 +7,7 @@
       ./profiles/vscode.nix
     ];
 
-  home.packages = with pkgs; [ borgbackup nixd ];
+  home.packages = with pkgs; [ restic nixd ];
 
   home = {
     username = "ethan";

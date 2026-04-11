@@ -47,3 +47,16 @@ move-rc-files:
     sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
     sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
     sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
+
+edit-secret file:
+    EDITOR="zeditor --wait" sops {{ file }}
+
+update-secret-files:
+    find . -regextype egrep -regex '^.*secrets\.(json|yml)' -execdir sops updatekeys {} -y ';'
+
+generate-user-age-key:
+    mkdir -p ~/.config/sops/age
+    nix shell nixpkgs#age --command sh -c "age-keygen -o ~/.config/sops/age/keys.txt"
+
+host-age-key:
+    nix shell nixpkgs#ssh-to-age --command sh -c "sudo cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age"
