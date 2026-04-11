@@ -10,8 +10,6 @@
 
   networking.hostName = "eMac";
 
-  sops.secrets.foo = { };
-
   homebrew = {
     brews = [
       "postgresql@14"
