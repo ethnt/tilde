@@ -5,8 +5,10 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  sharedModules = (l.attrValues flake.darwinModules)
-    ++ [ inputs.home-manager.darwinModules.home-manager ];
+  sharedModules = (l.attrValues flake.darwinModules) ++ (with inputs; [
+    home-manager.darwinModules.home-manager
+    sops-nix.darwinModules.sops
+  ]);
 
   specialArgs = {
     inherit flake inputs secrets homeConfigurations;

@@ -6,6 +6,7 @@ with profiles;
   base = [
     core.lix
     core.nix-config
+    core.sops
     darwin.brew
     darwin.common
     darwin.system-defaults

@@ -1,0 +1,10 @@
+keys:
+  - &user_ethnt age10539mc6shf02hpa8huyjktdw3nfyavxdg8pt247wwvq4xrv8h5zs8nc0k0
+  - &host_eMac age1ypylw6zxmaxwzqehtf0976jlx8zc2a5npj9s4rzeawwxcdchk3kqzjusdl
+
+creation_rules:
+  - path_regex: '^.*secrets\.(json|yml)'
+    key_groups:
+      - age:
+          - *user_ethnt
+          - *host_eMac

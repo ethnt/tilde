@@ -47,3 +47,9 @@ move-rc-files:
     sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
     sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
     sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
+
+edit-secret file:
+    EDITOR="zeditor --wait" sops {{ file }}
+
+update-secret-files:
+    find . -regextype egrep -regex '^.*secrets\.(json|yml)' -execdir sops updatekeys {} -y ';'
