@@ -5,7 +5,8 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  sharedModules = l.attrValues flake.homeModules;
+  sharedModules = l.attrValues flake.homeModules
+    ++ [ inputs.sops-nix.homeManagerModules.sops ];
 
   extraSpecialArgs = {
     inherit flake inputs secrets;

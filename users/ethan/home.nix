@@ -1,4 +1,4 @@
-{ suites, profiles, pkgs, ... }: {
+{ suites, profiles, config, pkgs, ... }: {
   imports = (with suites; base ++ development ++ identity)
     ++ (with profiles; [ elixir mise nodejs tools.media-management ruby ]) ++ [
       ./profiles/git.nix
@@ -14,4 +14,6 @@
     homeDirectory = "/Users/ethan";
     stateVersion = "24.05";
   };
+
+  sops.secrets.biz = { path = "${config.home.homeDirectory}/biz.txt"; };
 }
