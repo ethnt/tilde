@@ -16,6 +16,7 @@ with profiles;
     helix
     lazygit
     jujutsu
+    man
     navi
     paths
     rippkgs
@@ -29,12 +30,16 @@ with profiles;
   ];
 
   development = [
+    claude-code
     git.common
     git.difftastic
     git.mergiraf
     git.worktrunk
     gh
     gh-dash
+    mcp.default
+    mcp.github.default
+    mcp.nixos
     mise
     vscode
   ];

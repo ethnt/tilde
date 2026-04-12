@@ -13,6 +13,6 @@
     username = "et";
     homeDirectory = "/Users/et";
 
-    stateVersion = "24.05";
+    stateVersion = "26.05";
   };
 }
