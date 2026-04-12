@@ -16,6 +16,7 @@ with profiles;
     helix
     lazygit
     jujutsu
+    man
     navi
     paths
     rippkgs
