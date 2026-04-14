@@ -36,8 +36,11 @@ with profiles;
     git.mergiraf
     git.worktrunk
     gh
+    gh-dash
+    mcp.context7
     mcp.default
     mcp.github.default
+    mcp.memory
     mcp.nixos
     mise
     vscode
