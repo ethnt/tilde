@@ -2451,26 +2451,6 @@
     "mcp-servers": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1775901136,
-        "narHash": "sha256-5J+54o9YDgAeY1iYuSN7kVt0cTB90x4zO5whqdPg3Tw=",
-        "owner": "natsukium",
-        "repo": "mcp-servers-nix",
-        "rev": "59335c80be7b719df7b6e6473f14424b1e6647df",
-        "type": "github"
-      },
-      "original": {
-        "owner": "natsukium",
-        "repo": "mcp-servers-nix",
-        "type": "github"
-      }
-    },
-    "mcp-servers_2": {
-      "inputs": {
-        "nixpkgs": [
           "tilde-secrets",
           "tilde",
           "nixpkgs"
@@ -4701,7 +4681,6 @@
         "flake-root": "flake-root",
         "haumea": "haumea",
         "home-manager": "home-manager",
-        "mcp-servers": "mcp-servers",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
@@ -5005,7 +4984,7 @@
         "flake-root": "flake-root_2",
         "haumea": "haumea_2",
         "home-manager": "home-manager_2",
-        "mcp-servers": "mcp-servers_2",
+        "mcp-servers": "mcp-servers",
         "nix-darwin": "nix-darwin_2",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master_2",
@@ -5073,11 +5052,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776092172,
-        "narHash": "sha256-+poKGm+NTd4RX4NiOthsHGFN7KP73w1OJFLtRHjU5Ig=",
+        "lastModified": 1776171409,
+        "narHash": "sha256-jm18G7vTJChfhWYfPZ8Mepim4tiDr9i1FtE5onG+7QY=",
         "ref": "refs/heads/main",
-        "rev": "bcb543e2ac822aca3ded1a7eb2bfee2b5af70d2a",
-        "revCount": 37,
+        "rev": "a2ee3464b47dcbf41903a7660b2ebbb395f125be",
+        "revCount": 38,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },

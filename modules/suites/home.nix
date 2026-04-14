@@ -40,6 +40,7 @@ with profiles;
     mcp.context7
     mcp.default
     mcp.github.default
+    mcp.memory
     mcp.nixos
     mise
     vscode

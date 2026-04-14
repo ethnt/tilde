@@ -1,1 +1,6 @@
-{ mcp-servers.programs.context7.enable = true; }
+{ lib, pkgs, ... }: {
+  programs.mcp.servers.context7 = {
+    command = lib.getExe pkgs.context7-mcp;
+    args = [ ];
+  };
+}

@@ -52,9 +52,6 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    mcp-servers.url = "github:natsukium/mcp-servers-nix";
-    mcp-servers.inputs.nixpkgs.follows = "nixpkgs";
-
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
     pragmatapro.inputs.flake-parts.follows = "flake-parts";
