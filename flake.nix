@@ -5,6 +5,8 @@
     extra-experimental-features = "nix-command flakes";
 
     extra-substituters = [
+      "https://cache.nixos.org"
+      "https://cache.lix.systems"
       "https://cache.e10.camp/tilde"
       "https://tilde.cachix.org"
       "https://nix-community.cachix.org"
@@ -12,6 +14,8 @@
     ];
 
     extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
       "tilde:Urwh7kyCsSsNmV1gu4sMYFVZCI0ZPwEXjxxtNH06G8U="
       "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
