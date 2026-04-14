@@ -36,7 +36,6 @@ with profiles;
     git.mergiraf
     git.worktrunk
     gh
-    gh-dash
     mcp.default
     mcp.github.default
     mcp.nixos

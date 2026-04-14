@@ -3,13 +3,14 @@
 
   perSystem = { config, pkgs, ... }: {
     overlayAttrs = {
-      inherit (config.packages) nix-docker oh-my-tmux sf-pro update-tilde;
+      inherit (config.packages) nix-docker oh-my-tmux sf-pro gh-stack;
     };
 
     packages = {
       nix-docker = pkgs.callPackage ./nix-docker.nix { };
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux.nix { };
       sf-pro = pkgs.callPackage ./fonts/sf-pro.nix { };
+      gh-stack = pkgs.callPackage ./gh-stack.nix { };
     };
   };
 }
