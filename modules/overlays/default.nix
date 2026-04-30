@@ -11,7 +11,7 @@
     in {
       nixpkgs-master-darwin-linux-builder = nixpkgs-master.darwin.linux-builder;
 
-      inherit (nixpkgs-master) ghostty-bin worktrunk;
+      inherit (nixpkgs-master) ghostty-bin worktrunk zed-editor;
     };
   };
 }
