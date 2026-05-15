@@ -5052,11 +5052,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776171409,
-        "narHash": "sha256-jm18G7vTJChfhWYfPZ8Mepim4tiDr9i1FtE5onG+7QY=",
+        "lastModified": 1778871536,
+        "narHash": "sha256-okdnQnHnUs58jm+Ddjxv0r9XtLASJD6RvVeEJJztL+s=",
         "ref": "refs/heads/main",
-        "rev": "a2ee3464b47dcbf41903a7660b2ebbb395f125be",
-        "revCount": 38,
+        "rev": "04cd501479db9c5579f5308db11bd2e5c36835c1",
+        "revCount": 40,
         "type": "git",
         "url": "ssh://git@github.com/ethnt/tilde-secrets"
       },

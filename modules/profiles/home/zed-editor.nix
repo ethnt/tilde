@@ -37,14 +37,17 @@
       tab_size = 2;
       hard_tabs = false;
 
+      # Hints
+      inlay_hints.enabled = true;
+
       # Git
       git.inline_blame.enabled = false;
 
-      # Direnv
-      load_direnv = "shell_hook";
-
       # File associations
       file_types = { "Haskell" = [ "ghci" "persistentmodels" ]; };
+
+      # Direnv
+      load_direnv = "shell_hook";
 
       # Language-specific
       languages = {
