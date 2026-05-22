@@ -60,7 +60,7 @@ in {
     ];
   in {
     ".github/workflows/check.yml" = {
-      name = "Check flake";
+      name = "Check";
       jobs = {
         check = {
           name = "Check flake";
@@ -74,11 +74,11 @@ in {
     };
 
     ".github/workflows/build.yml" = {
-      name = "Build system";
+      name = "Build";
       jobs = {
         build-system = {
           name = "Build system";
-          runs-on = "ubuntu-latest";
+          runs-on = "macos-15";
           strategy.matrix.host = l.attrNames self.darwinConfigurations;
           steps = setup ++ [
             {

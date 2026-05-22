@@ -36,7 +36,7 @@ jobs:
         name: e10
     - name: Run check flake
       run: nix flake -Lv check --impure --show-trace
-name: Check flake
+name: Check
 'on':
   push: {}
   workflow_dispatch: {}
