@@ -42,7 +42,7 @@ in {
         name = "Setup Attic cache";
         uses = actions.attic;
         "with" = {
-          cache = "e10";
+          cache = "tilde";
           endpoint = "https://cache.e10.camp";
           token = "\${{ secrets.ATTIC_TOKEN }}";
         };
@@ -54,7 +54,7 @@ in {
           authToken = "\${{ secrets.CACHIX_AUTH_TOKEN }}";
           installCommand =
             "nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#cachix";
-          name = "e10";
+          name = "tilde";
         };
       }
     ];
