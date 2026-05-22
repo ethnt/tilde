@@ -64,3 +64,7 @@ generate-user-age-key:
 [doc("Get the age key for the current host")]
 host-age-key:
     nix shell nixpkgs#ssh-to-age --command sh -c "sudo cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age"
+
+[doc("Render the GitHub workflow files")]
+render-workflows:
+    nix run .#render-workflows

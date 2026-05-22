@@ -56,13 +56,16 @@
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
     pragmatapro.inputs.flake-parts.follows = "flake-parts";
 
+    actions-nix.url = "github:nialov/actions.nix";
+    actions-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
   };
 
   outputs = inputs@{ self, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
 
       imports = [
         ./lib
@@ -74,6 +77,7 @@
         ./modules/core/secrets.nix
         ./modules/core/flake-root.nix
 
+        ./modules/development/ci.nix
         ./modules/development/shell.nix
         ./modules/development/treefmt.nix
 

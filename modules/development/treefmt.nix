@@ -17,8 +17,12 @@
           prettier.enable = true;
         };
         settings.formatter = {
-          prettier.excludes =
-            [ "secrets.json" "**/secrets.json" "**/secrets.yml" ];
+          prettier.excludes = [
+            ".github/**/*.yml"
+            "secrets.json"
+            "**/secrets.json"
+            "**/secrets.yml"
+          ];
         };
       };
     in {
