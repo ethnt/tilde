@@ -96,11 +96,15 @@ in {
         build-package = {
           name = "Build package";
           runs-on = "macos-15";
-          strategy.matrix.package = l.attrNames self.packages.aarch64-darwin;
+          strategy.matrix = {
+            architecture = [ "aarch64-darwin" ];
+            package = l.attrNames self.packages.aarch64-darwin;
+          };
           steps = setup ++ [{
-            name = "Build \${{ matrix.package }} package";
+            name =
+              "Build \${{ matrix.package }} (\${{ matrix.architecture }}) package";
             run = ''
-              nix build .#packages.aarch64-darwin.''${{ matrix.package }} --keep-going --print-build-logs --show-trace --verbose
+              nix build .#packages.''${{ matrix.architecture }}.''${{ matrix.package }} --keep-going --print-build-logs --show-trace --verbose
             '';
           }];
         };

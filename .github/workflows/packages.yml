@@ -34,11 +34,13 @@ jobs:
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
         installCommand: nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#cachix
         name: tilde
-    - name: Build ${{ matrix.package }} package
-      run: nix build .#packages.aarch64-darwin.${{ matrix.package }} --keep-going
+    - name: Build ${{ matrix.package }} (${{ matrix.architecture }}) package
+      run: nix build .#packages.${{ matrix.architecture }}.${{ matrix.package }} --keep-going
         --print-build-logs --show-trace --verbose
     strategy:
       matrix:
+        architecture:
+        - aarch64-darwin
         package:
         - gh-stack
         - nix-docker
