@@ -80,22 +80,12 @@ in {
           name = "Build system";
           runs-on = "macos-15";
           strategy.matrix.host = l.attrNames self.darwinConfigurations;
-          steps = setup ++ [
-            {
-              name = "Clean up storage";
-              run = ''
-                sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
-                sudo docker image prune --all --force
-                sudo docker builder prune -a
-              '';
-            }
-            {
-              name = "Build \${{ matrix.host }} host system";
-              run = ''
-                nix build .#darwinConfigurations.''${{ matrix.host }}.system --keep-going --print-build-logs --show-trace --verbose
-              '';
-            }
-          ];
+          steps = setup ++ [{
+            name = "Build \${{ matrix.host }} host system";
+            run = ''
+              nix build .#darwinConfigurations.''${{ matrix.host }}.system --keep-going --print-build-logs --show-trace --verbose
+            '';
+          }];
         };
       };
     };
