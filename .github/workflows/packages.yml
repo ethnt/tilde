@@ -49,6 +49,10 @@ jobs:
         - sf-pro
 name: Build packages
 'on':
+  pull_request:
+    paths:
+    - flake.lock
+    - modules/packages/**/*.nix
   push:
     paths:
     - flake.lock

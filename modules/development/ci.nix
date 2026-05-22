@@ -92,7 +92,11 @@ in {
 
     ".github/workflows/packages.yml" = {
       name = "Build packages";
-      on.push.paths = [ "flake.lock" "modules/packages/**/*.nix" ];
+      on = let paths = [ "flake.lock" "modules/packages/**/*.nix" ];
+      in {
+        push.paths = paths;
+        pull_request.paths = paths;
+      };
       jobs = {
         build-package = {
           name = "Build package";
