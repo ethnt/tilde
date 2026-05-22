@@ -49,5 +49,7 @@ jobs:
         - sf-pro
 name: Build packages
 'on':
-  push: {}
-  workflow_dispatch: {}
+  push:
+    paths:
+    - flake.lock
+    - modules/packages/**/*.nix
