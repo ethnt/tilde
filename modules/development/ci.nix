@@ -33,8 +33,8 @@ in {
         uses = actions.ssh-agent;
         "with" = {
           ssh-private-key = ''
-            ''${{ secrets.SECRETS_DEPLOY_KEY }}"
-            ''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}"
+            ''${{ secrets.SECRETS_DEPLOY_KEY }}
+            ''${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
           '';
         };
       }
