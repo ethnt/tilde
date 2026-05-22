@@ -73,17 +73,34 @@ in {
       };
     };
 
-    ".github/workflows/build.yml" = {
-      name = "Build";
+    ".github/workflows/hosts.yml" = {
+      name = "Host configurations";
       jobs = {
         build-system = {
-          name = "Build system";
+          name = "Build host system";
           runs-on = "macos-15";
           strategy.matrix.host = l.attrNames self.darwinConfigurations;
           steps = setup ++ [{
             name = "Build \${{ matrix.host }} host system";
             run = ''
               nix build .#darwinConfigurations.''${{ matrix.host }}.system --keep-going --print-build-logs --show-trace --verbose
+            '';
+          }];
+        };
+      };
+    };
+
+    ".github/workflows/packages.yml" = {
+      name = "Build packages";
+      jobs = {
+        build-package = {
+          name = "Build package";
+          runs-on = "macos-15";
+          strategy.matrix.package = l.attrNames self.packages.aarch64-darwin;
+          steps = setup ++ [{
+            name = "Build \${{ matrix.package }} package";
+            run = ''
+              nix build .#packages.aarch64-darwin.''${{ matrix.package }} --keep-going --print-build-logs --show-trace --verbose
             '';
           }];
         };
