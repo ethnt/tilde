@@ -10,13 +10,13 @@ stdenv.mkDerivation {
     hash = "sha256-mAXExj8n8gFHq19HfGy4UOJYKVGPYgarGd/04kUIqX4=";
   };
 
-  phases = [ "unpackPhase" "installPhase" ];
-  pathsToLink = [ "/share/fonts/opentype/" ];
-  sourceRoot = ".";
   installPhase = ''
-    install_path=$out/share/fonts/opentype
-    mkdir -p $install_path
-    cp **/*.{otf,ttf} $install_path
+    runHook preInstall
+
+    install -Dm644 *.otf -t "$out/share/fonts/opentype/"
+    install -Dm644 *.ttf -t "$out/share/fonts/truetype/"
+
+    runHook postInstall
   '';
 
   meta = with lib; {
