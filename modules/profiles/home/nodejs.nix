@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ nodejs_25 pnpm ];
+  home.packages = with pkgs; [ nodejs pnpm ];
 
   home.sessionPath = [ "$HOME/.pnpm" ];
 }
