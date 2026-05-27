@@ -67,9 +67,6 @@
         diagnostics = false;
         metrics = false;
       };
-
-      # AI
-      disable_ai = true;
     };
   };
 }
