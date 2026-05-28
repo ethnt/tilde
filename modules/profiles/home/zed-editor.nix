@@ -69,7 +69,7 @@
       };
 
       # AI
-      disable_ai = true;
+      show_completions_on_input = false;
     };
   };
 }
