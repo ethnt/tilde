@@ -3,10 +3,13 @@
     enable = true;
     extensions = [
       "editorconfig"
+      "elisp"
       "haskell"
       "html"
       "just"
+      "latex"
       "log"
+      "make"
       "nix"
       "nord"
       "ruby"

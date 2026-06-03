@@ -9,7 +9,9 @@ with profiles;
     autojump
     bat
     certs
+    crush
     direnv
+    emacs
     fish
     fzf
     ghostty

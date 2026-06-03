@@ -5,8 +5,10 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  sharedModules = l.attrValues flake.homeModules
-    ++ (with inputs; [ sops-nix.homeManagerModules.sops ]);
+  sharedModules = l.attrValues flake.homeModules ++ (with inputs; [
+    sops-nix.homeManagerModules.sops
+    charmbracelet.homeModules.crush
+  ]);
 
   extraSpecialArgs = {
     inherit flake inputs secrets;
