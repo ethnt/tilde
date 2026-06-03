@@ -186,6 +186,27 @@
         "type": "github"
       }
     },
+    "charmbracelet": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1780087526,
+        "narHash": "sha256-MIW62CNple/GJkrUheM5WdqrEOfdYaiS/EUUnxK63F0=",
+        "owner": "charmbracelet",
+        "repo": "nur",
+        "rev": "3a33c13df4a7b076ba77b13e3219cb1cf38e341a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "charmbracelet",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -4066,7 +4087,7 @@
           "nixpkgs"
         ],
         "nuschtosSearch": "nuschtosSearch_2",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
         "lastModified": 1726335481,
@@ -4798,6 +4819,7 @@
     "root": {
       "inputs": {
         "actions-nix": "actions-nix",
+        "charmbracelet": "charmbracelet",
         "emacs-overlay": "emacs-overlay",
         "flake-compat": "flake-compat_2",
         "flake-parts": "flake-parts_2",
@@ -5604,6 +5626,27 @@
       }
     },
     "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "charmbracelet",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769353635,
+        "narHash": "sha256-J0G1ACrUK29M0THPAsz429eZX07GmR9Bs/b0pB3N0dQ=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "f46bb205f239b415309f58166f8df6919fa88377",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_2": {
       "inputs": {
         "nixpkgs": [
           "tilde-secrets",

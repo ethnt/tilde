@@ -21,7 +21,7 @@ in {
   };
 
   programs.mcp.servers.github = {
-    command = github-mcp-wrapper;
+    command = toString github-mcp-wrapper;
     args = [ ];
   };
 }

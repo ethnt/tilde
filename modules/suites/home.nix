@@ -9,6 +9,7 @@ with profiles;
     autojump
     bat
     certs
+    crush
     direnv
     fish
     fzf
