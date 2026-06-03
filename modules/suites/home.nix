@@ -11,7 +11,6 @@ with profiles;
     certs
     crush
     direnv
-    emacs
     fish
     fzf
     ghostty
