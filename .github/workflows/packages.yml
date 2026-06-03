@@ -43,6 +43,7 @@ jobs:
         - aarch64-darwin
         package:
         - gh-stack
+        - mcp-remote
         - nix-docker
         - oh-my-tmux
         - render-workflows

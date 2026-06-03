@@ -4,8 +4,9 @@
     ++ (with profiles; [ haskell nodejs ]) ++ [ secrets.users.et.home ] ++ [
       ./profiles/git.nix
       ./profiles/jujutsu.nix
-      ./profiles/mcp/default.nix
-      ./profiles/mcp/linear/default.nix
+      ./profiles/mcp/figma.nix
+      ./profiles/mcp/linear.nix
+      ./profiles/mcp/notion.nix
       ./profiles/tmuxp.nix
       ./profiles/tools.nix
       ./profiles/vscode.nix
