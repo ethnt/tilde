@@ -7,6 +7,7 @@
       # ./profiles/mcp/figma.nix
       ./profiles/mcp/linear.nix
       ./profiles/mcp/notion.nix
+      ./profiles/opencode/default.nix
       ./profiles/tmuxp.nix
       ./profiles/tools.nix
       ./profiles/vscode.nix
