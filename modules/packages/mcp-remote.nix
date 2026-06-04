@@ -40,8 +40,7 @@ in stdenv.mkDerivation (finalAttrs: rec {
 
     mkdir -p $out/bin
 
-    cp -r node_modules $out/
-    cp -r dist $out/
+    cp -r {node_modules,dist} $out/
 
     echo '#!${lib.getExe bash}' > $out/bin/mcp-remote
 
@@ -54,9 +53,10 @@ in stdenv.mkDerivation (finalAttrs: rec {
 
   meta = {
     description =
-      "Connect an MCP Client that only supports local (stdio) servers to a Remote MCP Server, with auth support:";
+      "Connect an MCP Client that only supports local (stdio) servers to a Remote MCP Server, with auth support";
     homepage = "https://github.com/geelen/mcp-remote";
     license = lib.licenses.mit;
+    platforms = lib.platforms.all;
     mainProgram = "mcp-remote";
   };
 })

@@ -1,8 +1,8 @@
 { lib, fetchFromGitHub, buildGoModule, }:
-let version = "0.0.1";
-in buildGoModule {
+
+buildGoModule rec {
   pname = "gh-stack";
-  inherit version;
+  version = "0.0.1";
 
   src = fetchFromGitHub {
     owner = "github";
@@ -17,6 +17,7 @@ in buildGoModule {
     homepage = "https://github.com/github/gh-stack";
     description = "GitHub Stacked PRs";
     license = lib.licenses.mit;
+    platforms = lib.platforms.all;
     mainProgram = "gh-stack";
   };
 }

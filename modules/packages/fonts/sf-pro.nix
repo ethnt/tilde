@@ -1,7 +1,8 @@
 { stdenv, lib, fetchFromGitHub }:
 
 stdenv.mkDerivation {
-  name = "sf-pro";
+  pname = "sf-pro";
+  version = "2021-06-22";
 
   src = fetchFromGitHub {
     owner = "sahibjotsaggu";
@@ -19,7 +20,7 @@ stdenv.mkDerivation {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://developer.apple.com/fonts/";
     description = ''
       This neutral, flexible, sans-serif typeface is the system font for iOS,
@@ -27,7 +28,7 @@ stdenv.mkDerivation {
       sizes for optimal legibility, and includes a rounded variant. SF Pro
       supports over 150 languages across Latin, Greek, and Cyrillic scripts.
     '';
-    platforms = platforms.all;
-    licence = licences.unfree;
+    platforms = lib.platforms.all;
+    license = lib.licenses.unfree;
   };
 }
