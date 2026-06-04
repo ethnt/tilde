@@ -3,12 +3,10 @@
 
   perSystem = { config, pkgs, ... }: {
     overlayAttrs = {
-      inherit (config.packages)
-        nix-docker oh-my-tmux sf-pro gh-stack mcp-remote;
+      inherit (config.packages) mcp-remote nix-docker oh-my-tmux sf-pro;
     };
 
     packages = {
-      gh-stack = pkgs.callPackage ./gh-stack.nix { };
       mcp-remote = pkgs.callPackage ./mcp-remote.nix { };
       nix-docker = pkgs.callPackage ./nix-docker.nix { };
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux.nix { };

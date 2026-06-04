@@ -54,8 +54,8 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    charmbracelet.url = "github:charmbracelet/nur";
-    charmbracelet.inputs.nixpkgs.follows = "nixpkgs";
+    llm-agents.url = "github:numtide/llm-agents.nix";
+    llm-agents.inputs.nixpkgs.follows = "nixpkgs";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
@@ -104,6 +104,7 @@
             self.overlays.default
             pragmatapro.overlays.default
             emacs-overlay.overlays.default
+            llm-agents.overlays.default
           ];
 
           config.allowUnfree = true;
