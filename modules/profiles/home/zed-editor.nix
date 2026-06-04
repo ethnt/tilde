@@ -28,6 +28,7 @@
       ui_font_size = 16;
       buffer_font_family = "PragmataPro Mono Liga";
       buffer_font_size = 16;
+      terminal.font_family = "PragmataPro Mono Liga";
 
       # Theme
       theme = {
