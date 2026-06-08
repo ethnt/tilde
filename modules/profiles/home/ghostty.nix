@@ -10,6 +10,7 @@
       font-size = 16;
       theme = "nord";
       window-padding-x = 8;
+      confirm-close-surface = false;
     };
   };
 }
