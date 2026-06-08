@@ -6,6 +6,7 @@
       ./profiles/jujutsu.nix
       # ./profiles/mcp/figma.nix
       ./profiles/mcp/grafana/default.nix
+      ./profiles/mcp/postgres/default.nix
       ./profiles/mcp/linear.nix
       ./profiles/mcp/notion.nix
       ./profiles/opencode/default.nix
