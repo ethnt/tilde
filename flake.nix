@@ -11,6 +11,7 @@
       "https://tilde.cachix.org"
       "https://nix-community.cachix.org"
       "https://numtide.cachix.org"
+      "https://cache.numtide.com"
     ];
 
     extra-trusted-public-keys = [
@@ -20,6 +21,7 @@
       "tilde.cachix.org-1:vjup2ixrsWKk+v8FXCqusKWBRwU0l7EzumjnMV4n2Vg="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
 
@@ -54,8 +56,8 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    charmbracelet.url = "github:charmbracelet/nur";
-    charmbracelet.inputs.nixpkgs.follows = "nixpkgs";
+    llm-agents.url = "github:numtide/llm-agents.nix";
+    llm-agents.inputs.nixpkgs.follows = "nixpkgs";
 
     pragmatapro.url = "git+ssh://git@github.com/ethnt/pragmatapro";
     pragmatapro.inputs.nixpkgs.follows = "nixpkgs";
@@ -104,6 +106,7 @@
             self.overlays.default
             pragmatapro.overlays.default
             emacs-overlay.overlays.default
+            llm-agents.overlays.default
           ];
 
           config.allowUnfree = true;

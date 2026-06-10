@@ -9,7 +9,6 @@ with profiles;
     autojump
     bat
     certs
-    crush
     direnv
     fish
     fzf
@@ -44,6 +43,8 @@ with profiles;
     mcp.memory
     mcp.nixos
     mise
+    opencode.default
+    tuicr
     vscode
   ];
 

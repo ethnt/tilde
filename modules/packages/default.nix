@@ -4,14 +4,15 @@
   perSystem = { config, pkgs, ... }: {
     overlayAttrs = {
       inherit (config.packages)
-        nix-docker oh-my-tmux sf-pro gh-stack mcp-remote;
+        firehydrant-mcp mcp-remote nix-docker oh-my-tmux postgres-mcp sf-pro;
     };
 
     packages = {
-      gh-stack = pkgs.callPackage ./gh-stack.nix { };
+      firehydrant-mcp = pkgs.callPackage ./firehydrant-mcp.nix { };
       mcp-remote = pkgs.callPackage ./mcp-remote.nix { };
       nix-docker = pkgs.callPackage ./nix-docker.nix { };
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux.nix { };
+      postgres-mcp = pkgs.callPackage ./postgres-mcp.nix { };
       sf-pro = pkgs.callPackage ./fonts/sf-pro.nix { };
     };
   };

@@ -1,28 +1,34 @@
 { stdenv, lib }:
 
 stdenv.mkDerivation {
-  name = "oh-my-tmux";
+  pname = "oh-my-tmux";
+  version = "2026-02-01";
 
   # fetchFromGitHub has trouble with the extracted directory from the ZIP file having a
   # preceding dot, so use fetchTarball instead
-  src = builtins.fetchTarball {
+  src = fetchTarball {
     url =
-      "https://github.com/gpakosz/.tmux/archive/87dcd13a28aeb5f18baee630e24b3f5765ae3a4f.tar.gz";
-    sha256 = "sha256-rfJkL4EMMunbC7wGiw7O/1E/0XTzA2N+RR7gXEoalAY=";
+      "https://github.com/gpakosz/.tmux/archive/af33f07134b76134acca9d01eacbdecca9c9cda6.tar.gz";
+    sha256 = "sha256-nXm664l84YSwZeRM4Hsweqgz+OlpyfwXcgEdyNGhaGA=";
   };
 
-  phases = [ "unpackPhase" "installPhase" ];
+  dontConfigure = true;
+  dontBuild = true;
 
   installPhase = ''
+    runHook preInstall
+
     mkdir $out
     cp -r ./.tmux.conf* $out
+
+    runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/gpakosz/.tmux";
     description =
       "Oh my tmux! My self-contained, pretty & versatile tmux configuration made with love";
-    platforms = platforms.all;
-    licence = licences.mit;
+    platforms = lib.platforms.all;
+    license = lib.licenses.mit;
   };
 }

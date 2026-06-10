@@ -1,13 +1,14 @@
 { stdenv, fetchFromGitHub, lib }:
 
 stdenv.mkDerivation {
-  name = "nix-docker";
+  pname = "nix-docker";
+  version = "2022-04-02";
 
   src = fetchFromGitHub {
     owner = "LnL7";
     repo = "nix-docker";
     rev = "277b1ad6b6d540e4f5979536eff65366246d4582";
-    sha256 = "F8QizIR9A1Axt0C+NQHxDkNEMtRKALgLxuqfqXMAMgM=";
+    hash = "sha256-F8QizIR9A1Axt0C+NQHxDkNEMtRKALgLxuqfqXMAMgM=";
   };
 
   installPhase = ''
@@ -16,10 +17,10 @@ stdenv.mkDerivation {
     chmod 0400 $out/ssh/insecure_rsa
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/LnL7/nix-docker";
     description = "Docker images for the Nix package manager";
-    platforms = platforms.all;
-    licence = licences.mit;
+    platforms = lib.platforms.all;
+    license = lib.licenses.mit;
   };
 }
