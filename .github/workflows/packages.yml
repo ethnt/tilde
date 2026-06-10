@@ -52,5 +52,6 @@ name: Build packages
 'on':
   push:
     paths:
-    - flake.lock
+    - .github/**/*.yml
     - modules/packages/**/*.nix
+    - flake.lock
