@@ -99,7 +99,8 @@ in {
           runs-on = "macos-15";
           strategy.matrix = {
             architecture = [ "aarch64-darwin" ];
-            package = l.attrNames self.packages.aarch64-darwin;
+            package = l.filter (name: name != "render-workflows")
+              (l.attrNames self.packages.aarch64-darwin);
           };
           steps = setup ++ [{
             name =

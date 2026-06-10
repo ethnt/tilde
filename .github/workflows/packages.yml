@@ -42,10 +42,11 @@ jobs:
         architecture:
         - aarch64-darwin
         package:
+        - firehydrant-mcp
         - mcp-remote
         - nix-docker
         - oh-my-tmux
-        - render-workflows
+        - postgres-mcp
         - sf-pro
 name: Build packages
 'on':
