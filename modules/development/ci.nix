@@ -92,14 +92,16 @@ in {
 
     ".github/workflows/packages.yml" = {
       name = "Build packages";
-      on.push.paths = [ "flake.lock" "modules/packages/**/*.nix" ];
+      on.push.paths =
+        [ ".github/**/*.yml" "modules/packages/**/*.nix" "flake.lock" ];
       jobs = {
         build-package = {
           name = "Build package";
           runs-on = "macos-15";
           strategy.matrix = {
             architecture = [ "aarch64-darwin" ];
-            package = l.attrNames self.packages.aarch64-darwin;
+            package = l.filter (name: name != "render-workflows")
+              (l.attrNames self.packages.aarch64-darwin);
           };
           steps = setup ++ [{
             name =

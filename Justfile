@@ -18,6 +18,10 @@ build-system name:
 build-home name:
     nh home build .#homeConfigurations.{{ name }}.activation-script {{ nh-build-flags }}
 
+[doc("Build a specific package")]
+build-package name:
+    nom build .#packages.aarch64-darwin.{{ name }}
+
 [doc("Switch to the current host profile")]
 switch:
     nh darwin switch .#
