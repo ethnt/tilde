@@ -1,4 +1,5 @@
-{ lib, python312Packages, fetchFromGitHub, }:
+{ lib, python312Packages, fetchFromGitHub }:
+
 python312Packages.buildPythonApplication {
   pname = "postgres-mcp";
   version = "0.3.0";
@@ -33,7 +34,6 @@ python312Packages.buildPythonApplication {
     instructor
   ];
 
-  # postgres-mcp pins pglast==7.2.0 but nixpkgs ships 7.11 which is compatible
   pythonRelaxDeps = [ "pglast" ];
 
   meta = {
