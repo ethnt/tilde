@@ -4,7 +4,7 @@
     ++ (with profiles; [ haskell nodejs ]) ++ [ secrets.users.et.home ] ++ [
       ./profiles/git.nix
       ./profiles/jujutsu.nix
-      # ./profiles/mcp/figma.nix
+      ./profiles/mcp/figma.nix
       ./profiles/mcp/firehydrant/default.nix
       ./profiles/mcp/grafana/default.nix
       ./profiles/mcp/honeycomb.nix
