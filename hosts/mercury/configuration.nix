@@ -17,6 +17,9 @@
   homebrew = {
     casks = [ "bruno" "figma" "jabra-direct" "linear" "loom" "postico" ];
 
-    masApps = { "Flow" = 1423210932; };
+    masApps = {
+      "Flow" = 1423210932;
+      "Trace" = 6768724888;
+    };
   };
 }
