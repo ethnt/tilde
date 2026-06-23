@@ -18,5 +18,5 @@ with profiles;
 
   identity = [ gpg-agent ];
 
-  remote-builders = [ builders.common builders.nix-docker ];
+  remote-builders = [ builders.common ];
 }
