@@ -1,5 +1,5 @@
-{ stdenv, pnpm_10, fetchFromGitHub, fetchPnpmDeps, pnpmConfigHook, nodejs, bash
-, lib }:
+{ stdenv, pnpm_10, fetchFromGitHub, fetchPnpmDeps, pnpmConfigHook, nodejs
+, makeWrapper, lib }:
 
 let pnpm = pnpm_10;
 in stdenv.mkDerivation (finalAttrs: rec {
@@ -20,7 +20,7 @@ in stdenv.mkDerivation (finalAttrs: rec {
     hash = "sha256-5podB1HJahhn2vlMBnu0wm7AJ0bjq8pvXqPgdR8c3GQ=";
   };
 
-  nativeBuildInputs = [ nodejs pnpmConfigHook pnpm ];
+  nativeBuildInputs = [ nodejs pnpmConfigHook pnpm makeWrapper ];
 
   doCheck = true;
 
@@ -42,11 +42,9 @@ in stdenv.mkDerivation (finalAttrs: rec {
 
     cp -r {node_modules,dist} $out/
 
-    echo '#!${lib.getExe bash}' > $out/bin/mcp-remote
-
-    echo "export NODE_PATH=$out/node_modules; ${nodejs}/bin/node $out/dist/proxy.js \"\$@\"" >> $out/bin/mcp-remote
-
-    chmod +x $out/bin/mcp-remote
+    makeWrapper "${lib.getExe nodejs}" "$out/bin/mcp-remote" \
+      --set NODE_PATH "$out/node_modules" \
+      --add-flags "$out/dist/proxy.js"
 
     runHook postInstall
   '';

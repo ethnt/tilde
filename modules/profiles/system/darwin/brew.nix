@@ -4,13 +4,7 @@
   homebrew = {
     enable = true;
 
-    onActivation = {
-      cleanup = lib.mkDefault "zap";
-
-      # TODO: Remove when this issue is fixed
-      # https://github.com/nix-darwin/nix-darwin/pull/1789
-      extraFlags = [ "--force-cleanup" ];
-    };
+    onActivation.cleanup = lib.mkDefault "zap";
 
     brews = [ "pinentry-mac" ];
 
@@ -34,6 +28,7 @@
       "rectangle"
       "slack"
       "spotify"
+      "zen-browser"
     ];
 
     masApps = { "Amphetamine" = 937984704; };

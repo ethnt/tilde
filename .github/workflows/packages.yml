@@ -44,7 +44,6 @@ jobs:
         package:
         - firehydrant-mcp
         - mcp-remote
-        - nix-docker
         - oh-my-tmux
         - postgres-mcp
         - sf-pro
