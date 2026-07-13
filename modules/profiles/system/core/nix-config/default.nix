@@ -1,6 +1,8 @@
 { config, pkgs, ... }: {
   sops = {
-    secrets.nix-conf-github-pat = { sopsFile = ./secrets.json; };
+    secrets.nix-conf-github-pat = {
+      sopsFile = ./secrets.json;
+    };
 
     templates."nix/nix-conf-access-tokens" = {
       content = ''
@@ -22,8 +24,7 @@
   };
 
   nix = {
-    extraOptions =
-      "!include ${config.sops.templates."nix/nix-conf-access-tokens".path}";
+    extraOptions = "!include ${config.sops.templates."nix/nix-conf-access-tokens".path}";
     gc.automatic = true;
   };
 

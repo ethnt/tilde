@@ -1,7 +1,22 @@
-{ suites, secrets, profiles, ... }: {
-  imports = with suites;
-    base ++ development ++ work ++ identity
-    ++ (with profiles; [ haskell nodejs ]) ++ [ secrets.users.et.home ] ++ [
+{
+  suites,
+  secrets,
+  profiles,
+  ...
+}:
+{
+  imports =
+    with suites;
+    base
+    ++ development
+    ++ work
+    ++ identity
+    ++ (with profiles; [
+      haskell
+      nodejs
+    ])
+    ++ [ secrets.users.et.home ]
+    ++ [
       ./profiles/git.nix
       ./profiles/jujutsu.nix
       ./profiles/mcp/figma.nix

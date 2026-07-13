@@ -1,8 +1,18 @@
-{ stdenv, pnpm_10, fetchFromGitHub, fetchPnpmDeps, pnpmConfigHook, nodejs
-, makeWrapper, lib }:
+{
+  stdenv,
+  pnpm_10,
+  fetchFromGitHub,
+  fetchPnpmDeps,
+  pnpmConfigHook,
+  nodejs,
+  makeWrapper,
+  lib,
+}:
 
-let pnpm = pnpm_10;
-in stdenv.mkDerivation (finalAttrs: rec {
+let
+  pnpm = pnpm_10;
+in
+stdenv.mkDerivation (finalAttrs: rec {
   pname = "mcp-remote";
   version = "0.1.38";
 
@@ -20,7 +30,12 @@ in stdenv.mkDerivation (finalAttrs: rec {
     hash = "sha256-5podB1HJahhn2vlMBnu0wm7AJ0bjq8pvXqPgdR8c3GQ=";
   };
 
-  nativeBuildInputs = [ nodejs pnpmConfigHook pnpm makeWrapper ];
+  nativeBuildInputs = [
+    nodejs
+    pnpmConfigHook
+    pnpm
+    makeWrapper
+  ];
 
   doCheck = true;
 
@@ -50,8 +65,7 @@ in stdenv.mkDerivation (finalAttrs: rec {
   '';
 
   meta = {
-    description =
-      "Connect an MCP Client that only supports local (stdio) servers to a Remote MCP Server, with auth support";
+    description = "Connect an MCP Client that only supports local (stdio) servers to a Remote MCP Server, with auth support";
     homepage = "https://github.com/geelen/mcp-remote";
     license = lib.licenses.mit;
     platforms = lib.platforms.all;

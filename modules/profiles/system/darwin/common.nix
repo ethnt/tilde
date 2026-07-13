@@ -6,7 +6,10 @@
     settings = {
       trusted-users = [ config.system.primaryUser ];
       extra-nix-path = [ "darwin-config=${flake}/lib/compat/darwin" ];
-      extra-experimental-features = [ "nix-command" "flakes" ];
+      extra-experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 

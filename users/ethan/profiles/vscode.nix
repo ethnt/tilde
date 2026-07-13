@@ -15,7 +15,9 @@
       }
     ];
     userSettings = {
-      "[astro]" = { "editor.defaultFormatter" = "astro-build.astro-vscode"; };
+      "[astro]" = {
+        "editor.defaultFormatter" = "astro-build.astro-vscode";
+      };
     };
   };
 }

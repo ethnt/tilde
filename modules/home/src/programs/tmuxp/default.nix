@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.programs.tmuxp;
   yamlFormat = pkgs.formats.yaml { };
-in {
+in
+{
   options.programs.tmuxp = {
     enable = mkEnableOption "Enable tmuxp";
     package = mkOption {
@@ -21,9 +27,11 @@ in {
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    xdg.configFile = mapAttrs' (name: attrs:
+    xdg.configFile = mapAttrs' (
+      name: attrs:
       nameValuePair "tmuxp/${name}.yaml" {
         source = yamlFormat.generate "tmuxp-${name}.yaml" attrs;
-      }) cfg.workspaces;
+      }
+    ) cfg.workspaces;
   };
 }

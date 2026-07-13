@@ -1,6 +1,8 @@
 { self, ... }:
-let inherit (self) profiles;
-in {
+let
+  inherit (self) profiles;
+in
+{
   flake.suites = {
     darwin = import ./system.nix { profiles = profiles.darwin; };
 

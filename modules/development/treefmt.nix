@@ -1,7 +1,8 @@
 { inputs, ... }: {
   imports = [ inputs.treefmt.flakeModule ];
 
-  perSystem = { config, pkgs, ... }:
+  perSystem =
+    { config, pkgs, ... }:
     let
       treefmtConfig = {
         inherit (config.flake-root) projectRootFile;
@@ -10,10 +11,7 @@
           actionlint.enable = true;
           deadnix.enable = true;
           statix.enable = true;
-          nixfmt = {
-            enable = true;
-            package = pkgs.nixfmt-classic;
-          };
+          nixfmt.enable = true;
           prettier.enable = true;
         };
         settings.formatter = {
@@ -25,14 +23,17 @@
           ];
         };
       };
-    in {
+    in
+    {
       treefmt.config = treefmtConfig;
 
       formatter = inputs.treefmt.lib.mkWrapper pkgs treefmtConfig;
 
       devShells.treefmt = pkgs.mkShell {
-        nativeBuildInputs = [ config.treefmt.build.wrapper ]
-          ++ (builtins.attrValues config.treefmt.build.programs);
+        nativeBuildInputs = [
+          config.treefmt.build.wrapper
+        ]
+        ++ (builtins.attrValues config.treefmt.build.programs);
       };
     };
 }

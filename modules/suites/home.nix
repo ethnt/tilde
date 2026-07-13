@@ -52,5 +52,15 @@ with profiles;
 
   work = [ git.large-repos ];
 
-  minimal = [ autojump bat fish fzf git.common gh navi starship tools.common ];
+  minimal = [
+    autojump
+    bat
+    fish
+    fzf
+    git.common
+    gh
+    navi
+    starship
+    tools.common
+  ];
 }

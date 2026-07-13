@@ -5,7 +5,8 @@ let
     export GITHUB_PERSONAL_ACCESS_TOKEN="$(cat ${config.sops.secrets.github_mcp_pat.path})"
     exec ${pkgs.github-mcp-server}/bin/github-mcp-server stdio
   '';
-in {
+in
+{
   sops = {
     secrets.github_mcp_pat = {
       sopsFile = ./secrets.json;

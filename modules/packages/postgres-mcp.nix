@@ -1,4 +1,8 @@
-{ lib, python312Packages, fetchFromGitHub }:
+{
+  lib,
+  python312Packages,
+  fetchFromGitHub,
+}:
 
 python312Packages.buildPythonApplication {
   pname = "postgres-mcp";

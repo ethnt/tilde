@@ -139,11 +139,15 @@
         "ruby.useLanguageServer" = true;
 
         # Nix settings
-        "[nix]" = { "editor.defaultFormatter" = "brettm12345.nixfmt-vscode"; };
+        "[nix]" = {
+          "editor.defaultFormatter" = "brettm12345.nixfmt-vscode";
+        };
         "nixfmt.path" = lib.getExe pkgs.nixfmt-classic;
 
         # JSON settings
-        "[json]" = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
 
         # TypeScript settings
         "[typescriptreact]" = {

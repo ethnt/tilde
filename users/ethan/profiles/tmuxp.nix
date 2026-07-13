@@ -2,62 +2,78 @@
   programs.tmuxp.workspaces = {
     tilde = {
       session_name = "tilde";
-      windows = [{
-        focus = true;
-        layout = "c5e0,212x37,0,0,3";
-        options = { };
-        panes = [{
+      windows = [
+        {
           focus = true;
-          shell_command = "direnv reload";
-        }];
-        start_directory = "${config.home.homeDirectory}/Workspace/tilde";
-        window_name = "fish";
-      }];
+          layout = "c5e0,212x37,0,0,3";
+          options = { };
+          panes = [
+            {
+              focus = true;
+              shell_command = "direnv reload";
+            }
+          ];
+          start_directory = "${config.home.homeDirectory}/Workspace/tilde";
+          window_name = "fish";
+        }
+      ];
     };
 
     e10 = {
       session_name = "e10";
-      windows = [{
-        focus = true;
-        layout = "c5e0,212x37,0,0,3";
-        options = { };
-        panes = [{
+      windows = [
+        {
           focus = true;
-          shell_command = "direnv reload";
-        }];
-        start_directory = "${config.home.homeDirectory}/Workspace/e10";
-        window_name = "fish";
-      }];
+          layout = "c5e0,212x37,0,0,3";
+          options = { };
+          panes = [
+            {
+              focus = true;
+              shell_command = "direnv reload";
+            }
+          ];
+          start_directory = "${config.home.homeDirectory}/Workspace/e10";
+          window_name = "fish";
+        }
+      ];
     };
 
     ethan-haus = {
       session_name = "ethan-haus";
-      windows = [{
-        focus = true;
-        layout = "c5e0,212x37,0,0,3";
-        options = { };
-        panes = [{
+      windows = [
+        {
           focus = true;
-          shell_command = "direnv reload";
-        }];
-        start_directory = "${config.home.homeDirectory}/Workspace/ethan.haus";
-        window_name = "fish";
-      }];
+          layout = "c5e0,212x37,0,0,3";
+          options = { };
+          panes = [
+            {
+              focus = true;
+              shell_command = "direnv reload";
+            }
+          ];
+          start_directory = "${config.home.homeDirectory}/Workspace/ethan.haus";
+          window_name = "fish";
+        }
+      ];
     };
 
     turkdeau = {
       session_name = "turkdeau";
-      windows = [{
-        focus = true;
-        layout = "c5e0,212x37,0,0,3";
-        options = { };
-        panes = [{
+      windows = [
+        {
           focus = true;
-          shell_command = "direnv reload";
-        }];
-        start_directory = "${config.home.homeDirectory}/Workspace/turkdeau.com";
-        window_name = "fish";
-      }];
+          layout = "c5e0,212x37,0,0,3";
+          options = { };
+          panes = [
+            {
+              focus = true;
+              shell_command = "direnv reload";
+            }
+          ];
+          start_directory = "${config.home.homeDirectory}/Workspace/turkdeau.com";
+          window_name = "fish";
+        }
+      ];
     };
   };
 }

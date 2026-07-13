@@ -4,7 +4,12 @@
   perSystem = { config, pkgs, ... }: {
     overlayAttrs = {
       inherit (config.packages)
-        firehydrant-mcp mcp-remote oh-my-tmux postgres-mcp sf-pro;
+        firehydrant-mcp
+        mcp-remote
+        oh-my-tmux
+        postgres-mcp
+        sf-pro
+        ;
     };
 
     packages = {

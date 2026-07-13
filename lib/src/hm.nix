@@ -5,8 +5,8 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  sharedModules = l.attrValues flake.homeModules
-    ++ (with inputs; [ sops-nix.homeManagerModules.sops ]);
+  sharedModules =
+    l.attrValues flake.homeModules ++ (with inputs; [ sops-nix.homeManagerModules.sops ]);
 
   extraSpecialArgs = {
     inherit flake inputs secrets;
@@ -14,11 +14,17 @@ let
     profiles = flake.profiles.home;
   };
 
-  mkHomeManagerConfiguration = { system, configuration }:
-    withSystem system ({ pkgs, ... }:
+  mkHomeManagerConfiguration =
+    { system, configuration }:
+    withSystem system (
+      { pkgs, ... }:
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs extraSpecialArgs;
         modules = sharedModules ++ [ configuration ];
-      });
+      }
+    );
 
-in { inherit sharedModules extraSpecialArgs mkHomeManagerConfiguration; }
+in
+{
+  inherit sharedModules extraSpecialArgs mkHomeManagerConfiguration;
+}
