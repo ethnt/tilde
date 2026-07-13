@@ -106,10 +106,13 @@
             self.overlays.default
             pragmatapro.overlays.default
             emacs-overlay.overlays.default
-            llm-agents.overlays.default
+            llm-agents.overlays.shared-nixpkgs
           ];
 
-          config.allowUnfree = true;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [ "pnpm-9.15.9" ];
+          };
         };
       };
     };
