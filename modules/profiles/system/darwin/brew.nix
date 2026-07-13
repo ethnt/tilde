@@ -8,7 +8,10 @@
 
     brews = [ "pinentry-mac" ];
 
-    taps = [ "railwaycat/emacsmacport" ];
+    taps = [{
+      name = "railwaycat/emacsmacport";
+      trusted = true;
+    }];
 
     casks = [
       "1password"
@@ -28,7 +31,7 @@
       "rectangle"
       "slack"
       "spotify"
-      "zen-browser"
+      "zen"
     ];
 
     masApps = { "Amphetamine" = 937984704; };
