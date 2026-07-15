@@ -1,6 +1,16 @@
-{ lib, suites, profiles, ... }: {
-  imports = with suites;
-    base ++ fonts ++ identity ++ [
+{
+  lib,
+  suites,
+  profiles,
+  ...
+}:
+{
+  imports =
+    with suites;
+    base
+    ++ fonts
+    ++ identity
+    ++ [
       profiles.users.ethan
       profiles.builders.builder
       profiles.builders.darwin-linux
@@ -24,7 +34,12 @@
 
     taps = [ "homebrew/services" ];
 
-    casks = [ "steam" "utm" "vlc" "zoom" ];
+    casks = [
+      "steam"
+      "utm"
+      "vlc"
+      "zoom"
+    ];
 
     masApps = {
       "Paprika Recipe Manager 3" = 1303222628;

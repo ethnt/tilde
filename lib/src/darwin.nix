@@ -5,21 +5,34 @@ let
 
   l = inputs.nixpkgs.lib // builtins;
 
-  sharedModules = (l.attrValues flake.darwinModules) ++ (with inputs; [
-    home-manager.darwinModules.home-manager
-    sops-nix.darwinModules.sops
-  ]);
+  sharedModules =
+    (l.attrValues flake.darwinModules)
+    ++ (with inputs; [
+      home-manager.darwinModules.home-manager
+      sops-nix.darwinModules.sops
+    ]);
 
   specialArgs = {
-    inherit flake inputs secrets homeConfigurations;
+    inherit
+      flake
+      inputs
+      secrets
+      homeConfigurations
+      ;
     suites = flake.suites.darwin;
     profiles = flake.profiles.darwin;
   };
 
-  mkDarwinConfiguration = { system, configuration }:
-    withSystem system ({ pkgs, ... }:
+  mkDarwinConfiguration =
+    { system, configuration }:
+    withSystem system (
+      { pkgs, ... }:
       inputs.nix-darwin.lib.darwinSystem {
         inherit pkgs system specialArgs;
         modules = sharedModules ++ [ configuration ];
-      });
-in { inherit mkDarwinConfiguration; }
+      }
+    );
+in
+{
+  inherit mkDarwinConfiguration;
+}

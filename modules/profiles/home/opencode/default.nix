@@ -10,7 +10,9 @@
     enable = true;
     package = pkgs.llm-agents.opencode;
     enableMcpIntegration = true;
-    tui = { theme = "nord"; };
+    tui = {
+      theme = "nord";
+    };
     settings = {
       formatter = true;
       lsp = true;
@@ -21,7 +23,9 @@
           };
         };
       };
-      permission = { "*" = "ask"; };
+      permission = {
+        "*" = "ask";
+      };
     };
   };
 }

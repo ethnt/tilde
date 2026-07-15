@@ -1,7 +1,13 @@
-{ suites, profiles, secrets, ... }: {
-  imports = with suites;
-    base ++ fonts ++ [ secrets.hosts.mercury.configuration ]
-    ++ [ profiles.users.et ];
+{
+  suites,
+  profiles,
+  secrets,
+  ...
+}:
+{
+  imports =
+    with suites;
+    base ++ fonts ++ [ secrets.hosts.mercury.configuration ] ++ [ profiles.users.et ];
 
   tilde.host.directory = "/Users/et/Workspace/tilde";
 
@@ -15,7 +21,14 @@
   };
 
   homebrew = {
-    casks = [ "bruno" "figma" "jabra-direct" "linear" "loom" "postico" ];
+    casks = [
+      "bruno"
+      "figma"
+      "jabra-direct"
+      "linear"
+      "loom"
+      "postico"
+    ];
 
     masApps = {
       "Flow" = 1423210932;

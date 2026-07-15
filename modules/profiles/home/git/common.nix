@@ -1,12 +1,25 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-  mkGitShellScript = { name, text, extraRuntimeInputs ? [ ] }:
-    lib.getExe (pkgs.writeShellApplication {
-      inherit name text;
+  mkGitShellScript =
+    {
+      name,
+      text,
+      extraRuntimeInputs ? [ ],
+    }:
+    lib.getExe (
+      pkgs.writeShellApplication {
+        inherit name text;
 
-      runtimeInputs = [ config.programs.git.package ] ++ extraRuntimeInputs;
-    });
-in {
+        runtimeInputs = [ config.programs.git.package ] ++ extraRuntimeInputs;
+      }
+    );
+in
+{
   home.packages = with pkgs; [ delta ];
 
   programs.git = {
@@ -15,41 +28,43 @@ in {
     settings = {
       user.name = "Ethan Turkeltaub";
 
-      alias = let
-        superprune = mkGitShellScript {
-          name = "git-alias-superprune";
-          text = ''
-            echo 'Fetching remote then deleting branches that are gone. This may take a moment'
+      alias =
+        let
+          superprune = mkGitShellScript {
+            name = "git-alias-superprune";
+            text = ''
+              echo 'Fetching remote then deleting branches that are gone. This may take a moment'
 
-            git fetch -p
+              git fetch -p
 
-            gone=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}')
-            for branch in $gone; do
-              git branch -D "$branch";
-            done;
-          '';
+              gone=$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}')
+              for branch in $gone; do
+                git branch -D "$branch";
+              done;
+            '';
+          };
+          co = mkGitShellScript {
+            name = "git-alias-co";
+            extraRuntimeInputs = [ pkgs.fzf ];
+            text = ''
+              git checkout "$(git branch --sort="-committerdate" | fzf | tr -d '[:space:]')";
+            '';
+          };
+          wipe = mkGitShellScript {
+            name = "git-alias-wipe";
+            text = ''
+              git add .
+              git stash
+            '';
+          };
+        in
+        {
+          s = "status";
+          superprune = "!sh ${superprune}";
+          co = "!sh ${co}";
+          wipe = "!sh ${wipe}";
+          sync = "!${lib.getExe pkgs.gh} repo sync";
         };
-        co = mkGitShellScript {
-          name = "git-alias-co";
-          extraRuntimeInputs = [ pkgs.fzf ];
-          text = ''
-            git checkout "$(git branch --sort="-committerdate" | fzf | tr -d '[:space:]')";
-          '';
-        };
-        wipe = mkGitShellScript {
-          name = "git-alias-wipe";
-          text = ''
-            git add .
-            git stash
-          '';
-        };
-      in {
-        s = "status";
-        superprune = "!sh ${superprune}";
-        co = "!sh ${co}";
-        wipe = "!sh ${wipe}";
-        sync = "!${lib.getExe pkgs.gh} repo sync";
-      };
 
       http.sslCAinfo = "/etc/ssl/certs/ca-certificates.crt";
 
@@ -61,7 +76,14 @@ in {
       init.defaultBranch = "main";
     };
 
-    ignores = [ "*~" "#*#" ".elc" ".#*" "flycheck_*.el" ".projectile" ];
+    ignores = [
+      "*~"
+      "#*#"
+      ".elc"
+      ".#*"
+      "flycheck_*.el"
+      ".projectile"
+    ];
 
     signing.signByDefault = config.programs.git.signing.key != null;
   };

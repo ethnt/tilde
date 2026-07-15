@@ -1,6 +1,8 @@
 { self, ... }:
-let inherit (self.lib.hm) mkHomeManagerConfiguration;
-in {
+let
+  inherit (self.lib.hm) mkHomeManagerConfiguration;
+in
+{
   flake.homeConfigurations = {
     ethan = mkHomeManagerConfiguration {
       system = "aarch64-darwin";

@@ -52,7 +52,9 @@
     ];
 
     userSettings = {
-      "files.associations" = { "BUCK" = "starlark"; };
+      "files.associations" = {
+        "BUCK" = "starlark";
+      };
       "[dockercompose]" = {
         "editor.insertSpaces" = true;
         "editor.tabSize" = 2;

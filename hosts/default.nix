@@ -1,6 +1,8 @@
 { self, ... }:
-let inherit (self.lib.darwin) mkDarwinConfiguration;
-in {
+let
+  inherit (self.lib.darwin) mkDarwinConfiguration;
+in
+{
   flake.darwinConfigurations = {
     eMac = mkDarwinConfiguration {
       system = "aarch64-darwin";

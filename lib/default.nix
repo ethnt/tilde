@@ -1,4 +1,9 @@
-{ inputs, self, withSystem, ... }:
+{
+  inputs,
+  self,
+  withSystem,
+  ...
+}:
 let
   haumea = inputs.haumea.lib;
   lib = haumea.load {
@@ -8,4 +13,7 @@ let
       flake = self;
     };
   };
-in { flake.lib = lib; }
+in
+{
+  flake.lib = lib;
+}

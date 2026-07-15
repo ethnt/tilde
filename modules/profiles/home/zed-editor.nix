@@ -48,7 +48,12 @@
       git.inline_blame.enabled = false;
 
       # File associations
-      file_types = { "Haskell" = [ "ghci" "persistentmodels" ]; };
+      file_types = {
+        "Haskell" = [
+          "ghci"
+          "persistentmodels"
+        ];
+      };
 
       # Direnv
       load_direnv = "shell_hook";
@@ -56,10 +61,13 @@
       # Language-specific
       languages = {
         Nix = {
-          language_servers = [ "nixd" "!nil" ];
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
           formatter = {
             external = {
-              command = lib.getExe pkgs.nixfmt-classic;
+              command = lib.getExe pkgs.nixfmt;
               arguments = [ ];
             };
           };

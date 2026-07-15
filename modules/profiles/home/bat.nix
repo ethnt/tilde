@@ -4,5 +4,9 @@
     config.theme = "Nord";
   };
 
-  home.packages = with pkgs.bat-extras; [ batdiff batgrep batman ];
+  home.packages = with pkgs.bat-extras; [
+    batdiff
+    batgrep
+    batman
+  ];
 }

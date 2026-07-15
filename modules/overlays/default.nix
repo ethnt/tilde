@@ -2,16 +2,18 @@
   imports = [ inputs.flake-parts.flakeModules.easyOverlay ];
 
   perSystem = { system, ... }: {
-    overlayAttrs = let
-      nixpkgs-master = import inputs.nixpkgs-master {
-        inherit system;
+    overlayAttrs =
+      let
+        nixpkgs-master = import inputs.nixpkgs-master {
+          inherit system;
 
-        config.allowUnfree = true;
+          config.allowUnfree = true;
+        };
+      in
+      {
+        nixpkgs-master-darwin-linux-builder = nixpkgs-master.darwin.linux-builder;
+
+        inherit (nixpkgs-master) ghostty-bin zed-editor;
       };
-    in {
-      nixpkgs-master-darwin-linux-builder = nixpkgs-master.darwin.linux-builder;
-
-      inherit (nixpkgs-master) ghostty-bin zed-editor;
-    };
   };
 }

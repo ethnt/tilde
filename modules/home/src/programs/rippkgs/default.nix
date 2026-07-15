@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 
-let cfg = config.programs.rippkgs;
-in {
+let
+  cfg = config.programs.rippkgs;
+in
+{
   options.programs.rippkgs = {
     enable = mkEnableOption "Enable rippkgs";
 
@@ -21,10 +27,16 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = let
-      indexerRunner = pkgs.writeShellScriptBin "rippkgs-index-runner" ''
-        ${lib.getExe' cfg.package "rippkgs-index"} $@ -o ${cfg.indexLocation}
-      '';
-    in with cfg; [ package indexerRunner ];
+    home.packages =
+      let
+        indexerRunner = pkgs.writeShellScriptBin "rippkgs-index-runner" ''
+          ${lib.getExe' cfg.package "rippkgs-index"} $@ -o ${cfg.indexLocation}
+        '';
+      in
+      with cfg;
+      [
+        package
+        indexerRunner
+      ];
   };
 }
