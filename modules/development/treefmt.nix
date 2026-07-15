@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, lib, ... }: {
   imports = [ inputs.treefmt.flakeModule ];
 
   perSystem =
@@ -12,6 +12,7 @@
           deadnix.enable = true;
           statix.enable = true;
           nixfmt.enable = true;
+          nixpkgs-fmt.enable = true;
           prettier.enable = true;
         };
         settings.formatter = {
@@ -20,6 +21,16 @@
             "secrets.json"
             "**/secrets.json"
             "**/secrets.yml"
+          ];
+          nixfmt.excludes = [
+            "modules/packages/**/*.nix"
+            "modules/darwin/src/**/*.nix"
+            "modules/home/src/**/*.nix"
+          ];
+          nixpkgs-fmt.includes = lib.mkOverride 10 [
+            "modules/packages/**/*.nix"
+            "modules/darwin/src/**/*.nix"
+            "modules/home/src/**/*.nix"
           ];
         };
       };

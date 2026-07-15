@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 
 with lib;
@@ -14,17 +13,21 @@ let
   printCheats =
     cheats:
     concatStringsSep "\n" (
-      map (cheat: ''
-        # ${cheat.description}
-        ${cheat.command}
-      '') cheats
+      map
+        (cheat: ''
+          # ${cheat.description}
+          ${cheat.command}
+        '')
+        cheats
     );
   printVariables =
     variables:
     concatStringsSep "\n" (
-      mapAttrsToList (name: value: ''
-        $ ${name}: ${value}
-      '') variables
+      mapAttrsToList
+        (name: value: ''
+          $ ${name}: ${value}
+        '')
+        variables
     );
   printExtensions = extensions: "@ ${concatStringsSep ", " extensions}";
 in
@@ -72,16 +75,18 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.file = mapAttrs' (
-      name: cheatfile:
-      nameValuePair "${configDir}/navi/cheats/${name}.cheat" {
-        text = ''
-          ${printTags cheatfile.tags}
-          ${printCheats cheatfile.cheats}
-          ${printVariables cheatfile.variables}
-          ${printExtensions cheatfile.extensions}
-        '';
-      }
-    ) cfg.cheatfiles;
+    home.file = mapAttrs'
+      (
+        name: cheatfile:
+          nameValuePair "${configDir}/navi/cheats/${name}.cheat" {
+            text = ''
+              ${printTags cheatfile.tags}
+              ${printCheats cheatfile.cheats}
+              ${printVariables cheatfile.variables}
+              ${printExtensions cheatfile.extensions}
+            '';
+          }
+      )
+      cfg.cheatfiles;
   };
 }

@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 
 with lib;
@@ -27,11 +26,13 @@ in
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    xdg.configFile = mapAttrs' (
-      name: attrs:
-      nameValuePair "tmuxp/${name}.yaml" {
-        source = yamlFormat.generate "tmuxp-${name}.yaml" attrs;
-      }
-    ) cfg.workspaces;
+    xdg.configFile = mapAttrs'
+      (
+        name: attrs:
+          nameValuePair "tmuxp/${name}.yaml" {
+            source = yamlFormat.generate "tmuxp-${name}.yaml" attrs;
+          }
+      )
+      cfg.workspaces;
   };
 }

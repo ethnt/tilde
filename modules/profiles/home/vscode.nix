@@ -142,7 +142,7 @@
         "[nix]" = {
           "editor.defaultFormatter" = "brettm12345.nixfmt-vscode";
         };
-        "nixfmt.path" = lib.getExe pkgs.nixfmt-classic;
+        "nixfmt.path" = lib.getExe pkgs.nixfmt;
 
         # JSON settings
         "[json]" = {

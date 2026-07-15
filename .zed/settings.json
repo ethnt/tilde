@@ -1,0 +1,8 @@
+{
+  "formatter": {
+    "external": {
+      "command": "direnv",
+      "arguments": ["exec", ".", "treefmt", "--stdin", "{buffer_path}"]
+    }
+  }
+}

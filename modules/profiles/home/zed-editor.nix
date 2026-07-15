@@ -67,7 +67,7 @@
           ];
           formatter = {
             external = {
-              command = lib.getExe pkgs.nixfmt-classic;
+              command = lib.getExe pkgs.nixfmt;
               arguments = [ ];
             };
           };
