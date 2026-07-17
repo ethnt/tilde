@@ -46,6 +46,7 @@
       "Paprika Recipe Manager 3" = 1303222628;
       "Reeder 5" = 1529448980;
       "Tailscale" = 1475387142;
+      "Brother iPrint&Scan" = 1193539993;
     };
   };
 
