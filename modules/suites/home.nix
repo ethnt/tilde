@@ -27,6 +27,7 @@ with profiles;
     tools.darwin
     xdg
     zed-editor
+    zsh
   ];
 
   development = [
