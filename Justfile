@@ -72,3 +72,9 @@ host-age-key:
 [doc("Render the GitHub workflow files")]
 render-workflows:
     nix run .#render-workflows
+
+[doc("Restarts the `linux-builder` QEMU VM")]
+restart-linux-builder:
+    sudo launchctl unload -w /Library/LaunchDaemons/org.nixos.linux-builder.plist
+    sudo launchctl load -w /Library/LaunchDaemons/org.nixos.linux-builder.plist
+    sudo launchctl kickstart -kp system/org.nixos.linux-builder

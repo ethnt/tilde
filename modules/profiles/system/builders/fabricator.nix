@@ -4,13 +4,9 @@
   nix = {
     buildMachines = [
       {
-        hostName = "builder";
+        hostName = "fabricator";
         protocol = "ssh-ng";
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-          "i686-linux"
-        ];
+        systems = [ "x86_64-linux" ];
         maxJobs = 32;
         speedFactor = 1;
         supportedFeatures = [

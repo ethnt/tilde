@@ -13,7 +13,8 @@
     ++ [
       profiles.users.ethan
       profiles.builders.builder
-      profiles.builders.darwin-linux
+      profiles.builders.fabricator
+      profiles.builders.linux-builder
     ];
 
   tilde.host.directory = "/Users/ethan/Workspace/tilde";
