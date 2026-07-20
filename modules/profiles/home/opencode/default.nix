@@ -2,7 +2,6 @@
   sops.secrets = {
     opencode_api_key = {
       sopsFile = ./secrets.json;
-      path = "${config.xdg.dataHome}/secrets/opencode/opencode-api-key";
     };
   };
 

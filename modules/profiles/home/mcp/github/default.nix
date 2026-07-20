@@ -10,7 +10,6 @@ in
   sops = {
     secrets.github_mcp_pat = {
       sopsFile = ./secrets.json;
-      path = "${config.xdg.dataHome}/secrets/mcp/github-mcp-pat.txt";
     };
 
     templates.github_mcp_env_file = {
