@@ -16,6 +16,7 @@
           just
           nh
           nix-output-monitor
+          nurl
           sops
           inputs.home-manager.packages.${system}.default
         ];
