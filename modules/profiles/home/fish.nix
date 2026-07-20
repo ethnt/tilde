@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.fish = {
     enable = true;
 
@@ -8,12 +8,15 @@
       gphf = "git push origin HEAD -f";
     };
 
-    shellInit = ''
+    interactiveShellInit = ''
       # fish prompt configuration
       set -U fish_prompt_pwd_dir_length 0
 
       # fish color configuration
       set -g fish_color_autosuggestion 555 brblack
+
+      # any-nix-shell
+      ${lib.getExe pkgs.any-nix-shell} fish --info-right | source
     '';
 
     functions.fish_greeting = "";
@@ -24,8 +27,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "oh-my-fish";
           repo = "plugin-foreign-env";
-          rev = "7f0cf099ae1e1e4ab38f46350ed6757d54471de7";
-          sha256 = "4+k5rSoxkTtYFh/lEjhRkVYa2S4KEzJ/IJbyJl+rJjQ=";
+          rev = "b693237c3027b81ac3760d60d159d2be4925ed1c";
+          hash = "sha256-JyAFxYkPQZs4TfVfBVPKa202SXsAZCyCLzVW+6/PASA=";
         };
       }
     ];
