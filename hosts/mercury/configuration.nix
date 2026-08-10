@@ -24,6 +24,7 @@
     casks = [
       "bruno"
       "figma"
+      "google-chrome"
       "jabra-direct"
       "linear"
       "loom"
@@ -33,6 +34,7 @@
     masApps = {
       "Flow" = 1423210932;
       "Trace" = 6768724888;
+      "Okta Verify" = 490179405;
     };
   };
 }
