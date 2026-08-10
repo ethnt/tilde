@@ -27,7 +27,6 @@
       ./profiles/mcp/notion.nix
       ./profiles/mcp/postgres/default.nix
       ./profiles/mcp/sentry.nix
-      ./profiles/opencode/default.nix
       ./profiles/tmuxp.nix
       ./profiles/tools.nix
       ./profiles/vscode.nix

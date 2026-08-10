@@ -44,7 +44,6 @@ with profiles;
     mcp.memory
     mcp.nixos
     mise
-    opencode.default
     tuicr
     vscode
   ];
