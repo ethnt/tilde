@@ -10,6 +10,7 @@
     httpie
     jq
     just
+    moreutils
     mtr
     nh
     nixd
