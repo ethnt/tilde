@@ -8,11 +8,11 @@ in
   flake.actions-nix.workflows =
     let
       actions = {
-        checkout = "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd";
-        install-lix = "samueldr/lix-gha-installer-action@7b7f14d320d6aacfb65bd1ef761566b3b69e474c";
+        checkout = "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1";
+        install-lix = "samueldr/lix-gha-installer-action@a0fee77b2a98bb7c5c0ed7ae6d6ad4903dbdad0d";
         ssh-agent = "webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555";
-        attic = "ryanccn/attic-action@1887fd507f03327c96c64cca30118c96eb17fdad";
-        cachix = "cachix/cachix-action@1eb2ef646ac0255473d23a5907ad7b04ce94065c";
+        attic = "ryanccn/attic-action@5635a15ef0c5462194ffbd05d1daeddc74625c3a";
+        cachix = "cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71";
       };
       setup = [
         {
