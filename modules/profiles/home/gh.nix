@@ -7,7 +7,7 @@
 {
   programs.gh = {
     enable = true;
-    extensions = with pkgs; [ gh-poi ];
+    extensions = with pkgs; [ gh-poi gh-stack ];
     settings = {
       aliases = {
         co = "pr checkout";
