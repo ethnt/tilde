@@ -11,7 +11,7 @@ in
         checkout = "actions/checkout@v7.0.1";
         install-lix = "samueldr/lix-gha-installer-action@v2026-06-15";
         ssh-agent = "webfactory/ssh-agent@v0.10.0";
-        attic = "ryanccn/attic-action@2071ebde9bf7616058f8556c809c8947c4963de6";
+        attic = "ethnt/attic-action@9c6c7a0de0764779b6f62aa4716dad1ded2521e5";
         cachix = "cachix/cachix-action@v17";
       };
       setup = [
@@ -43,6 +43,7 @@ in
           name = "Setup Attic cache";
           uses = actions.attic;
           "with" = {
+            install-command = "nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#attic-client";
             cache = "tilde";
             endpoint = "https://cache.e10.camp";
             token = "\${{ secrets.ATTIC_TOKEN }}";
