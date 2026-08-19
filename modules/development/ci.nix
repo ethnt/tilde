@@ -11,7 +11,7 @@ in
         checkout = "actions/checkout@v7.0.1";
         install-lix = "samueldr/lix-gha-installer-action@v2026-06-15";
         ssh-agent = "webfactory/ssh-agent@v0.10.0";
-        attic = "ryanccn/attic-action@1887fd507f03327c96c64cca30118c96eb17fdad";
+        attic = "ryanccn/attic-action@v0.4";
         cachix = "cachix/cachix-action@v17";
       };
       setup = [
