@@ -8,11 +8,11 @@ in
   flake.actions-nix.workflows =
     let
       actions = {
-        checkout = "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd";
-        install-lix = "samueldr/lix-gha-installer-action@7b7f14d320d6aacfb65bd1ef761566b3b69e474c";
-        ssh-agent = "webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555";
-        attic = "ryanccn/attic-action@1887fd507f03327c96c64cca30118c96eb17fdad";
-        cachix = "cachix/cachix-action@1eb2ef646ac0255473d23a5907ad7b04ce94065c";
+        checkout = "actions/checkout@v7.0.1";
+        install-lix = "samueldr/lix-gha-installer-action@v2026-06-15";
+        ssh-agent = "webfactory/ssh-agent@v0.10.0";
+        attic = "ryanccn/attic-action@v0.4";
+        cachix = "cachix/cachix-action@v17";
       };
       setup = [
         {
@@ -43,6 +43,7 @@ in
           name = "Setup Attic cache";
           uses = actions.attic;
           "with" = {
+            install-command = "nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#attic-client";
             cache = "tilde";
             endpoint = "https://cache.e10.camp";
             token = "\${{ secrets.ATTIC_TOKEN }}";
