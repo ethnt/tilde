@@ -23,7 +23,7 @@ jobs:
           ${{ secrets.SECRETS_DEPLOY_KEY }}
           ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
     - name: Setup Attic cache
-      uses: ryanccn/attic-action@v0.5.0
+      uses: ryanccn/attic-action@2071ebde9bf7616058f8556c809c8947c4963de6
       with:
         cache: tilde
         endpoint: https://cache.e10.camp
