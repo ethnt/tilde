@@ -23,7 +23,7 @@ jobs:
           ${{ secrets.SECRETS_DEPLOY_KEY }}
           ${{ secrets.PRAGMATAPRO_DEPLOY_KEY }}
     - name: Setup Attic cache
-      uses: ethnt/attic-action@9c6c7a0de0764779b6f62aa4716dad1ded2521e5
+      uses: ethnt/attic-action@install-command
       with:
         cache: tilde
         endpoint: https://cache.e10.camp
