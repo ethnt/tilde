@@ -14,6 +14,7 @@ let
     profiles = flake.profiles.home;
   };
 
+  # Creates a new entry for `homeConfigurations` using `homeManagerConfiguration`
   mkHomeManagerConfiguration =
     { system, configuration }:
     withSystem system (

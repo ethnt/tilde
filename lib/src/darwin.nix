@@ -23,6 +23,7 @@ let
     profiles = flake.profiles.darwin;
   };
 
+  # Generates a new entry for `darwinConfigurations` using `darwinSystem`
   mkDarwinConfiguration =
     { system, configuration }:
     withSystem system (
