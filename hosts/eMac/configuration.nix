@@ -13,7 +13,6 @@
     ++ [
       profiles.users.ethan
       profiles.builders.builder
-      profiles.builders.fabricator
       profiles.builders.linux-builder
     ];
 
