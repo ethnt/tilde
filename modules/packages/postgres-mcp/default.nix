@@ -1,7 +1,8 @@
-{
-  lib,
-  python312Packages,
-  fetchFromGitHub,
+{ lib
+, python312Packages
+, fetchFromGitHub
+, nix-update-script
+,
 }:
 
 python312Packages.buildPythonApplication {
@@ -39,6 +40,8 @@ python312Packages.buildPythonApplication {
   ];
 
   pythonRelaxDeps = [ "pglast" ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "PostgreSQL MCP server with tuning and analysis capabilities";

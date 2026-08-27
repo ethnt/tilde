@@ -1,12 +1,13 @@
-{
-  stdenv,
-  pnpm_10,
-  fetchFromGitHub,
-  fetchPnpmDeps,
-  pnpmConfigHook,
-  nodejs,
-  makeWrapper,
-  lib,
+{ stdenv
+, pnpm_10
+, fetchFromGitHub
+, fetchPnpmDeps
+, pnpmConfigHook
+, nodejs
+, makeWrapper
+, lib
+, nix-update-script
+,
 }:
 
 let
@@ -14,20 +15,20 @@ let
 in
 stdenv.mkDerivation (finalAttrs: rec {
   pname = "mcp-remote";
-  version = "0.1.38";
+  version = "0.2.1";
 
   src = fetchFromGitHub {
     owner = "geelen";
     repo = "mcp-remote";
     tag = "v${version}";
-    hash = "sha256-+oNI2Uq7gW3sLzJS4ky2+BXhTmo44+WpcdYgieGPpmI=";
+    hash = "sha256-xloxs1RimInxuIn5YSr6IKic+KqBt9TTf2w7cVniRVE=";
   };
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     inherit pnpm;
     fetcherVersion = 4;
-    hash = "sha256-5podB1HJahhn2vlMBnu0wm7AJ0bjq8pvXqPgdR8c3GQ=";
+    hash = "sha256-ABYIv8gLyTO9Na2vPvKf4iMvQgQ2ExZfClslV7hXu+o=";
   };
 
   nativeBuildInputs = [
@@ -63,6 +64,8 @@ stdenv.mkDerivation (finalAttrs: rec {
 
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Connect an MCP Client that only supports local (stdio) servers to a Remote MCP Server, with auth support";

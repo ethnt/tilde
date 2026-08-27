@@ -1,7 +1,8 @@
-{
-  lib,
-  buildNpmPackage,
-  fetchFromGitHub,
+{ lib
+, buildNpmPackage
+, fetchFromGitHub
+, nix-update-script
+,
 }:
 
 buildNpmPackage (finalAttrs: {
@@ -18,6 +19,8 @@ buildNpmPackage (finalAttrs: {
   npmDepsHash = "sha256-IxHcnPrXrCDcZW695D5u4fIz65L4MSKl4t8V27pdu7k=";
 
   npmPackFlags = [ "--ignore-scripts" ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Official FireHydrant MCP server";

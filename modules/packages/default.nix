@@ -13,11 +13,11 @@
     };
 
     packages = {
-      firehydrant-mcp = pkgs.callPackage ./firehydrant-mcp.nix { };
-      mcp-remote = pkgs.callPackage ./mcp-remote.nix { };
-      oh-my-tmux = pkgs.callPackage ./oh-my-tmux.nix { };
-      postgres-mcp = pkgs.callPackage ./postgres-mcp.nix { };
-      sf-pro = pkgs.callPackage ./fonts/sf-pro.nix { };
+      firehydrant-mcp = pkgs.callPackage ./firehydrant-mcp { };
+      mcp-remote = pkgs.callPackage ./mcp-remote { };
+      oh-my-tmux = pkgs.callPackage ./oh-my-tmux { };
+      postgres-mcp = pkgs.callPackage ./postgres-mcp { };
+      sf-pro = pkgs.callPackage ./fonts/sf-pro { };
     };
   };
 }
