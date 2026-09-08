@@ -82,6 +82,11 @@
 
       # AI
       show_completions_on_input = false;
+
+      agent_servers = {
+        claude-acp.type = "registry";
+        opencode.type = "registry";
+      };
     };
   };
 }
