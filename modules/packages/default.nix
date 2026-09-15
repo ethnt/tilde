@@ -9,6 +9,7 @@
         oh-my-tmux
         postgres-mcp
         sf-pro
+        i-have-adhd
         ;
     };
 
@@ -18,6 +19,7 @@
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux { };
       postgres-mcp = pkgs.callPackage ./postgres-mcp { };
       sf-pro = pkgs.callPackage ./fonts/sf-pro { };
+      i-have-adhd = pkgs.callPackage ./skills/i-have-adhd { };
     };
   };
 }
