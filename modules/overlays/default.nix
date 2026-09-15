@@ -4,14 +4,17 @@
   perSystem = { system, ... }: {
     overlayAttrs =
       let
-        nixpkgs-master = import inputs.nixpkgs-master {
+        nixpkgsConfig = {
           inherit system;
-
           config.allowUnfree = true;
         };
+
+        nixpkgs-master = import inputs.nixpkgs-master nixpkgsConfig;
+        nixpkgs-unstable = import inputs.nixpkgs-unstable nixpkgsConfig;
       in
       {
-        inherit (nixpkgs-master) ghostty-bin zed-editor;
+        inherit (nixpkgs-master) ghostty-bin;
+        inherit (nixpkgs-unstable) zed-editor;
       };
   };
 }
