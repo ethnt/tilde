@@ -43,6 +43,7 @@ with profiles;
     mcp.nixos
     mise
     opencode.default
+    pi.default
     tuicr
     vscode
   ];
