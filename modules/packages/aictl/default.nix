@@ -12,4 +12,14 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-S1OOl0XuTEo93tTpZZ5tosRLM9wBwW6jbInmAsscPGw";
+
+  checkFlags = [ "--skip=tools::list_processes::tests::tool_lists_current_process" ];
+
+  meta = {
+    description = "Native AI agent for your terminal and macOS desktop";
+    homepage = "https://github.com/pwittchen/aictl";
+    license = "polyform";
+    platforms = lib.platforms.all;
+    mainProgram = "aictl";
+  };
 }

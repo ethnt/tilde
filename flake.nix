@@ -4,6 +4,8 @@
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
 
+    extra-deprecated-features = "broken-string-indentation or-as-identifier";
+
     extra-substituters = [
       "https://cache.nixos.org"
       "https://cache.lix.systems"
