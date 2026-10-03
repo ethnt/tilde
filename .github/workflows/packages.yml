@@ -43,6 +43,7 @@ jobs:
         architecture:
         - aarch64-darwin
         package:
+        - aictl
         - firehydrant-mcp
         - mcp-remote
         - oh-my-tmux
