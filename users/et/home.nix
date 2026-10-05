@@ -12,6 +12,7 @@
     ++ work
     ++ identity
     ++ (with profiles; [
+      aictl
       haskell
       nodejs
     ])
