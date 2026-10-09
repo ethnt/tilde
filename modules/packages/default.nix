@@ -4,7 +4,6 @@
   perSystem = { config, pkgs, ... }: {
     overlayAttrs = {
       inherit (config.packages)
-        aictl
         firehydrant-mcp
         mcp-remote
         oh-my-tmux
@@ -14,7 +13,6 @@
     };
 
     packages = {
-      aictl = pkgs.callPackage ./aictl { };
       firehydrant-mcp = pkgs.callPackage ./firehydrant-mcp { };
       mcp-remote = pkgs.callPackage ./mcp-remote { };
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux { };
