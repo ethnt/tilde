@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    llm-agents.ctx
     fnm
     mkcert
   ];
