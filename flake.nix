@@ -52,7 +52,6 @@
     treefmt.inputs.nixpkgs.follows = "nixpkgs";
 
     tilde-secrets.url = "git+ssh://git@github.com/ethnt/tilde-secrets";
-    # tilde-secrets.url = "git+file:///Users/et/Workspace/personal/tilde-secrets";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -69,8 +68,6 @@
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
-
-    # llm-gateway.url = "github:MercuryTechnologies/llm-gateway";
   };
 
   outputs =

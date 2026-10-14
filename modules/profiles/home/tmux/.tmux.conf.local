@@ -364,4 +364,5 @@ set -g mouse on
 # "$@"
 # # /!\ do not remove the previous line
 
+# Use modern key format
 set -g extended-keys-format csi-u
