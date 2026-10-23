@@ -24,7 +24,6 @@
       "firefox"
       "istat-menus"
       "iterm2"
-      "jordanbaird-ice"
       "logitune"
       "monitorcontrol"
       "notion"
@@ -33,6 +32,7 @@
       "rectangle"
       "slack"
       "spotify"
+      "thaw@beta"
       "zen"
     ];
 

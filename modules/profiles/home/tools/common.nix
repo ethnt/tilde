@@ -4,6 +4,7 @@
     curl
     curlie
     doggo
+    dust
     fd
     gnused
     htop

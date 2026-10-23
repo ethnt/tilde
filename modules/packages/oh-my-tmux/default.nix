@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation {
   pname = "oh-my-tmux";
-  version = "2026-02-01";
+  version = "2026-08-08";
 
   # fetchFromGitHub has trouble with the extracted directory from the ZIP file having a
   # preceding dot, so use fetchTarball instead
   src = fetchTarball {
-    url = "https://github.com/gpakosz/.tmux/archive/af33f07134b76134acca9d01eacbdecca9c9cda6.tar.gz";
-    sha256 = "sha256-nXm664l84YSwZeRM4Hsweqgz+OlpyfwXcgEdyNGhaGA=";
+    url = "https://github.com/gpakosz/.tmux/archive/58a3dcc0d718ec0fa1c0d5a2fddd640a1ad7a5b7.tar.gz";
+    sha256 = "sha256-YDzbZVFhrAMBhOI8HVDxR3rEPkrEwG57IUbnZicmfn4=";
   };
 
   dontConfigure = true;

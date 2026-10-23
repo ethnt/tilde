@@ -83,7 +83,9 @@ in
           build-system = {
             name = "Build host system";
             runs-on = "macos-15";
-            strategy.matrix.host = l.attrNames self.darwinConfigurations;
+            strategy.matrix.host = l.filter (hostname: hostname != "mercury") (
+              l.attrNames self.darwinConfigurations
+            );
             steps = setup ++ [
               {
                 name = "Build \${{ matrix.host }} host system";

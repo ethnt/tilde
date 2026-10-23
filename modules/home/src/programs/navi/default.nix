@@ -8,7 +8,7 @@ with lib;
 
 let
   cfg = config.programs.navi;
-  configDir = if pkgs.stdenv.isDarwin then "Library/Application Support" else config.xdg.configHome;
+  configDir = if pkgs.stdenv.hostPlatform.isDarwin then "Library/Application Support" else config.xdg.configHome;
   printTags = tags: "% ${concatStringsSep ", " tags}";
   printCheats =
     cheats:
