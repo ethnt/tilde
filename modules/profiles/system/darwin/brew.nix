@@ -22,6 +22,7 @@
       "emacs-mac-spacemacs-icon"
       "fantastical"
       "firefox"
+      "helium-browser"
       "istat-menus"
       "iterm2"
       "logitune"
@@ -33,7 +34,7 @@
       "slack"
       "spotify"
       "thaw@beta"
-      "zen"
+      "zen-browser"
     ];
 
     masApps = {
