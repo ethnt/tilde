@@ -26,6 +26,7 @@ with profiles;
     tools.darwin
     xdg
     zed-editor
+    zellij
     zsh
   ];
 
