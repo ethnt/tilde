@@ -12,6 +12,8 @@
       in
       {
         inherit (nixpkgs-master) ghostty-bin zed-editor;
+
+        zjstatus = inputs.zjstatus.packages.${system}.default;
       };
   };
 }

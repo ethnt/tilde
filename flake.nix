@@ -66,6 +66,9 @@
     actions-nix.url = "github:nialov/actions.nix";
     actions-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    zjstatus.url = "github:dj95/zjstatus";
+    zjstatus.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
   };
