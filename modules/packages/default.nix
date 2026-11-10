@@ -8,6 +8,7 @@
         oh-my-tmux
         postgres-mcp
         sf-pro
+        transcend-consent-mcp
         ;
     };
 
@@ -16,6 +17,7 @@
       oh-my-tmux = pkgs.callPackage ./oh-my-tmux { };
       postgres-mcp = pkgs.callPackage ./postgres-mcp { };
       sf-pro = pkgs.callPackage ./fonts/sf-pro { };
+      transcend-consent-mcp = pkgs.callPackage ./transcend-consent-mcp { };
     };
   };
 }
