@@ -22,6 +22,7 @@
       ./profiles/mcp/figma.nix
       ./profiles/mcp/firehydrant/default.nix
       ./profiles/mcp/grafana/default.nix
+      ./profiles/mcp/transcend-consent/default.nix
       ./profiles/mcp/honeycomb.nix
       ./profiles/mcp/linear.nix
       ./profiles/mcp/notion.nix
