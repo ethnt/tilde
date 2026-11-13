@@ -13,6 +13,10 @@
         name = "railwaycat/emacsmacport";
         trusted = true;
       }
+      {
+        name = "abue-ammar/tinycast";
+        trusted = true;
+      }
     ];
 
     casks = [
@@ -28,11 +32,11 @@
       "monitorcontrol"
       "notion"
       "obsidian"
-      "raycast"
       "rectangle"
       "slack"
       "spotify"
       "thaw@beta"
+      "tinycast"
       "zen"
     ];
 

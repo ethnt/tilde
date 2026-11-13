@@ -27,7 +27,6 @@
       "google-chrome"
       "jabra-direct"
       "linear"
-      "loom"
       "postico"
     ];
 
