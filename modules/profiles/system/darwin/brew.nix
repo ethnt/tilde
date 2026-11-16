@@ -3,6 +3,8 @@
 
   homebrew = {
     enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
 
     onActivation.cleanup = lib.mkDefault "zap";
 
