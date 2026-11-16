@@ -3,6 +3,8 @@
 
   homebrew = {
     enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
 
     onActivation.cleanup = lib.mkDefault "zap";
 
@@ -11,6 +13,10 @@
     taps = [
       {
         name = "railwaycat/emacsmacport";
+        trusted = true;
+      }
+      {
+        name = "abue-ammar/tinycast";
         trusted = true;
       }
     ];
@@ -28,11 +34,11 @@
       "monitorcontrol"
       "notion"
       "obsidian"
-      "raycast"
       "rectangle"
       "slack"
       "spotify"
       "thaw@beta"
+      "tinycast"
       "zen"
     ];
 
